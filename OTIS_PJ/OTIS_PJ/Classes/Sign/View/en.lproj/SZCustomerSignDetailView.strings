@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "0EP-ET-asU"; */
+"0EP-ET-asU.text" = "＊";
+
+/* Class = "UILabel"; text = "服务态度"; ObjectID = "D0T-Al-lC4"; */
+"D0T-Al-lC4.text" = "服务态度";
+
+/* Class = "UILabel"; text = "客户姓名"; ObjectID = "Ex6-PV-Xlh"; */
+"Ex6-PV-Xlh.text" = "客户姓名";
+
+/* Class = "UILabel"; text = "客户不在"; ObjectID = "ISk-WU-BwF"; */
+"ISk-WU-BwF.text" = "客户不在";
+
+/* Class = "UILabel"; text = "非常满意"; ObjectID = "IoZ-We-men"; */
+"IoZ-We-men.text" = "非常满意";
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "KTE-VB-GVB"; */
+"KTE-VB-GVB.text" = "＊";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "QfO-k9-BAj"; */
+"QfO-k9-BAj.normalTitle" = "保存";
+
+/* Class = "UIButton"; selectedTitle = "确认"; ObjectID = "QfO-k9-BAj"; */
+"QfO-k9-BAj.selectedTitle" = "确认";
+
+/* Class = "UIButton"; normalTitle = "重签"; ObjectID = "VEd-33-KPW"; */
+"VEd-33-KPW.normalTitle" = "重签";
+
+/* Class = "UIButton"; selectedTitle = "确认"; ObjectID = "VEd-33-KPW"; */
+"VEd-33-KPW.selectedTitle" = "确认";
+
+/* Class = "UILabel"; text = "发送电子邮件"; ObjectID = "XDL-cL-tC1"; */
+"XDL-cL-tC1.text" = "发送电子邮件";
+
+/* Class = "UILabel"; text = "满意"; ObjectID = "cuf-un-c3x"; */
+"cuf-un-c3x.text" = "满意";
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "dJT-eS-RvO"; */
+"dJT-eS-RvO.text" = "＊";
+
+/* Class = "UILabel"; text = "不满意"; ObjectID = "e5P-i8-VmL"; */
+"e5P-i8-VmL.text" = "不满意";
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "p8V-J6-t4h"; */
+"p8V-J6-t4h.text" = "＊";
+
+/* Class = "UILabel"; text = "保养质量"; ObjectID = "xF6-lc-NnW"; */
+"xF6-lc-NnW.text" = "保养质量";
+
+/* Class = "UILabel"; text = "客户签字"; ObjectID = "yNu-1f-crl"; */
+"yNu-1f-crl.text" = "客户签字";

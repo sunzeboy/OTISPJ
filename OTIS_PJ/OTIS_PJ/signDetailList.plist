@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>serviceAutitude</key>
+	<string>0</string>
+	<key>maintenanceQuality</key>
+	<string>0</string>
+	<key>customerAbsence</key>
+	<string>NO</string>
+	<key>customerName</key>
+	<string>sumple</string>
+	<key>sendEmail</key>
+	<string>YES</string>
+	<key>emailAddress</key>
+	<string>XXXXXX@123.com</string>
+	<key>signatureImage</key>
+	<string></string>
+</dict>
+</plist>

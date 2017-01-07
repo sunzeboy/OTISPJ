@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="290" id="KGk-i7-Jjw" customClass="SZWorkingHoursPUIllCell">
+            <rect key="frame" x="0.0" y="0.0" width="463" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="463" height="289"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="召修" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83a-UW-I3H">
+                        <rect key="frame" x="8" y="8" width="447" height="30"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.20000000000000001" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="0t0-nD-neW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooC-7w-kEy">
+                        <rect key="frame" x="425" y="8" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="3nA-jO-Mdm"/>
+                            <constraint firstAttribute="width" constant="30" id="qeV-Yz-g8b"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="wh_delete"/>
+                        <connections>
+                            <action selector="deleteAct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VFF-Iq-Zfr"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BX-Gy-3xU">
+                        <rect key="frame" x="103" y="104" width="55" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="n0l-kB-J3j"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="313" y="167" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×2双休日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AN9-Z5-gS3" userLabel="weekendLabel">
+                        <rect key="frame" x="18" y="136" width="82" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="15" y="205" width="95" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydm-Um-1lI">
+                        <rect key="frame" x="103" y="136" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="313" y="205" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1.5平日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-tk-ANl" userLabel="weekdayOvertimeLabel">
+                        <rect key="frame" x="319" y="104" width="78" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="221" y="167" width="84" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sA3-Wc-jmw">
+                        <rect key="frame" x="400" y="104" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="118" y="167" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWF-9K-Gg1" userLabel="holidayOvertimeLabel">
+                        <rect key="frame" x="302" y="136" width="95" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="203" y="205" width="102" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEh-GJ-lp2">
+                        <rect key="frame" x="400" y="136" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="118" y="205" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P54-su-LSC">
+                        <rect key="frame" x="18" y="43" width="68" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路途工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAZ-gk-JJI">
+                        <rect key="frame" x="18" y="176" width="68" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1平日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUZ-fb-Od7" userLabel="weekdayLabel">
+                        <rect key="frame" x="59" y="202" width="41" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="bws-lS-9dl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="34" y="167" width="76" height="30"/>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×2双休日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WP-ZH-iTb" userLabel="weekendLabel">
+                        <rect key="frame" x="18" y="234" width="82" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="15" y="205" width="95" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NJg-w4-SBj">
+                        <rect key="frame" x="103" y="234" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="313" y="205" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1.5平日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYn-xO-H7r" userLabel="weekdayOvertimeLabel">
+                        <rect key="frame" x="319" y="202" width="78" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="221" y="167" width="84" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z8j-Y8-9H9">
+                        <rect key="frame" x="400" y="202" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="118" y="167" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkT-L7-mVM" userLabel="holidayOvertimeLabel">
+                        <rect key="frame" x="301" y="234" width="95" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="203" y="205" width="102" height="30"/>
+                        </variation>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-XG-dEU">
+                        <rect key="frame" x="400" y="234" width="55" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="118" y="205" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFM-RM-cwf">
+                        <rect key="frame" x="103" y="202" width="55" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="RBE-Zi-9jj"/>
+                            <constraint firstAttribute="height" constant="30" id="oGq-uO-dg8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RBE-Zi-9jj"/>
+                                <exclude reference="oGq-uO-dg8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="313" y="167" width="54" height="30"/>
+                        </variation>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUI编号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-lt-p1c">
+                        <rect key="frame" x="18" y="69" width="78" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2gE-Ca-N2K">
+                        <rect key="frame" x="106" y="69" width="349" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1平日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7g-s7-8dn" userLabel="weekdayLabel">
+                        <rect key="frame" x="59" y="104" width="41" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="GPV-SY-Wx5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="34" y="167" width="76" height="30"/>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dFM-RM-cwf" firstAttribute="leading" secondItem="hUZ-fb-Od7" secondAttribute="trailing" constant="3" id="0XR-1o-1SW"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="0cc-Cb-8gI"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="trailing" secondItem="z8j-Y8-9H9" secondAttribute="trailing" id="14n-WY-Td3"/>
+                    <constraint firstItem="hUZ-fb-Od7" firstAttribute="top" secondItem="pAZ-gk-JJI" secondAttribute="bottom" constant="5" id="6mD-np-nhH"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="9JP-Cy-nDQ"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="centerY" secondItem="0WP-ZH-iTb" secondAttribute="centerY" id="A1c-5J-ISK"/>
+                    <constraint firstItem="AD6-lt-p1c" firstAttribute="top" secondItem="P54-su-LSC" secondAttribute="bottom" constant="5" id="F8g-Mv-b5a"/>
+                    <constraint firstItem="hUZ-fb-Od7" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="Fes-eW-CWd"/>
+                    <constraint firstItem="P54-su-LSC" firstAttribute="top" secondItem="83a-UW-I3H" secondAttribute="bottom" constant="5" id="FpK-PG-4Wd"/>
+                    <constraint firstItem="YkT-L7-mVM" firstAttribute="centerY" secondItem="NJg-w4-SBj" secondAttribute="centerY" id="GjR-AM-oLi"/>
+                    <constraint firstItem="ooC-7w-kEy" firstAttribute="trailing" secondItem="83a-UW-I3H" secondAttribute="trailing" id="H3Z-GS-6iG"/>
+                    <constraint firstItem="NJg-w4-SBj" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="H48-fH-2bd"/>
+                    <constraint firstItem="sEh-GJ-lp2" firstAttribute="trailing" secondItem="sA3-Wc-jmw" secondAttribute="trailing" id="Hrj-dH-DrE"/>
+                    <constraint firstItem="hYn-xO-H7r" firstAttribute="centerY" secondItem="z8j-Y8-9H9" secondAttribute="centerY" id="IPY-Bi-7dL"/>
+                    <constraint firstItem="P7g-s7-8dn" firstAttribute="trailing" secondItem="AN9-Z5-gS3" secondAttribute="trailing" id="J9I-Ke-Wvx"/>
+                    <constraint firstItem="NJg-w4-SBj" firstAttribute="leading" secondItem="0WP-ZH-iTb" secondAttribute="trailing" constant="3" id="JEh-l4-k8s"/>
+                    <constraint firstAttribute="topMargin" secondItem="83a-UW-I3H" secondAttribute="top" id="JQb-Pj-zNo"/>
+                    <constraint firstItem="2gE-Ca-N2K" firstAttribute="leading" secondItem="AD6-lt-p1c" secondAttribute="trailing" constant="10" id="Mjm-dk-Gwh"/>
+                    <constraint firstItem="P7g-s7-8dn" firstAttribute="top" secondItem="AD6-lt-p1c" secondAttribute="bottom" constant="5" id="Nqz-9a-Ly0"/>
+                    <constraint firstItem="sLq-tk-ANl" firstAttribute="centerY" secondItem="8BX-Gy-3xU" secondAttribute="centerY" id="OOT-jN-vwC"/>
+                    <constraint firstItem="JWF-9K-Gg1" firstAttribute="height" secondItem="AN9-Z5-gS3" secondAttribute="height" id="Oel-jO-6ZB"/>
+                    <constraint firstItem="JWF-9K-Gg1" firstAttribute="centerY" secondItem="sEh-GJ-lp2" secondAttribute="centerY" id="PBx-YK-7sE"/>
+                    <constraint firstItem="2gE-Ca-N2K" firstAttribute="centerY" secondItem="AD6-lt-p1c" secondAttribute="centerY" id="PNn-rF-8qr"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="trailing" secondItem="sEh-GJ-lp2" secondAttribute="trailing" id="PZc-Rz-Y1h"/>
+                    <constraint firstItem="hYn-xO-H7r" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="Pkv-nB-OU1"/>
+                    <constraint firstItem="dFM-RM-cwf" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="Q4q-WC-ZSi"/>
+                    <constraint firstItem="0WP-ZH-iTb" firstAttribute="top" secondItem="hUZ-fb-Od7" secondAttribute="bottom" constant="2" id="QS7-ym-PQn"/>
+                    <constraint firstItem="sEh-GJ-lp2" firstAttribute="leading" secondItem="JWF-9K-Gg1" secondAttribute="trailing" constant="3" id="R2H-sh-Mj0"/>
+                    <constraint firstItem="sLq-tk-ANl" firstAttribute="height" secondItem="AN9-Z5-gS3" secondAttribute="height" id="Ty8-sk-shw"/>
+                    <constraint firstItem="AN9-Z5-gS3" firstAttribute="leading" secondItem="P54-su-LSC" secondAttribute="leading" id="VHE-cT-pDZ"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="leading" secondItem="YkT-L7-mVM" secondAttribute="trailing" constant="4" id="VKp-df-Rjw"/>
+                    <constraint firstItem="NJg-w4-SBj" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="Vtu-k4-8Cd"/>
+                    <constraint firstItem="8BX-Gy-3xU" firstAttribute="height" secondItem="AN9-Z5-gS3" secondAttribute="height" id="WET-ds-zzj"/>
+                    <constraint firstItem="P54-su-LSC" firstAttribute="leading" secondItem="83a-UW-I3H" secondAttribute="leading" constant="10" id="WPw-PE-KOS"/>
+                    <constraint firstItem="dFM-RM-cwf" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="YMT-pr-Nxx"/>
+                    <constraint firstItem="hUZ-fb-Od7" firstAttribute="trailing" secondItem="0WP-ZH-iTb" secondAttribute="trailing" id="Ya9-7b-mp4"/>
+                    <constraint firstItem="AN9-Z5-gS3" firstAttribute="top" secondItem="P7g-s7-8dn" secondAttribute="bottom" constant="2" id="ZlE-ti-VZc"/>
+                    <constraint firstItem="pAZ-gk-JJI" firstAttribute="leading" secondItem="P54-su-LSC" secondAttribute="leading" id="Zyq-78-741"/>
+                    <constraint firstItem="2gE-Ca-N2K" firstAttribute="height" secondItem="AD6-lt-p1c" secondAttribute="height" id="bQQ-gK-BMf"/>
+                    <constraint firstItem="0WP-ZH-iTb" firstAttribute="leading" secondItem="pAZ-gk-JJI" secondAttribute="leading" id="bqK-to-Z77"/>
+                    <constraint firstItem="Ydm-Um-1lI" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="cLW-M3-EK9"/>
+                    <constraint firstItem="ooC-7w-kEy" firstAttribute="centerY" secondItem="83a-UW-I3H" secondAttribute="centerY" id="cZe-tT-9Ab"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="cmA-oD-6Ki"/>
+                    <constraint firstItem="NJg-w4-SBj" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="dBh-Sf-m6O"/>
+                    <constraint firstItem="P7g-s7-8dn" firstAttribute="height" secondItem="AN9-Z5-gS3" secondAttribute="height" id="dwy-Lc-t4X"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="height" secondItem="P7g-s7-8dn" secondAttribute="height" id="g9q-U1-gvx"/>
+                    <constraint firstItem="sEh-GJ-lp2" firstAttribute="centerY" secondItem="Ydm-Um-1lI" secondAttribute="centerY" id="gLI-IU-CLO"/>
+                    <constraint firstItem="NJg-w4-SBj" firstAttribute="centerY" secondItem="0WP-ZH-iTb" secondAttribute="centerY" id="hdU-79-1tf"/>
+                    <constraint firstItem="YkT-L7-mVM" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="hgz-sG-oJl"/>
+                    <constraint firstItem="bgf-XG-dEU" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="iJi-4j-p52"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="centerY" secondItem="8BX-Gy-3xU" secondAttribute="centerY" id="jAc-4t-UbD"/>
+                    <constraint firstItem="Ydm-Um-1lI" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="jcs-It-qjY"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="k91-o2-AW1"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="centerY" secondItem="dFM-RM-cwf" secondAttribute="centerY" id="kmK-d4-UGv"/>
+                    <constraint firstItem="8BX-Gy-3xU" firstAttribute="centerY" secondItem="P7g-s7-8dn" secondAttribute="centerY" id="lco-eB-boo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="83a-UW-I3H" secondAttribute="trailing" id="leY-el-A0F"/>
+                    <constraint firstItem="Ydm-Um-1lI" firstAttribute="height" secondItem="AN9-Z5-gS3" secondAttribute="height" id="lgL-7U-zou"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="mR3-sP-qsO"/>
+                    <constraint firstItem="8BX-Gy-3xU" firstAttribute="leading" secondItem="P7g-s7-8dn" secondAttribute="trailing" constant="3" id="nQf-GS-dBB"/>
+                    <constraint firstItem="dFM-RM-cwf" firstAttribute="centerY" secondItem="hUZ-fb-Od7" secondAttribute="centerY" id="nSF-0f-BKV"/>
+                    <constraint firstItem="pAZ-gk-JJI" firstAttribute="top" secondItem="AN9-Z5-gS3" secondAttribute="bottom" constant="10" id="niC-J6-Xi5"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="trailing" secondItem="2gE-Ca-N2K" secondAttribute="trailing" id="oq3-6a-Cba"/>
+                    <constraint firstItem="83a-UW-I3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pJO-Lo-MGA"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="leading" secondItem="hYn-xO-H7r" secondAttribute="trailing" constant="3" id="pPP-c8-9ue"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="trailing" secondItem="83a-UW-I3H" secondAttribute="trailing" id="pbS-mK-HzM"/>
+                    <constraint firstItem="Ydm-Um-1lI" firstAttribute="leading" secondItem="AN9-Z5-gS3" secondAttribute="trailing" constant="3" id="pcQ-BE-1li"/>
+                    <constraint firstItem="Ydm-Um-1lI" firstAttribute="centerY" secondItem="AN9-Z5-gS3" secondAttribute="centerY" id="qEe-X4-Iyz"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="qR9-wZ-NQq"/>
+                    <constraint firstItem="sA3-Wc-jmw" firstAttribute="leading" secondItem="sLq-tk-ANl" secondAttribute="trailing" constant="3" id="r5O-v9-OVu"/>
+                    <constraint firstItem="dFM-RM-cwf" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="sGI-J8-9M3"/>
+                    <constraint firstItem="AD6-lt-p1c" firstAttribute="leading" secondItem="P54-su-LSC" secondAttribute="leading" id="sa6-2u-htc"/>
+                    <constraint firstItem="2gE-Ca-N2K" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="va3-M5-mgn"/>
+                    <constraint firstItem="z8j-Y8-9H9" firstAttribute="height" secondItem="0WP-ZH-iTb" secondAttribute="height" id="vkX-Jm-2iz"/>
+                    <constraint firstItem="sEh-GJ-lp2" firstAttribute="width" secondItem="8BX-Gy-3xU" secondAttribute="width" id="y5V-52-1Rd"/>
+                    <constraint firstItem="sEh-GJ-lp2" firstAttribute="height" secondItem="8BX-Gy-3xU" secondAttribute="height" id="zTP-NO-3cU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="deleteBtn" destination="ooC-7w-kEy" id="Yam-mf-sjk"/>
+                <outlet property="guodingjiaban" destination="sEh-GJ-lp2" id="Wlj-tR-vg8"/>
+                <outlet property="guodingjiaban2" destination="bgf-XG-dEU" id="ZBG-QE-Mwn"/>
+                <outlet property="laborName" destination="83a-UW-I3H" id="6rF-86-VjB"/>
+                <outlet property="pingri" destination="8BX-Gy-3xU" id="FX1-5L-BFO"/>
+                <outlet property="pingri2" destination="dFM-RM-cwf" id="T4A-nd-Zni"/>
+                <outlet property="pingrijiaban" destination="sA3-Wc-jmw" id="mov-2N-oMs"/>
+                <outlet property="pingrijiaban2" destination="z8j-Y8-9H9" id="a8I-Mf-U0k"/>
+                <outlet property="puiNo" destination="2gE-Ca-N2K" id="Sib-Pv-jEK"/>
+                <outlet property="shuangxiurijiaban" destination="Ydm-Um-1lI" id="uro-Ee-lrq"/>
+                <outlet property="shuangxiurijiaban2" destination="NJg-w4-SBj" id="oze-Ba-Uqv"/>
+            </connections>
+            <point key="canvasLocation" x="324.5" y="228"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="wh_delete" width="15" height="15"/>
+    </resources>
+</document>

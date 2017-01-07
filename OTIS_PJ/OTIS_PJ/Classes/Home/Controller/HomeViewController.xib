@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="bangzhu" destination="Asb-Op-4Fx" id="EyN-s9-SGq"/>
+                <outlet property="empLabel" destination="knZ-6T-f4S" id="Jn2-4a-dTu"/>
+                <outlet property="gongshi" destination="acz-xc-l5Y" id="uM1-R0-gR4"/>
+                <outlet property="myHeadPortrait" destination="DTW-fc-1x9" id="iCV-D5-zGX"/>
+                <outlet property="nianjian" destination="wLy-sd-zth" id="5aW-aS-FN6"/>
+                <outlet property="qianzi" destination="rJZ-f2-sB9" id="iYM-bD-YhK"/>
+                <outlet property="tongbu" destination="WeA-Zm-lpC" id="L8Z-Ht-NrK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weibao" destination="aO3-Uw-PmL" id="kxX-1y-4AY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5G5-a9-Jre" userLabel="Big Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="433" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="100" verticalHuggingPriority="100" image="menu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZXM-4a-WVF">
+                            <rect key="frame" x="0.0" y="0.0" width="433" height="250"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="250" id="J1d-bY-aMZ"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wGM-oM-3uh" userLabel="Stack View1">
+                            <rect key="frame" x="0.0" y="250" width="433" height="139"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO3-Uw-PmL" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJZ-f2-sB9" customClass="SZButton">
+                                    <rect key="frame" x="217" y="0.0" width="216" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="rJZ-f2-sB9" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="K0R-xe-92D"/>
+                                <constraint firstItem="rJZ-f2-sB9" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="je8-7a-6eA"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-zu-STK" userLabel="Stack View2">
+                            <rect key="frame" x="0.0" y="389" width="433" height="139"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acz-xc-l5Y" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-Zm-lpC" customClass="SZButton">
+                                    <rect key="frame" x="217" y="0.0" width="216" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DK-EZ-uUg" userLabel="Stack View3">
+                            <rect key="frame" x="0.0" y="528" width="433" height="139"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLy-sd-zth" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="217" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asb-Op-4Fx" customClass="SZButton">
+                                    <rect key="frame" x="217" y="0.0" width="216" height="139"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="WeA-Zm-lpC" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="0ka-et-eHQ"/>
+                        <constraint firstItem="hoB-zu-STK" firstAttribute="height" secondItem="wGM-oM-3uh" secondAttribute="height" id="Dqt-kx-IU4"/>
+                        <constraint firstItem="acz-xc-l5Y" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="YHZ-rc-Zxf"/>
+                        <constraint firstItem="5DK-EZ-uUg" firstAttribute="height" secondItem="wGM-oM-3uh" secondAttribute="height" id="b8M-DH-cDn"/>
+                        <constraint firstItem="Asb-Op-4Fx" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="qxA-bB-uxu"/>
+                        <constraint firstItem="wLy-sd-zth" firstAttribute="width" secondItem="aO3-Uw-PmL" secondAttribute="width" id="rd1-Be-Bg0"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTW-fc-1x9">
+                    <rect key="frame" x="177" y="72" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="z63-1P-Oe3"/>
+                        <constraint firstAttribute="height" constant="80" id="zXZ-mR-67N"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="pic_homepage_menu_account_nologin"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <real key="value" value="1.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="setHeadPortrait:" destination="-1" eventType="touchUpInside" id="1t3-NQ-9Wy"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knZ-6T-f4S">
+                    <rect key="frame" x="196" y="157" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="knZ-6T-f4S" firstAttribute="centerX" secondItem="DTW-fc-1x9" secondAttribute="centerX" id="47E-WU-lDx"/>
+                <constraint firstItem="knZ-6T-f4S" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7XZ-Ss-9fe"/>
+                <constraint firstItem="DTW-fc-1x9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Crr-Zn-mC3"/>
+                <constraint firstAttribute="bottom" secondItem="5G5-a9-Jre" secondAttribute="bottom" id="GwB-iw-y5z"/>
+                <constraint firstAttribute="trailing" secondItem="5G5-a9-Jre" secondAttribute="trailing" id="WOx-xT-lQC"/>
+                <constraint firstItem="DTW-fc-1x9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aAq-Fl-jH1"/>
+                <constraint firstItem="5G5-a9-Jre" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eed-a2-axS"/>
+                <constraint firstItem="5G5-a9-Jre" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mq8-aF-Lk1"/>
+                <constraint firstItem="5G5-a9-Jre" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pFi-H4-TD0"/>
+                <constraint firstItem="knZ-6T-f4S" firstAttribute="top" secondItem="DTW-fc-1x9" secondAttribute="bottom" constant="5" id="uKd-NP-5KE"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7XZ-Ss-9fe"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="448.5" y="301.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menu_logo" width="375" height="205"/>
+        <image name="pic_homepage_menu_account_nologin" width="82" height="82"/>
+    </resources>
+</document>

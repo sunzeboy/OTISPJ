@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   maintenanceOperation.plist
+   OTIS_PJ
+
+   Created by zy on 16/5/5.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>03a_2</string>
+            <key>operationName</key>
+            <string>齿轮箱</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>03a_3</string>
+            <key>operationName</key>
+            <string>轴承</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>03a_4</string>
+            <key>operationName</key>
+            <string>油封</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>A-2_1</string>
+            <key>operationName</key>
+            <string>减速机润滑油</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>A-2_3</string>
+            <key>operationName</key>
+            <string>位置脉冲发生器</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>operationId</key>
+            <string>A-2_7</string>
+            <key>operationName</key>
+            <string>靴衬、滚轮</string>
+        </dict>
+        
+    </array>
+</plist>

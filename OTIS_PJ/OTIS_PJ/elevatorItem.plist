@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>itemCode</key>
+		<string>A-4_5</string>
+		<key>itemName</key>
+		<string>导电回路绝缘性能测试（建议在年度定期自检时进行）</string>
+		<key>isStandard</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>itemCode</key>
+		<string>52a</string>
+		<key>itemName</key>
+		<string>轿内装潢和操纵盘小门</string>
+		<key>isStandard</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>itemCode</key>
+		<string>A1_1</string>
+		<key>itemName</key>
+		<string>机房，滑轮间环境</string>
+		<key>isStandard</key>
+		<true/>
+	</dict>
+</array>
+</plist>

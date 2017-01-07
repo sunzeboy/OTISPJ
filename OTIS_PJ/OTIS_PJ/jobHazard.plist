@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   jobHazard.plist
+   OTIS_PJ
+
+   Created by zy on 16/5/5.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>可能出现下列危险</key>
+        <array>
+            <dict>
+                <key>icon</key>
+                <string>1.png</string>
+                <key>hazardName</key>
+                <string>1 挤压、夹</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>2 危险能量</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>3 打、撞击</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>5.png</string>
+                <key>hazardName</key>
+                <string>4 绊、滑、落</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>6.png</string>
+                <key>hazardName</key>
+                <string>5 扭／扭伤</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>1.png</string>
+                <key>hazardName</key>
+                <string>6 快口／化学品</string>
+            </dict>
+        </array>
+        <key>可能出现FPA项目</key>
+        <array>
+            <dict>
+                <key>icon</key>
+                <string>1.png</string>
+                <key>hazardName</key>
+                <string>1 坠落</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>2a 进出轿顶</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>3 打、撞击</string>
+            </dict>
+        </array>
+        <key>采取的控制方法</key>
+        <array>
+            <dict>
+                <key>icon</key>
+                <string>1.png</string>
+                <key>hazardName</key>
+                <string>锁闭/警示</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>电安全</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>轮护罩</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>短接程序</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>坠落保护</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>手套</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>照明</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>爬梯安全</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>物理处理</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>电气防护</string>
+            </dict>
+            <dict>
+                <key>icon</key>
+                <string>2.png</string>
+                <key>hazardName</key>
+                <string>清洁/ 清理</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

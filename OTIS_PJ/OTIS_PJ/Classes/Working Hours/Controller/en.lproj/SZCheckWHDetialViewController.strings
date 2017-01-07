@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "BFk-B8-dTc"; */
+"BFk-B8-dTc.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FiC-II-akD"; */
+"FiC-II-akD.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "b4R-bO-Wcg"; */
+"b4R-bO-Wcg.text" = "Label";
+
+/* Class = "UILabel"; text = "日期："; ObjectID = "q8A-xS-Tka"; */
+"q8A-xS-Tka.text" = "日期：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zq4-B3-Ono"; */
+"zq4-B3-Ono.text" = "Label";

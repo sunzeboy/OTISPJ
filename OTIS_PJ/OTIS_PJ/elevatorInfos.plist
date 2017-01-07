@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   elevatorInfos.plist
+   OTIS_PJ
+
+   Created by zhangyang on 16/5/10.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>2.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>3.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>4.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>5.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+        <dict>
+            <key>icon</key>
+            <string>1.png</string>
+            <key>organization</key>
+            <string>中国工商银行贵州省安顺支行</string>
+            <key>line</key>
+            <string>1461-A-02-2/1</string>
+            <key>elevatorCount</key>
+            <string>999</string>
+            <key>address</key>
+            <string>安顺市东郊路18号</string>
+        </dict>
+    </array>
+</plist>

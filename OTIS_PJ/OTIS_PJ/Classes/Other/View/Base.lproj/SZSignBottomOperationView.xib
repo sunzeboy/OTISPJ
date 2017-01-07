@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="osD-Cr-kSZ" customClass="SZSignBottomOperationView">
+            <rect key="frame" x="0.0" y="0.0" width="584" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-hf-Whs">
+                    <rect key="frame" x="0.0" y="0.0" width="584" height="74"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88e-In-TU5">
+                            <rect key="frame" x="0.0" y="0.0" width="103" height="74"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgs-vv-KjC" userLabel="全选1">
+                            <rect key="frame" x="103" y="0.0" width="58" height="74"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="d0h-x1-zjR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="确定" image="btn_confirm">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="disabled" image="workChangeConfrim">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="确认" image="btn_confirm"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="d0h-x1-zjR"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="querenAct:" destination="osD-Cr-kSZ" eventType="touchUpInside" id="Nh7-Uu-vVL"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-Xq-2vR">
+                            <rect key="frame" x="161" y="0.0" width="102" height="74"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVU-GQ-pwY" userLabel="全选2">
+                            <rect key="frame" x="263" y="0.0" width="58" height="74"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="Udl-du-gge"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="上一部" image="btn_pre_blue">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="disabled" image="btn_pre_gray">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="上一页" image="btn_pre"/>
+                            <connections>
+                                <action selector="preAct:" destination="osD-Cr-kSZ" eventType="touchUpInside" id="XmX-LS-Ssw"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sn6-JA-CxG">
+                            <rect key="frame" x="321" y="0.0" width="103" height="74"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-yH-YrI" userLabel="全选3">
+                            <rect key="frame" x="424" y="0.0" width="58" height="74"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                            <state key="normal" title="下一部" image="btn_next_blue">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="disabled" image="btn_next_gray">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" title="下一部" image="btn_next"/>
+                            <connections>
+                                <action selector="nextAct:" destination="osD-Cr-kSZ" eventType="touchUpInside" id="bVz-Dw-jPx"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-mx-pvB">
+                            <rect key="frame" x="482" y="0.0" width="102" height="74"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qmY-yH-YrI" firstAttribute="width" secondItem="Dgs-vv-KjC" secondAttribute="width" id="Mn6-ot-twV"/>
+                        <constraint firstItem="IhE-mx-pvB" firstAttribute="width" secondItem="88e-In-TU5" secondAttribute="width" id="llO-Lg-fBn"/>
+                        <constraint firstItem="qxQ-Xq-2vR" firstAttribute="width" secondItem="88e-In-TU5" secondAttribute="width" id="xcr-he-iDs"/>
+                        <constraint firstItem="Sn6-JA-CxG" firstAttribute="width" secondItem="88e-In-TU5" secondAttribute="width" id="xvB-eo-wRJ"/>
+                        <constraint firstItem="tVU-GQ-pwY" firstAttribute="width" secondItem="Dgs-vv-KjC" secondAttribute="width" id="zG7-l8-4q0"/>
+                    </constraints>
+                </stackView>
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-Ht-knc">
+                    <rect key="frame" x="0.0" y="0.0" width="584" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="EG3-OA-Kxh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QGU-hf-Whs" firstAttribute="top" secondItem="osD-Cr-kSZ" secondAttribute="top" id="6s0-RF-Fsa"/>
+                <constraint firstAttribute="trailing" secondItem="QGU-hf-Whs" secondAttribute="trailing" id="F41-uh-amM"/>
+                <constraint firstAttribute="bottom" secondItem="QGU-hf-Whs" secondAttribute="bottom" id="Lqa-gq-gNB"/>
+                <constraint firstItem="Bi5-Ht-knc" firstAttribute="leading" secondItem="osD-Cr-kSZ" secondAttribute="leading" id="QdD-C1-2XP"/>
+                <constraint firstItem="Bi5-Ht-knc" firstAttribute="top" secondItem="osD-Cr-kSZ" secondAttribute="top" id="RJT-bk-Icn"/>
+                <constraint firstAttribute="trailing" secondItem="Bi5-Ht-knc" secondAttribute="trailing" id="e5p-s4-8l6"/>
+                <constraint firstItem="QGU-hf-Whs" firstAttribute="leading" secondItem="osD-Cr-kSZ" secondAttribute="leading" id="el1-PS-G0i"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nextBtn" destination="qmY-yH-YrI" id="9Nt-Mn-hCU"/>
+                <outlet property="preBtn" destination="tVU-GQ-pwY" id="tOl-sM-Gtj"/>
+                <outlet property="querenBtn" destination="Dgs-vv-KjC" id="Aza-h0-Owh"/>
+            </connections>
+            <point key="canvasLocation" x="311" y="225"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_confirm" width="29" height="29"/>
+        <image name="btn_next" width="23" height="23"/>
+        <image name="btn_next_blue" width="29" height="29"/>
+        <image name="btn_next_gray" width="29" height="29"/>
+        <image name="btn_pre" width="23" height="23"/>
+        <image name="btn_pre_blue" width="29" height="29"/>
+        <image name="btn_pre_gray" width="29" height="29"/>
+        <image name="workChangeConfrim" width="58" height="58"/>
+    </resources>
+</document>

@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "0h2-29-WQc"; */
+"0h2-29-WQc.text" = "Label";
+
+/* Class = "UILabel"; text = "电梯负责人："; ObjectID = "43M-pd-rzv"; */
+"43M-pd-rzv.text" = "电梯负责人：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4pF-z4-x4P"; */
+"4pF-z4-x4P.text" = "Label";
+
+/* Class = "UILabel"; text = "路线："; ObjectID = "87C-Iz-deg"; */
+"87C-Iz-deg.text" = "路线：";
+
+/* Class = "UILabel"; text = "地址："; ObjectID = "8Bz-cq-ylo"; */
+"8Bz-cq-ylo.text" = "地址：";
+
+/* Class = "UILabel"; text = "工地："; ObjectID = "8WE-T7-Xc9"; */
+"8WE-T7-Xc9.text" = "工地：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Aic-U6-NUF"; */
+"Aic-U6-NUF.text" = "Label";
+
+/* Class = "UILabel"; text = "实际年检日期："; ObjectID = "ETm-0H-R33"; */
+"ETm-0H-R33.text" = "实际年检日期：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Pzq-42-n47"; */
+"Pzq-42-n47.text" = "Label";
+
+/* Class = "UILabel"; text = "电话："; ObjectID = "SVL-Ot-UN8"; */
+"SVL-Ot-UN8.text" = "电话：";
+
+/* Class = "UILabel"; text = "计划年检日期："; ObjectID = "V2a-Gt-kcG"; */
+"V2a-Gt-kcG.text" = "计划年检日期：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WZV-H8-8NP"; */
+"WZV-H8-8NP.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cWu-zZ-Jtv"; */
+"cWu-zZ-Jtv.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "gAk-bd-nTz"; */
+"gAk-bd-nTz.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iJO-hj-Eqd"; */
+"iJO-hj-Eqd.text" = "Label";
+
+/* Class = "UILabel"; text = "电梯型号："; ObjectID = "j0e-Qj-2I5"; */
+"j0e-Qj-2I5.text" = "电梯型号：";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "sme-KW-mmH"; */
+"sme-KW-mmH.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xk3-nP-5Z7"; */
+"xk3-nP-5Z7.text" = "Label";

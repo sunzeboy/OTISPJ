@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "计划日期："; ObjectID = "0o8-S0-keE"; */
+"0o8-S0-keE.text" = "计划日期：";
+
+/* Class = "UILabel"; text = "1499-E-03-6/1M"; ObjectID = "3IY-ue-tcf"; */
+"3IY-ue-tcf.text" = "1499-E-03-6/1M";
+
+/* Class = "UILabel"; text = "法律解放路口就啊放假啊看来放假咖啡"; ObjectID = "5jc-yl-vYl"; */
+"5jc-yl-vYl.text" = "法律解放路口就啊放假啊看来放假咖啡";
+
+/* Class = "UILabel"; text = "本次保养："; ObjectID = "8jz-VD-h5I"; */
+"8jz-VD-h5I.text" = "本次保养：";
+
+/* Class = "UILabel"; text = "电梯编号："; ObjectID = "DbJ-pP-Yfr"; */
+"DbJ-pP-Yfr.text" = "电梯编号：";
+
+/* Class = "UILabel"; text = "电梯型号："; ObjectID = "Ehf-ry-Qzq"; */
+"Ehf-ry-Qzq.text" = "电梯型号：";
+
+/* Class = "UILabel"; text = "515NPE"; ObjectID = "GhI-mu-GIF"; */
+"GhI-mu-GIF.text" = "515NPE";
+
+/* Class = "UILabel"; text = "CG陈刚"; ObjectID = "H6F-uE-vGi"; */
+"H6F-uE-vGi.text" = "CG陈刚";
+
+/* Class = "UILabel"; text = "纬度："; ObjectID = "J5s-Tt-9Lh"; */
+"J5s-Tt-9Lh.text" = "纬度：";
+
+/* Class = "UILabel"; text = "2016-03-01"; ObjectID = "Lpx-QM-6mY"; */
+"Lpx-QM-6mY.text" = "2016-03-01";
+
+/* Class = "UILabel"; text = "fdfd"; ObjectID = "MVu-9B-Y1P"; */
+"MVu-9B-Y1P.text" = "fdfd";
+
+/* Class = "UILabel"; text = "当前坐标:"; ObjectID = "ONh-fI-nTO"; */
+"ONh-fI-nTO.text" = "当前坐标:";
+
+/* Class = "UILabel"; text = "经度："; ObjectID = "T8A-mt-vnB"; */
+"T8A-mt-vnB.text" = "经度：";
+
+/* Class = "UILabel"; text = "3月上半月"; ObjectID = "V80-th-2ad"; */
+"V80-th-2ad.text" = "3月上半月";
+
+/* Class = "UILabel"; text = "路线:"; ObjectID = "XVj-ve-S22"; */
+"XVj-ve-S22.text" = "路线:";
+
+/* Class = "UILabel"; text = "无二维码信息"; ObjectID = "YE9-T1-fPi"; */
+"YE9-T1-fPi.text" = "无二维码信息";
+
+/* Class = "UILabel"; text = "安贞门站"; ObjectID = "a7C-bC-3VQ"; */
+"a7C-bC-3VQ.text" = "安贞门站";
+
+/* Class = "UILabel"; text = "未完成42项"; ObjectID = "dbp-2Q-hy8"; */
+"dbp-2Q-hy8.text" = "未完成42项";
+
+/* Class = "UILabel"; text = "二维码信息："; ObjectID = "dg0-pW-bsh"; */
+"dg0-pW-bsh.text" = "二维码信息：";
+
+/* Class = "UIButton"; disabledTitle = "预览"; ObjectID = "lRL-Ja-ejD"; */
+"lRL-Ja-ejD.disabledTitle" = "预览";
+
+/* Class = "UIButton"; normalTitle = "预览"; ObjectID = "lRL-Ja-ejD"; */
+"lRL-Ja-ejD.normalTitle" = "预览";
+
+/* Class = "UILabel"; text = "D3NT5975"; ObjectID = "mCk-OG-Bmb"; */
+"mCk-OG-Bmb.text" = "D3NT5975";
+
+/* Class = "UIButton"; disabledTitle = "维保"; ObjectID = "mxx-UQ-S7n"; */
+"mxx-UQ-S7n.disabledTitle" = "维保";
+
+/* Class = "UIButton"; normalTitle = "维保"; ObjectID = "mxx-UQ-S7n"; */
+"mxx-UQ-S7n.normalTitle" = "维保";
+
+/* Class = "UILabel"; text = "1111111111111111111"; ObjectID = "noJ-0F-TjE"; */
+"noJ-0F-TjE.text" = "1111111111111111111";
+
+/* Class = "UIButton"; disabledTitle = "工时"; ObjectID = "vDc-BZ-izr"; */
+"vDc-BZ-izr.disabledTitle" = "工时";
+
+/* Class = "UIButton"; normalTitle = "工时"; ObjectID = "vDc-BZ-izr"; */
+"vDc-BZ-izr.normalTitle" = "工时";

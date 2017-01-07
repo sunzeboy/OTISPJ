@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="SZHelpTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于OTIS OES系统" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-1W-xRE">
+                        <rect key="frame" x="58" y="14" width="227" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="7mQ-7m-pDg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c9f-Gd-Dn3">
+                        <rect key="frame" x="18" y="14" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="3aD-Xb-7rF"/>
+                            <constraint firstAttribute="height" constant="25" id="ook-Wq-HkV"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="cell_right" translatesAutoresizingMaskIntoConstraints="NO" id="DjD-v5-EbA">
+                        <rect key="frame" x="323" y="17" width="11" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="H6Q-JP-tn8"/>
+                            <constraint firstAttribute="height" constant="20" id="Hmx-Iy-MLq"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="c9f-Gd-Dn3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="Egr-JW-5bx"/>
+                    <constraint firstItem="DjD-v5-EbA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="FOc-0M-Ilp"/>
+                    <constraint firstItem="c9f-Gd-Dn3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="HqZ-2h-GnS"/>
+                    <constraint firstItem="Y2f-1W-xRE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="Sab-vL-Ccq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Y2f-1W-xRE" secondAttribute="trailing" constant="49" id="Xgc-po-hFs"/>
+                    <constraint firstItem="Y2f-1W-xRE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="hSU-DU-lyJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DjD-v5-EbA" secondAttribute="trailing" id="tG2-yV-lKd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="gotoImage" destination="DjD-v5-EbA" id="GUk-u3-rBA"/>
+                <outlet property="iconImage" destination="c9f-Gd-Dn3" id="rg7-vQ-Ka3"/>
+                <outlet property="iconName" destination="Y2f-1W-xRE" id="vLc-Tq-aRh"/>
+            </connections>
+            <point key="canvasLocation" x="393" y="306.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cell_right" width="10" height="18"/>
+    </resources>
+</document>

@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "PUI整改工时"; ObjectID = "2BC-t5-tOX"; */
+"2BC-t5-tOX.text" = "PUI整改工时";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "6zc-DQ-DP3"; */
+"6zc-DQ-DP3.text" = "00:00";
+
+/* Class = "UILabel"; text = "×3国定假日加班"; ObjectID = "Gy1-Yh-2y8"; */
+"Gy1-Yh-2y8.text" = "×3国定假日加班";
+
+/* Class = "UILabel"; text = "×2双休日加班"; ObjectID = "RL6-aT-fXW"; */
+"RL6-aT-fXW.text" = "×2双休日加班";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "THw-Iq-D5w"; */
+"THw-Iq-D5w.text" = "00:00";
+
+/* Class = "UILabel"; text = "×1.5平日加班"; ObjectID = "Y7y-6L-rcO"; */
+"Y7y-6L-rcO.text" = "×1.5平日加班";
+
+/* Class = "UILabel"; text = "PUI编号："; ObjectID = "gHK-ut-g0b"; */
+"gHK-ut-g0b.text" = "PUI编号：";
+
+/* Class = "UITextField"; text = "0:00"; ObjectID = "ipq-ut-emv"; */
+"ipq-ut-emv.text" = "0:00";
+
+/* Class = "UITextField"; text = "0:00"; ObjectID = "mwB-1O-w9l"; */
+"mwB-1O-w9l.text" = "0:00";
+
+/* Class = "UILabel"; text = "×1平日"; ObjectID = "pt2-MM-g2f"; */
+"pt2-MM-g2f.text" = "×1平日";

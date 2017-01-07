@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   workingHours.plist
+   OTIS_PJ
+
+   Created by zy on 16/4/28.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+<array>
+	<dict>
+		<key>workTypeImage</key>
+		<string>HL.png</string>
+		<key>imageName</key>
+		<string>有薪假期</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>SL.png</string>
+		<key>imageName</key>
+		<string>病假</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>PL.png</string>
+		<key>imageName</key>
+		<string>事假</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>TR.png</string>
+		<key>imageName</key>
+		<string>培训</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>MT.png</string>
+		<key>imageName</key>
+		<string>会议</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>AD.png</string>
+		<key>imageName</key>
+		<string>领料/送料</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>CP.png</string>
+		<key>imageName</key>
+		<string>催款</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>OW.png</string>
+		<key>imageName</key>
+		<string>值班</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>ONPH.png</string>
+		<key>imageName</key>
+		<string>其他非生产工时</string>
+	</dict>
+</array>
+</plist>

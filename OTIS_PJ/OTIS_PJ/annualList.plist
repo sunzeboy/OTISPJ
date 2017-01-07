@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>modelType</key>
+		<string>1.png</string>
+		<key>unitNo</key>
+		<string>D6NHG8205</string>
+		<key>organizationName</key>
+		<string>今日维保详情跳转用</string>
+		<key>route</key>
+		<string>1461-A-02-2/1</string>
+		<key>overDate</key>
+		<string>10</string>
+		<key>yCheakPDate</key>
+		<string>2016-04-27</string>
+	</dict>
+	<dict>
+		<key>modelType</key>
+		<string>2.png</string>
+		<key>unitNo</key>
+		<string>D6NHG7651</string>
+		<key>organizationName</key>
+		<string>贵州新闻出版总署</string>
+		<key>route</key>
+		<string>1461-A-02-1/1</string>
+		<key>overDate</key>
+		<string>110</string>
+		<key>yCheakPDate</key>
+		<string>2016-04-27</string>
+	</dict>
+	<dict>
+		<key>modelType</key>
+		<string>4.png</string>
+		<key>unitNo</key>
+		<string>D6NHG8989</string>
+		<key>organizationName</key>
+		<string>贵州新闻出版总署2</string>
+		<key>route</key>
+		<string>1461-A-02-2/1</string>
+		<key>overDate</key>
+		<string>130</string>
+		<key>yCheakPDate</key>
+		<string>2016-04-27</string>
+	</dict>
+	<dict>
+		<key>modelType</key>
+		<string>4.png</string>
+		<key>unitNo</key>
+		<string>D6NHG8114</string>
+		<key>organizationName</key>
+		<string>贵州新闻出版总署</string>
+		<key>route</key>
+		<string>1461-A-02-3/1</string>
+		<key>overDate</key>
+		<string>101</string>
+		<key>yCheakPDate</key>
+		<string>2016-04-27</string>
+	</dict>
+</array>
+</plist>

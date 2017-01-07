@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "平日加班"; ObjectID = "FY1-pO-zwO"; */
+"FY1-pO-zwO.text" = "平日加班";
+
+/* Class = "UILabel"; text = "国定假日"; ObjectID = "JHV-UY-Sev"; */
+"JHV-UY-Sev.text" = "国定假日";
+
+/* Class = "UILabel"; text = "平日"; ObjectID = "mbw-Gs-xjN"; */
+"mbw-Gs-xjN.text" = "平日";
+
+/* Class = "UILabel"; text = "双休日"; ObjectID = "wyW-I4-K9M"; */
+"wyW-I4-K9M.text" = "双休日";

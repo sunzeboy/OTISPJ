@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "        ＊非本公司保养但要整改配件必须输入客户信息和合同编号。"; ObjectID = "0TA-Aq-bSI"; */
+"0TA-Aq-bSI.text" = "        ＊非本公司保养但要整改配件必须输入客户信息和合同编号。";
+
+/* Class = "UILabel"; text = "合同编号"; ObjectID = "1Mc-ja-DfL"; */
+"1Mc-ja-DfL.text" = "合同编号";
+
+/* Class = "UITextField"; placeholder = "客户信息内容"; ObjectID = "6mu-XY-e0v"; */
+"6mu-XY-e0v.placeholder" = "客户信息内容";
+
+/* Class = "UITextField"; placeholder = "合同编号"; ObjectID = "GAr-5i-1TW"; */
+"GAr-5i-1TW.placeholder" = "合同编号";
+
+/* Class = "UIButton"; disabledTitle = "确认"; ObjectID = "m1u-Ng-93X"; */
+"m1u-Ng-93X.disabledTitle" = "确认";
+
+/* Class = "UIButton"; normalTitle = "确认"; ObjectID = "m1u-Ng-93X"; */
+"m1u-Ng-93X.normalTitle" = "确认";
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "sTy-dT-5Z5"; */
+"sTy-dT-5Z5.text" = "＊";
+
+/* Class = "UILabel"; text = "客户信息"; ObjectID = "vZH-Q2-A5F"; */
+"vZH-Q2-A5F.text" = "客户信息";
+
+/* Class = "UILabel"; text = "＊"; ObjectID = "wgg-wd-Gxv"; */
+"wgg-wd-Gxv.text" = "＊";

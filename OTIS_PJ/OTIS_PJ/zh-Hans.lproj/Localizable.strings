@@ -1,0 +1,321 @@
+/*
+  Localizable.strings
+  OTIS_PJ
+
+  Created by sunze on 16/4/21.
+  Copyright © 2016年 sunzeboy. All rights reserved.
+*/
+
+
+//title
+"title.TodayViewController"                                                                             = "今日";
+"title.NotCompletedViewController"                                                                      = "未完成";
+"title.TwoWeeksViewController"                                                                          = "两周";
+"title.UnplannedViewController"                                                                         = "计划外";
+"title.MaintenanceViewController"                                                                       = "维保";
+"title.ProductiveViewController"                                                                        = "生产性";
+"title.production"                                                                                      = "生产";
+"title.SpaceProductiveViewController"                                                                   = "生  产  性";
+"title.NonProductiveViewController"                                                                     = "非生产性";
+"title.Non productive time"                                                                             = "非生产性工时";
+
+"title.nonproductive"                                                                                   = "非生产";
+
+"title.CheckWorkHourViewController"                                                                     = "工时查看";
+"title.WorkingHoursViewController"                                                                      = "工时填写";
+"title.SZJobHazardAnalysisViewController"                                                               = "工作危险分析";
+"title.SZMachineRoomViewController"                                                                     = "扶梯上机舱";
+"title.SZCarTopViewController"                                                                          = "扶梯倾斜段";
+"title.SZPitViewController"                                                                             = "扶梯下机舱";
+"title.SZMachineRoomViewController2"                                                                    = "机房";
+"title.SZCarTopViewController2"                                                                         = "轿顶和井道";
+"title.SZPitViewController2"                                                                            = "底坑";
+"title.SZMaintenanceOperationViewController"                                                            = "保养操作";
+"title.SZMaintenanceOperation.halfMonth"                                                                = "半月";
+"title.SZMaintenanceOperation.quarter"                                                                  = "季度";
+"title.SZMaintenanceOperation.halfYear"                                                                 = "半年";
+"title.SZMaintenanceOperation.year"                                                                     = "年度";
+"title.SZMaintenanceOperation.comments"                                                                 = "备注";
+"title.SZOtisElevatorViewController"                                                                    = "在保电梯";
+"title.SZNonOtisElevatorViewController"                                                                 = "非在保电梯";
+"title.signViewController"                                                                              = "客户签字";
+"title.SignatureBoardViewController"                                                                    = "签字";
+"title.passwordChange"                                                                                  = "密码修改";
+"title.annualInspection"                                                                                = "年检提醒";
+"title.unSignElevatorList"                                                                              = "未签字电梯列表";
+"title.helpMenu"                                                                                        = "帮助";
+"title.toolList"                                                                                        = "工具清单";
+"title.regardingController"                                                                             = "关于";
+"title.getBackPassword"                                                                                 = "找回密码";
+"title.SZPreviewViewController"                                                                         = "保养预览";
+"title.helpMenu.toolListMust"                                                                           = "必须";
+"title.helpMenu.generalTools"                                                                           = "常用";
+"title.helpMenu.privateHelicopterEscape"                                                                = "直梯";
+"title.helpMenu.privateEscalatorsAndWalkways"                                                           = "扶梯";
+"title.helpMenu.unusually"                                                                              = "不常用";
+"title.WorkingHoursViewController.addType"                                                              = "工时类型选择";
+"title.nianjian"                                                                                        = "年检提醒";
+"title.tongbu"                                                                                          = "数据同步";
+"title.gongshi"                                                                                         = "工时";
+"title.planeDate"                                                                                       = "计划日期";
+"title.Incomplete item"                                                                                 = "未完成项";
+"title.Photograph"                                                                                      = "拍照";
+"title.Need to be replaced"                                                                             = "需要更换";
+"title.Need to transform"                                                                               = "需要改造";
+"title.If you have any questions, please specify"                                                       = "如果有问题，请具体说明";
+
+"title.Problems found in the work and the need to deal with customers"                                  = "本次工作中发现的问题及需要客户处理的事项";
+
+//error
+"error.OTISLoginStateLocked"                                                                            = "您账号已被锁定，请联系管理员！";
+"error.OTISLoginStateNotExistInDB"                                                                      = "此帐号不存在！";
+"error.OTISLoginStatePasswordError"                                                                     = "您已经输错%@次密码，再输错%d次账号将被锁定！";
+"error.OTISLoginStatePasswordExpired"                                                                   = "密码已过期";
+"error.OTISLoginState90DaysNotLoggedIn"                                                                 = "此帐号已经超过90天未登录，按公司相关规定，帐号已被锁定，请联系管理员！";
+"error.OTISLoginStateDeviceNumberNotExistInDB"                                                          = "终端请求的设备号在数据库中不存在";
+"error.OTISLoginStateHasNewVersion"                                                                     = "有新的版本";
+"error.OTISLoginStatePasswordReset"                                                                     = "密码已重置";
+"error.OTISLoginStateDeviceLocked"                                                                      = "设备被锁";
+"error.OTISLoginStateDBConnectionFailed"                                                                = "数据库连接未成功";
+"error.OTISLoginStateResetThePassword"                                                                  = "使用初始密码登录，必须重新设置密码!";
+
+"error.OTISDownloadUnits"                                                                               = "电梯离线下载失败！";
+"error.OTISDownloadSchedules"                                                                           = "计划离线下载失败！";
+"error.OTISDownloadSchedulesCards"                                                                      = "保养卡离线下载失败！";
+"error.OTISDownloadUnfinishedItems"                                                                     = "未完成项离线下载失败！";
+"error.OTISDownloadReservedSubject"                                                                     = "预留科目离线下载失败！";
+"error.OTISDownloadLaborType"                                                                           = "工时类型科目离线下载失败！";
+"error.OTISLoginState90DaysUnconect"                                                                    = "90天未联网";
+"error.OTISLoginStateNoOnlineLoginToday"                                                                = "首次登录请以在线方式登录";
+"error.OTISLoginStateWrongPassword"                                                                     = "密码错误";
+"error.OTISSelectElevator"                                                                              = "请手动选择电梯。";
+"error.OTISScanOrSelectElevator"                                                                        = "请扫描正确的电梯或者手动选择电梯。";
+"error.Note more than 100 words can not be saved"                                                       = "备注超过100字不能保存";
+"error.Security analysis is not all done, do not allow the selection of all maintenance items!"         = "安全性分析没有全部做完，不允许选中全部保养项！";
+"error.Are you sure you have completed all maintenance?"                                                = "您确认已经完成了所有保养吗？";
+"error.You have completed all maintenance, do not need to interrupt maintenance."                       = "您已经完成了所有保养，不需要中断保养。";
+"error.Two dimensional code scanning success, but can not recognize the elevator!"                      = "二维码扫描成功，但无法识别电梯！";
+
+
+//time
+"time.firstHalfOfTheMonth"                                                                              = "上半月";
+"time.lastHalfOfTheMonth"                                                                               = "下半月";
+"time.hour"                                                                                             = "小时";
+"time.Total working hours"                                                                              = "总工时";
+"time.Time modification"                                                                                = "工时修改";
+
+
+//btn.title
+"btn.title.back"                                                                                        = "返回";
+"btn.title.confirm"                                                                                     = "确认";
+"btn.title.cancelSy"                                                                                    = "放弃同步";
+"btn.title.cencel"                                                                                      = "取消";
+"btn.title.suspend"                                                                                     = "中断";
+"btn.title.camera"                                                                                      = "相机";
+"btn.title.save"                                                                                        = "保存";
+"btn.title.Delete"                                                                                      = "删除";
+"btn.title.ContinueSynchronization"                                                                     = "重新同步";
+
+"btn.title.Detail"                                                                                      = "详情";
+"btn.title.Share"                                                                                       = "分摊";
+"btn.title.Date"                                                                                        = "日期";
+"btn.title.SpaceDate"                                                                                   = "日  期";
+
+"btn.title.allSelect"                                                                                   = "全选";
+"btn.title.noSelect"                                                                                    = "反全选";
+"btn.title.SelectFromAlbum"                                                                             = "从相册选择";
+"btn.title.other"                                                                                       = "其他";
+"btn.title.Off due day"                                                                                 = "离到期天";
+"btn.title.Extended day"                                                                                = "超期天";
+"btn.title.Annual inspection completion"                                                                = "年检完成";
+"btn.title.Completed annual inspection"                                                                 = "已年检完成";
+"btn.title.Modify password"                                                                             = "修改密码";
+"btn.title.Exit login"                                                                                  = "退出登录";
+
+// dialog.title
+"dialog.title.tip"                                                                                      = "温馨提示";
+"dialog.title.fillWorkingHour"                                                                          = "工时填写";
+"dialog.title.workingHourSave"                                                                          = "工时保存";
+"dialog.title.selectNext"                                                                               = "请选择进行下一步操作";
+"dialog.title.clearData"                                                                                = "清空数据";
+"dialog.title.passwordChange"                                                                           = "密码修改";
+"dialog.title.customerSign"                                                                             = "客户签字";
+"dialog.title.annualInspection"                                                                         = "年检提醒";
+"dialog.title.changeWorkingHour"                                                                        = "修改工时";
+"dialog.title.Site name"                                                                                = "工地名";
+"dialog.title.Site"                                                                                     = "工地";
+"dialog.title.Address"                                                                                  = "地址";
+
+"dialog.title.Address name"                                                                             = "地址名";
+"dialog.title.Telephone person in charge"                                                               = "电梯负责人";
+"dialog.title.Phone"                                                                                    = "电话";
+"dialog.title.No"                                                                                       = "无";
+"dialog.title.Elevator number"                                                                          = "电梯编号";
+"dialog.title.Work adjustment"                                                                          = "工作调整";
+"dialog.title.Lift units"                                                                               = "电梯台数";
+"dialog.title.Platform"                                                                                 = "台";
+"dialog.title.Contract number"                                                                          = "合同编号";
+"dialog.title.Normal maintenance"                                                                       = "正常维保";
+"dialog.title.Normal road maintenance"                                                                  = "正常维保路途";
+"dialog.title.Please enter a user name!"                                                                = "请输入用户名！";
+"dialog.title.Verification code has been sent"                                                          = "验证码已发送";
+"dialog.title.Account does not exist"                                                                   = "账号不存在";
+"Account number is not bound by phone number / Account No"                                              = "账户没有绑定电话号/账户绑定的电话号不正确。";
+"Repeated send verification code to the user's mobile phone"                                            = "已向用户手机多次重复发送验证码。";
+"dialog.title.Verification code sent failed"                                                            = "验证码发送失败";
+"dialog.title.Re acquisition"                                                                           = "重新获取";
+"dialog.title.Network request failed, please check the network"                                         = "网络请求失败,请检查网络。";
+"dialog.title.Please enter user name and verification code!"                                            = "请输入用户名和验证码！";
+"Please get the verification code"                                                                      = "请获取验证码！";
+"dialog.title.Verification code has expired"                                                            = "验证码已过期";
+"dialog.title.Validation failure"                                                                       = "验证失败";
+"dialog.title.Whether to withdraw from the system?"                                                     = "是否退出本系统？";
+"dialog.title.There is no upload data, whether to upload"                                               = "有未上传数据，是否上传";
+"dialog.title.Data upload failed, please check the network"                                             = "数据上传失败，请检查网络";
+
+
+"dialog.title.Synchronized success!"                                                                    = "同步成功！";
+"dialog.title.Data synchronization"                                                                     = "数据同步中...";
+"dialog.title.Data synchronization failure!"                                                            = "数据同步失败！请到网络信号好的地方或连接Wi-Fi进行同步";
+"dialog.title.Please check to ensure that the network is under normal synchronization data"             = "同步失败，请检查确保网络正常的情况下同步数据！";
+"dialog.title.Find a new version of the update"                                                         = "发现新版本请更新！";
+
+// dialog.content
+"dialog.content.enterUserAndPwd"                                                                        = "请输入用户名和密码！";
+"dialog.content.Please use the new password next time you log in"                                       = "您的用户密码修改已成功。下次登录请使用新密码。";
+
+"dialog.content.Password length can not be greater than 16, please re set"                              = "密码长度不可大于16位，请重新设置。";
+
+"dialog.content.Password and user name can not be consistent, please re set"                            = "密码和用户名不可以一致，请重新设置。";
+
+"dialog.content.Modify the success, please use the new password to re login"                            = "修改成功,请使用新密码重新登录";
+"dialog.content.Upload failed, please check the network link"                                           = "上传失败，请检查网络链接。";
+
+"dialog.content.userMoreThan20"                                                                         = "用户名不能超过20字！";
+"dialog.content.pwdMoreThan16"                                                                          = "密码不能超过16字！";
+"dialog.content.noUser"                                                                                 = "此账号不存在！";
+"dialog.content.wrongPwd"                                                                               = "您已经输错%d次密码，再输错%d次账号将被锁定！";
+"dialog.content.scanBarcode"                                                                            = "先扫描二维码";
+"dialog.content.noBarcode"                                                                              = "无二维码";
+"dialog.content.noBarcodeButExist"                                                                      = "无二维码（该电梯已扫描过，存在二维码）";
+"dialog.content.canNotIdentify"                                                                         = "无法识别";
+"dialog.content.barcodeDamage"                                                                          = "二维码损坏";
+"dialog.content.hardwareDamage"                                                                         = "硬件损坏";
+"dialog.content.confirmDelWorkinghour"                                                                  = "请确认是否删除此工时？";
+"dialog.content.jha"                                                                                    = "请完成至少一组工作危险性分析";
+"dialog.content.jha.all"                                                                                = "电梯三个区域的工作危险性分析需要全部完成！";
+"dialog.content.jha.aaa"                                                                                = "请确认已经完成了工作危险分析吗？";
+
+"dialog.content.notSameUser"                                                                            = "该电梯的客户与之前选择的不同，不能选择该电梯！";
+"dialog.content.differentExist"                                                                         = "存在不同工地的电梯，不可使用全选功能。";
+"dialog.content.selectOne"                                                                              = "请至少选择一部电梯。";
+"dialog.content.clearData"                                                                              = "您确定要清空数据吗？";
+"dialog.content.passwordChange"                                                                         = "确认退出密码修改操作？";
+"dialog.content.checkDateInput"                                                                         = "请输入实际年检日期。";
+"dialog.content.confirmDataSync"                                                                        = "您确认现在开始数据同步吗？";
+"dialog.content.confirmmeiwang"                                                                         = "上传失败，请确保手机信号良好并再次同步！";
+"dialog.content.notFilledUserInfo"                                                                      = "客户信息未填写，请输入！";
+"dialog.content.notFilledContractNo"                                                                    = "合同编号未填写，请输入！";
+"dialog.content.userInfoMoreThan10"                                                                     = "客户信息长度超过10个汉字，请重新输入！";
+"dialog.content.confirmSaveWorkingHours"                                                                = "是否确认保存正常保养工时？";
+"dialog.content.modify%@"                                                                               = "是否确认修改%@？";
+"dialog.content.JHA has not been saved"                                                                 = "JHA还未保存，是否退出？";
+"dialog.content.The following risks may occur"                                                          = "可能出现下列危险";
+"dialog.content.Possible FPA projects"                                                                  = "可能出现的FPA项目";
+"dialog.content.Control method adopted"                                                                 = "采取的控制方法";
+"dialog.content.Maintenance content is not saved, whether to quit?"                                     = "保养内容未保存，是否退出？";
+"dialog.content.Please enter the PUI number!"                                                           = "请输入PUI编号！";
+"dialog.content.Work change content is not saved, whether to return?"                                   = "工时修改内容未保存，是否返回？";
+"dialog.content.Are the changes determined?"                                                            = "是否确定修改工时?";
+"dialog.content.Total working hours have been more than 8 hours!"                                       = "总工时已超过8小时!";
+"dialog.content.Are you sure you want to delete hours?"                                                 = "是否确认删除%@工时？";
+"dialog.content.Date is out of range, click OK to set the current date!"                                = "日期超出范围，点击确定后设成当前日期！";
+"dialog.content.When the week or the next 10 days"                                                      = "当周或往后10天";
+"dialog.content.X1 weekdays"                                                                            = "X1平日";
+"dialog.content.X1.5 overtime on weekdays"                                                              = "X1.5平日加班";
+"dialog.content.X2 weekend overtime"                                                                    = "X2双休加班";
+"dialog.content.X3 national day overtime"                                                               = "X3国定日加班";
+"dialog.content.Please enter the actual annual inspection date!"                                        = "请输入实际年检日期！";
+"dialog.content.Actual annual inspection date is not saved, whether to quit?"                           = "实际年检日期未保存，是否退出？";
+"dialog.content.Actual annual inspection date is saved?"                                                = "实际年检日期是否保存？";
+"dialog.content.Successful empty data!"                                                                 = "成功清空数据！";
+"dialog.content.You have the data did not upload"                                                       = "您有数据未上传，清空数据会丢失上传的数据，确定要清空数据吗？";
+
+// tip.title
+"tip.title"                                                                                             = "密码设置要求";
+// tip.content
+"dialog.content.passwordNotConsistent"                                                                  = "您前后输入的密码不相符，请重新输入。";
+"dialog.content.passwordIsEmpty"                                                                        = "新密码不可为空，请重新输入。";
+"dialog.content.passwordLessThan4"                                                                      = "密码长度不可小于4位，请重新设置。";
+"dialog.content.passwordFailure"                                                                        = "修改失败。";
+"dialog.content.passwordContinuous"                                                                     = "密码不可设置成连续字符，请重新设置。";
+"dialog.content.passwordRepeated"                                                                       = "您设置的密码与前5次设置的密码有重复，请重新设置。";
+"dialog.content.rechangePasswordNeed24Hours"                                                            = "距上次修改密码未满24小时，暂时不能修改密码。";
+"dialog.content.passwordNotSecurity"                                                                    = "密码中必须包含以下4类的三种：\n大写字母，小写字母，数字，非字母数字字符，请重新设置。";
+"dialog.content.report"                                                                                 = "请您完成保养后再进行保存操作!";
+"dialog.content.changepasswordtip"                                                                      = "确认退出密码修改操作?";
+"dialog.content.passwordformaterror"                                                                    = "密码中必须包含以下三种：大写字母，小写字母，数字，非字母数字字符，请重新设置。";
+"dialog.content.LoginMustWorkNet"                                                                       = "每天第一次登录必须以在线方式！";
+"dialog.content.Two dimensional code recognition success"                                               = "二维码识别成功，但电梯不在当前工地范围内！";
+"dialog.content.Do not belong to the elevator maintenance plan"                                         = "二维码扫描成功，但不属于计划外维保电梯！";
+"dialog.content.Today, more than 24 hours of processing time, the work can not be saved."               = "今日累加工时已超过24小时，本次工时不能保存。";
+"dialog.content.More than 20 words can not be saved."                                                   = "超过20字不能保存。";
+"dialog.content.Two dimensional code recognition success, but the elevator is not in the current site!" = "二维码识别成功，但电梯不在当前工地范围内！";
+
+
+
+//sign check item
+"dialog.content.attitudeInput"                                                                          = "请对本次服务态度作出评价。";
+"dialog.content.maintenanceQualityInput"                                                                = "请对本次保养质量作出评价。";
+"dialog.content.customerNameInput"                                                                      = "请填写客户姓名。";
+"dialog.content.emailAddressCorrect"                                                                    = "邮件地址格式不对。";
+"dialog.content.customerSign"                                                                           = "客户未签字。如客户不在，请选择客户不在。";
+"dialog.content.signatureSaved"                                                                         = "签名已保存。";
+"dialog.content.signatureFirst"                                                                         = "请先签名再保存。";
+"dialog.content.confirmBarcodeIsRight"                                                                  = "请确认电梯二维码信息是否正确！";
+"dialog.content.workhourDoNotSave"                                                                      = "工时填写内容未保存，是否返回？";
+"dialog.content.workhourContentDoNotSave"                                                               = "工时内容未保存，是否返回？";
+"dialog.content.gongshiweitianxie"                                                                      = "工作工时未填写，请输入！";
+"dialog.content.dateIsOutOfRange"                                                                       = "日期超出范围，点击确认后设置当前日期！";
+"dialog.content.remarkMoreThan50"                                                                       = "备注信息长度超过50个汉字，请重新输入！";
+"dialog.content.fentandianti"                                                                           = "请选择要分摊工时的电梯！";
+"dialog.content.dataNotupload"                                                                          = "有数据未上传，请在有信号的区域完成上传。";
+"dialog.content.locationing"                                                                            = "正在获取GPS位置中，请稍等...";
+"dialog.content.longitude"                                                                              = "经度";
+"dialog.content.latitude"                                                                               = "纬度";
+"dialog.content.Success of the current position coordinates"                                            = "当前位置坐标获取成功";
+"dialog.content.Gets the GPS position over 10s, using the last acquired location"                       = "获取GPS位置超过10s,使用最后一次获取的位置";
+"dialog.content.Failed to obtain location"                                                              = "获取位置失败";
+"dialog.content.NOlatitude"                                                                             = "纬度:没有获取到最后一次位置信息,请检查是否允许app开启GPS";
+"dialog.content.NOlongitude"                                                                            = "经度:没有获取到最后一次位置信息,请检查是否允许app开启GPS";
+"dialog.content.Please check whether the GPS is turned on."                                             = "请检查是否开启GPS";
+"dialog.content.Failed to obtain position, using the last time to obtain the location."                 = "获取位置失败,使用最后一次获取的位置";
+
+"dialog.content.Recall"                        ="召修";
+"dialog.content.SpaceRecall"               ="召  修";
+
+"dialog.content.Repair"            ="修理";
+"dialog.content.Trepair"         ="T修理";
+"dialog.content.Compulsory rectification"    ="强制整改";
+"dialog.content.Annual inspection"      ="年检／陪检";
+"dialog.content.Paid vacation"     ="有薪假期";
+"dialog.content.Compassionate leave"   ="事假";
+"dialog.content.Meeting"="会议";
+"dialog.content.press for money"   ="催款";
+"dialog.content.Overtime call"="加班召修";
+"dialog.content.Overtime repair"="加班修理";
+"dialog.content.Overtime T repair"="加班T修理";
+"dialog.content.New ladder quality rectification"="新梯质量整改";
+"dialog.content.sick leave"="病假";
+"dialog.content.Train"="培训";
+"dialog.content.Material feeding"="领料送料";
+"dialog.content.Be on duty"="值班";
+"dialog.content.Other production hours"="其它生产工时";
+"dialog.content.Other non productive hours"="其它非生产工时";
+
+"dialog.content.One time batch sign up to 20 sets of elevators"="一次性批量签字最多20台电梯。";
+"dialog.content.More than 100 of the text can not be saved"="具体说明超过100文字不能保存。";
+"dialog.content.Whether to return to the elevator list screen, fill in the problem description will not be saved?"="是否返回电梯清单画面,填写的问题说明将不保存）？";
+"dialog.content.Last one"="上一部";
+"dialog.content.Whether to return to the elevator information screen, fill in the signature information will not be saved?"="是否返回电梯信息画面,填写的签字信息将不保存）？";
+

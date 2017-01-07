@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "工作工时"; ObjectID = "4tt-TT-6lk"; */
+"4tt-TT-6lk.text" = "工作工时";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "8RC-yh-k9u"; */
+"8RC-yh-k9u.text" = "00:00";
+
+/* Class = "UILabel"; text = "×2双休日加班"; ObjectID = "8h1-SE-SYM"; */
+"8h1-SE-SYM.text" = "×2双休日加班";
+
+/* Class = "UILabel"; text = "×1.5平日加班"; ObjectID = "DOo-rp-INZ"; */
+"DOo-rp-INZ.text" = "×1.5平日加班";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "GTy-1q-KIe"; */
+"GTy-1q-KIe.text" = "00:00";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "KD7-kN-wF0"; */
+"KD7-kN-wF0.text" = "00:00";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "dDR-3C-vIz"; */
+"dDR-3C-vIz.text" = "00:00";
+
+/* Class = "UILabel"; text = "×3国定假日加班"; ObjectID = "tPl-jL-Kvl"; */
+"tPl-jL-Kvl.text" = "×3国定假日加班";
+
+/* Class = "UILabel"; text = "×1平日"; ObjectID = "zWX-fn-mwZ"; */
+"zWX-fn-mwZ.text" = "×1平日";

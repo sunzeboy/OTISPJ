@@ -1,0 +1,27 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58f86fb5-643c-7243-9d0d-2e263b00779b++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "58f86fb5-643c-7243-9d0d-2e263b00779b++505" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "58f86fb5-643c-7243-9d0d-2e263b00779b++505" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "024C798F-A8DC-4946-8947-119CDBEBF650",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "58f86fb5-643c-7243-9d0d-2e263b00779b++505" : "iOS_PJ\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OTIS_PJ",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "code\/iOS_PJ\/OTIS_PJ\/OTIS_PJ.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.52.77\/svn\/CloudElevator",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58f86fb5-643c-7243-9d0d-2e263b00779b++505"
+    }
+  ]
+}

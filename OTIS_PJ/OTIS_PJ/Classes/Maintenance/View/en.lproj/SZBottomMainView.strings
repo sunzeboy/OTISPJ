@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "查找"; ObjectID = "Nfp-Im-bBT"; */
+"Nfp-Im-bBT.normalTitle" = "查找";
+
+/* Class = "UIButton"; selectedTitle = "确认"; ObjectID = "Nfp-Im-bBT"; */
+"Nfp-Im-bBT.selectedTitle" = "确认";
+
+/* Class = "UIButton"; normalTitle = "扫描"; ObjectID = "mxr-m7-Kb4"; */
+"mxr-m7-Kb4.normalTitle" = "扫描";
+
+/* Class = "UIButton"; selectedTitle = "确认"; ObjectID = "mxr-m7-Kb4"; */
+"mxr-m7-Kb4.selectedTitle" = "确认";

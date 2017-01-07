@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "Kei-S2-o7l"; */
+"Kei-S2-o7l.normalTitle" = "登录";
+
+/* Class = "UIButton"; normalTitle = "忘记密码？"; ObjectID = "b1v-kp-Oh6"; */
+"b1v-kp-Oh6.normalTitle" = "忘记密码？";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "foR-jl-O7e"; */
+"foR-jl-O7e.placeholder" = "密码";
+
+/* Class = "UITextField"; placeholder = "用户名"; ObjectID = "llf-e5-Tyo"; */
+"llf-e5-Tyo.placeholder" = "用户名";
+
+/* Class = "UILabel"; text = "V2.0.0.7"; ObjectID = "mik-cQ-Dqr"; */
+"mik-cQ-Dqr.text" = "V2.0.0.7";
+
+/* Class = "UILabel"; text = "  邮箱：OEShelpdesk@otis.com"; ObjectID = "pdl-kV-tlN"; */
+"pdl-kV-tlN.text" = "  邮箱：OEShelpdesk@otis.com";
+
+/* Class = "UILabel"; text = "  OES系统支持热线：022-28101999"; ObjectID = "qU1-JG-gHs"; */
+"qU1-JG-gHs.text" = "  OES系统支持热线：022-28101999";

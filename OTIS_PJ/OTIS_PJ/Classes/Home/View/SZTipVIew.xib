@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SZTipVIew">
+            <rect key="frame" x="0.0" y="0.0" width="385" height="577"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TipImage" translatesAutoresizingMaskIntoConstraints="NO" id="wqf-Bf-66e" customClass="TipImage">
+                    <rect key="frame" x="0.0" y="70" width="385" height="437"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpO-NF-uQm">
+                    <rect key="frame" x="163" y="522" width="60" height="40"/>
+                    <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="N60-L3-bkA"/>
+                        <constraint firstAttribute="width" constant="60" id="WSc-6X-aGy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="17"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.MasksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="YLG-S9-dQa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wqf-Bf-66e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="C3M-do-pLt"/>
+                <constraint firstItem="XpO-NF-uQm" firstAttribute="top" secondItem="wqf-Bf-66e" secondAttribute="bottom" constant="15" id="Fto-Po-sWc"/>
+                <constraint firstAttribute="bottom" secondItem="XpO-NF-uQm" secondAttribute="bottom" constant="15" id="J7n-Uz-hmL"/>
+                <constraint firstAttribute="bottom" secondItem="wqf-Bf-66e" secondAttribute="bottom" constant="40" id="OBu-Am-gxt"/>
+                <constraint firstItem="wqf-Bf-66e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Tg2-Nf-K3G"/>
+                <constraint firstItem="wqf-Bf-66e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pGo-BH-JNl"/>
+                <constraint firstItem="XpO-NF-uQm" firstAttribute="centerX" secondItem="wqf-Bf-66e" secondAttribute="centerX" id="ys8-Jj-87M"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="OBu-Am-gxt"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="394.5" y="338.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="TipImage" width="393" height="743"/>
+    </resources>
+</document>

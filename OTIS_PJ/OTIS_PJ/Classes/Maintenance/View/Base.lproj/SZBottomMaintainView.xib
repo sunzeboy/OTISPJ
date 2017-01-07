@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SZBottomMaintainView">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6U-Pi-OPT" userLabel="lineView">
+                    <rect key="frame" x="0.0" y="0.0" width="370" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="SHX-P7-uIz"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvc-LO-SKb">
+                    <rect key="frame" x="0.0" y="1" width="54" height="65"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="987-Sp-pZO">
+                    <rect key="frame" x="54" y="1" width="58" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="58" id="cCS-Yx-GT6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="中断" image="btn_suspend_gray">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnSuspendClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="U59-Pi-aIW"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEF-nP-xYh">
+                    <rect key="frame" x="112" y="1" width="10" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="10" id="CWc-ds-BfB"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA0-bp-ruH">
+                    <rect key="frame" x="190" y="1" width="58" height="65"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="保存" image="btn_save_blue">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="nUc-tv-7rl"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg2-da-sZj">
+                    <rect key="frame" x="248" y="1" width="10" height="65"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5g-CR-Oqy">
+                    <rect key="frame" x="316" y="1" width="54" height="65"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaR-jU-qqP">
+                    <rect key="frame" x="180" y="1" width="10" height="65"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brs-v6-aBR">
+                    <rect key="frame" x="258" y="0.0" width="58" height="66"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="全选" image="btn_allSelect_blue">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="allSelectAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="Nag-6i-okG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hs2-lC-YIC">
+                    <rect key="frame" x="122" y="1" width="58" height="65"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="相机" image="btn_camera_gray">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="btnCameraClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qk4-cv-mQj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Brs-v6-aBR" secondAttribute="bottom" id="2VV-MI-KcZ"/>
+                <constraint firstItem="987-Sp-pZO" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="34t-0P-HDM"/>
+                <constraint firstAttribute="bottom" secondItem="987-Sp-pZO" secondAttribute="bottom" id="4fQ-0z-6zp"/>
+                <constraint firstItem="p6U-Pi-OPT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Jr-oe-eBZ"/>
+                <constraint firstAttribute="trailing" secondItem="p6U-Pi-OPT" secondAttribute="trailing" id="7sw-pM-YBF"/>
+                <constraint firstItem="LaR-jU-qqP" firstAttribute="width" secondItem="lEF-nP-xYh" secondAttribute="width" id="7va-ws-ypY"/>
+                <constraint firstItem="987-Sp-pZO" firstAttribute="leading" secondItem="gvc-LO-SKb" secondAttribute="trailing" id="9wf-Iy-fbd"/>
+                <constraint firstItem="Brs-v6-aBR" firstAttribute="leading" secondItem="rg2-da-sZj" secondAttribute="trailing" id="A0p-kg-gB7"/>
+                <constraint firstItem="lEF-nP-xYh" firstAttribute="leading" secondItem="987-Sp-pZO" secondAttribute="trailing" id="Acs-US-ZuD"/>
+                <constraint firstItem="Brs-v6-aBR" firstAttribute="width" secondItem="987-Sp-pZO" secondAttribute="width" id="AfT-Fe-eKx"/>
+                <constraint firstItem="c5g-CR-Oqy" firstAttribute="width" secondItem="gvc-LO-SKb" secondAttribute="width" id="AiU-qg-VAH"/>
+                <constraint firstItem="Brs-v6-aBR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DWC-I5-PMc"/>
+                <constraint firstItem="Hs2-lC-YIC" firstAttribute="width" secondItem="987-Sp-pZO" secondAttribute="width" id="EJz-4w-0uN"/>
+                <constraint firstAttribute="trailing" secondItem="c5g-CR-Oqy" secondAttribute="trailing" id="F7I-Nj-5PV"/>
+                <constraint firstItem="rg2-da-sZj" firstAttribute="width" secondItem="lEF-nP-xYh" secondAttribute="width" id="Jyx-Sl-Bda"/>
+                <constraint firstAttribute="bottom" secondItem="rg2-da-sZj" secondAttribute="bottom" id="K1U-jc-Cby"/>
+                <constraint firstItem="lEF-nP-xYh" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="NPt-AC-NKj"/>
+                <constraint firstItem="LaR-jU-qqP" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="Nvc-bc-R0x"/>
+                <constraint firstAttribute="bottom" secondItem="lEF-nP-xYh" secondAttribute="bottom" id="OdS-Qz-HO7"/>
+                <constraint firstItem="rg2-da-sZj" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="Uq7-Fh-K1W"/>
+                <constraint firstItem="SA0-bp-ruH" firstAttribute="width" secondItem="987-Sp-pZO" secondAttribute="width" id="Vds-1c-iae"/>
+                <constraint firstAttribute="bottom" secondItem="gvc-LO-SKb" secondAttribute="bottom" id="X5U-dJ-jRP"/>
+                <constraint firstItem="Hs2-lC-YIC" firstAttribute="leading" secondItem="lEF-nP-xYh" secondAttribute="trailing" id="Y2h-jJ-BAC"/>
+                <constraint firstAttribute="bottom" secondItem="c5g-CR-Oqy" secondAttribute="bottom" id="Zol-oR-QiY"/>
+                <constraint firstItem="SA0-bp-ruH" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="aZ2-Dw-PqV"/>
+                <constraint firstItem="gvc-LO-SKb" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="fcU-gt-W8e"/>
+                <constraint firstItem="Hs2-lC-YIC" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="g0R-8k-qwI"/>
+                <constraint firstItem="c5g-CR-Oqy" firstAttribute="top" secondItem="p6U-Pi-OPT" secondAttribute="bottom" id="hdS-DT-Xyt"/>
+                <constraint firstItem="gvc-LO-SKb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jEJ-S9-zeH"/>
+                <constraint firstItem="SA0-bp-ruH" firstAttribute="leading" secondItem="LaR-jU-qqP" secondAttribute="trailing" id="k50-y7-Cmj"/>
+                <constraint firstItem="rg2-da-sZj" firstAttribute="leading" secondItem="SA0-bp-ruH" secondAttribute="trailing" id="mGU-mn-0xV"/>
+                <constraint firstAttribute="bottom" secondItem="SA0-bp-ruH" secondAttribute="bottom" id="nCm-34-eY3"/>
+                <constraint firstItem="c5g-CR-Oqy" firstAttribute="leading" secondItem="Brs-v6-aBR" secondAttribute="trailing" id="rZ5-JP-CYh"/>
+                <constraint firstAttribute="bottom" secondItem="LaR-jU-qqP" secondAttribute="bottom" id="ve6-XF-9HT"/>
+                <constraint firstAttribute="bottom" secondItem="Hs2-lC-YIC" secondAttribute="bottom" id="xSG-TR-DQx"/>
+                <constraint firstItem="p6U-Pi-OPT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yHU-lU-tXP"/>
+                <constraint firstItem="LaR-jU-qqP" firstAttribute="leading" secondItem="Hs2-lC-YIC" secondAttribute="trailing" id="zoG-xV-03d"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allSelectBtn" destination="Brs-v6-aBR" id="MKv-Ne-kvh"/>
+                <outlet property="cameraBtn" destination="Hs2-lC-YIC" id="ana-ZF-5d6"/>
+                <outlet property="confirmBtn" destination="SA0-bp-ruH" id="Umu-c2-sZT"/>
+                <outlet property="suspendBtn" destination="987-Sp-pZO" id="lSB-T2-JRb"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="143"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_allSelect_blue" width="29" height="29"/>
+        <image name="btn_camera_gray" width="29" height="29"/>
+        <image name="btn_save_blue" width="29" height="29"/>
+        <image name="btn_suspend_gray" width="29" height="29"/>
+    </resources>
+</document>

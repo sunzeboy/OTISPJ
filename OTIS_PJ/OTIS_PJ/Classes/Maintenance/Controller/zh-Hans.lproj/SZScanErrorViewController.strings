@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "计划日期："; ObjectID = "4Ig-S9-CVB"; */
+"4Ig-S9-CVB.text" = "计划日期：";
+
+/* Class = "UILabel"; text = "二维码扫描成功，但不属于今日维保电梯！"; ObjectID = "4yi-ct-nE8"; */
+"4yi-ct-nE8.text" = "二维码扫描成功，但不属于今日维保电梯！";
+
+/* Class = "UILabel"; text = "电梯编号："; ObjectID = "7t1-Hx-aRl"; */
+"7t1-Hx-aRl.text" = "电梯编号：";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "HAx-er-cCJ"; */
+"HAx-er-cCJ.normalTitle" = "确定";
+
+/* Class = "UILabel"; text = "获取坐标失败请重新获取"; ObjectID = "QjI-7Y-QHK"; */
+"QjI-7Y-QHK.text" = "获取坐标失败请重新获取";
+
+/* Class = "UILabel"; text = "纬度："; ObjectID = "Uys-ne-4wI"; */
+"Uys-ne-4wI.text" = "纬度：";
+
+/* Class = "UILabel"; text = "二维码信息："; ObjectID = "cgx-nL-lPr"; */
+"cgx-nL-lPr.text" = "二维码信息：";
+
+/* Class = "UILabel"; text = "请扫描正确的电梯或者手动选择电梯。"; ObjectID = "nIF-22-hZP"; */
+"nIF-22-hZP.text" = "请扫描正确的电梯或者手动选择电梯。";
+
+/* Class = "UILabel"; text = "无二维码"; ObjectID = "xLs-4p-K7L"; */
+"xLs-4p-K7L.text" = "无二维码";
+
+/* Class = "UILabel"; text = "经度："; ObjectID = "yEP-kC-aeV"; */
+"yEP-kC-aeV.text" = "经度：";
+
+/* Class = "UILabel"; text = "当前坐标："; ObjectID = "ynQ-bu-RJZ"; */
+"ynQ-bu-RJZ.text" = "当前坐标：";

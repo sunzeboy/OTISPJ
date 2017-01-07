@@ -1,0 +1,31 @@
+platform:ios, ‘9.0‘
+
+
+target :OTIS_PJ do
+    
+    pod 'AFNetworking'
+    
+    pod 'FMDB'
+    
+    pod 'MJExtension'
+    
+    pod 'INTULocationManager'
+    
+    pod 'LBXScan'
+    
+    pod 'MBProgressHUD', '~> 0.9.2'
+    
+    pod 'Masonry'
+    
+    pod 'iOS-blur'
+    
+    pod 'MMPopupView'
+
+end
+
+
+
+
+
+
+

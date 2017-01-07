@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SZBottomWorkingHourView">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gP2-1j-UIQ" userLabel="LineView">
+                    <rect key="frame" x="0.0" y="0.0" width="372" height="1"/>
+                    <color key="backgroundColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="74k-ln-HFo"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7tD-IL-6ml" userLabel="LeftView">
+                    <rect key="frame" x="0.0" y="1" width="87" height="65"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01T-BT-bCa" userLabel="CenterView">
+                    <rect key="frame" x="142" y="1" width="88" height="65"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-Ii-MTD" userLabel="BtnScan">
+                    <rect key="frame" x="230" y="1" width="55" height="65"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="扫描" image="btn_scan">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="scanf:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Sg-2t-w0F"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmi-Hg-idC" userLabel="RightView">
+                    <rect key="frame" x="285" y="1" width="87" height="65"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCd-Iw-l9x" userLabel="BtnFind">
+                    <rect key="frame" x="87" y="1" width="55" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="9Vj-rC-d5d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="查找" image="btn_find">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="findAct:" destination="iN0-l3-epB" eventType="touchUpInside" id="gMp-sF-g5G"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="01T-BT-bCa" firstAttribute="leading" secondItem="jCd-Iw-l9x" secondAttribute="trailing" id="4g1-Gc-FdP"/>
+                <constraint firstItem="jCd-Iw-l9x" firstAttribute="top" secondItem="gP2-1j-UIQ" secondAttribute="bottom" id="80D-9q-qSh"/>
+                <constraint firstItem="7tD-IL-6ml" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9fp-Ma-OiL"/>
+                <constraint firstItem="7tD-IL-6ml" firstAttribute="top" secondItem="gP2-1j-UIQ" secondAttribute="bottom" id="DVK-jK-E98"/>
+                <constraint firstItem="JuK-Ii-MTD" firstAttribute="top" secondItem="gP2-1j-UIQ" secondAttribute="bottom" id="JC3-41-Ml5"/>
+                <constraint firstItem="Lmi-Hg-idC" firstAttribute="leading" secondItem="JuK-Ii-MTD" secondAttribute="trailing" id="KK0-Pt-iep"/>
+                <constraint firstItem="jCd-Iw-l9x" firstAttribute="leading" secondItem="7tD-IL-6ml" secondAttribute="trailing" id="M6w-33-SZR"/>
+                <constraint firstItem="Lmi-Hg-idC" firstAttribute="width" secondItem="7tD-IL-6ml" secondAttribute="width" id="MDc-QC-rCL"/>
+                <constraint firstAttribute="bottom" secondItem="7tD-IL-6ml" secondAttribute="bottom" id="TLb-sa-WkR"/>
+                <constraint firstItem="01T-BT-bCa" firstAttribute="width" secondItem="7tD-IL-6ml" secondAttribute="width" id="Uw1-rp-OR3"/>
+                <constraint firstAttribute="bottom" secondItem="Lmi-Hg-idC" secondAttribute="bottom" id="Vsu-QK-kPa"/>
+                <constraint firstItem="JuK-Ii-MTD" firstAttribute="width" secondItem="jCd-Iw-l9x" secondAttribute="width" id="afM-sp-pxh"/>
+                <constraint firstItem="JuK-Ii-MTD" firstAttribute="leading" secondItem="01T-BT-bCa" secondAttribute="trailing" id="bGd-tE-KBp"/>
+                <constraint firstAttribute="trailing" secondItem="gP2-1j-UIQ" secondAttribute="trailing" id="bHk-g4-FP3"/>
+                <constraint firstAttribute="trailing" secondItem="Lmi-Hg-idC" secondAttribute="trailing" id="eIK-R2-fYH"/>
+                <constraint firstAttribute="bottom" secondItem="jCd-Iw-l9x" secondAttribute="bottom" id="htf-p7-zyS"/>
+                <constraint firstItem="01T-BT-bCa" firstAttribute="top" secondItem="gP2-1j-UIQ" secondAttribute="bottom" id="kMr-xi-un6"/>
+                <constraint firstItem="Lmi-Hg-idC" firstAttribute="top" secondItem="gP2-1j-UIQ" secondAttribute="bottom" id="kSq-ao-6AY"/>
+                <constraint firstItem="gP2-1j-UIQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kru-Y8-BVf"/>
+                <constraint firstAttribute="bottom" secondItem="JuK-Ii-MTD" secondAttribute="bottom" id="luH-2A-HxY"/>
+                <constraint firstAttribute="bottom" secondItem="01T-BT-bCa" secondAttribute="bottom" id="mM0-tN-j29"/>
+                <constraint firstItem="gP2-1j-UIQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mqU-uX-xtr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="findBtn" destination="jCd-Iw-l9x" id="hxg-HJ-bX2"/>
+                <outlet property="scanBtn" destination="JuK-Ii-MTD" id="1CM-X0-Hw3"/>
+            </connections>
+            <point key="canvasLocation" x="361" y="142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_find" width="29" height="29"/>
+        <image name="btn_scan" width="29" height="29"/>
+    </resources>
+</document>

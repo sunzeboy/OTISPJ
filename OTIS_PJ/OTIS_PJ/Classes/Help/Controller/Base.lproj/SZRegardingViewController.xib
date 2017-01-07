@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SZRegardingViewController">
+            <connections>
+                <outlet property="mailLabel" destination="fFr-Lg-62m" id="xQC-lZ-ypo"/>
+                <outlet property="rolePhone" destination="wza-Bo-xGn" id="cI3-Tj-Vpo"/>
+                <outlet property="roleTel" destination="UdN-12-O6G" id="yRS-DD-vtL"/>
+                <outlet property="telPhoneNum" destination="dtH-Id-9zq" id="tT3-gw-2Hr"/>
+                <outlet property="verson" destination="aFl-tr-Wcb" id="SjW-Hj-Pzz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNP-lZ-bym">
+                    <rect key="frame" x="0.0" y="0.0" width="357" height="600"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeChat_1462426507" translatesAutoresizingMaskIntoConstraints="NO" id="pJg-u3-nrq">
+                            <rect key="frame" x="89" y="122" width="179" height="74"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXx-RA-7t0">
+                            <rect key="frame" x="40" y="545" width="277" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="08n-wH-KEd"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="OCL AND CHANGXING">
+                                    <attributes>
+                                        <color key="NSColor" red="0.027450980390000001" green="0.12941176469999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="12" name=".AppleSystemUIFont"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        <integer key="NSUnderline" value="1"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V2.0.0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFl-tr-Wcb">
+                            <rect key="frame" x="40" y="515" width="277" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="IcG-B2-fPc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                            <color key="textColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright   2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xna-2H-BXn">
+                            <rect key="frame" x="40" y="530" width="277" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="83D-B2-XEg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版权所有" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efx-9Q-cQN">
+                            <rect key="frame" x="40" y="560" width="277" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="DWC-3S-2LC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZe-Xu-8I6">
+                            <rect key="frame" x="98.5" y="211" width="160" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="DYJ-DE-Qlc"/>
+                                <constraint firstAttribute="height" constant="20" id="zFc-t0-3Gr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
+                            <color key="textColor" red="0.027450980392156862" green="0.12941176470588237" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯维保服务系统" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-bN-WOy">
+                            <rect key="frame" x="98.5" y="231" width="160" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="GcW-U5-6sG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="20"/>
+                            <color key="textColor" red="0.027450980390000001" green="0.12941176469999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROLE远程技术支持热线电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLF-t6-wNg">
+                            <rect key="frame" x="95.5" y="321" width="166" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机拨打：400-6115566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wza-Bo-xGn">
+                            <rect key="frame" x="111" y="340.5" width="136" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="oMP-O4-Ybn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                            <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="座机拨打：800-8185566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-12-O6G">
+                            <rect key="frame" x="111" y="360.5" width="136" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="5vG-vo-Znd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                            <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="efx-9Q-cQN" secondAttribute="trailing" constant="40" id="1Kh-qj-xx9"/>
+                        <constraint firstItem="UdN-12-O6G" firstAttribute="top" secondItem="wza-Bo-xGn" secondAttribute="bottom" constant="5" id="2kS-fu-koO"/>
+                        <constraint firstAttribute="bottom" secondItem="efx-9Q-cQN" secondAttribute="bottom" constant="25" id="3d3-IC-5KO"/>
+                        <constraint firstAttribute="trailing" secondItem="ZXx-RA-7t0" secondAttribute="trailing" constant="40" id="7KP-De-qvU"/>
+                        <constraint firstItem="Xna-2H-BXn" firstAttribute="top" secondItem="aFl-tr-Wcb" secondAttribute="bottom" id="7Mx-Ia-Nko"/>
+                        <constraint firstItem="Xna-2H-BXn" firstAttribute="leading" secondItem="pNP-lZ-bym" secondAttribute="leading" constant="40" id="95a-ex-Vwa"/>
+                        <constraint firstItem="1hm-bN-WOy" firstAttribute="height" secondItem="PZe-Xu-8I6" secondAttribute="height" id="9ZH-vb-Xcg"/>
+                        <constraint firstItem="PZe-Xu-8I6" firstAttribute="top" secondItem="pJg-u3-nrq" secondAttribute="bottom" constant="15" id="AqE-7K-INW"/>
+                        <constraint firstItem="efx-9Q-cQN" firstAttribute="leading" secondItem="pNP-lZ-bym" secondAttribute="leading" constant="40" id="Aut-9x-fTT"/>
+                        <constraint firstItem="efx-9Q-cQN" firstAttribute="top" secondItem="ZXx-RA-7t0" secondAttribute="bottom" id="B9N-z4-T0Y"/>
+                        <constraint firstAttribute="trailing" secondItem="Xna-2H-BXn" secondAttribute="trailing" constant="40" id="IqG-zT-aVo"/>
+                        <constraint firstItem="aFl-tr-Wcb" firstAttribute="leading" secondItem="pNP-lZ-bym" secondAttribute="leading" constant="40" id="Mym-z0-CDl"/>
+                        <constraint firstItem="ZXx-RA-7t0" firstAttribute="top" secondItem="Xna-2H-BXn" secondAttribute="bottom" id="OvN-no-14d"/>
+                        <constraint firstItem="wza-Bo-xGn" firstAttribute="top" secondItem="FLF-t6-wNg" secondAttribute="bottom" constant="5" id="P3G-Ls-fUB"/>
+                        <constraint firstItem="ZXx-RA-7t0" firstAttribute="top" secondItem="Xna-2H-BXn" secondAttribute="bottom" id="S91-Rq-cZv"/>
+                        <constraint firstItem="wza-Bo-xGn" firstAttribute="centerX" secondItem="FLF-t6-wNg" secondAttribute="centerX" id="SbJ-G6-wS0"/>
+                        <constraint firstItem="pJg-u3-nrq" firstAttribute="top" secondItem="pNP-lZ-bym" secondAttribute="top" constant="122" id="YyW-ZS-LnW"/>
+                        <constraint firstItem="1hm-bN-WOy" firstAttribute="leading" secondItem="PZe-Xu-8I6" secondAttribute="leading" id="ZNl-aI-XQD"/>
+                        <constraint firstItem="UdN-12-O6G" firstAttribute="centerX" secondItem="wza-Bo-xGn" secondAttribute="centerX" id="h8I-qc-xGa"/>
+                        <constraint firstItem="pJg-u3-nrq" firstAttribute="centerX" secondItem="aFl-tr-Wcb" secondAttribute="centerX" id="hVa-V1-x9N"/>
+                        <constraint firstItem="ZXx-RA-7t0" firstAttribute="leading" secondItem="pNP-lZ-bym" secondAttribute="leading" constant="40" id="kmt-4k-e5R"/>
+                        <constraint firstItem="1hm-bN-WOy" firstAttribute="top" secondItem="PZe-Xu-8I6" secondAttribute="bottom" id="kyL-51-Mee"/>
+                        <constraint firstItem="ZXx-RA-7t0" firstAttribute="top" secondItem="Xna-2H-BXn" secondAttribute="bottom" id="mdt-8f-JkU"/>
+                        <constraint firstItem="Xna-2H-BXn" firstAttribute="top" secondItem="aFl-tr-Wcb" secondAttribute="bottom" id="ozM-F3-2QY"/>
+                        <constraint firstAttribute="trailing" secondItem="aFl-tr-Wcb" secondAttribute="trailing" constant="40" id="pcf-JW-Ftd"/>
+                        <constraint firstItem="PZe-Xu-8I6" firstAttribute="centerX" secondItem="pJg-u3-nrq" secondAttribute="centerX" id="ydY-09-ghs"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  邮箱：OEShelpdesk@otis.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-Lg-62m">
+                    <rect key="frame" x="89" y="291" width="179.5" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="sNf-av-3mA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_mail" translatesAutoresizingMaskIntoConstraints="NO" id="61W-Pi-PMN">
+                    <rect key="frame" x="74" y="291" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="1dx-t8-bSZ"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="4jJ-Ry-bgU"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  OES系统支持热线：022-28101999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-Id-9zq">
+                    <rect key="frame" x="80" y="271" width="197.5" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="CcX-vg-sdi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="FUj-eA-Y1N">
+                    <rect key="frame" x="65" y="271" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="F5g-zC-acK"/>
+                        <constraint firstAttribute="height" constant="15" id="kNv-c7-gnZ"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="FLF-t6-wNg" firstAttribute="centerX" secondItem="fFr-Lg-62m" secondAttribute="centerX" id="2Kp-SV-uBA"/>
+                <constraint firstItem="pNP-lZ-bym" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5GP-sl-MrP"/>
+                <constraint firstAttribute="trailing" secondItem="pNP-lZ-bym" secondAttribute="trailing" id="CF2-Ov-LcJ"/>
+                <constraint firstAttribute="bottom" secondItem="pNP-lZ-bym" secondAttribute="bottom" id="GZ4-pZ-YcL"/>
+                <constraint firstItem="dtH-Id-9zq" firstAttribute="centerX" secondItem="fFr-Lg-62m" secondAttribute="centerX" id="Ipw-cK-Ohv"/>
+                <constraint firstItem="fFr-Lg-62m" firstAttribute="top" secondItem="dtH-Id-9zq" secondAttribute="bottom" constant="5" id="JQC-Cu-Ore"/>
+                <constraint firstItem="61W-Pi-PMN" firstAttribute="centerY" secondItem="fFr-Lg-62m" secondAttribute="centerY" id="Nu7-RQ-SwM"/>
+                <constraint firstItem="pNP-lZ-bym" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OXe-Um-M5a"/>
+                <constraint firstItem="dtH-Id-9zq" firstAttribute="centerX" secondItem="1hm-bN-WOy" secondAttribute="centerX" id="cxS-cx-gAv"/>
+                <constraint firstItem="dtH-Id-9zq" firstAttribute="leading" secondItem="FUj-eA-Y1N" secondAttribute="trailing" id="nHh-tZ-ojR"/>
+                <constraint firstItem="FLF-t6-wNg" firstAttribute="top" secondItem="fFr-Lg-62m" secondAttribute="bottom" constant="15" id="pi7-oE-FJi"/>
+                <constraint firstItem="fFr-Lg-62m" firstAttribute="leading" secondItem="61W-Pi-PMN" secondAttribute="trailing" id="tqB-Y1-QVk"/>
+                <constraint firstItem="FUj-eA-Y1N" firstAttribute="centerY" secondItem="dtH-Id-9zq" secondAttribute="centerY" id="uTN-Ne-gau"/>
+                <constraint firstItem="dtH-Id-9zq" firstAttribute="top" secondItem="1hm-bN-WOy" secondAttribute="bottom" constant="20" id="way-lj-YdQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="260.5" y="279"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="WeChat_1462426507" width="179" height="74"/>
+        <image name="img_login_mail" width="9" height="7"/>
+        <image name="img_login_phone" width="9" height="9"/>
+    </resources>
+</document>

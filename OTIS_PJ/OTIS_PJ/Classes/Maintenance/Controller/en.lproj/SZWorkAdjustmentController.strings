@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "召修"; ObjectID = "KPx-Kl-FFt"; */
+"KPx-Kl-FFt.text" = "召修";
+
+/* Class = "UILabel"; text = "工作调整原因："; ObjectID = "Sdj-WU-KW4"; */
+"Sdj-WU-KW4.text" = "工作调整原因：";
+
+/* Class = "UILabel"; text = "最多输入20字"; ObjectID = "ckd-LA-wLm"; */
+"ckd-LA-wLm.text" = "最多输入20字";
+
+/* Class = "UILabel"; text = "备注："; ObjectID = "rcH-Tg-FPH"; */
+"rcH-Tg-FPH.text" = "备注：";

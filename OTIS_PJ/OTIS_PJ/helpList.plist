@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>iconImage</key>
+		<string>toolsList</string>
+		<key>iconName</key>
+		<string>工具清单</string>
+		<key>titleNo</key>
+		<string>1</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string>changePassword</string>
+		<key>iconName</key>
+		<string>密码修改</string>
+		<key>titleNo</key>
+		<string>2</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string>cleanData</string>
+		<key>iconName</key>
+		<string>清空数据</string>
+		<key>titleNo</key>
+		<string>2</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string>verson</string>
+		<key>iconName</key>
+		<string>版本说明</string>
+		<key>titleNo</key>
+		<string>3</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string>about</string>
+		<key>iconName</key>
+		<string>关于OTIS OES系统</string>
+		<key>titleNo</key>
+		<string>4</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string></string>
+		<key>iconName</key>
+		<string>退出登录</string>
+		<key>titleNo</key>
+		<string>5</string>
+		<key>gotoImage</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,30 @@
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "BEH-9o-cvJ"; */
+"BEH-9o-cvJ.text" = "00:00";
+
+/* Class = "UILabel"; text = "×3国定假日加班"; ObjectID = "HeL-ix-dPO"; */
+"HeL-ix-dPO.text" = "×3国定假日加班";
+
+/* Class = "UILabel"; text = "×2双休日加班"; ObjectID = "J06-jm-sKJ"; */
+"J06-jm-sKJ.text" = "×2双休日加班";
+
+/* Class = "UILabel"; text = "×1.5平日加班"; ObjectID = "JJu-Z4-rDZ"; */
+"JJu-Z4-rDZ.text" = "×1.5平日加班";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "OTW-yY-iKV"; */
+"OTW-yY-iKV.text" = "00:00";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "Rcl-Zg-qSA"; */
+"Rcl-Zg-qSA.text" = "00:00";
+
+/* Class = "UILabel"; text = "召修"; ObjectID = "dUt-Mv-cAD"; */
+"dUt-Mv-cAD.text" = "召修";
+
+/* Class = "UITextField"; text = "00:00"; ObjectID = "eSR-3v-bWk"; */
+"eSR-3v-bWk.text" = "00:00";
+
+/* Class = "UILabel"; text = "×1平日"; ObjectID = "mck-SD-3Ov"; */
+"mck-SD-3Ov.text" = "×1平日";
+
+/* Class = "UILabel"; text = "工作工时"; ObjectID = "wTw-K7-LJW"; */
+"wTw-K7-LJW.text" = "工作工时";

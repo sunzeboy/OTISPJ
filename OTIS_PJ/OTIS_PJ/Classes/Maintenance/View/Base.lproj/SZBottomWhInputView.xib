@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Microsoft Yahei.ttf">
+            <string>MicrosoftYaHei</string>
+            <string>MicrosoftYaHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SZBottomWhInputView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Fv-1P-H1V" userLabel="lineview">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="C9x-tc-JdG"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkU-Xs-o93" userLabel="leftView">
+                    <rect key="frame" x="0.0" y="1" width="82" height="69"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-mL-esj">
+                    <rect key="frame" x="82" y="1" width="58" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="58" id="FpH-g4-Obs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="-31" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="添加" image="btn_add_blue">
+                        <color key="titleColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <state key="disabled" title="增加">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addButtonClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Aay-wp-1kb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRW-yA-J3E" userLabel="middleView">
+                    <rect key="frame" x="140" y="1" width="40" height="69"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgT-aG-xkA">
+                    <rect key="frame" x="180" y="1" width="58" height="69"/>
+                    <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
+                    <inset key="titleEdgeInsets" minX="-30" minY="38" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
+                    <state key="normal" title="保存" image="btn_save_blue">
+                        <color key="titleColor" red="0.56470588239999997" green="0.56470588239999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="saveBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="1WW-TX-hbC"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-0l-VO1" userLabel="rightView">
+                    <rect key="frame" x="238" y="1" width="82" height="69"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="TgT-aG-xkA" secondAttribute="bottom" id="1lf-Aq-4Xe"/>
+                <constraint firstItem="iRW-yA-J3E" firstAttribute="leading" secondItem="ZCP-mL-esj" secondAttribute="trailing" id="2mU-fr-MoA"/>
+                <constraint firstItem="fSf-0l-VO1" firstAttribute="leading" secondItem="TgT-aG-xkA" secondAttribute="trailing" id="8yU-VY-s7U"/>
+                <constraint firstItem="fSf-0l-VO1" firstAttribute="width" secondItem="iRW-yA-J3E" secondAttribute="width" multiplier="2" id="B5A-so-K4q"/>
+                <constraint firstItem="ZCP-mL-esj" firstAttribute="top" secondItem="0Fv-1P-H1V" secondAttribute="bottom" id="BhA-c1-k2C"/>
+                <constraint firstItem="TgT-aG-xkA" firstAttribute="width" secondItem="ZCP-mL-esj" secondAttribute="width" id="CcG-hW-3VN"/>
+                <constraint firstItem="0Fv-1P-H1V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Hv9-zG-eLA"/>
+                <constraint firstAttribute="trailing" secondItem="0Fv-1P-H1V" secondAttribute="trailing" id="Pmf-PG-CAa"/>
+                <constraint firstAttribute="bottom" secondItem="GkU-Xs-o93" secondAttribute="bottom" id="Vox-SH-Aqj"/>
+                <constraint firstItem="GkU-Xs-o93" firstAttribute="top" secondItem="0Fv-1P-H1V" secondAttribute="bottom" id="Xsp-Ja-dSe"/>
+                <constraint firstItem="fSf-0l-VO1" firstAttribute="top" secondItem="0Fv-1P-H1V" secondAttribute="bottom" id="YQ2-JS-fQB"/>
+                <constraint firstItem="TgT-aG-xkA" firstAttribute="leading" secondItem="iRW-yA-J3E" secondAttribute="trailing" id="Yi1-MH-KjC"/>
+                <constraint firstItem="0Fv-1P-H1V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gEc-xZ-Q8z"/>
+                <constraint firstItem="TgT-aG-xkA" firstAttribute="top" secondItem="0Fv-1P-H1V" secondAttribute="bottom" id="gvy-l6-fKY"/>
+                <constraint firstItem="GkU-Xs-o93" firstAttribute="width" secondItem="iRW-yA-J3E" secondAttribute="width" multiplier="2" id="lDr-1Q-ZhF"/>
+                <constraint firstItem="ZCP-mL-esj" firstAttribute="leading" secondItem="GkU-Xs-o93" secondAttribute="trailing" id="pbL-Z4-Acp"/>
+                <constraint firstAttribute="bottom" secondItem="ZCP-mL-esj" secondAttribute="bottom" id="q8x-XV-YDZ"/>
+                <constraint firstItem="GkU-Xs-o93" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rsp-yM-fct"/>
+                <constraint firstItem="iRW-yA-J3E" firstAttribute="top" secondItem="0Fv-1P-H1V" secondAttribute="bottom" id="vRX-l5-9At"/>
+                <constraint firstAttribute="bottom" secondItem="fSf-0l-VO1" secondAttribute="bottom" id="wMB-gD-s14"/>
+                <constraint firstAttribute="trailing" secondItem="fSf-0l-VO1" secondAttribute="trailing" id="x54-1l-Zb2"/>
+                <constraint firstAttribute="bottom" secondItem="iRW-yA-J3E" secondAttribute="bottom" id="yi3-Me-cDS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addBtn" destination="ZCP-mL-esj" id="5Kz-Nm-vxH"/>
+                <outlet property="saveBtn" destination="TgT-aG-xkA" id="Q2i-LD-KYH"/>
+            </connections>
+            <point key="canvasLocation" x="198" y="120"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_add_blue" width="29" height="29"/>
+        <image name="btn_save_blue" width="29" height="29"/>
+    </resources>
+</document>

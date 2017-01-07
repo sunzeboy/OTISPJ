@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   workingHours.plist
+   OTIS_PJ
+
+   Created by zy on 16/5/9.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>workType</key>
+            <string>路途工时</string>
+            <key>workDate</key>
+            <string>2016-05-05</string>
+            <key>puiNumber</key>
+            <string>111</string>
+            <key>delImgDisFlg</key>
+            <string>0</string>
+            <key>weekday</key>
+            <string>0:00</string>
+            <key>overtimeOnWeekday</key>
+            <string>0:00</string>
+            <key>overtimeOnWeekend</key>
+            <string>0:00</string>
+            <key>overtimeOnStatutoryHoliday</key>
+            <string>0:00</string>
+        </dict>
+        <dict>
+            <key>workType</key>
+            <string>正常保养工时</string>
+            <key>workDate</key>
+            <string>2016-05-05</string>
+            <key>puiNumber</key>
+            <string></string>
+            <key>delImgDisFlg</key>
+            <string>0</string>
+            <key>weekday</key>
+            <string>0:00</string>
+            <key>overtimeOnWeekday</key>
+            <string>0:00</string>
+            <key>overtimeOnWeekend</key>
+            <string>0:00</string>
+            <key>overtimeOnStatutoryHoliday</key>
+            <string>0:00</string>
+        </dict>
+    </array>
+</plist>

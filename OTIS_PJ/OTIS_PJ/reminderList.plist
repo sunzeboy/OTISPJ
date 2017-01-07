@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   reminderList.plist
+   OTIS_PJ
+
+   Created by jQ on 16/5/12.
+   Copyright (c) 2016年 sunzeboy. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>modelTypeImage</key>
+        <string>1.png</string>
+        <key>unitNo</key>
+        <string>DFH01</string>
+        <key>overDate</key>
+        <string>100Day</string>
+        <key>modelType</key>
+        <string>1</string>
+        <key>route</key>
+        <string>Afsdf-11-d</string>
+        <key>buildingName</key>
+        <string>贵州新闻出版总署</string>
+        <key>buildingAddr</key>
+        <string>大河路11号</string>
+        <key>elevatorOwner</key>
+        <string>1111</string>
+        <key>tel</key>
+        <string>11111111</string>
+        <key>yCheakPDate</key>
+        <string>2016-01-12</string>
+        <key>yCheakADate</key>
+        <string>2016-05-12</string>
+    </dict>
+</plist>

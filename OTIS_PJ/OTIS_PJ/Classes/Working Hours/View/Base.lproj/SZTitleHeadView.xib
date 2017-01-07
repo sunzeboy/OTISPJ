@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平日加班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY1-pO-zwO">
+                    <rect key="frame" x="112" y="15" width="94" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="双休日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyW-I4-K9M">
+                    <rect key="frame" x="206" y="15" width="92" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="国定假日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHV-UY-Sev">
+                    <rect key="frame" x="298" y="15" width="92" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiF-02-8BE">
+                    <rect key="frame" x="0.0" y="49" width="405" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="9pe-8q-m4w"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbw-Gs-xjN">
+                    <rect key="frame" x="20" y="15" width="92" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JHV-UY-Sev" secondAttribute="trailing" constant="15" id="0lf-TT-As5"/>
+                <constraint firstItem="mbw-Gs-xjN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="2Ui-Ob-7Yn"/>
+                <constraint firstAttribute="trailing" secondItem="NiF-02-8BE" secondAttribute="trailing" id="3fU-l5-0Qi"/>
+                <constraint firstAttribute="bottom" secondItem="NiF-02-8BE" secondAttribute="bottom" id="5rH-P1-OP6"/>
+                <constraint firstItem="wyW-I4-K9M" firstAttribute="width" secondItem="mbw-Gs-xjN" secondAttribute="width" id="7aI-Ip-yyA"/>
+                <constraint firstItem="mbw-Gs-xjN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Ih5-eA-XRK"/>
+                <constraint firstItem="JHV-UY-Sev" firstAttribute="width" secondItem="mbw-Gs-xjN" secondAttribute="width" id="JWp-mp-Rf8"/>
+                <constraint firstItem="JHV-UY-Sev" firstAttribute="leading" secondItem="wyW-I4-K9M" secondAttribute="trailing" id="MgC-nU-M8l"/>
+                <constraint firstItem="FY1-pO-zwO" firstAttribute="leading" secondItem="mbw-Gs-xjN" secondAttribute="trailing" id="Ryb-gq-hoU"/>
+                <constraint firstItem="wyW-I4-K9M" firstAttribute="centerY" secondItem="FY1-pO-zwO" secondAttribute="centerY" id="YNb-WP-Yje"/>
+                <constraint firstItem="NiF-02-8BE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YTh-oP-q9P"/>
+                <constraint firstItem="FY1-pO-zwO" firstAttribute="height" secondItem="mbw-Gs-xjN" secondAttribute="height" constant="5" id="aYk-s6-GmR"/>
+                <constraint firstItem="wyW-I4-K9M" firstAttribute="leading" secondItem="FY1-pO-zwO" secondAttribute="trailing" id="cRM-dB-nGy"/>
+                <constraint firstItem="FY1-pO-zwO" firstAttribute="centerY" secondItem="mbw-Gs-xjN" secondAttribute="centerY" constant="2.5" id="dME-gY-m60"/>
+                <constraint firstItem="mbw-Gs-xjN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dYF-tY-4tb"/>
+                <constraint firstItem="FY1-pO-zwO" firstAttribute="width" secondItem="mbw-Gs-xjN" secondAttribute="width" constant="1" id="hrv-kD-RMf"/>
+                <constraint firstItem="JHV-UY-Sev" firstAttribute="centerY" secondItem="wyW-I4-K9M" secondAttribute="centerY" id="mLq-oL-jF5"/>
+                <constraint firstItem="JHV-UY-Sev" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="pwh-sf-l9Z"/>
+                <constraint firstItem="JHV-UY-Sev" firstAttribute="height" secondItem="mbw-Gs-xjN" secondAttribute="height" constant="5" id="qgM-yq-QDD"/>
+                <constraint firstItem="wyW-I4-K9M" firstAttribute="height" secondItem="mbw-Gs-xjN" secondAttribute="height" constant="5" id="yne-5y-rbk"/>
+                <constraint firstItem="mbw-Gs-xjN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zpS-Mm-RXh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Ih5-eA-XRK"/>
+                    <exclude reference="zpS-Mm-RXh"/>
+                    <exclude reference="pwh-sf-l9Z"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="366.5" y="214"/>
+        </view>
+    </objects>
+</document>

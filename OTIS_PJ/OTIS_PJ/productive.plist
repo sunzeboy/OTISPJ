@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>workTypeImage</key>
+		<string>CB.png</string>
+		<key>imageName</key>
+		<string>召修</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>OTCB.png</string>
+		<key>imageName</key>
+		<string>加班召修</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>R.png</string>
+		<key>imageName</key>
+		<string>修理</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>T.png</string>
+		<key>imageName</key>
+		<string>T修理</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>AE.png</string>
+		<key>imageName</key>
+		<string>年检/陪检</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>PUI.png</string>
+		<key>imageName</key>
+		<string>PUI整改</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>SB.png</string>
+		<key>imageName</key>
+		<string>驻人工地</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>SE.png</string>
+		<key>imageName</key>
+		<string>安全排查</string>
+	</dict>
+	<dict>
+		<key>workTypeImage</key>
+		<string>OPH.png</string>
+		<key>imageName</key>
+		<string>其他生产工时</string>
+	</dict>
+</array>
+</plist>
