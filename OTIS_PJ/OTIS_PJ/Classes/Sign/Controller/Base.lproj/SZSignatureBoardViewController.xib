@@ -121,7 +121,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.090166620910167694" green="0.099683620035648346" blue="0.47521191835403442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hf9-le-mlU" secondAttribute="bottom" id="0VX-mm-JB2"/>
                 <constraint firstItem="hf9-le-mlU" firstAttribute="trailing" secondItem="Vq7-wf-cZ2" secondAttribute="trailing" id="0zS-Mb-aEa"/>
@@ -171,7 +171,7 @@
                     <exclude reference="GxP-y1-hmd"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="684.5" y="284"/>
+            <point key="canvasLocation" x="693" y="288"/>
         </view>
     </objects>
     <resources>

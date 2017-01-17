@@ -150,7 +150,7 @@
 //    SZFinalMaintenanceUnitItem *unitItem in self.maintain
 //    NSUInteger i = self.maintain.count-1;;i--
     //从后向前遍历，保证是最近计划日期的匹配
-    for (NSUInteger i = self.maintain.count-1;;i--) {
+    for (int i = (int)(self.maintain.count)-1;i>-1;i--) {
         SZFinalMaintenanceUnitItem *unitItem = self.maintain[i];
         if (item.strArray&&item.strArray.count) {
             
