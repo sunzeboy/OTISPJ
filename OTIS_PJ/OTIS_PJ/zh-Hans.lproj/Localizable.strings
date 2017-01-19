@@ -38,8 +38,8 @@
 "title.SZMaintenanceOperation.comments"                                                                 = "备注";
 "title.SZOtisElevatorViewController"                                                                    = "在保电梯";
 "title.SZNonOtisElevatorViewController"                                                                 = "非在保电梯";
-"title.signViewController"                                                                              = "客户签字";
-"title.SignatureBoardViewController"                                                                    = "签字";
+"title.signViewController"                                                                              = "签字";
+"title.RecallViewController"                                                                            = "召修";
 "title.passwordChange"                                                                                  = "密码修改";
 "title.annualInspection"                                                                                = "年检提醒";
 "title.unSignElevatorList"                                                                              = "未签字电梯列表";

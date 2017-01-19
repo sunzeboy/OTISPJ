@@ -25,6 +25,7 @@
 #import "SZTipVIew.h"
 #import <INTULocationManager/INTULocationManager.h>
 #import "SZClearLocalDataTool.h"
+#import "SZRecallViewController.h"
 
 @interface HomeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *myHeadPortrait;
@@ -83,14 +84,14 @@
 
 -(void)setUpSZButton{
     self.weibao.iconImage.image = [UIImage imageNamed:@"menu_weibao"];
-    self.qianzi.iconImage.image = [UIImage imageNamed:@"menu_qianzi"];
+    self.qianzi.iconImage.image = [UIImage imageNamed:@"recall"];
     self.gongshi.iconImage.image = [UIImage imageNamed:@"menu_gongshi"];
     self.tongbu.iconImage.image = [UIImage imageNamed:@"menu_tongbu"];
     self.nianjian.iconImage.image = [UIImage imageNamed:@"menu_nianjian"];
     self.bangzhu.iconImage.image = [UIImage imageNamed:@"menu_bangzhu"];
     
     self.weibao.titleLabel.text = SZLocal(@"title.MaintenanceViewController");
-    self.qianzi.titleLabel.text = SZLocal(@"title.SignatureBoardViewController");
+    self.qianzi.titleLabel.text = SZLocal(@"title.RecallViewController");
     self.gongshi.titleLabel.text = SZLocal(@"title.gongshi");
     self.tongbu.titleLabel.text = SZLocal(@"title.tongbu");
     self.nianjian.titleLabel.text = SZLocal(@"title.nianjian");
@@ -182,7 +183,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)qianziAct:(UIButton *)sender {
-    SignViewController *vc =[[SignViewController alloc] init];
+    SZRecallViewController *vc =[[SZRecallViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

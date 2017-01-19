@@ -264,6 +264,8 @@
 		684A16881D7FB413002ED4D5 /* SZTopBoard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A168A1D7FB413002ED4D5 /* SZTopBoard.xib */; };
 		684A168F1D7FB41C002ED4D5 /* SZSignDetailBottomOperationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A16911D7FB41C002ED4D5 /* SZSignDetailBottomOperationView.xib */; };
 		684A60731D40AA8D002EBA62 /* SZDuoxuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A60711D40AA8D002EBA62 /* SZDuoxuanViewController.m */; };
+		68584D221E30AA6100CF20DD /* SZRecallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68584D201E30AA6100CF20DD /* SZRecallViewController.m */; };
+		68584D231E30AA6100CF20DD /* SZRecallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68584D211E30AA6100CF20DD /* SZRecallViewController.xib */; };
 		6859E9CC1D014A9F00CC8779 /* SZTable_LaborHours.m in Sources */ = {isa = PBXBuildFile; fileRef = 6859E9CB1D014A9F00CC8779 /* SZTable_LaborHours.m */; };
 		686113541D069C64004AFBBE /* SZTable_UnfinishedMaintenanceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 686113531D069C64004AFBBE /* SZTable_UnfinishedMaintenanceItem.m */; };
 		6862EADF1D225262005ED334 /* SZWorkingHoursPUIllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6862EADD1D225262005ED334 /* SZWorkingHoursPUIllCell.m */; };
@@ -901,6 +903,9 @@
 		684A16951D7FB420002ED4D5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SZSignDetailBottomOperationView.strings"; sourceTree = "<group>"; };
 		684A60701D40AA8D002EBA62 /* SZDuoxuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDuoxuanViewController.h; sourceTree = "<group>"; };
 		684A60711D40AA8D002EBA62 /* SZDuoxuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDuoxuanViewController.m; sourceTree = "<group>"; };
+		68584D1F1E30AA6100CF20DD /* SZRecallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZRecallViewController.h; sourceTree = "<group>"; };
+		68584D201E30AA6100CF20DD /* SZRecallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZRecallViewController.m; sourceTree = "<group>"; };
+		68584D211E30AA6100CF20DD /* SZRecallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallViewController.xib; sourceTree = "<group>"; };
 		6859E9CA1D014A9F00CC8779 /* SZTable_LaborHours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTable_LaborHours.h; sourceTree = "<group>"; };
 		6859E9CB1D014A9F00CC8779 /* SZTable_LaborHours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTable_LaborHours.m; sourceTree = "<group>"; };
 		686113521D069C64004AFBBE /* SZTable_UnfinishedMaintenanceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTable_UnfinishedMaintenanceItem.h; sourceTree = "<group>"; };
@@ -1442,6 +1447,9 @@
 				680628A01CC77C56002B5201 /* HomeViewController.h */,
 				680628A11CC77C56002B5201 /* HomeViewController.m */,
 				68CB02BA1D5ABF9F00D19F69 /* HomeViewController.xib */,
+				68584D1F1E30AA6100CF20DD /* SZRecallViewController.h */,
+				68584D201E30AA6100CF20DD /* SZRecallViewController.m */,
+				68584D211E30AA6100CF20DD /* SZRecallViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2548,6 +2556,7 @@
 				0B405D921CDB335D007A4C18 /* elevatorItem.plist in Resources */,
 				684A16881D7FB413002ED4D5 /* SZTopBoard.xib in Resources */,
 				8A66E7E81D5B103000924501 /* SZWorkingHourTableViewCell.xib in Resources */,
+				68584D231E30AA6100CF20DD /* SZRecallViewController.xib in Resources */,
 				1A1DB9D41CD1E6E000393DFB /* productive.plist in Resources */,
 				684A16261D7FB362002ED4D5 /* SZLaborHoursItemView.xib in Resources */,
 				0B60C7B51CE3008F00A1BEEE /* helpList.plist in Resources */,
@@ -2856,6 +2865,7 @@
 				6815C0851CD9A3B900757274 /* SZUserInfo.m in Sources */,
 				68125BB01D1D22420098A61C /* SZUploadMaintenancemRequest.m in Sources */,
 				1AD9F3D41CE0715A00B532B1 /* SZElevatorInfoTableViewCell.m in Sources */,
+				68584D221E30AA6100CF20DD /* SZRecallViewController.m in Sources */,
 				68FE59AB1CC8D17200FFB2BC /* WorkingHoursViewController.m in Sources */,
 				68125B931D1D22100098A61C /* SZDownload_CardsResponse.m in Sources */,
 				6873BB381D64013C00E86561 /* SZSuperUserViewController.m in Sources */,
