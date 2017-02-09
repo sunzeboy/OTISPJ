@@ -3509,7 +3509,7 @@
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otiscallback;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3533,7 +3533,7 @@
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otiscallback;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

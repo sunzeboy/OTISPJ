@@ -9,6 +9,7 @@
 #import "SZRecallViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "CustomIOSAlertView.h"
+#import<CommonCrypto/CommonDigest.h>
 
 @interface SZRecallViewController ()<UIWebViewDelegate>
 
@@ -25,15 +26,30 @@
 }
 -(void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.30.157/CallBack/CallBack/main.html"]];
+    
+    //NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.30.157/CallBack/main.html"]];
+    NSString *strUrl = [NSString stringWithFormat:@"http://23.97.73.103/CallBackTest/CallBack/main.html?userName=%@&passWord=%@",[OTISConfig EmployeeID],[self md5:[OTISConfig userPW]]];
+    NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl]];
     self.webView.delegate = self;
     [self.webView loadRequest:request];
+    
+}
 
+- (NSString *) md5:(NSString *) input {
+    const char *cStr = [input UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
 }
 
 #pragma - mark UIWebViewDelegate
@@ -46,7 +62,7 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-    SZLog(@"webViewDidStartLoad");
+    SZLog(@"webViewDidFinishLoad");
     self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     self.context.exceptionHandler =
     ^(JSContext *context, JSValue *exceptionValue)
@@ -58,8 +74,10 @@
     
     WEAKSELF
     self.context[@"popVc"] = ^(){
-        [weakSelf.navigationController popViewControllerAnimated:YES];
-    
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        });
+        
     };
     
     self.context[@"scanQrcode"] = ^(){
@@ -128,7 +146,8 @@
     WEAKSELF
     vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
         
-        weakSelf.qrCode = item.rCode;
+        weakSelf.qrCode = item.UNIT_NO;
+        [self.context[@"qrcodeResult"] callWithArguments:@[item.UNIT_NO]];
         
     };
     vc.style = style;
