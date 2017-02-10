@@ -11,6 +11,7 @@
 
 @interface SZSuperUserViewController ()<XHDropBoxDelegate>
 @property (strong,nonatomic) XHDropBoxView *xhbox;
+@property (strong,nonatomic) UITextField *xhbox2;
 
 @property (strong,nonatomic) UILabel *detialLabel;
 
@@ -37,6 +38,26 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UILabel *labelOES = [[UILabel alloc] initWithFrame:CGRectMake(15, 160, 100, 40)];
+    labelOES.text = @"OES地址：";
+    labelOES.font = [UIFont systemFontOfSize:16];
+    [self.view addSubview:labelOES];
+    
+    UILabel *labelCallback = [[UILabel alloc] initWithFrame:CGRectMake(15, 60, 100, 40)];
+    labelCallback.text = @"召修地址：";
+    labelCallback.font = [UIFont systemFontOfSize:16];
+    [self.view addSubview:labelCallback];
+    
+    self.xhbox2 = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 40)];
+    self.xhbox2.borderStyle = UITextBorderStyleRoundedRect;
+    self.xhbox2.placeholder = @"请输入或选择服务器地址";
+    self.xhbox2.tag = 1001;
+    self.xhbox2.text = SZOuterNetworkCallback;
+    self.xhbox2.font = [UIFont systemFontOfSize:14.0];
+    [self.view addSubview:self.xhbox2];
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
     self.xhbox = [[XHDropBoxView alloc]init];
@@ -44,7 +65,7 @@
      第六个参数：tableview的高度 第七个参数：设置是否能够编辑 yes能编辑  no不能编辑
      默认button高度和textfiled高度一样
      默认tableview宽度为textfield和button的宽度只和*/
-    [self.xhbox setControlsViewOriginx:2 ViewOriginy:200 TextWidth:SCREEN_WIDTH-30 TextAndButtonHigth:40 ButtonWidth:40 TableHigth:100 Editortype:YES];
+    [self.xhbox setControlsViewOriginx:0 ViewOriginy:200 TextWidth:SCREEN_WIDTH-40 TextAndButtonHigth:40 ButtonWidth:40 TableHigth:100 Editortype:YES];
     self.xhbox.textfiled.placeholder = @"请输入或选择服务器地址";
     self.xhbox.delegate =self;
     self.xhbox.tag = 1000;
@@ -87,35 +108,41 @@
 -(void)selectAtIndex:(int)index WithXHDrooBox:(XHDropBoxView *)dropbox
 {
     NSLog(@"row==%d",index);
-//    NSArray *arr = @[@"http://ochcsprdweb.cloudapp.net:22281/",@"http://ochcsprdweb.cloudapp.net/MobileTest/",@"http://192.168.30.84:22282/"];云服务、云测试-技师勿设、畅星测试-技师勿设
-    NSArray *arr2 = @[@"云服务",@"云测试-技师勿设",@"畅星测试-技师勿设"];
-    switch (index) {
-        case 0:
-
-            SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
-            SZNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
-
-            break;
-        case 1:
-
-            SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
-            SZNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
-
-
-            break;
-        case 2:
-
-            SZOuterNetwork = @"http://192.168.30.84:22282/";
-            SZNetwork = @"http://192.168.30.84:22282/";
-
-            break;
-            
-        default:
-            break;
+    if (dropbox.tag == 1000) {
+        //    NSArray *arr = @[@"http://ochcsprdweb.cloudapp.net:22281/",@"http://ochcsprdweb.cloudapp.net/MobileTest/",@"http://192.168.30.84:22282/"];云服务、云测试-技师勿设、畅星测试-技师勿设
+        NSArray *arr2 = @[@"云服务",@"云测试-技师勿设",@"畅星测试-技师勿设"];
+        switch (index) {
+            case 0:
+                
+                SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
+                SZNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
+                
+                break;
+            case 1:
+                
+                SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
+                SZNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
+                
+                
+                break;
+            case 2:
+                
+                SZOuterNetwork = @"http://192.168.30.84:22282/";
+                SZNetwork = @"http://192.168.30.84:22282/";
+                
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        self.detialLabel.text = arr2[index];
+    }else {
+    
+    
     }
 
-
-    self.detialLabel.text = arr2[index];
 
 }
 
@@ -127,6 +154,10 @@
 }
 
 -(void)confirm{
+    SZOuterNetworkCallback = self.xhbox2.text;
+    if (SZOuterNetworkCallback&&[SZOuterNetworkCallback containsString:@"://"]) {
+        [USER_DEFAULT setObject:SZOuterNetworkCallback forKey:@"SZOuterNetworkCallback"];
+    }
      [USER_DEFAULT setObject:SZOuterNetwork forKey:@"SZOuterNetwork"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -136,6 +167,9 @@
     SZOuterNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
 
 
 @end

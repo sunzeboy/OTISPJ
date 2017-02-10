@@ -24,6 +24,7 @@ UIKIT_EXTERN CGFloat const OTIS_SZLaborHoursItemViewH;
 
 
 UIKIT_EXTERN NSString * SZOuterNetwork;
+UIKIT_EXTERN NSString * SZOuterNetworkCallback;
 UIKIT_EXTERN NSString * SZNetwork;
 UIKIT_EXTERN NSString *const APIVersion;
 UIKIT_EXTERN NSString *const APILogin;

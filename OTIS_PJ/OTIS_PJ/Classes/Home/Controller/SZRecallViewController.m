@@ -32,7 +32,8 @@
     [super viewDidLoad];
     
     //NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.30.157/CallBack/main.html"]];
-    NSString *strUrl = [NSString stringWithFormat:@"http://23.97.73.103/CallBackTest/CallBack/main.html?userName=%@&passWord=%@",[OTISConfig EmployeeID],[self md5:[OTISConfig userPW]]];
+    
+    NSString *strUrl = [NSString stringWithFormat:@"%@?userName=%@&passWord=%@&tabType=0",SZOuterNetworkCallback,[OTISConfig EmployeeID],[self md5:[OTISConfig userPW]]];
     NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl]];
     self.webView.delegate = self;
     [self.webView loadRequest:request];
@@ -46,8 +47,12 @@
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     
-    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
         [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    
+    [output deleteCharactersInRange:NSMakeRange(30, 2)];
     
     return output;
 }
