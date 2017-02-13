@@ -11,6 +11,8 @@
 #import "CustomIOSAlertView.h"
 #import<CommonCrypto/CommonDigest.h>
 
+
+
 @interface SZRecallViewController ()<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -89,9 +91,9 @@
         [weakSelf ZhiFuBaoStyle];
         
     };
-    self.context[@"qrcodeResult"] = ^NSString *(){
-        return weakSelf.qrCode;
-    };
+   // self.context[@"qrcodeResult"] = ^NSString *(NSString *qrcode){
+     //   return weakSelf.qrCode;
+    //};
 }
 
 
@@ -152,8 +154,8 @@
     vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
         
         weakSelf.qrCode = item.UNIT_NO;
-        [self.context[@"qrcodeResult"] callWithArguments:@[item.UNIT_NO]];
-        
+        JSValue *function = [self.context objectForKeyedSubscript:@"qrcodeResult"];
+        JSValue *result = [function callWithArguments:@[item.UNIT_NO]];
     };
     vc.style = style;
     //vc.isOpenInterestRect = YES;
