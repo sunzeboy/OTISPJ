@@ -96,7 +96,7 @@
     tableview.dataSource=self;
     [self.view addSubview:tableview];
     self.tableview=tableview;
-    UIEdgeInsets insets=UIEdgeInsetsMake(64+35, 0, 150, 0);
+    UIEdgeInsets insets=UIEdgeInsetsMake(64+35, 0, 135, 0);
     [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(insets);
     }];
