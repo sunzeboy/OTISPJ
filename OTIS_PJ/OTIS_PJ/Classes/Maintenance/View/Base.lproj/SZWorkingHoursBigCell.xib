@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,42 +19,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1平日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuV-DO-qHt" userLabel="weekdayLabel">
-                        <rect key="frame" x="59" y="69" width="41" height="30"/>
+                        <rect key="frame" x="60" y="69" width="41" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="WVI-Uh-REB"/>
                             <constraint firstAttribute="height" constant="30" id="n6W-GJ-jDf"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="WVI-Uh-REB"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="34" y="167" width="76" height="30"/>
-                        </variation>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKk-Gt-jjk">
-                        <rect key="frame" x="103" y="69" width="55" height="30"/>
+                        <rect key="frame" x="104" y="69" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="co1-TT-37A"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="313" y="167" width="54" height="30"/>
-                        </variation>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×2双休日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYE-yL-F0g" userLabel="weekendLabel">
-                        <rect key="frame" x="18" y="101" width="82" height="30"/>
+                        <rect key="frame" x="18" y="101" width="83" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="Psd-Qf-u9u"/>
                             <constraint firstAttribute="height" constant="30" id="SII-n9-yfr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -58,16 +56,14 @@
                                 <exclude reference="SII-n9-yfr"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="15" y="205" width="95" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnA-oz-Y6q">
-                        <rect key="frame" x="103" y="101" width="55" height="30"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnA-oz-Y6q">
+                        <rect key="frame" x="104" y="101" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Wup-Ag-o8q"/>
                             <constraint firstAttribute="width" constant="54" id="bAi-vC-UUT"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <variation key="default">
@@ -76,18 +72,15 @@
                                 <exclude reference="bAi-vC-UUT"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="313" y="205" width="54" height="30"/>
-                        </variation>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1.5平日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-sh-8Ea" userLabel="weekdayOvertimeLabel">
-                        <rect key="frame" x="277" y="69" width="78" height="30"/>
+                        <rect key="frame" x="276" y="69" width="79" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="UE7-Db-wy4"/>
                             <constraint firstAttribute="height" constant="30" id="gyo-2L-KQd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -95,16 +88,14 @@
                                 <exclude reference="gyo-2L-KQd"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="221" y="167" width="84" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-0Y-5UW">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-0Y-5UW">
                         <rect key="frame" x="358" y="69" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="4gp-tS-97X"/>
                             <constraint firstAttribute="width" constant="54" id="Zbe-Bf-hrr"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                         <variation key="default">
@@ -113,25 +104,20 @@
                                 <exclude reference="Zbe-Bf-hrr"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="118" y="167" width="54" height="30"/>
-                        </variation>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-2k-f8g" userLabel="holidayOvertimeLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1w-2k-f8g" userLabel="holidayOvertimeLabel">
                         <rect key="frame" x="260" y="101" width="95" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="203" y="205" width="102" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lx-5j-K9L">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lx-5j-K9L">
                         <rect key="frame" x="358" y="101" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="PgF-9c-sEU"/>
                             <constraint firstAttribute="width" constant="54" id="dJq-DO-ABZ"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <variation key="default">
@@ -140,48 +126,42 @@
                                 <exclude reference="dJq-DO-ABZ"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="118" y="205" width="54" height="30"/>
-                        </variation>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnF-gN-f4r">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="工作工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnF-gN-f4r">
                         <rect key="frame" x="18" y="43" width="68" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路途工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-ON-2aJ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="路途工时" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-ON-2aJ">
                         <rect key="frame" x="18" y="141" width="68" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1平日" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjE-xj-Plr" userLabel="weekdayLabel">
-                        <rect key="frame" x="59" y="167" width="41" height="30"/>
+                        <rect key="frame" x="60" y="167" width="41" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="NbP-ch-xfa"/>
                             <constraint firstAttribute="height" constant="30" id="vHs-MX-U5y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="vHs-MX-U5y"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="34" y="167" width="76" height="30"/>
-                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×2双休日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1a-D2-o7M" userLabel="weekendLabel">
-                        <rect key="frame" x="18" y="199" width="82" height="30"/>
+                        <rect key="frame" x="18" y="199" width="83" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="90" id="Eud-6j-CR9"/>
                             <constraint firstAttribute="height" constant="30" id="jFP-4h-0wn"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -189,16 +169,14 @@
                                 <exclude reference="jFP-4h-0wn"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="15" y="205" width="95" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10V-Cq-JoE">
-                        <rect key="frame" x="103" y="199" width="55" height="30"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10V-Cq-JoE">
+                        <rect key="frame" x="104" y="199" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="FKG-9n-JXG"/>
                             <constraint firstAttribute="height" constant="30" id="YeF-eV-6ab"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <variation key="default">
@@ -207,18 +185,15 @@
                                 <exclude reference="YeF-eV-6ab"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="313" y="205" width="54" height="30"/>
-                        </variation>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×1.5平日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2j-PL-p96" userLabel="weekdayOvertimeLabel">
-                        <rect key="frame" x="277" y="167" width="78" height="30"/>
+                        <rect key="frame" x="276" y="167" width="79" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="APV-wr-FW7"/>
                             <constraint firstAttribute="width" constant="110" id="ru3-6b-yhk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -226,16 +201,14 @@
                                 <exclude reference="ru3-6b-yhk"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="221" y="167" width="84" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QaU-vJ-eKB">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QaU-vJ-eKB">
                         <rect key="frame" x="358" y="167" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="QK6-Wm-VRf"/>
                             <constraint firstAttribute="height" constant="30" id="laN-Hl-nF8"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                         <variation key="default">
@@ -244,25 +217,20 @@
                                 <exclude reference="laN-Hl-nF8"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="118" y="167" width="54" height="30"/>
-                        </variation>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RU3-oB-VdU" userLabel="holidayOvertimeLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="×3国定假日加班" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RU3-oB-VdU" userLabel="holidayOvertimeLabel">
                         <rect key="frame" x="259" y="199" width="95" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="203" y="205" width="102" height="30"/>
-                        </variation>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPy-hr-a3C">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VPy-hr-a3C">
                         <rect key="frame" x="358" y="199" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="KaO-Ij-i6R"/>
                             <constraint firstAttribute="height" constant="30" id="Kvb-I2-l7l"/>
                         </constraints>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <variation key="default">
@@ -271,12 +239,9 @@
                                 <exclude reference="Kvb-I2-l7l"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="118" y="205" width="54" height="30"/>
-                        </variation>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" text="00:00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQz-rD-7Nh">
-                        <rect key="frame" x="103" y="167" width="55" height="30"/>
+                        <rect key="frame" x="104" y="167" width="55" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Kq1-3a-uWL"/>
                             <constraint firstAttribute="width" constant="54" id="Xv4-48-gR7"/>
@@ -289,18 +254,15 @@
                                 <exclude reference="Xv4-48-gR7"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                            <rect key="frame" x="313" y="167" width="54" height="30"/>
-                        </variation>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="召修" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8G-WL-LKp">
                         <rect key="frame" x="8" y="8" width="405" height="30"/>
-                        <color key="backgroundColor" red="0.0039215686269999999" green="0.20000000000000001" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.20000000000000001" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="SAU-MF-mnr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
