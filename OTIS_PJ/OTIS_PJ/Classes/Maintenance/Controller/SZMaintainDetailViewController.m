@@ -134,8 +134,19 @@
     NSString*lat=[[NSUserDefaults standardUserDefaults] objectForKey:@"userLastLocationLat"];
     NSString*lon=[[NSUserDefaults standardUserDefaults] objectForKey:@"userLastLocationLon"];
 
+    
+    
     self.item.StartTime = [NSDate sinceDistantPastTime];
-
+    NSInteger yymmdd =  [NSDate currentYYMMDD];
+    NSString *strKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
+    if (![USER_DEFAULT objectForKey:strKey]) {
+        [USER_DEFAULT setObject:@(self.item.StartTime) forKey:strKey];
+    }
+    NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+    if (numTime&&numTime.integerValue>3) {
+        [USER_DEFAULT setObject:@(self.item.StartTime) forKey:strKey];
+    }
+    
     self.currentLocationLabel.text=[NSString stringWithFormat:SZLocal(@"dialog.content.locationing")];
     self.weibao.enabled=NO;
     self.gongshi.enabled=NO;

@@ -27,7 +27,7 @@
 #import "SZMaintainDetailViewController.h"
 #import "SZBottomWorkingHourView.h"
 #import "TablesAndFields.h"
-
+#import "NSDate+Extention.h"
 
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
@@ -427,6 +427,18 @@
                     //WEAKSELF
                     alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
                         if(buttonIndex == 0){
+                             NSInteger yymmdd =  [NSDate currentYYMMDD];
+                            NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+                            if (![USER_DEFAULT objectForKey:strKey]) {
+                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
+                                
+
+                            }
+                            NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+                            if (numTime&&numTime.integerValue>3&&![[USER_DEFAULT objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
+                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                            }
                             /**
                              *  保存完成的保养项目
                              */
@@ -519,6 +531,7 @@
 -(void)stop{
     
     
+    
     SZMaintenanceHalfMonthViewController *halfMonth = [self.childViewControllers objectAtIndex:0];
     SZMaintenanceQuarterViewController *quarter  = [self.childViewControllers objectAtIndex:1];
     SZMaintenanceHalfYearViewController *halfYear = [self.childViewControllers objectAtIndex:2];
@@ -539,7 +552,9 @@
         };
         [alertView show];
     }else{
-    
+        NSInteger yymmdd =  [NSDate currentYYMMDD];
+        NSString *strKey = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo];
+        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
         // 只要做了保养项目的保存，中断或者保存，都将工时进入的状态清除
         [SZTable_Schedules updateAddLaborHoursState:0 andScheduleID:self.item.ScheduleID];
         

@@ -33,6 +33,7 @@
 #import "NSDate+Extention.h"
 #import "SZTable_Schedules.h"
 #import "SZTable_Report.h"
+#import "SZBottomSaveOperationView.h"
 
 @interface SZInputWorkingHourViewController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 
@@ -67,6 +68,9 @@
 
 @property (nonatomic , assign) float initialTime;
 
+@property (nonatomic , strong)  SZBottomSaveOperationView *operationView;
+
+
 @end
 
 @implementation SZInputWorkingHourViewController
@@ -74,6 +78,19 @@
     
     return NO;
 }
+
+
+-(SZBottomSaveOperationView *)operationView{
+    
+    if(_operationView ==nil){
+        _operationView =[SZBottomSaveOperationView loadSZBottomSaveOperationView];
+        _operationView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
+        [self.view addSubview:_operationView];
+    }
+    return _operationView;
+    
+}
+
 -(SZBottomFindView *) bottomFindView{
     
     if(_bottomFindView ==nil){
@@ -263,6 +280,7 @@
     
     self.title = [NSString stringWithFormat:@"工时填写－%@", self.labor.LaborName];
     self.view.backgroundColor=[UIColor lightGrayColor];
+    [self dateView];
     if (self.inWarranty || self.isWorkhour) {
         NSString *titleDate = nil;
         if (self.item.GenerateDate == 0||!self.item.GenerateDate) {
@@ -271,16 +289,92 @@
             titleDate = self.item.GenerateDate;
         }
         [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:titleDate totalHour:@"0"];
+        
+
+        [self setManHourTableView];
+        [self bottomWhInputView];
+        
+        [self judegeBottomView];
+        
+        
     } else {
-        [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:@"0"];
+        
+        NSInteger yymmdd =  [NSDate currentYYMMDD];
+        
+        NSString *startKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
+        
+        NSNumber *start = (NSNumber *)[USER_DEFAULT objectForKey:startKey];
+        
+        NSString *endKey;
+        if (self.inputMode== 1 || self.inputMode== 2 ) { // 维保灰色，工时进入
+            endKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
+            
+        }else {
+            endKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+        }
+        
+        NSNumber *end = (NSNumber *)[USER_DEFAULT objectForKey:endKey];
+        
+        float gongshihours = fabs((end.longLongValue - start.longLongValue)/10000000.0/3600.0);
+        
+        NSNumber *lutuEnd = [USER_DEFAULT objectForKey:@"ENDTIME"]?[USER_DEFAULT objectForKey:@"ENDTIME"]:@(MAXFLOAT);
+        
+        float hours = (start.longLongValue-lutuEnd.longLongValue)/10000000.0/3600.0;
+        float lutuhours = hours>0?hours:0 ;
+        
+        SZLabor *labor = self.types[0];
+        labor.item1.Hour1Rate = gongshihours ;
+        labor.item1.Hour1Str = [NSString stringWithFormat:@"%d:%d",(int)gongshihours,(int)((gongshihours-(int)gongshihours)*60)];
+        labor.item2.Hour1Rate = lutuhours ;
+        labor.item2.Hour1Str = [NSString stringWithFormat:@"%d:%d",(int)lutuhours,(int)((lutuhours-(int)lutuhours)*60)];
+        
+        NSNumber *zhongduanTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
+        NSNumber *lutuTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
+
+        if (self.zhongduan) {
+            NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+            
+            
+            gongshihours = fabs((numTime.longLongValue-start.longLongValue)/10000000.0/3600.0)+zhongduanTime.floatValue;
+            
+        }else{
+            
+            if (self.inputMode== 1 || self.inputMode== 2) {
+                
+            }else{
+                gongshihours = zhongduanTime.floatValue + gongshihours;
+                lutuhours = lutuhours + lutuTime.floatValue;
+            }
+            
+        }
+        
+        [self setUpAutoWorkingHoursWithtime:gongshihours lutuTime:lutuhours];
+        
+        WEAKSELF
+        self.operationView.confirmActBlock = ^(UIButton *btn){
+            
+            if ([btn.titleLabel.text isEqualToString:SZLocal(@"btn.title.save")]) {
+                [weakSelf confirmSaveWorkingHours];
+                [USER_DEFAULT setObject:@(gongshihours) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
+                [USER_DEFAULT setObject:@(lutuhours) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
+
+                if (weakSelf.inputMode == 0&&weakSelf.zhongduan == NO) {
+                    [USER_DEFAULT setObject:@"NO" forKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,weakSelf.item.UnitNo]];
+                    [USER_DEFAULT setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
+                    [USER_DEFAULT setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
+                }
+                
+
+            }
+        };
+        
+        [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:[NSString stringWithFormat:@"%.2f",gongshihours+lutuhours]];
     }
-    [self dateView];
-    [self setManHourTableView];
-    [self bottomWhInputView];
+    
+    
+   
     [self setNavItem];
-    
-    [self judegeBottomView];
-    
+
     //AddLaborHoursState状态
     SZNavigationController *nav = (SZNavigationController *)self.navigationController;
     if (!nav.laborTypeID) {
@@ -351,10 +445,15 @@
     
     
     float totalHour = 0;
+    
+    
     for (SZLabor *labor in self.types) {
         totalHour+=labor.gongshi;
     }
     self.initialTime = totalHour;
+   
+    
+    
     self.totalHourText.text = [NSString stringWithFormat:@"%.2f",totalHour];
 }
 -(void)back{
@@ -365,6 +464,7 @@
     alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
         if(buttonIndex == 0){
             [self.navigationController popViewControllerAnimated:YES];
+            [USER_DEFAULT setObject:@"YES" forKey:@"BACKACT"];
             [alertView close];
         }else if(buttonIndex == 1){
             [alertView close];
@@ -489,6 +589,40 @@
             self.subDateText.text =self.item.CheckDateStr;
         }
     }
+}
+
+
+- (void)setUpAutoWorkingHoursWithtime:(float)gongzuoVale lutuTime:(float)lutuVale {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 80+64, SCREEN_WIDTH, SCREEN_HEIGHT-(80+64))];
+    view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:view];
+
+    
+    
+    UILabel *gongzuo = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, 100, 30)];
+    gongzuo.text = @"工作工时：";
+    gongzuo.font = [UIFont systemFontOfSize:14.0];
+    gongzuo.textColor = RGB(30, 32, 81);
+    
+    UILabel *gongzuoTime = [[UILabel alloc] initWithFrame:CGRectMake(25, 60, 100, 30)];
+    gongzuoTime.text = [NSString stringWithFormat:@"%.2f小时",gongzuoVale];
+    gongzuoTime.font = [UIFont systemFontOfSize:14.0];
+    gongzuoTime.textColor = RGB(30, 32, 81);
+    
+    UILabel *lutu = [[UILabel alloc] initWithFrame:CGRectMake(15, 100, 100, 30)];
+    lutu.text = @"路途工时：";
+    lutu.font = [UIFont systemFontOfSize:14.0];
+    lutu.textColor = RGB(30, 32, 81);
+    
+    UILabel *lutuTime = [[UILabel alloc] initWithFrame:CGRectMake(25, 140, 100, 30)];
+    lutuTime.text = [NSString stringWithFormat:@"%.2f小时",lutuVale];
+    lutuTime.font = [UIFont systemFontOfSize:14.0];
+    lutuTime.textColor = RGB(30, 32, 81);
+    
+    [view addSubview:gongzuo];
+    [view addSubview:gongzuoTime];
+    [view addSubview:lutu];
+    [view addSubview:lutuTime];
 }
 
 // 设置TableView
@@ -811,7 +945,8 @@
             break;
     }
 
-    
+    [USER_DEFAULT setObject:@"NO" forKey:@"BACKACT"];
+
 }
 
 

@@ -20,6 +20,7 @@
 #import "SZBottomSaveOperationView.h"
 #import "SZTable_QRCode.h"
 #import "SZTable_Schedules.h"
+#import "NSDate+Extention.h"
 
 @interface SZJobHazardAnalysisViewController ()
 
@@ -257,7 +258,16 @@
             }else{//工时
         
                 if (ret1 && ret2 && ret3) {
+                    NSInteger yymmdd =  [NSDate currentYYMMDD];
+
+                    NSString *strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
+
+                    if (![USER_DEFAULT objectForKey:strKey]) {
+                        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
+                    }
                     
+
                     SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
                     vc.inputMode = self.inputMode;
                     if (self.inputMode== 1 || self.inputMode== 2) { // 只要是工时进入，将状态传入工时页面;为2的情况，进入状态更新

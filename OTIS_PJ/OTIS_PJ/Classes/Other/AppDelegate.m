@@ -13,6 +13,7 @@
 #import "AppDelegate+Tip.h"
 #import "SZTable_LaborHours.h"
 
+
 @interface AppDelegate ()
 
 
@@ -25,6 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+   
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound categories:nil];
     [application registerUserNotificationSettings:settings];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

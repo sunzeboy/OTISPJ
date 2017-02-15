@@ -278,6 +278,21 @@
 
 }
 
++(NSInteger)currentYYMMDD{
+    
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear|NSCalendarUnitDay|NSCalendarUnitMonth ;
+    NSDateComponents *dateComponent = [calendar components:unitFlags fromDate:now];
+    NSString *strMd = [NSString stringWithFormat:@"%ld%ld%ld",[dateComponent year],[dateComponent month],[dateComponent day]];
+
+    return  strMd.integerValue;
+
+
+}
+
+
+
 + (NSDate *)dateFromString:(NSString *)dateString{
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

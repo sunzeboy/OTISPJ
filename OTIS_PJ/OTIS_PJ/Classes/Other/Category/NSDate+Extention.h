@@ -59,7 +59,7 @@
 
 +(NSInteger)currentYear;
 +(NSInteger)currentMdInt;
-
++(NSInteger)currentYYMMDD;
 
 + (NSDate *)dateFromString:(NSString *)dateString;
 

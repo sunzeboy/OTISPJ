@@ -21,6 +21,7 @@ UIKIT_EXTERN CGFloat const OTIS_BottomOperationH;
 
 UIKIT_EXTERN CGFloat const OTIS_SZLaborHoursItemViewH;
 
+//UIKIT_EXTERN CGFloat const OTIS_BackAct;
 
 
 UIKIT_EXTERN NSString * SZOuterNetwork;

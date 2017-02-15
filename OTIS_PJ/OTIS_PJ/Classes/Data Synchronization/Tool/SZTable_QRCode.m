@@ -14,19 +14,19 @@
 
 // 查询QRCode字段数据
 +(NSString*)selectQRCode:(SZFinalMaintenanceUnitDetialItem *)item{
-
+    
     __block NSString* QRCode=nil;
     [OTISDB inDatabase:^(FMDatabase *db) {
-
+        
         NSString *strEmployeeID = [OTISConfig EmployeeID];
         NSString *sql = [NSString stringWithFormat:@"\
-                                SELECT QRCode \
-                                FROM t_QRCode \
-                                WHERE ScheduleId=%ld AND \
-                                      EmployeeID='%@' AND \
-                                      IsFixItem=%d AND \
-                                      GroupID=0;",
-                        (long)item.ScheduleID,strEmployeeID,item.isFixMode];
+                         SELECT QRCode \
+                         FROM t_QRCode \
+                         WHERE ScheduleId=%ld AND \
+                         EmployeeID='%@' AND \
+                         IsFixItem=%d AND \
+                         GroupID=0;",
+                         (long)item.ScheduleID,strEmployeeID,item.isFixMode];
         FMResultSet *set = [db executeQuery:sql];
         
         while ([set next]) {
@@ -41,20 +41,20 @@
 }
 
 +(BOOL)isShowQRSelectDlg:(BOOL)isFixItem andScheduleID:(int)ScheduleID{
-
+    
     __block NSInteger notUploadCount=0;
     __block NSString *qrCode=@"";
-
+    
     [OTISDB inDatabase:^(FMDatabase *db) {
         
         NSString *sql;
-
+        
         if(isFixItem){
             sql = [NSString stringWithFormat:@"SELECT  count() NotUploadCount \
                    FROM t_FIX_DOWNLOAD \
                    WHERE ScheduleId=%d AND State=2;",ScheduleID];
             FMResultSet *set = [db executeQuery:sql];
-
+            
             while ([set next]) {
                 notUploadCount = [set intForColumn:@"NotUploadCount"];
             }
@@ -66,16 +66,16 @@
                    FROM t_QRCode \
                    WHERE ScheduleID=%d AND EmployeeID='%@';",ScheduleID,[OTISConfig EmployeeID]];
             FMResultSet *set = [db executeQuery:sql];
-
+            
             while ([set next]) {
                 qrCode = [set stringForColumn:@"QRCode"];
             }
         }
         
-//        while ([set next]) {
-//            notUploadCount = [set intForColumn:@"NotUploadCount"];
-//            qrCode =
-//        }
+        //        while ([set next]) {
+        //            notUploadCount = [set intForColumn:@"NotUploadCount"];
+        //            qrCode =
+        //        }
     }];
     if (isFixItem == NO ) {
         if (qrCode.length) {
@@ -105,36 +105,36 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         INTULocationManager *locMgr = [INTULocationManager sharedInstance];
         [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock
-                timeout:1.0
-                delayUntilAuthorized:YES  // This parameter is optional, defaults to NO if omitted
-                block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                    if (status == INTULocationStatusSuccess) {
-                         // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
-                         // currentLocation contains the device's current location.
-                         
-                         NSNumber *numlongitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
-                         NSNumber *numlatitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
-                         
-                         item.EndLocalX = [numlongitude stringValue];
-                         item.EndLocalY = [numlatitude stringValue];
-                         if (!item.StartLocalX) {
-                             item.StartLocalX = [numlongitude stringValue];
-                             item.StartLocalY = [numlatitude stringValue];
-                         }
-                         [self storageWithParams:item andGroupID:groupID withProperty:property];
-                    }
-                    else {
-                         NSString *locaX = [USER_DEFAULT objectForKey:@"userLastLocationLat"];
-                         NSString *locaY = [USER_DEFAULT objectForKey:@"userLastLocationLon"];
-                         item.EndLocalX = locaX;
-                         item.EndLocalY = locaY;
-                         if (!item.StartLocalX) {
-                             item.StartLocalX = item.EndLocalX;
-                             item.StartLocalY = item.EndLocalY;
-                         }
-                         [self storageWithParams:item andGroupID:groupID withProperty:property];
-                 }
-             }];
+                                           timeout:1.0
+                              delayUntilAuthorized:YES  // This parameter is optional, defaults to NO if omitted
+                                             block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                                 if (status == INTULocationStatusSuccess) {
+                                                     // Request succeeded, meaning achievedAccuracy is at least the requested accuracy, and
+                                                     // currentLocation contains the device's current location.
+                                                     
+                                                     NSNumber *numlongitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+                                                     NSNumber *numlatitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+                                                     
+                                                     item.EndLocalX = [numlongitude stringValue];
+                                                     item.EndLocalY = [numlatitude stringValue];
+                                                     if (!item.StartLocalX) {
+                                                         item.StartLocalX = [numlongitude stringValue];
+                                                         item.StartLocalY = [numlatitude stringValue];
+                                                     }
+                                                     [self storageWithParams:item andGroupID:groupID withProperty:property];
+                                                 }
+                                                 else {
+                                                     NSString *locaX = [USER_DEFAULT objectForKey:@"userLastLocationLat"];
+                                                     NSString *locaY = [USER_DEFAULT objectForKey:@"userLastLocationLon"];
+                                                     item.EndLocalX = locaX;
+                                                     item.EndLocalY = locaY;
+                                                     if (!item.StartLocalX) {
+                                                         item.StartLocalX = item.EndLocalX;
+                                                         item.StartLocalY = item.EndLocalY;
+                                                     }
+                                                     [self storageWithParams:item andGroupID:groupID withProperty:property];
+                                                 }
+                                             }];
     });
 }
 
@@ -143,24 +143,24 @@
     NSString *strEmployeeID = [OTISConfig EmployeeID];
     
     NSInteger scheduleID = item.ScheduleID;
-
+    
     [OTISDB inDatabase:^(FMDatabase *db) {
         
         NSString* sql1 = [NSString stringWithFormat:@"select count() as QRCodeCount \
-                        from t_QRCode \
-                        WHERE ScheduleId = %ld AND EmployeeId = %@ AND GroupID = %d AND IsFixItem=%d;",
-                        (long)scheduleID,strEmployeeID,groupID,item.isFixMode];
+                          from t_QRCode \
+                          WHERE ScheduleId = %ld AND EmployeeId = %@ AND GroupID = %d AND IsFixItem=%d;",
+                          (long)scheduleID,strEmployeeID,groupID,item.isFixMode];
         
         SZLog(@"SQL storageWithParams:%@",sql1);
         FMResultSet *set = [db executeQuery:sql1];
         
-
+        
         while ([set next]) {
             int QRCodeCount = [set intForColumn:@"QRCodeCount"];
             NSInteger  endTime =[NSDate sinceDistantPastTime]; // 结束时间使用当前时间
             
             if (QRCodeCount) {
-
+                
                 NSString *sql = [NSString stringWithFormat:@"UPDATE t_QRCode SET \
                                  StartLon= '%@', \
                                  StartLat= '%@', \
@@ -170,9 +170,9 @@
                                  UpdateTime = %ld, \
                                  Reason  = %d \
                                  WHERE  ScheduleId = %ld AND \
-                                        EmployeeId = '%@' AND \
-                                        GroupID = %d AND \
-                                        IsFixItem=%d;",
+                                 EmployeeId = '%@' AND \
+                                 GroupID = %d AND \
+                                 IsFixItem=%d;",
                                  item.StartLocalX,
                                  item.StartLocalY,
                                  endTime,
@@ -184,7 +184,7 @@
                                  strEmployeeID,
                                  groupID,
                                  item.isFixMode];
-
+                
                 BOOL ret = [db executeUpdate:sql];
                 if (!ret) {
                     SZLog(@"错误：t_QRCode更新失败！！！");
@@ -245,7 +245,7 @@
 }
 
 +(BOOL)hasScandWithUnitNo:(NSString *)unitNo{
-
+    
     __block BOOL isScaned = NO;
     [OTISDB inDatabase:^(FMDatabase *db) {
         FMResultSet *set1 = [db executeQueryWithFormat:@"SELECT IsScaned ,IsNeedDialog \
@@ -256,7 +256,7 @@
             isScaned = [set1 boolForColumn:@"IsScaned"];
         }
     }];
-
+    
     return isScaned;
 }
 

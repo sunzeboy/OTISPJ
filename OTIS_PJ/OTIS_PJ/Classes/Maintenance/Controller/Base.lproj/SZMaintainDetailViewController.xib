@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Microsoft Yahei.ttf">
@@ -42,8 +45,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-Qp-atn" userLabel="headerView">
+                    <rect key="frame" x="0.0" y="64" width="375" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯编号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbJ-pP-Yfr">
+                            <rect key="frame" x="10" y="5" width="85" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="bUa-jg-1Sa"/>
                                 <constraint firstAttribute="width" constant="85" id="yjt-RE-0Pa"/>
@@ -53,11 +58,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D3NT5975" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCk-OG-Bmb">
+                            <rect key="frame" x="98" y="5" width="277" height="20"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计划日期：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o8-S0-keE">
+                            <rect key="frame" x="10" y="34" width="85" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="0yW-i7-k5U"/>
                                 <constraint firstAttribute="width" constant="85" id="U1V-gR-VTf"/>
@@ -67,6 +74,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpx-QM-6mY">
+                            <rect key="frame" x="95" y="35" width="83.5" height="20"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -87,14 +95,17 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efq-65-B1U">
+                    <rect key="frame" x="10" y="129" width="99" height="90"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="7AA-Uj-vMw"/>
                         <constraint firstAttribute="width" constant="99" id="y17-FW-IPO"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2QF-fm-aa4" userLabel="middleView">
+                    <rect key="frame" x="116" y="129" width="259" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3月上半月" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V80-th-2ad">
+                            <rect key="frame" x="0.0" y="1" width="69" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="n9p-bf-wUi"/>
                             </constraints>
@@ -103,6 +114,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本次保养：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jz-VD-h5I">
+                            <rect key="frame" x="0.0" y="25" width="70" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="VSw-oX-wcD"/>
                             </constraints>
@@ -111,26 +123,31 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯型号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehf-ry-Qzq">
+                            <rect key="frame" x="0.0" y="49" width="70" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="515NPE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhI-mu-GIF">
+                            <rect key="frame" x="75" y="49" width="52.5" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未完成42项" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbp-2Q-hy8">
+                            <rect key="frame" x="75" y="25" width="72" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PA-cR-YcM">
+                            <rect key="frame" x="0.0" y="70.5" width="70" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyy-ae-qQT">
+                            <rect key="frame" x="75" y="70.5" width="36" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -158,14 +175,17 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLy-MT-UyF" userLabel="bottomView">
+                    <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRZ-f0-Qf4" userLabel="lineView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="IKr-Ua-X9P"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxx-UQ-S7n">
+                            <rect key="frame" x="71" y="0.0" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="K5O-GW-Jhf"/>
                             </constraints>
@@ -186,6 +206,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaH-kc-QxJ" userLabel="secondView">
+                            <rect key="frame" x="126" y="1" width="30" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="p7B-yc-32J"/>
                             </constraints>
@@ -196,6 +217,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8i-UO-R6o" userLabel="thirdView">
+                            <rect key="frame" x="211" y="1" width="30" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="SpJ-HE-ODx"/>
                                 <constraint firstAttribute="width" constant="32" id="bKG-sf-UMS"/>
@@ -207,6 +229,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzM-4m-nsS" userLabel="rightView">
+                            <rect key="frame" x="296" y="1" width="71" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="68" id="Dp2-VA-d9k"/>
                             </constraints>
@@ -217,6 +240,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L60-id-8fn" userLabel="leftView">
+                            <rect key="frame" x="0.0" y="0.0" width="71" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="qcH-KR-X1v"/>
                             </constraints>
@@ -227,6 +251,7 @@
                             </variation>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDc-BZ-izr">
+                            <rect key="frame" x="156" y="1" width="55" height="54"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="lPN-Q5-e7b"/>
                             </constraints>
@@ -247,6 +272,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-Ja-ejD">
+                            <rect key="frame" x="241" y="0.0" width="55" height="55"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="5Ip-h6-cfS"/>
                             </constraints>
@@ -301,16 +327,19 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111111111111111111" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noJ-0F-TjE">
+                    <rect key="frame" x="10" y="319.5" width="365" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="CG陈刚" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-uE-vGi">
+                    <rect key="frame" x="10" y="296" width="365" height="18.5"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                     <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1499-E-03-6/1M" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IY-ue-tcf">
+                    <rect key="frame" x="45" y="224" width="330" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="mKN-8E-xVf"/>
                     </constraints>
@@ -319,6 +348,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路线:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVj-ve-S22">
+                    <rect key="frame" x="10" y="224" width="35" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Qfu-yv-AL9"/>
                         <constraint firstAttribute="width" constant="35" id="igl-PC-zPT"/>
@@ -328,18 +358,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="安贞门站" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7C-bC-3VQ">
+                    <rect key="frame" x="10" y="272.5" width="365" height="18.5"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                     <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="法律解放路口就啊放假啊看来放假咖啡" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="5jc-yl-vYl">
+                    <rect key="frame" x="10" y="249" width="365" height="18.5"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                     <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ub-eb-Jw9" userLabel="coordinateView">
+                    <rect key="frame" x="10" y="421.5" width="365" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前坐标:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONh-fI-nTO">
+                            <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="1cw-Kf-VHx"/>
                                 <constraint firstAttribute="width" constant="65" id="ipc-sZ-mLf"/>
@@ -354,16 +388,19 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="纬度：" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5s-Tt-9Lh">
+                            <rect key="frame" x="0.0" y="35.5" width="365" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="经度：" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-mt-vnB">
+                            <rect key="frame" x="0.0" y="17" width="365" height="18.5"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="fdfd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-9B-Y1P">
+                            <rect key="frame" x="65" y="0.0" width="300" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.71709187460000001" green="0.078318215359999999" blue="0.039720558849999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -391,8 +428,10 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-1V-Gpt" userLabel="barCodeView">
+                    <rect key="frame" x="10" y="341.5" width="365" height="75"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二维码信息：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dg0-pW-bsh">
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="90" id="UWT-Cg-N4r"/>
                                 <constraint firstAttribute="height" constant="20" id="nHB-9m-QL2"/>
@@ -401,6 +440,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无二维码信息" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE9-T1-fPi">
+                            <rect key="frame" x="0.0" y="20" width="365" height="55"/>
                             <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
                             <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

@@ -17,6 +17,7 @@
 #import "NSData+AES256.h"
 #import "AppDelegate.h"
 #import "SZNavigationController.h"
+#import "NSDate+Extention.h"
 
 @implementation SZUploadTool
 
@@ -47,6 +48,20 @@
                     SZLog(@"维保上传成功返回%@",obj);
                     
                 }
+                NSInteger yymmdd =  [NSDate currentYYMMDD];
+                NSString *strKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
+                strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
+                strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
+                [USER_DEFAULT setObject:nil forKey:@"ENDTIME"];
+                strKey = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
+                strKey = [NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
+                strKey = [NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,response.UnitNo];
+                [USER_DEFAULT setObject:nil forKey:strKey];
 
             }else{
             

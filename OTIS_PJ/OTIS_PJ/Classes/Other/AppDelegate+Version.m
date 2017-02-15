@@ -303,7 +303,13 @@
                                              IsComplete BOOL, \
                                              PRIMARY KEY (ScheduleId, ItemCode));"];
         
-        
+        NSString *strCreatet_AutoWorkings = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_AutoWorkings (JHATime INTEGER,\
+                                             UnitNo TEXT , \
+                                             Date INTEGER,\
+                                             StartTime INTEGER, \
+                                             CompletEndTime   INTEGER, \
+                                             ZhongduanTime INTEGER, \
+                                             PRIMARY KEY (UnitNo, Date,time));"];
         
         
         
