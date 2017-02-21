@@ -8,6 +8,13 @@
 
 import UIKit
 
+let k_screenW = UIScreen.main.bounds.width
+let k_screenH = UIScreen.main.bounds.height
+
+
+
+
+
 extension String {
     func last() -> String {
         let arr = self.components(separatedBy: ".")

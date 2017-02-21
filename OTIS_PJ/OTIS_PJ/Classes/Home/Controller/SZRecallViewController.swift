@@ -8,28 +8,28 @@
 
 import UIKit
 
-class SZRecallViewController: UIViewController {
 
+class SZRecallViewController: SZPageViewController {
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        title = "召修"
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func setupChildVces() {
+        let subVc1 = SZMyselfViewController()
+        subVc1.title = "本人召修"
+        addChildViewController(subVc1)
+        
+        let subVc2 = SZStopLaddersViewController()
+        subVc2.title = "停梯工单"
+        addChildViewController(subVc2)
     }
-    */
+
+    
 
 }
