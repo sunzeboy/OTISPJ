@@ -2464,7 +2464,7 @@
 				TargetAttributes = {
 					6806285A1CC77C0B002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 3L5WQZ53XV;
+						DevelopmentTeam = TQ85BX5255;
 					};
 					680628731CC77C0D002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -3494,6 +3494,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQ85BX5255;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
@@ -3518,6 +3519,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = TQ85BX5255;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
