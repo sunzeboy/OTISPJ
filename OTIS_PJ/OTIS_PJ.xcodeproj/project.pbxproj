@@ -309,7 +309,19 @@
 		6881CCA21CF2E05A00DADA37 /* NSMutableArray+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 6881CCA11CF2E05A00DADA37 /* NSMutableArray+Extention.m */; };
 		6881CCAB1CF4279A00DADA37 /* SZSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6881CCAA1CF4279A00DADA37 /* SZSelectViewController.m */; };
 		6886347F1E5BE7C70015BAF2 /* SZRecallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */; };
-		688634801E5BE7C70015BAF2 /* SZRecallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */; };
+		688634871E5C0C290015BAF2 /* SZMyselfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634861E5C0C290015BAF2 /* SZMyselfViewController.swift */; };
+		688634891E5C0CA10015BAF2 /* SZStopLaddersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634881E5C0CA10015BAF2 /* SZStopLaddersViewController.swift */; };
+		6886348B1E5C0CF50015BAF2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886348A1E5C0CF50015BAF2 /* Protocols.swift */; };
+		6886348E1E5C12AD0015BAF2 /* SZMyselfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886348C1E5C12AD0015BAF2 /* SZMyselfCell.swift */; };
+		6886348F1E5C12AD0015BAF2 /* SZMyselfCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6886348D1E5C12AD0015BAF2 /* SZMyselfCell.xib */; };
+		688634911E5C14FD0015BAF2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634901E5C14FD0015BAF2 /* Models.swift */; };
+		688634941E5C1EAB0015BAF2 /* SZAddRecallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634921E5C1EAB0015BAF2 /* SZAddRecallViewController.swift */; };
+		688634951E5C1EAB0015BAF2 /* SZAddRecallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688634931E5C1EAB0015BAF2 /* SZAddRecallViewController.xib */; };
+		688634971E5C1FA10015BAF2 /* SZDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634961E5C1FA10015BAF2 /* SZDropDownMenu.swift */; };
+		6886349A1E5C223E0015BAF2 /* SZRecallProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634981E5C223E0015BAF2 /* SZRecallProcessViewController.swift */; };
+		6886349B1E5C223E0015BAF2 /* SZRecallProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688634991E5C223E0015BAF2 /* SZRecallProcessViewController.xib */; };
+		6886349E1E5C22800015BAF2 /* SZRecallInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886349C1E5C22800015BAF2 /* SZRecallInputViewController.swift */; };
+		6886349F1E5C22800015BAF2 /* SZRecallInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6886349D1E5C22800015BAF2 /* SZRecallInputViewController.xib */; };
 		688F90FF1CD060B6001E2A9D /* NSError+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F90FE1CD060B6001E2A9D /* NSError+Extention.m */; };
 		68A6BF641D460AD80025ED84 /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A6BF631D460AD80025ED84 /* UIImage+Extention.m */; };
 		68BF6EFB1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BF6EFA1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m */; };
@@ -993,7 +1005,19 @@
 		6881CCAA1CF4279A00DADA37 /* SZSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZSelectViewController.m; sourceTree = "<group>"; };
 		6886347C1E5BE7C70015BAF2 /* OTIS_PJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OTIS_PJ-Bridging-Header.h"; sourceTree = "<group>"; };
 		6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZRecallViewController.swift; sourceTree = "<group>"; };
-		6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallViewController.xib; sourceTree = "<group>"; };
+		688634861E5C0C290015BAF2 /* SZMyselfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZMyselfViewController.swift; sourceTree = "<group>"; };
+		688634881E5C0CA10015BAF2 /* SZStopLaddersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZStopLaddersViewController.swift; sourceTree = "<group>"; };
+		6886348A1E5C0CF50015BAF2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		6886348C1E5C12AD0015BAF2 /* SZMyselfCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZMyselfCell.swift; sourceTree = "<group>"; };
+		6886348D1E5C12AD0015BAF2 /* SZMyselfCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZMyselfCell.xib; sourceTree = "<group>"; };
+		688634901E5C14FD0015BAF2 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		688634921E5C1EAB0015BAF2 /* SZAddRecallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZAddRecallViewController.swift; sourceTree = "<group>"; };
+		688634931E5C1EAB0015BAF2 /* SZAddRecallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZAddRecallViewController.xib; sourceTree = "<group>"; };
+		688634961E5C1FA10015BAF2 /* SZDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZDropDownMenu.swift; sourceTree = "<group>"; };
+		688634981E5C223E0015BAF2 /* SZRecallProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZRecallProcessViewController.swift; sourceTree = "<group>"; };
+		688634991E5C223E0015BAF2 /* SZRecallProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallProcessViewController.xib; sourceTree = "<group>"; };
+		6886349C1E5C22800015BAF2 /* SZRecallInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZRecallInputViewController.swift; sourceTree = "<group>"; };
+		6886349D1E5C22800015BAF2 /* SZRecallInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallInputViewController.xib; sourceTree = "<group>"; };
 		688F90F71CD0605D001E2A9D /* SZMaintain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZMaintain.h; sourceTree = "<group>"; };
 		688F90F81CD0605D001E2A9D /* SZMaintain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZMaintain.m; sourceTree = "<group>"; };
 		688F90FA1CD06090001E2A9D /* SZLogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZLogoutRequest.h; sourceTree = "<group>"; };
@@ -1266,6 +1290,7 @@
 		680628911CC77C56002B5201 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				688634811E5C0BDB0015BAF2 /* Recall */,
 				68FE59B51CC9C14400FFB2BC /* Login */,
 				6806289E1CC77C56002B5201 /* Home */,
 				680628A51CC77C56002B5201 /* Maintenance */,
@@ -1448,7 +1473,6 @@
 				680628A11CC77C56002B5201 /* HomeViewController.m */,
 				68CB02BA1D5ABF9F00D19F69 /* HomeViewController.xib */,
 				6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */,
-				6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */,
 				6886347C1E5BE7C70015BAF2 /* OTIS_PJ-Bridging-Header.h */,
 			);
 			path = Controller;
@@ -2148,6 +2172,58 @@
 			path = "../Business module";
 			sourceTree = "<group>";
 		};
+		688634811E5C0BDB0015BAF2 /* Recall */ = {
+			isa = PBXGroup;
+			children = (
+				688634821E5C0BDB0015BAF2 /* Controller */,
+				688634831E5C0BDB0015BAF2 /* Model */,
+				688634841E5C0BDB0015BAF2 /* Tools */,
+				688634851E5C0BDB0015BAF2 /* View */,
+			);
+			path = Recall;
+			sourceTree = "<group>";
+		};
+		688634821E5C0BDB0015BAF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				688634861E5C0C290015BAF2 /* SZMyselfViewController.swift */,
+				688634881E5C0CA10015BAF2 /* SZStopLaddersViewController.swift */,
+				688634921E5C1EAB0015BAF2 /* SZAddRecallViewController.swift */,
+				688634931E5C1EAB0015BAF2 /* SZAddRecallViewController.xib */,
+				688634981E5C223E0015BAF2 /* SZRecallProcessViewController.swift */,
+				688634991E5C223E0015BAF2 /* SZRecallProcessViewController.xib */,
+				6886349C1E5C22800015BAF2 /* SZRecallInputViewController.swift */,
+				6886349D1E5C22800015BAF2 /* SZRecallInputViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		688634831E5C0BDB0015BAF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				688634901E5C14FD0015BAF2 /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		688634841E5C0BDB0015BAF2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6886348A1E5C0CF50015BAF2 /* Protocols.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		688634851E5C0BDB0015BAF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6886348C1E5C12AD0015BAF2 /* SZMyselfCell.swift */,
+				6886348D1E5C12AD0015BAF2 /* SZMyselfCell.xib */,
+				688634961E5C1FA10015BAF2 /* SZDropDownMenu.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		68CD62DA1CFC2C23003CD2B8 /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -2527,6 +2603,8 @@
 				68FE599B1CC8BB5F00FFB2BC /* Localizable.strings in Resources */,
 				68FE59491CC865C800FFB2BC /* SZTableViewCell.xib in Resources */,
 				1ABE2FD71CDB36E100FC320B /* SZCheckBoxViewCell.xib in Resources */,
+				688634951E5C1EAB0015BAF2 /* SZAddRecallViewController.xib in Resources */,
+				6886349F1E5C22800015BAF2 /* SZRecallInputViewController.xib in Resources */,
 				684A15E71D7FB2E7002ED4D5 /* SZCustomerSignElevatorCell.xib in Resources */,
 				8A66E8131D5B137700924501 /* SZBottomWhInputView.xib in Resources */,
 				684A16501D7FB3A8002ED4D5 /* SZRegardingViewController.xib in Resources */,
@@ -2536,6 +2614,7 @@
 				1A1DB9D31CD1E6E000393DFB /* nonProductive.plist in Resources */,
 				8A66E7FD1D5B122700924501 /* SZWorkingHoursSmallCell.xib in Resources */,
 				8A66E7F61D5B10E000924501 /* SZWorkingHoursBigCell.xib in Resources */,
+				6886349B1E5C223E0015BAF2 /* SZRecallProcessViewController.xib in Resources */,
 				68018EDB1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib in Resources */,
 				684A16421D7FB392002ED4D5 /* SZAnnualInspectionDetailView.xib in Resources */,
 				684A16491D7FB39D002ED4D5 /* SZBottomFindView.xib in Resources */,
@@ -2557,7 +2636,7 @@
 				0B405D921CDB335D007A4C18 /* elevatorItem.plist in Resources */,
 				684A16881D7FB413002ED4D5 /* SZTopBoard.xib in Resources */,
 				8A66E7E81D5B103000924501 /* SZWorkingHourTableViewCell.xib in Resources */,
-				688634801E5BE7C70015BAF2 /* SZRecallViewController.xib in Resources */,
+				6886348F1E5C12AD0015BAF2 /* SZMyselfCell.xib in Resources */,
 				1A1DB9D41CD1E6E000393DFB /* productive.plist in Resources */,
 				684A16261D7FB362002ED4D5 /* SZLaborHoursItemView.xib in Resources */,
 				0B60C7B51CE3008F00A1BEEE /* helpList.plist in Resources */,
@@ -2664,8 +2743,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6815C0EE1CE02DE100757274 /* SZTable_ReservedSubject.m in Sources */,
+				6886349E1E5C22800015BAF2 /* SZRecallInputViewController.swift in Sources */,
 				1A1DB9D71CD1EB9500393DFB /* SZWorkingHoursType.m in Sources */,
 				1E619B001CD0B21500C392E0 /* SZSignTableViewCell.m in Sources */,
+				688634891E5C0CA10015BAF2 /* SZStopLaddersViewController.swift in Sources */,
 				682DFA5F1CFED25000D8FBA9 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				6862EB001D23CB27005ED334 /* SZSelectWHViewController.m in Sources */,
 				6866BC471CD1BAA200CBF478 /* SZFMDB.m in Sources */,
@@ -2682,6 +2763,7 @@
 				682DFA661CFED25000D8FBA9 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				682DFA641CFED25000D8FBA9 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				4195F6F41D126DB40078E0B7 /* SZBottomMaintainView.m in Sources */,
+				688634871E5C0C290015BAF2 /* SZMyselfViewController.swift in Sources */,
 				0B3BF3731CE5AB4F006D69C5 /* SZRegardingViewController.m in Sources */,
 				6862EAFD1D23C94E005ED334 /* SZPlainViewController.m in Sources */,
 				68183C111CED897100B55D94 /* SZTable_JHA_ITEM_TYPE.m in Sources */,
@@ -2733,6 +2815,7 @@
 				68FE59A51CC8BEBB00FFB2BC /* OTIS_Constants.m in Sources */,
 				8A4CB82A1D588DB700576A8F /* SZCollectionViewCell.m in Sources */,
 				0B35A64E1CD9E5E000D3B32E /* SZCustomerSignElevatorItem.m in Sources */,
+				688634971E5C1FA10015BAF2 /* SZDropDownMenu.swift in Sources */,
 				68125ADB1D12B62A0098A61C /* SZAddWorkingHoursController.m in Sources */,
 				68125BAC1D1D22100098A61C /* SZYearCheckRequest.m in Sources */,
 				6815C0DD1CDC6F2200757274 /* UIColor+Extention.m in Sources */,
@@ -2808,6 +2891,7 @@
 				4133CEA21CEC04BD006FB6AB /* CustomIOSAlertView.m in Sources */,
 				68125BA41D1D22100098A61C /* SZReservedSubjectItem.m in Sources */,
 				68125B4B1D1CFA4A0098A61C /* SZUploadTool.m in Sources */,
+				6886348B1E5C0CF50015BAF2 /* Protocols.swift in Sources */,
 				1E619AFF1CD0989A00C392E0 /* SZSign.m in Sources */,
 				682DFA611CFED25000D8FBA9 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
 				41FEDC0E1D0E576B0093E0BE /* JDFSequentialTooltipManager.m in Sources */,
@@ -2854,6 +2938,7 @@
 				6866BC4D1CD207B600CBF478 /* SZTable_User.m in Sources */,
 				68125B471D1CC9B90098A61C /* SZButton.m in Sources */,
 				68125B391D1A8FC90098A61C /* SZCheckWHDetialViewController.m in Sources */,
+				6886348E1E5C12AD0015BAF2 /* SZMyselfCell.swift in Sources */,
 				68777F651D2BAEC100DCAD2D /* SZAddWorkingHoursView.m in Sources */,
 				419CB99C1CE1CF8E0003FE44 /* SZNonOtisElevatorViewController.m in Sources */,
 				1A4CC4E21CDAE9C1004B8D42 /* SZCarTopViewController.m in Sources */,
@@ -2862,6 +2947,8 @@
 				68383B6C1D12A6E200323D04 /* SZWorkingHoursBigCell.m in Sources */,
 				6859E9CC1D014A9F00CC8779 /* SZTable_LaborHours.m in Sources */,
 				68125B211D19382D0098A61C /* SZCheckLookTableViewCell.m in Sources */,
+				688634941E5C1EAB0015BAF2 /* SZAddRecallViewController.swift in Sources */,
+				688634911E5C14FD0015BAF2 /* Models.swift in Sources */,
 				680628601CC77C0B002B5201 /* main.m in Sources */,
 				6815C0851CD9A3B900757274 /* SZUserInfo.m in Sources */,
 				68125BB01D1D22420098A61C /* SZUploadMaintenancemRequest.m in Sources */,
@@ -2873,6 +2960,7 @@
 				6866BC7C1CD3499700CBF478 /* SZTable_Signature.m in Sources */,
 				1AAB9E671CDDC4EC00B9E89B /* SZNormalWorkHoursTableViewCell.m in Sources */,
 				68FE59AE1CC8D38D00FFB2BC /* SZPithilyTableViewController.m in Sources */,
+				6886349A1E5C223E0015BAF2 /* SZRecallProcessViewController.swift in Sources */,
 				0B486E631CE1A4F3000EE05E /* SZAnnualInspectionReminder.m in Sources */,
 				41A7C8B61D18DB8F00108197 /* SZBottomFindView.m in Sources */,
 				682EAF0E1CE476FF0033E623 /* NSData+AES256.m in Sources */,

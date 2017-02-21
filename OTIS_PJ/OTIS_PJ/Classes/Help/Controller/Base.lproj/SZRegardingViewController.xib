@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,8 +31,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNP-lZ-bym">
                     <rect key="frame" x="0.0" y="0.0" width="357" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeChat_1462426507" translatesAutoresizingMaskIntoConstraints="NO" id="pJg-u3-nrq">
-                            <rect key="frame" x="89" y="122" width="179" height="74"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pJg-u3-nrq">
+                            <rect key="frame" x="3.5" y="122" width="350" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="350" id="MQf-BH-fww"/>
+                                <constraint firstAttribute="height" constant="150" id="aL1-FJ-SL1"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXx-RA-7t0">
                             <rect key="frame" x="40" y="545" width="277" height="15"/>
@@ -78,8 +82,8 @@
                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZe-Xu-8I6">
-                            <rect key="frame" x="98.5" y="211" width="160" height="20"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZe-Xu-8I6">
+                            <rect key="frame" x="98.5" y="287" width="160" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="160" id="DYJ-DE-Qlc"/>
                                 <constraint firstAttribute="height" constant="20" id="zFc-t0-3Gr"/>
@@ -88,8 +92,8 @@
                             <color key="textColor" red="0.027450980392156862" green="0.12941176470588237" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯维保服务系统" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-bN-WOy">
-                            <rect key="frame" x="98.5" y="231" width="160" height="20"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电梯维保服务系统" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hm-bN-WOy">
+                            <rect key="frame" x="98.5" y="307" width="160" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="160" id="GcW-U5-6sG"/>
                             </constraints>
@@ -97,14 +101,14 @@
                             <color key="textColor" red="0.027450980390000001" green="0.12941176469999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROLE远程技术支持热线电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLF-t6-wNg">
-                            <rect key="frame" x="95.5" y="321" width="166" height="14.5"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROLE远程技术支持热线电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLF-t6-wNg">
+                            <rect key="frame" x="95.5" y="397" width="166" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机拨打：400-6115566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wza-Bo-xGn">
-                            <rect key="frame" x="111" y="340.5" width="136" height="15"/>
+                        <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机拨打：400-6115566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wza-Bo-xGn">
+                            <rect key="frame" x="110.5" y="416.5" width="136" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="oMP-O4-Ybn"/>
                             </constraints>
@@ -112,8 +116,8 @@
                             <color key="textColor" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="座机拨打：800-8185566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-12-O6G">
-                            <rect key="frame" x="111" y="360.5" width="136" height="15"/>
+                        <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="座机拨打：800-8185566" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdN-12-O6G">
+                            <rect key="frame" x="110.5" y="436.5" width="136" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="5vG-vo-Znd"/>
                             </constraints>
@@ -152,8 +156,8 @@
                         <constraint firstItem="PZe-Xu-8I6" firstAttribute="centerX" secondItem="pJg-u3-nrq" secondAttribute="centerX" id="ydY-09-ghs"/>
                     </constraints>
                 </view>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  邮箱：OEShelpdesk@otis.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-Lg-62m">
-                    <rect key="frame" x="89" y="291" width="179.5" height="15"/>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  邮箱：zhengln@otis.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-Lg-62m">
+                    <rect key="frame" x="104" y="367" width="150" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="sNf-av-3mA"/>
                     </constraints>
@@ -162,14 +166,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_mail" translatesAutoresizingMaskIntoConstraints="NO" id="61W-Pi-PMN">
-                    <rect key="frame" x="74" y="291" width="15" height="15"/>
+                    <rect key="frame" x="89" y="367" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="1dx-t8-bSZ"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="4jJ-Ry-bgU"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  OES系统支持热线：022-28101999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-Id-9zq">
-                    <rect key="frame" x="80" y="271" width="197.5" height="15"/>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  OES系统支持热线：0571-81608858" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtH-Id-9zq">
+                    <rect key="frame" x="77" y="347" width="204.5" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="CcX-vg-sdi"/>
                     </constraints>
@@ -178,7 +182,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="FUj-eA-Y1N">
-                    <rect key="frame" x="65" y="271" width="15" height="15"/>
+                    <rect key="frame" x="62" y="347" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="F5g-zC-acK"/>
                         <constraint firstAttribute="height" constant="15" id="kNv-c7-gnZ"/>
@@ -203,11 +207,11 @@
                 <constraint firstItem="dtH-Id-9zq" firstAttribute="top" secondItem="1hm-bN-WOy" secondAttribute="bottom" constant="20" id="way-lj-YdQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="260.5" y="279"/>
+            <point key="canvasLocation" x="24" y="150"/>
         </view>
     </objects>
     <resources>
-        <image name="WeChat_1462426507" width="179" height="74"/>
+        <image name="aboutTitle" width="750" height="257"/>
         <image name="img_login_mail" width="9" height="7"/>
         <image name="img_login_phone" width="9" height="9"/>
     </resources>
