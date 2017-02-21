@@ -23,6 +23,8 @@
 #import "MASConstraintMaker.h"
 #import "View+MASAdditions.h"
 
+#import "SignViewController.h"
+
 @interface MaintenanceViewController ()
 
 @property (nonatomic , strong)  SZBottomMainView *bottomMainView;
@@ -37,7 +39,7 @@
     [super viewWillAppear:animated];
     TodayViewController *today = [self.childViewControllers objectAtIndex:0];
     [today viewWillAppear:YES];
-
+    
 }
 
 
@@ -53,10 +55,10 @@
 
 -(void)viewDidLoad
 {
-
+    
     [super viewDidLoad];
     
-
+    
     [self bottomMainView];
     WEAKSELF
     self.bottomMainView.scanBtnClickBlock = ^(UIButton * scanBtn) {
@@ -70,22 +72,10 @@
     SZNavigationController *nav = (SZNavigationController*)self.navigationController;
     nav.laborTypeID = 0;
     nav.popVc = self;
-//    [self addObserver: self forKeyPath: @"contentOffset" options: NSKeyValueChangeNewKey context: nil];
-
+    //    [self addObserver: self forKeyPath: @"contentOffset" options: NSKeyValueChangeNewKey context: nil];
+    
 }
 
--(void)initToolBar{
-    
-    //self.navigationController.toolbarHidden = NO;
-    
-    UIBarButtonItem *flexble = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    UIBarButtonItem *search = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"查找框内图标"] landscapeImagePhone:[UIImage imageNamed:@"查找框内图标"] style:UIBarButtonItemStylePlain target:self action:@selector(search)];
-    
-    UIBarButtonItem *unitRegcode = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"扫一扫"] landscapeImagePhone:[UIImage imageNamed:@"扫一扫"] style:UIBarButtonItemStylePlain target:self action:@selector(unitRegcode)];
-    
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:unitRegcode,search, flexble,flexble,nil];
-}
 
 
 -(void)search{
@@ -98,8 +88,6 @@
                 
                 TodayViewController *today = (TodayViewController *)childViewController;
                 today.isHidden = !today.isHidden;
-//                today.tableView.tableHeaderView = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
-//                today.tableView.tableHeaderView = nil;
                 break;
                 
             }else if ([childViewController.title isEqualToString:SZLocal(@"title.NotCompletedViewController")]){
@@ -158,17 +146,17 @@
     
     style.animationImage = imgFullNet;
     SubLBXScanViewController *vc = [SubLBXScanViewController new];
-   
+    
     WEAKSELF
     vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
         
         SZFinalMaintenanceUnitItem *unitItem;
-
+        
         for (UIViewController *childViewController in self.childViewControllers) {
             
-
+            
             if ([childViewController.title isEqualToString:weakSelf.selectedButton.titleLabel.text]) {
-
+                
                 if ([childViewController.title isEqualToString:SZLocal(@"title.TodayViewController")]) {
                     TodayViewController *today = (TodayViewController *)childViewController;
                     unitItem = [today isExistenceWithQRCode:item];
@@ -207,11 +195,11 @@
             controller.planDateStr =[NSString stringWithFormat:@"%@:",SZLocal(@"title.planeDate")];
             controller.tips = [NSString stringWithFormat:@"二维码扫描成功，但不属于%@维保电梯！",weakSelf.selectedButton.titleLabel.text];
             controller.tips2 = SZLocal(@"error.OTISScanOrSelectElevator");
-
+            
             [weakSelf.navigationController pushViewController:controller animated:YES];
             
         }
-
+        
     };
     vc.style = style;
     //vc.isOpenInterestRect = YES;
@@ -240,6 +228,10 @@
     unPlanned.isWorkingHours = NO;
     unPlanned.delegate=self;
     [self addChildViewController:unPlanned];
+    
+    SignViewController *signVc = [[SignViewController alloc] init];
+    signVc.title = SZLocal(@"title.signViewController");
+    [self addChildViewController:signVc];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -273,23 +265,22 @@
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.textAlignment =  NSTextAlignmentCenter;
     
+    self.bottomMainView.hidden = NO;
+    
     if ([self.selectedButton.titleLabel.text isEqualToString:SZLocal(@"title.TwoWeeksViewController")]) {
         titleLabel.font = [UIFont boldSystemFontOfSize:13];
         titleLabel.text = [NSString stringWithFormat:@"%@-%@",one,two];
         self.navigationItem.titleView = titleLabel;
-    }else{
+    }else if([self.selectedButton.titleLabel.text isEqualToString:SZLocal(@"title.signViewController")]){
         
+        self.bottomMainView.hidden = YES;
+        
+    }else {
         titleLabel.font = [UIFont boldSystemFontOfSize:20];
         titleLabel.text = SZLocal(@"title.MaintenanceViewController");
         self.navigationItem.titleView = titleLabel;
     }
     
-//    [self.navigationItem.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-////        make.centerX.equalTo(self.navigationItem);
-//        make.centerX.mas_equalTo(self.view);
-//        make.top.equalTo(self.view.mas_top).with.offset(29);
-//        //make.top.equalTo(@20);
-//    }];
 }
 
 -(void)initSearchState{

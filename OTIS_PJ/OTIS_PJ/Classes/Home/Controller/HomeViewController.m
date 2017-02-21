@@ -25,6 +25,7 @@
 #import "SZTipVIew.h"
 #import <INTULocationManager/INTULocationManager.h>
 #import "SZClearLocalDataTool.h"
+#import "OTIS_PJ-Swift.h"
 
 @interface HomeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *myHeadPortrait;
@@ -74,7 +75,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-
+    
     self.navigationController.toolbarHidden = YES;
     ((SZNavigationController *)self.navigationController).laborProperty = 0;
     
@@ -83,14 +84,14 @@
 
 -(void)setUpSZButton{
     self.weibao.iconImage.image = [UIImage imageNamed:@"menu_weibao"];
-    self.qianzi.iconImage.image = [UIImage imageNamed:@"menu_qianzi"];
+    self.qianzi.iconImage.image = [UIImage imageNamed:@"recall"];
     self.gongshi.iconImage.image = [UIImage imageNamed:@"menu_gongshi"];
     self.tongbu.iconImage.image = [UIImage imageNamed:@"menu_tongbu"];
     self.nianjian.iconImage.image = [UIImage imageNamed:@"menu_nianjian"];
     self.bangzhu.iconImage.image = [UIImage imageNamed:@"menu_bangzhu"];
     
     self.weibao.titleLabel.text = SZLocal(@"title.MaintenanceViewController");
-    self.qianzi.titleLabel.text = SZLocal(@"title.SignatureBoardViewController");
+    self.qianzi.titleLabel.text = SZLocal(@"title.RecallViewController");
     self.gongshi.titleLabel.text = SZLocal(@"title.gongshi");
     self.tongbu.titleLabel.text = SZLocal(@"title.tongbu");
     self.nianjian.titleLabel.text = SZLocal(@"title.nianjian");
@@ -129,16 +130,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadFaild) name:SZNotificationUploadFailed object:nil];
     
     [self locationChanged];
-
-
+    
+    
     [self createDirectory];
     [self setUpSZButton];
     self.empLabel.text = [OTISConfig username];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:ImageNamed(@"menu_otis")];
-
+    
     AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appD.nav = (SZNavigationController *)self.navigationController;
-
+    
     self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
     NSNumber *num = [USER_DEFAULT objectForKey:OTIS_isNewfeatureVersion];
@@ -150,29 +151,29 @@
         [SZUploadManger startUploadAndDownloadFirstTimeWithView:self.view];
     }else{
         [SZUploadManger localloginWithView:self.view];
-
+        
     }
-
     
-
+    
+    
 }
 
 -(void)updateUI{
-
+    
     AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     self.nianjian.badge.text = [NSString stringWithFormat:@"%d",(int)appD.annualInspectionCount];
-
+    
 }
 
 
 -(void)noNetworkTip{
-
+    
     [SZUploadManger fauilTipView:self.view];
 }
 
 -(void)uploadFaild{
-
+    
     [SZUploadManger uploadFauilTipView:self.view];
 }
 
@@ -182,7 +183,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)qianziAct:(UIButton *)sender {
-    SignViewController *vc =[[SignViewController alloc] init];
+    SZRecallViewController *vc =[[SZRecallViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -245,7 +246,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     //定义一个newPhoto，用来存放我们选择的图片。
     UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-
+    
     [self saveImage:newPhoto WithName:self.fileName];
     [_myHeadPortrait setBackgroundImage:newPhoto forState:0];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -297,10 +298,10 @@
 
 - (void)reachability
 {
-//    [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationUploadFailed object:self userInfo:nil];
-
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationUploadFailed object:self userInfo:nil];
+    
     [self tongbushuju];
-
+    
 }
 
 -(void)tongbushuju{
@@ -319,12 +320,12 @@
         }
     };
     [alertView show];
-
-
+    
+    
 }
 
 -(void)note{
-
+    
     CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                     dialogTitle:SZLocal(@"dialog.title.tip")
                                                                                  dialogContents:SZLocal(@"dialog.content.confirmmeiwang")
@@ -337,7 +338,7 @@
         }
     };
     [alertView show];
-
+    
 }
 
 -(void)locationChanged{
@@ -348,8 +349,8 @@
                                                         if (status == INTULocationStatusSuccess) {
                                                             NSString *strLa = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:currentLocation.coordinate.latitude]];
                                                             NSString *strLo = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:currentLocation.coordinate.longitude]];
-//                                                            SZLog(@"我在这呢！！！%@ %@",strLa,strLo);
-
+                                                            //                                                            SZLog(@"我在这呢！！！%@ %@",strLa,strLo);
+                                                            
                                                             [[NSUserDefaults standardUserDefaults] setObject:strLa forKey:@"userLastLocationLat"];
                                                             [[NSUserDefaults standardUserDefaults] setObject:strLo forKey:@"userLastLocationLon"];
                                                             [[NSUserDefaults standardUserDefaults] synchronize];

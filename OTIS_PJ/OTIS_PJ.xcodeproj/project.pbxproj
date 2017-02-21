@@ -308,6 +308,8 @@
 		6881AA821D9A0B69008D5DC4 /* VersionInfo_IP.html in Resources */ = {isa = PBXBuildFile; fileRef = 6881AA811D9A0B69008D5DC4 /* VersionInfo_IP.html */; };
 		6881CCA21CF2E05A00DADA37 /* NSMutableArray+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 6881CCA11CF2E05A00DADA37 /* NSMutableArray+Extention.m */; };
 		6881CCAB1CF4279A00DADA37 /* SZSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6881CCAA1CF4279A00DADA37 /* SZSelectViewController.m */; };
+		6886347F1E5BE7C70015BAF2 /* SZRecallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */; };
+		688634801E5BE7C70015BAF2 /* SZRecallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */; };
 		688F90FF1CD060B6001E2A9D /* NSError+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F90FE1CD060B6001E2A9D /* NSError+Extention.m */; };
 		68A6BF641D460AD80025ED84 /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A6BF631D460AD80025ED84 /* UIImage+Extention.m */; };
 		68BF6EFB1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BF6EFA1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m */; };
@@ -989,6 +991,9 @@
 		6881CCA11CF2E05A00DADA37 /* NSMutableArray+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extention.m"; sourceTree = "<group>"; };
 		6881CCA91CF4279A00DADA37 /* SZSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZSelectViewController.h; sourceTree = "<group>"; };
 		6881CCAA1CF4279A00DADA37 /* SZSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZSelectViewController.m; sourceTree = "<group>"; };
+		6886347C1E5BE7C70015BAF2 /* OTIS_PJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OTIS_PJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZRecallViewController.swift; sourceTree = "<group>"; };
+		6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallViewController.xib; sourceTree = "<group>"; };
 		688F90F71CD0605D001E2A9D /* SZMaintain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZMaintain.h; sourceTree = "<group>"; };
 		688F90F81CD0605D001E2A9D /* SZMaintain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZMaintain.m; sourceTree = "<group>"; };
 		688F90FA1CD06090001E2A9D /* SZLogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZLogoutRequest.h; sourceTree = "<group>"; };
@@ -1442,6 +1447,9 @@
 				680628A01CC77C56002B5201 /* HomeViewController.h */,
 				680628A11CC77C56002B5201 /* HomeViewController.m */,
 				68CB02BA1D5ABF9F00D19F69 /* HomeViewController.xib */,
+				6886347D1E5BE7C70015BAF2 /* SZRecallViewController.swift */,
+				6886347E1E5BE7C70015BAF2 /* SZRecallViewController.xib */,
+				6886347C1E5BE7C70015BAF2 /* OTIS_PJ-Bridging-Header.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2465,6 +2473,7 @@
 					6806285A1CC77C0B002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = TQ85BX5255;
+						LastSwiftMigration = 0820;
 					};
 					680628731CC77C0D002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -2548,6 +2557,7 @@
 				0B405D921CDB335D007A4C18 /* elevatorItem.plist in Resources */,
 				684A16881D7FB413002ED4D5 /* SZTopBoard.xib in Resources */,
 				8A66E7E81D5B103000924501 /* SZWorkingHourTableViewCell.xib in Resources */,
+				688634801E5BE7C70015BAF2 /* SZRecallViewController.xib in Resources */,
 				1A1DB9D41CD1E6E000393DFB /* productive.plist in Resources */,
 				684A16261D7FB362002ED4D5 /* SZLaborHoursItemView.xib in Resources */,
 				0B60C7B51CE3008F00A1BEEE /* helpList.plist in Resources */,
@@ -2921,6 +2931,7 @@
 				1A54A5CF1CD98FDB00A7D867 /* SZMaintainDetail.m in Sources */,
 				68125B981D1D22100098A61C /* SZDownload_UnitsRequest.m in Sources */,
 				1AD9F3D81CE08B6800B532B1 /* SZRecallRepairViewController.m in Sources */,
+				6886347F1E5BE7C70015BAF2 /* SZRecallViewController.swift in Sources */,
 				680628D91CC79264002B5201 /* UIBarButtonItem+Extention.m in Sources */,
 				68018EDA1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.m in Sources */,
 				68125B251D1939020098A61C /* SZCheckLookModel.m in Sources */,
@@ -3491,6 +3502,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3505,7 +3517,9 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OTIS_PJ/Classes/Home/Controller/OTIS_PJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3516,6 +3530,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3530,7 +3545,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OTIS_PJ/Classes/Home/Controller/OTIS_PJ-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -3538,6 +3554,7 @@
 		6806288C1CC77C0D002B5201 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OTIS_PJTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3550,6 +3567,7 @@
 		6806288D1CC77C0D002B5201 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OTIS_PJTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3562,6 +3580,7 @@
 		6806288F1CC77C0D002B5201 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = OTIS_PJUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.sh.changxing.mobile.otis.OTIS-PJUITests";
@@ -3574,6 +3593,7 @@
 		680628901CC77C0D002B5201 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = OTIS_PJUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.sh.changxing.mobile.otis.OTIS-PJUITests";
