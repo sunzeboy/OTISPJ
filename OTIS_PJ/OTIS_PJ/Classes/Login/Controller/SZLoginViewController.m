@@ -70,7 +70,7 @@
         SZNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
     }
     
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"OES系统支持热线：022-28101999"];
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"OES系统支持热线：0571-81608858"];
     
     NSRange contentRange = {10, [content length]-10};
     
@@ -83,7 +83,7 @@
     
     [self.telPhoneNum addGestureRecognizer:tap];
 
-    NSMutableAttributedString *content3 = [[NSMutableAttributedString alloc] initWithString:@"邮箱：OEShelpdesk@otis.com"];
+    NSMutableAttributedString *content3 = [[NSMutableAttributedString alloc] initWithString:@"邮箱：zhengln@otis.com"];
     NSRange contentRange3 = {3, [content3 length]-3};
     [content3 addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange3];
     [content3 addAttribute:NSForegroundColorAttributeName value:RGB(30, 32, 81) range:contentRange3];
@@ -95,10 +95,10 @@
 }
 
 -(void)tapTel{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:022-28101999"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:0571-81608858"]];
 }
 -(void)tapTel3{
-    [self sendEmailWithCompose:[SZMailCompose composeWithsubject:nil toRecipients:@[@"OEShelpdesk@otis.com"] ccRecipients:nil bccRecipients:nil andeMailContent:nil]];
+    [self sendEmailWithCompose:[SZMailCompose composeWithsubject:nil toRecipients:@[@"zhengln@otis.com"] ccRecipients:nil bccRecipients:nil andeMailContent:nil]];
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  Models.swift
+//  SZService.swift
 //  OTIS_PJ
 //
 //  Created by sunze on 2017/2/21.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-struct MyselfModel {
-//    var recall : String
-//    var eleCode : String
-    
+enum SZService {
+    case api1
 }
+//extension SZService

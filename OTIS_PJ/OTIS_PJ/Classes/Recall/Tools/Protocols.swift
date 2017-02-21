@@ -14,7 +14,6 @@ let k_screenH = UIScreen.main.bounds.height
 
 
 
-
 extension String {
     func last() -> String {
         let arr = self.components(separatedBy: ".")
@@ -41,7 +40,6 @@ extension Cellable where Self: UITableViewCell{
         }
         return cellFinal as! Self
     }
-
 
 }
 
