@@ -2465,6 +2465,7 @@
 					6806285A1CC77C0B002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 3L5WQZ53XV;
+						ProvisioningStyle = Manual;
 					};
 					680628731CC77C0D002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -2615,7 +2616,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		51058BECDC2106DD48B43A52 /* [CP] Copy Pods Resources */ = {
@@ -3493,16 +3494,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 3L5WQZ53XV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.oeotis;
 				PRODUCT_NAME = OTIS_PJ;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7397c500-0a22-4522-8f01-2b15bef17dce";
+				PROVISIONING_PROFILE_SPECIFIER = OEOTIS;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3517,16 +3519,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 3L5WQZ53XV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.otis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.oeotis;
 				PRODUCT_NAME = OTIS_PJ;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7397c500-0a22-4522-8f01-2b15bef17dce";
+				PROVISIONING_PROFILE_SPECIFIER = OEOTIS;
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
