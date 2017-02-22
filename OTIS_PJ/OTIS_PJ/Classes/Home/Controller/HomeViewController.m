@@ -136,6 +136,7 @@
     self.empLabel.text = [OTISConfig username];
     UIImageView *iView = [[UIImageView alloc] initWithImage:ImageNamed(@"OETitle")];
     iView.frame = CGRectMake(0, 0, 40, 30);
+    iView.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = iView;
 
     AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
