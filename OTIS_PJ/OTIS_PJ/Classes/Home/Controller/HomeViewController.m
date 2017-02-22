@@ -134,7 +134,9 @@
     [self createDirectory];
     [self setUpSZButton];
     self.empLabel.text = [OTISConfig username];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:ImageNamed(@"menu_otis")];
+    UIImageView *iView = [[UIImageView alloc] initWithImage:ImageNamed(@"OETitle")];
+    iView.frame = CGRectMake(0, 0, 40, 30);
+    self.navigationItem.titleView = iView;
 
     AppDelegate *appD = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appD.nav = (SZNavigationController *)self.navigationController;

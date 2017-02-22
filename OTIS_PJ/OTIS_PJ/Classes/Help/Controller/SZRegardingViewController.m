@@ -30,10 +30,10 @@
     self.verson.text = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
     
     
-    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"OES系统支持热线：022-28101999"];
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"OES系统支持热线：0571-81608858"];
     NSMutableAttributedString *content1 = [[NSMutableAttributedString alloc] initWithString:@"手机拨打：400-6115566"];
     NSMutableAttributedString *content2 = [[NSMutableAttributedString alloc] initWithString:@"座机拨打：800-8185566"];
-    NSMutableAttributedString *content3 = [[NSMutableAttributedString alloc] initWithString:@"邮箱：OEShelpdesk@otis.com"];
+    NSMutableAttributedString *content3 = [[NSMutableAttributedString alloc] initWithString:@"邮箱：zhengln@otis.com"];
 
     NSRange contentRange = {10, [content length]-10};
     NSRange contentRange1 = {5, [content1 length]-5};

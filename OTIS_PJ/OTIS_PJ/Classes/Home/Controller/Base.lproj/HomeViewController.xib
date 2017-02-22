@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -25,18 +28,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5G5-a9-Jre" userLabel="Big Stack View">
+                    <rect key="frame" x="0.0" y="0.0" width="433" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="100" verticalHuggingPriority="100" image="menu_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZXM-4a-WVF">
+                        <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="100" verticalHuggingPriority="100" image="OEhomePage" translatesAutoresizingMaskIntoConstraints="NO" id="ZXM-4a-WVF">
+                            <rect key="frame" x="0.0" y="0.0" width="433" height="250"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="250" id="J1d-bY-aMZ"/>
                             </constraints>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wGM-oM-3uh" userLabel="Stack View1">
+                            <rect key="frame" x="0.0" y="250" width="433" height="139"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO3-Uw-PmL" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJZ-f2-sB9" customClass="SZButton">
+                                    <rect key="frame" x="216.5" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
@@ -46,21 +54,27 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoB-zu-STK" userLabel="Stack View2">
+                            <rect key="frame" x="0.0" y="389" width="433" height="139"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acz-xc-l5Y" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeA-Zm-lpC" customClass="SZButton">
+                                    <rect key="frame" x="216.5" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DK-EZ-uUg" userLabel="Stack View3">
+                            <rect key="frame" x="0.0" y="528" width="433" height="139"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLy-sd-zth" customClass="SZButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asb-Op-4Fx" customClass="SZButton">
+                                    <rect key="frame" x="216.5" y="0.0" width="216.5" height="139"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
@@ -76,6 +90,7 @@
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTW-fc-1x9">
+                    <rect key="frame" x="176.5" y="72" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="z63-1P-Oe3"/>
                         <constraint firstAttribute="height" constant="80" id="zXZ-mR-67N"/>
@@ -98,11 +113,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knZ-6T-f4S">
+                    <rect key="frame" x="40" y="157" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackBelt" translatesAutoresizingMaskIntoConstraints="NO" id="PZ1-vh-nTj">
+                    <rect key="frame" x="156.5" y="132" width="120" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="aoh-3t-YE3"/>
                         <constraint firstAttribute="height" constant="35" id="tKF-EH-2Ym"/>
@@ -130,12 +147,12 @@
                     <exclude reference="7XZ-Ss-9fe"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="448.5" y="301.5"/>
+            <point key="canvasLocation" x="4" y="167"/>
         </view>
     </objects>
     <resources>
+        <image name="OEhomePage" width="750" height="450"/>
         <image name="blackBelt" width="231" height="54"/>
-        <image name="menu_logo" width="375" height="205"/>
         <image name="pic_homepage_menu_account_nologin" width="82" height="82"/>
     </resources>
 </document>

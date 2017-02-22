@@ -95,10 +95,10 @@
 }
 
 -(void)tapTel{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:022-28101999"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt:0571-81608858"]];
 }
 -(void)tapTel3{
-    [self sendEmailWithCompose:[SZMailCompose composeWithsubject:nil toRecipients:@[@"OEShelpdesk@otis.com"] ccRecipients:nil bccRecipients:nil andeMailContent:nil]];
+    [self sendEmailWithCompose:[SZMailCompose composeWithsubject:nil toRecipients:@[@"zhengln@otis.com"] ccRecipients:nil bccRecipients:nil andeMailContent:nil]];
 }
 
 

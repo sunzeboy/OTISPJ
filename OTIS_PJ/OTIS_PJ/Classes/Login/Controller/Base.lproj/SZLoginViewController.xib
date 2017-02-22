@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kei-S2-o7l">
-                    <rect key="frame" x="15" y="328" width="345" height="40"/>
+                    <rect key="frame" x="15" y="408" width="345" height="40"/>
                     <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="4uz-d4-eLu"/>
@@ -47,17 +47,20 @@
                         <action selector="loginAct:" destination="-1" eventType="touchUpInside" id="r6Z-MQ-L08"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeChat_1462426507" translatesAutoresizingMaskIntoConstraints="NO" id="dIR-oc-Huv">
-                    <rect key="frame" x="98" y="85" width="179" height="74"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OElogon" translatesAutoresizingMaskIntoConstraints="NO" id="dIR-oc-Huv">
+                    <rect key="frame" x="12.5" y="85" width="350" height="154"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="350" id="ChS-eJ-dGN"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V2.0.0.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mik-cQ-Dqr">
-                    <rect key="frame" x="165.5" y="627" width="45" height="16"/>
+                    <rect key="frame" x="165" y="627" width="45" height="16"/>
                     <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="12"/>
                     <color key="textColor" red="0.0039215686274509803" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xcx-jX-Jr7" userLabel="输入框父控件">
-                    <rect key="frame" x="15" y="192" width="345" height="105"/>
+                    <rect key="frame" x="15" y="272" width="345" height="105"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-aI-PDv">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
@@ -118,7 +121,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  OES系统支持热线：022-28101999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU1-JG-gHs">
-                    <rect key="frame" x="89" y="587" width="197.5" height="15"/>
+                    <rect key="frame" x="89.5" y="587" width="197.5" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="Tt6-zr-gZz"/>
                     </constraints>
@@ -127,14 +130,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_login_phone" translatesAutoresizingMaskIntoConstraints="NO" id="mEr-JC-Gbl">
-                    <rect key="frame" x="74" y="587" width="15" height="15"/>
+                    <rect key="frame" x="74.5" y="587" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="PKY-Ga-Soa"/>
                         <constraint firstAttribute="height" constant="15" id="xge-Oa-OXS"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-kp-Oh6" customClass="HyperlinksButton">
-                    <rect key="frame" x="50" y="392" width="275" height="40"/>
+                    <rect key="frame" x="50" y="472" width="275" height="40"/>
                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="忘记密码？">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,7 +177,7 @@
         </view>
     </objects>
     <resources>
-        <image name="WeChat_1462426507" width="179" height="74"/>
+        <image name="OElogon" width="750" height="154"/>
         <image name="img_login_mail" width="9" height="7"/>
         <image name="img_login_phone" width="9" height="9"/>
         <image name="lbl_password" width="18" height="20"/>
