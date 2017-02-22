@@ -79,7 +79,7 @@
                     blockScanResult(array);
                 }
             }];
-//            [_scanNativeObj setNeedCaptureImage:YES];
+            [_scanNativeObj setNeedCaptureImage:YES];
         }
         else
         {
@@ -239,12 +239,12 @@
 #define SOUNDID  1109  //1012 -iphone   1152 ipad  1109 ipad
 + (void)systemVibrate
 {
-//    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 + (void)systemSound
 {
-//    AudioServicesPlaySystemSound(SOUNDID);
+    AudioServicesPlaySystemSound(SOUNDID);
 }
 
 

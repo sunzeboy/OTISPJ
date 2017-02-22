@@ -233,13 +233,13 @@
     TwoWeeksViewController *twoWeeks = [[TwoWeeksViewController alloc] init];
     twoWeeks.title = SZLocal(@"title.TwoWeeksViewController");
     twoWeeks.delegate = self;
-    [self addChildViewController:twoWeeks];
+//    [self addChildViewController:twoWeeks];
     
     UnplannedViewController *unPlanned = [[UnplannedViewController alloc] init];
     unPlanned.title = SZLocal(@"title.UnplannedViewController");
     unPlanned.isWorkingHours = NO;
     unPlanned.delegate=self;
-    [self addChildViewController:unPlanned];
+//    [self addChildViewController:unPlanned];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

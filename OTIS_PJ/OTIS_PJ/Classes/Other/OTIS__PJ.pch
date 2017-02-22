@@ -21,6 +21,13 @@
 #import "NSError+Extention.h"
 #import "UIColor+Extention.h"
 
+#define MDScreenW [UIScreen mainScreen].bounds.size.width
+#define MDScreenH [UIScreen mainScreen].bounds.size.height
 
+#define MDLightColor [UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1.0]
+#define MDDescriptionColor [UIColor colorWithRed:226/255.0 green:226/255.0 blue:226/255.0 alpha:1.0]
+#define MDColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#import "MDConstant.h"
 
 #endif /* OTIS__PJ_pch */

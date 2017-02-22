@@ -17,6 +17,8 @@
 #import "CustomIOSAlertView.h"
 #import "SZTable_Report.h"
 #import "SZTable_QRCode.h"
+#import "MDSynchronousVC.h"
+#import "MDLiftModel.h"
 
 @interface TodayViewController ()<UITableViewDataSource,UISearchBarDelegate>
 @property (nonatomic, strong) NSMutableArray *sousuoArray;
@@ -84,9 +86,14 @@
   
     
     SZFinalMaintenanceUnitDetialItem *item = self.sousuoArray[indexPath.row];
-
-    self.isFixMode = item.isFixMode;
+    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
+    [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
+    
+#if 0
+    self.isFixMode = item.isFixMode;
     BOOL isShowDlg = [SZTable_QRCode isShowQRSelectDlg:item.isFixMode andScheduleID:(int)item.ScheduleID];
     if(!isShowDlg){
         // 不显示DLG的情况下，直接进入详情
@@ -167,6 +174,7 @@
         }
     };
     [alertView show];
+#endif
 //    }
 }
 

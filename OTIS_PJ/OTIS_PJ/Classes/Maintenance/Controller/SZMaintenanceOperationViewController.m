@@ -308,12 +308,12 @@
             comments.needReform = remark.isRepair;
             comments.needReplace = remark.isReplace;
             comments.title = SZLocal(@"title.SZMaintenanceOperation.comments");
-            [self addChildViewController:comments];
+//            [self addChildViewController:comments];
         }else{
             SZMaintenanceCommentsViewController *comments = [[SZMaintenanceCommentsViewController alloc] init];
             comments.title = SZLocal(@"title.SZMaintenanceOperation.comments");
             comments.scheadleId = (int)self.item.ScheduleID;
-            [self addChildViewController:comments];
+//            [self addChildViewController:comments];
         }
 
     }

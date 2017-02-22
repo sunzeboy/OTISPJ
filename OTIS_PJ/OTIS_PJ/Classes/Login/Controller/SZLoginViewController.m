@@ -14,7 +14,7 @@
 #import "NSBundle+Extention.h"
 #import "SZDownloadManger.h"
 #import "SZTable_User.h"
-#import "HomeViewController.h"
+#import "MCHomeVC.h"
 #import "AppDelegate.h"
 #import "SZTable_Schedules.h"
 #import "NSDate+Extention.h"
@@ -253,14 +253,14 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
 
         if ([str isEqualToString:@"2"] ) {
-            HomeViewController *vc = [[HomeViewController alloc] init];
-            vc.isLocalLogin = YES;
+            MCHomeVC *vc = [[MCHomeVC alloc] init];
+//            vc.isLocalLogin = YES;
             SZNavigationController *nav = [[SZNavigationController alloc] initWithRootViewController:vc];
             [UIApplication sharedApplication].delegate.window.rootViewController = nav;
             return ;
         }else if ([str isEqualToString:@"1"]){
-            HomeViewController *vc = [[HomeViewController alloc] init];
-            vc.isLocalLogin = NO;
+            MCHomeVC *vc = [[MCHomeVC alloc] init];
+//            vc.isLocalLogin = NO;
             SZNavigationController *nav = [[SZNavigationController alloc] initWithRootViewController:vc];
             [UIApplication sharedApplication].delegate.window.rootViewController = nav;
             return ;
