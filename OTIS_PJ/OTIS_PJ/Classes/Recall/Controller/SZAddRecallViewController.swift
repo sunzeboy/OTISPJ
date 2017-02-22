@@ -10,6 +10,12 @@ import UIKit
 
 class SZAddRecallViewController: UIViewController {
 
+    @IBOutlet weak var recallCodeTF: UITextField!
+    
+    @IBOutlet weak var customerNameTF: UITextField!
+    
+    @IBOutlet weak var customerPhoneTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "新增召修"

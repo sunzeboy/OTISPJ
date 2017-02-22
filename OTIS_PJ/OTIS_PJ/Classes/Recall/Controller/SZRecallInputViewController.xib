@@ -10,8 +10,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SZRecallInputViewController" customModule="OTIS_PJ" customModuleProvider="target">
             <connections>
+                <outlet property="arriveLa" destination="1Za-HO-2G9" id="2hC-rK-dHg"/>
+                <outlet property="arriveLo" destination="axg-Jw-g5F" id="Tcu-co-l17"/>
+                <outlet property="arriveTime" destination="Js9-mE-yBC" id="81N-Y3-kaD"/>
+                <outlet property="closeInformationTV" destination="m5v-Vr-1vu" id="p58-Rw-idr"/>
+                <outlet property="code" destination="fU4-Cc-rW9" id="D7k-w1-qgN"/>
+                <outlet property="completeLa" destination="lya-ar-kqs" id="boe-eC-Cvj"/>
+                <outlet property="completeLo" destination="hpp-OV-4uD" id="FIk-tp-zAv"/>
+                <outlet property="completeTime" destination="hDF-vo-OFl" id="lR0-ip-nbw"/>
+                <outlet property="componentArea" destination="mTm-Ah-i3n" id="rnp-Rm-Frr"/>
                 <outlet property="contentView" destination="O4A-YH-coi" id="ii0-Aw-9D1"/>
+                <outlet property="customerName" destination="P6L-ES-t3h" id="9Ik-gw-Zki"/>
+                <outlet property="customerPhone" destination="qau-c4-qVk" id="sLF-wJ-7g8"/>
+                <outlet property="eleCodeTF" destination="2yJ-HS-RRi" id="ugi-y6-Avv"/>
+                <outlet property="failureCauseTV" destination="oL3-Ot-dkk" id="13c-UI-PqD"/>
+                <outlet property="failurePhenomenonTV" destination="eho-ds-7DP" id="yIo-Co-4hS"/>
                 <outlet property="fangRenTF" destination="whj-Pn-s0w" id="zKA-vE-rsm"/>
+                <outlet property="mainComponent" destination="Y1b-9g-2M9" id="pcd-iE-oL3"/>
+                <outlet property="recallCategory" destination="4De-dz-YN5" id="keV-i4-kJC"/>
+                <outlet property="recallCode" destination="OBj-vA-30c" id="sB3-UM-EDM"/>
+                <outlet property="secondaryPart" destination="zTv-sv-LDn" id="Ks3-zG-ciS"/>
+                <outlet property="startTime" destination="PAh-MC-rK3" id="CG0-YQ-TrX"/>
+                <outlet property="treatmentResultTV" destination="lR7-kZ-q7X" id="KDf-sL-yPC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -285,6 +305,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="Nm1-uC-kji"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oL3-Ot-dkk">
@@ -293,6 +314,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="TDG-fB-HWd"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eho-ds-7DP">
@@ -301,6 +323,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="bVQ-37-rRu"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lR7-kZ-q7X">
@@ -309,6 +332,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="S0w-mj-S7n"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whj-Pn-s0w">

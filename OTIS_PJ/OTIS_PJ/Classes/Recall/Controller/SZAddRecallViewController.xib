@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SZAddRecallViewController" customModule="OTIS_PJ" customModuleProvider="target">
             <connections>
+                <outlet property="customerNameTF" destination="DW5-rf-K6r" id="rXf-cr-H1t"/>
+                <outlet property="customerPhoneTF" destination="3ni-WA-n1o" id="iRn-cn-9i5"/>
+                <outlet property="recallCodeTF" destination="Mw9-s9-6eZ" id="YHn-I8-hIh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,25 +22,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="召修编号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjQ-HD-nkw">
-                    <rect key="frame" x="15" y="50" width="87" height="21"/>
+                    <rect key="frame" x="15" y="100" width="87" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.070588235294117646" green="0.25490196078431371" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户名称：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeR-Q4-GVd">
-                    <rect key="frame" x="15" y="99" width="87" height="21"/>
+                    <rect key="frame" x="15" y="149" width="87" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户电话：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WH-M1-8LQ">
-                    <rect key="frame" x="15" y="151" width="87" height="21"/>
+                    <rect key="frame" x="15" y="201" width="87" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mw9-s9-6eZ">
-                    <rect key="frame" x="117" y="45.5" width="200" height="30"/>
+                    <rect key="frame" x="117" y="95.5" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="Y8V-gd-TRb"/>
                     </constraints>
@@ -46,13 +49,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DW5-rf-K6r">
-                    <rect key="frame" x="117" y="94.5" width="200" height="30"/>
+                    <rect key="frame" x="117" y="144.5" width="200" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ni-WA-n1o">
-                    <rect key="frame" x="117" y="146.5" width="200" height="30"/>
+                    <rect key="frame" x="117" y="196.5" width="200" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -60,7 +63,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="YjQ-HD-nkw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="01T-eN-9wF"/>
+                <constraint firstItem="YjQ-HD-nkw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="01T-eN-9wF"/>
                 <constraint firstItem="DW5-rf-K6r" firstAttribute="centerY" secondItem="WeR-Q4-GVd" secondAttribute="centerY" id="6RK-eW-uOl"/>
                 <constraint firstItem="3ni-WA-n1o" firstAttribute="height" secondItem="Mw9-s9-6eZ" secondAttribute="height" id="AoD-IA-IVL"/>
                 <constraint firstItem="3ni-WA-n1o" firstAttribute="centerY" secondItem="9WH-M1-8LQ" secondAttribute="centerY" id="BvD-WN-oQ7"/>
