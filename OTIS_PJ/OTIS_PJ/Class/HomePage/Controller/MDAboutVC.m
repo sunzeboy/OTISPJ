@@ -20,7 +20,7 @@
     
     UIImageView* backImageView=[[UIImageView alloc] init];
     backImageView.contentMode=UIViewContentModeScaleAspectFit;
-    backImageView.image=[UIImage imageNamed:@"about"];
+    backImageView.image=[UIImage imageNamed:@"mdabout"];
     [self.view addSubview:backImageView];
     
     [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {

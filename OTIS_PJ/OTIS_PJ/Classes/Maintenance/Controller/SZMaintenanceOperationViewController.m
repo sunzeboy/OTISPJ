@@ -28,12 +28,13 @@
 #import "SZBottomWorkingHourView.h"
 #import "TablesAndFields.h"
 
-
+#import "MDBoomView.h"
+#import "Masonry.h"
+#import "MDBaseButton.h"
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
 }
 @property (nonatomic, strong) UIImage *detailImage;
-
 
 @end
 
@@ -74,7 +75,7 @@
 
 @interface SZMaintenanceOperationViewController ()
 
-
+@property(nonatomic,strong) MDMaintainButton* boomViewAllSelectBtn;
 // 底部按钮栏
 @property (nonatomic , strong) SZBottomMaintainView *maintainView;
 @property (nonatomic , strong)  SZBottomWorkingHourView *workingHourView;
@@ -88,16 +89,16 @@
 @implementation SZMaintenanceOperationViewController
 
 
--(SZBottomMaintainView *)maintainView{
-    
-    if(_maintainView ==nil){
-        _maintainView =[SZBottomMaintainView loadSZBottomOperationView];
-        _maintainView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
-        [self.view addSubview:_maintainView];
-    }
-    return _maintainView;
-    
-}
+//-(SZBottomMaintainView *)maintainView{
+//    
+//    if(_maintainView ==nil){
+//        _maintainView =[SZBottomMaintainView loadSZBottomOperationView];
+//        _maintainView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
+//        [self.view addSubview:_maintainView];
+//    }
+//    return _maintainView;
+//    
+//}
 
 -(SZBottomWorkingHourView *) workingHourView{
     
@@ -133,8 +134,8 @@
     self.title = SZLocal(@"title.SZMaintenanceOperationViewController");
     [self setNavItem];
     [self setSubTitleView];
-    [self maintainView];
-    SZLog(@"****%d",self.maintainView.allSelectBtn.selected);
+    [self setBoomView];
+    SZLog(@"****%d",self.boomViewAllSelectBtn.selected);
 
     WEAKSELF
     
@@ -201,14 +202,61 @@
         self.maintainView.allSelectActBlock = ^(UIButton *btn) {
             [weakSelf selectAll];
         };
-        SZLog(@"---%d",self.maintainView.allSelectBtn.selected);
+        SZLog(@"---%d",self.boomViewAllSelectBtn.selected);
     
     }
-    
-   
 
     [self judgeSelectBtnTitleWithBtn];
 }
+
+-(void)setBoomView{
+    WEAKSELF
+    MDBoomView* boomView=[[MDBoomView alloc] initWithBoomTitleArray:@[@"保存",@"全选"] imageArray:@[@"btn_save_blue",@"btn_allSelect_blue"]];
+    boomView.backgroundColor=[UIColor whiteColor];
+    [self.view addSubview:boomView];
+    self.boomViewAllSelectBtn = [boomView.boomViewButtonArray lastObject];
+//    [self.boomViewAllSelectBtn setTitle:@"反全选" forState:UIControlStateSelected];
+    
+    NSLog(@"************%d",self.boomViewAllSelectBtn.selected);
+    
+    [boomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(0);
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(0);
+        make.height.mas_equalTo(60);
+    }];
+    
+    boomView.buttonClickBlock=^(NSInteger index){
+        
+        
+        switch (index) {
+            case 10:
+            {
+                
+            }
+                break;
+            case 11:
+            {
+                [weakSelf selectAll];
+            }
+                break;
+            default:
+                break;
+        }
+    };
+}
+
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    [super scrollViewDidEndDecelerating:scrollView];
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//}
 
 -(void)setNavItem{
     UIButton* backBtn=[[UIButton alloc] init];
@@ -267,7 +315,6 @@
      
     [self.view addSubview:subTitleView];
 }
-
 
 
 -(void)setupChildVces
@@ -333,7 +380,7 @@
     }
     //vc.allSelect=NO;
     BOOL isSelected=vc.allSelect;
-    self.maintainView.allSelectBtn.selected = isSelected;
+    self.boomViewAllSelectBtn.selected = isSelected;
 }
 
 -(void)save{
@@ -510,10 +557,6 @@
             
             
         }
-
-    
-    
-
 }
 // 中断
 -(void)stop{
@@ -589,16 +632,16 @@
     if ([vc isKindOfClass:[SZMaintenanceCommentsViewController class]]) {
         return;
     }
-    self.maintainView.allSelectBtn.selected = !self.maintainView.allSelectBtn.selected;
+    self.boomViewAllSelectBtn.selected = !self.boomViewAllSelectBtn.selected;
     
 
-    if (self.maintainView.allSelectBtn.selected) {
+    if (self.boomViewAllSelectBtn.selected) {
         if (self.isFixMode) {
             [self.workingHourView.scanBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
             vc.allSelect = NO;
         }else{
-            [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
-            vc.allSelect = self.maintainView.allSelectBtn.selected;
+            [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
+            vc.allSelect = self.boomViewAllSelectBtn.selected;
         }
         
     } else {
@@ -608,14 +651,11 @@
             vc.allSelect = YES;
         }else{
             
-            [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.noSelect") forState:UIControlStateNormal];
-            vc.allSelect = self.maintainView.allSelectBtn.selected;
+            [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.noSelect") forState:UIControlStateNormal];
+            vc.allSelect = self.boomViewAllSelectBtn.selected;
             
         }
     }
-    
-  
-
     [self tipisJHACompleteWithVC:vc];
 }
 
@@ -626,7 +666,7 @@
         }else{
             if ([self allSelect]) {
                 if (vc) {
-                    vc.allSelect = !self.maintainView.allSelectBtn.selected;
+                    vc.allSelect = !self.boomViewAllSelectBtn.selected;
                 }
                 
                 CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
@@ -660,7 +700,6 @@
 }
 
 
-
 -(void)clickTitle:(UIButton *)button{
     [super clickTitle:button];
     for (UIViewController *childViewController in self.childViewControllers){
@@ -673,29 +712,29 @@
     
     SZTableViewController *vc = [self.childViewControllers objectAtIndex:[self.arrayTitle indexOfObject:self.selectedButton.titleLabel.text]];
     if ([vc isKindOfClass:[SZMaintenanceCommentsViewController class]]) {
-        [self.maintainView.allSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_gray"] forState:UIControlStateNormal];
-        [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
-        self.maintainView.allSelectBtn.userInteractionEnabled=NO;
+        [self.boomViewAllSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_gray"] forState:UIControlStateNormal];
+        [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
+        self.boomViewAllSelectBtn.userInteractionEnabled=NO;
         return;
     }
     if (!vc.hasData) {
-        [self.maintainView.allSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_gray"] forState:UIControlStateNormal];
-        [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
-        self.maintainView.allSelectBtn.userInteractionEnabled=NO;
+        [self.boomViewAllSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_gray"] forState:UIControlStateNormal];
+        [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
+        self.boomViewAllSelectBtn.userInteractionEnabled=NO;
     }else{
         
         if (vc.allSelect) {
-            [self.maintainView.allSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_blue"] forState:UIControlStateNormal];
-            [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.noSelect") forState:UIControlStateNormal];
-            self.maintainView.allSelectBtn.selected = NO;
+            [self.boomViewAllSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_blue"] forState:UIControlStateNormal];
+            [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.noSelect") forState:UIControlStateNormal];
+            self.boomViewAllSelectBtn.selected = NO;
 
         }else{
-            [self.maintainView.allSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_blue"] forState:UIControlStateNormal];
-            [self.maintainView.allSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
-            self.maintainView.allSelectBtn.selected = YES;
+            [self.boomViewAllSelectBtn setImage:[UIImage imageNamed:@"btn_allSelect_blue"] forState:UIControlStateNormal];
+            [self.boomViewAllSelectBtn setTitle:SZLocal(@"btn.title.allSelect") forState:UIControlStateNormal];
+            self.boomViewAllSelectBtn.selected = YES;
 
         }
-        self.maintainView.allSelectBtn.userInteractionEnabled=YES;
+        self.boomViewAllSelectBtn.userInteractionEnabled=YES;
         
     }
 }

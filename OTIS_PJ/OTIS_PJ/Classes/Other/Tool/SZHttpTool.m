@@ -65,6 +65,8 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"text/plain", nil];
     
+//    NSLog(@"--------request-%@",parameters);
+    
     //加密
     NSMutableDictionary *finalParameter = parameters;
     
@@ -73,7 +75,7 @@
         finalParameter[strKey] = [NSData AES256EncryptWithPlainText:value];
     }
     
-    //SZLog(@"====%@",finalParameter);
+//    SZLog(@"====%@",finalParameter);
     
     [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

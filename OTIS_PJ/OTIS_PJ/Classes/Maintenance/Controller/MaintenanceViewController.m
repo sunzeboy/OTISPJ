@@ -23,6 +23,10 @@
 #import "MASConstraintMaker.h"
 #import "View+MASAdditions.h"
 
+#import "MDBaseButton.h"
+#import "Masonry.h"
+#import "MDBoomView.h"
+
 @interface MaintenanceViewController ()
 
 @property (nonatomic , strong)  SZBottomMainView *bottomMainView;
@@ -41,23 +45,22 @@
 }
 
 
--(SZBottomMainView *) bottomMainView{
-    
-    if(_bottomMainView ==nil){
-        _bottomMainView =[SZBottomMainView loadSZBottomMainView];
-        _bottomMainView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
-        [self.view addSubview:_bottomMainView];
-    }
-    return _bottomMainView;
-}
+//-(SZBottomMainView *) bottomMainView{
+//    
+//    if(_bottomMainView ==nil){
+//        _bottomMainView =[SZBottomMainView loadSZBottomMainView];
+//        _bottomMainView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
+//        [self.view addSubview:_bottomMainView];
+//            }
+//    return _bottomMainView;
+//}
 
 -(void)viewDidLoad
 {
 
     [super viewDidLoad];
     
-
-    [self bottomMainView];
+    [self setBoomView];
     WEAKSELF
     self.bottomMainView.scanBtnClickBlock = ^(UIButton * scanBtn) {
         [weakSelf ZhiFuBaoStyle];
@@ -72,6 +75,27 @@
     nav.popVc = self;
 //    [self addObserver: self forKeyPath: @"contentOffset" options: NSKeyValueChangeNewKey context: nil];
 
+}
+
+-(void)setBoomView{
+    
+    MDBoomView* boomView=[[MDBoomView alloc] initWithBoomTitleArray:@[@"扫一扫"] imageArray:@[@"btn_scan"]];
+    boomView.backgroundColor=[UIColor whiteColor];
+    
+    [[boomView.boomViewButtonArray lastObject] addTarget:self action:@selector(boomViewButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:boomView];
+    
+    [boomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(0);
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(0);
+        make.height.mas_equalTo(60);
+    }];
+}
+
+-(void)boomViewButtonClick:(MDMaintainButton*)button{
+    [self ZhiFuBaoStyle];
 }
 
 -(void)initToolBar{

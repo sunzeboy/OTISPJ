@@ -123,7 +123,7 @@ static NSString* wifiNameFix = @"Otis-";
     [self.view addSubview:resultDetailLabel];
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(64);
         make.left.equalTo(self.view.mas_left).with.offset(20);
         make.size.mas_equalTo(CGSizeMake(MDScreenW, self.titleHeight));
     }];

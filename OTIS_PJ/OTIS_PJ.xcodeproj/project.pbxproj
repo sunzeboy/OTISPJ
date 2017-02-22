@@ -391,6 +391,7 @@
 		8A66E8041D5B128A00924501 /* SZWorkingHoursPUIllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8061D5B128A00924501 /* SZWorkingHoursPUIllCell.xib */; };
 		8A66E80B1D5B133A00924501 /* SZBottomMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E80D1D5B133A00924501 /* SZBottomMainView.xib */; };
 		8A66E8131D5B137700924501 /* SZBottomWhInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8151D5B137700924501 /* SZBottomWhInputView.xib */; };
+		8ACBF86F1E5D79EB0007CC2F /* MDBoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACBF86E1E5D79EB0007CC2F /* MDBoomView.m */; };
 		CD7F729F88FEDAC82E37CF1C /* libPods-OTIS_PJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A81E09FF1EA80A0BFDFE7C1 /* libPods-OTIS_PJ.a */; };
 /* End PBXBuildFile section */
 
@@ -1208,6 +1209,8 @@
 		8A66E8141D5B137700924501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZBottomWhInputView.xib; sourceTree = "<group>"; };
 		8A66E8171D5B137B00924501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SZBottomWhInputView.strings; sourceTree = "<group>"; };
 		8A66E8191D5B137C00924501 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SZBottomWhInputView.strings"; sourceTree = "<group>"; };
+		8ACBF86D1E5D79EB0007CC2F /* MDBoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBoomView.h; sourceTree = "<group>"; };
+		8ACBF86E1E5D79EB0007CC2F /* MDBoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBoomView.m; sourceTree = "<group>"; };
 		8D42BF17ABB9282C9C87C5CE /* Pods-OTIS_PJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTIS_PJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OTIS_PJ/Pods-OTIS_PJ.debug.xcconfig"; sourceTree = "<group>"; };
 		9A81E09FF1EA80A0BFDFE7C1 /* libPods-OTIS_PJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OTIS_PJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1ECAD26D3A72B85C2B01A4C /* Pods-OTIS_PJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTIS_PJ.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTIS_PJ/Pods-OTIS_PJ.release.xcconfig"; sourceTree = "<group>"; };
@@ -2213,6 +2216,8 @@
 				682A86191E5D5ACF00DAA130 /* MDCoverView.m */,
 				682A861A1E5D5ACF00DAA130 /* MDCustomAlertView.h */,
 				682A861B1E5D5ACF00DAA130 /* MDCustomAlertView.m */,
+				8ACBF86D1E5D79EB0007CC2F /* MDBoomView.h */,
+				8ACBF86E1E5D79EB0007CC2F /* MDBoomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3171,6 +3176,7 @@
 				68777F591D2500C000DCAD2D /* SZUploadResponse.m in Sources */,
 				682EAF141CE5C5D80033E623 /* SZTable_Supervisor.m in Sources */,
 				0B60C7C21CE355DB00A1BEEE /* SZAnnualInspectionDetailView.m in Sources */,
+				8ACBF86F1E5D79EB0007CC2F /* MDBoomView.m in Sources */,
 				0B60C7AF1CE2FB3F00A1BEEE /* SZHelpTableViewCell.m in Sources */,
 				0B4744C51D0F91B2007C1817 /* SZSignCommentsViewController.m in Sources */,
 				0B4675D41CE085B1001AF092 /* SZAnnualInspectionTableViewCell.m in Sources */,
@@ -3929,6 +3935,7 @@
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -3953,6 +3960,7 @@
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

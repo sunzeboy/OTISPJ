@@ -20,7 +20,7 @@ CGFloat const CXTitilesSubSpaceY            = 80;
 CGFloat const OTIS_BottomOperationH         = 55;
 
 CGFloat const OTIS_SZLaborHoursItemViewH    = 52;
-
+//@"http://192.168.30.65:80/"
 NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net:22281/";
 NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net:22281/";
 

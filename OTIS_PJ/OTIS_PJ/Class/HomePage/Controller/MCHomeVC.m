@@ -17,7 +17,7 @@
 #import "MDCoverView.h"
 #import "CustomIOSAlertView.h"
 #import "MaintenanceViewController.h"
-
+#import "SZUploadManger.h"
 
 @interface MCHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -55,6 +55,9 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     self.automaticallyAdjustsScrollViewInsets=NO;
 //    self.edgesForExtendedLayout=UIRectEdgeNone;
     [self setSubviews];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:IsAutomatickey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)setSubviews{
@@ -77,7 +80,7 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     self.topCollectionView=topCollectionView;
     
     [topCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(64);
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(0);
         make.height.mas_equalTo(MDScreenH/4.0+1);
@@ -143,42 +146,43 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
             case 1:
             {
                 
-                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                                dialogTitle:@"温馨提示"
-                                                                                             dialogContents:@"您确认现在开始同步数据吗？"
-                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:@"确定",@"取消", nil]];
-                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-                    if (buttonIndex==0) {
-                        [alertView close];
-                        MDCoverView* coverView=[[MDCoverView alloc] initWithFrame:self.view.bounds];
-                        coverView.alpha=0.9;
-                        [self.view addSubview:coverView];
-                        
-                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:coverView animated:YES];
-                        hud.bezelView.backgroundColor=[UIColor blackColor];
-                        hud.contentColor=[UIColor whiteColor];
-                        hud.label.text=@"正在同步中";
-                        hud.bezelView.alpha=1;
-                        hud.backgroundView.style = MBProgressHUDModeIndeterminate;
-                        
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            [hud hideAnimated:YES];
-                            [coverView.dataArray addObject:@"同步完成，成功"];
-                            [coverView.table reloadData];
-                            
-                            
-                            CustomIOSAlertView* alertView1=[[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:nil dialogTitle:@"温馨提示" dialogContents:@"同步成功" dialogButtons:[NSMutableArray arrayWithObjects:@"确定", nil]];
-                            alertView1.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView1, int buttonIndex){
-                                [coverView removeFromSuperview];
-                                [alertView1 close];
-                            };
-                            [alertView1 show];
-                        });
-                    }else{
-                        [alertView close];
-                    }
-                };
-                [alertView show];
+//                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                                dialogTitle:@"温馨提示"
+//                                                                                             dialogContents:@"您确认现在开始同步数据吗？"
+//                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:@"确定",@"取消", nil]];
+//                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//                    if (buttonIndex==0) {
+//                        [alertView close];
+//                        MDCoverView* coverView=[[MDCoverView alloc] initWithFrame:self.view.bounds];
+//                        coverView.alpha=0.9;
+//                        [self.view addSubview:coverView];
+//                        
+//                        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:coverView animated:YES];
+//                        hud.bezelView.backgroundColor=[UIColor blackColor];
+//                        hud.contentColor=[UIColor whiteColor];
+//                        hud.label.text=@"正在同步中";
+//                        hud.bezelView.alpha=1;
+//                        hud.backgroundView.style = MBProgressHUDModeIndeterminate;
+//                        
+//                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                            [hud hideAnimated:YES];
+//                            [coverView.dataArray addObject:@"同步完成，成功"];
+//                            [coverView.table reloadData];
+//                            
+//                            
+//                            CustomIOSAlertView* alertView1=[[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:nil dialogTitle:@"温馨提示" dialogContents:@"同步成功" dialogButtons:[NSMutableArray arrayWithObjects:@"确定", nil]];
+//                            alertView1.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView1, int buttonIndex){
+//                                [coverView removeFromSuperview];
+//                                [alertView1 close];
+//                            };
+//                            [alertView1 show];
+//                        });
+//                    }else{
+//                        [alertView close];
+//                    }
+//                };
+//                [alertView show];
+                [self tongbushuju];
             }
                 break;
             case 2:
@@ -196,6 +200,27 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
                 break;
         }
     }
+}
+
+
+-(void)tongbushuju{
+    WEAKSELF
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+                                                                                    dialogTitle:SZLocal(@"dialog.title.tip")
+                                                                                 dialogContents:SZLocal(@"dialog.content.confirmDataSync")
+                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
+    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+        if(buttonIndex == 0){
+            [SZUploadManger startUploadAndDownloadWithView:weakSelf.view];
+            
+            [alertView close];
+        }else if(buttonIndex == 1){
+            [alertView close];
+        }
+    };
+    [alertView show];
+    
+    
 }
 
 -(void)setBackButton{}

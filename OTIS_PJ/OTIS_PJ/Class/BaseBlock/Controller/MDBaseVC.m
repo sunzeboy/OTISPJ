@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
     self.navigationItem.hidesBackButton = YES;
-    [self setBackButton];
+//    [self setBackButton];
 }
 
 

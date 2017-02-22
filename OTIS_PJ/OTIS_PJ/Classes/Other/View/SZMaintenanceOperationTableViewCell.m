@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *operationName;
 @property (weak, nonatomic) IBOutlet UILabel *operationContent;
 - (IBAction)operationAct:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *automButton;
 
 
 @end
@@ -24,6 +25,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    [super awakeFromNib];
+    
+    self.automButton.layer.borderColor=[UIColor blackColor].CGColor;
+    self.automButton.layer.borderWidth=1.0;
+    
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
