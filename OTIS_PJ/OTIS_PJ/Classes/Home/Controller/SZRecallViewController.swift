@@ -9,15 +9,20 @@
 import UIKit
 
 
-class SZRecallViewController: SZPageViewController {
+class SZRecallViewController: SZPageViewController,bottomOperationable {
 
-    
+    var btns: [String : String] {
+        return ["新增":"add"];
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "召修"
-        
+        self.bottomView.actBlock = actBlock
+        bottomView.actBlock = actBlock
+        view.addSubview(bottomView)
+
     }
     
     override func setupChildVces() {
@@ -30,6 +35,8 @@ class SZRecallViewController: SZPageViewController {
         addChildViewController(subVc2)
     }
 
+    func actBlock(button:UIButton) -> Void {
+        print("addddd")
+    }
     
-
 }
