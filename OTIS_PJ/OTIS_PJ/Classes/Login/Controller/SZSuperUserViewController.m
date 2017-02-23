@@ -49,11 +49,17 @@
     labelCallback.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:labelCallback];
     
+    
     self.xhbox2 = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 40)];
     self.xhbox2.borderStyle = UITextBorderStyleRoundedRect;
     self.xhbox2.placeholder = @"请输入或选择服务器地址";
     self.xhbox2.tag = 1001;
-    self.xhbox2.text = SZOuterNetworkCallback;
+    if ([USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"] == nil) {
+        self.xhbox2.text = SZOuterNetworkCallback;
+
+    }else{
+        self.xhbox2.text = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
+    }
     self.xhbox2.font = [UIFont systemFontOfSize:14.0];
     [self.view addSubview:self.xhbox2];
     

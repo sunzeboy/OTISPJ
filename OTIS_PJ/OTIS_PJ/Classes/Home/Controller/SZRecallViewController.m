@@ -28,17 +28,40 @@
 }
 -(void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
-    
+    [self cleanCacheAndCookie];
 }
+
+/**清除缓存和cookie*/
+- (void)cleanCacheAndCookie{
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]){
+        [storage deleteCookie:cookie];
+    }
+    //清除UIWebView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.30.157/CallBack/main.html"]];
-    
+    SZOuterNetworkCallback = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
     NSString *strUrl = [NSString stringWithFormat:@"%@?userName=%@&passWord=%@&tabType=0",SZOuterNetworkCallback,[OTISConfig EmployeeID],[self md5:[OTISConfig userPW]]];
     NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl]];
     self.webView.delegate = self;
     [self.webView loadRequest:request];
+    
+    self.webView.scalesPageToFit = YES;
+    //    myWebView.scrollView.contentInset = UIEdgeInsetsMake(15.0, 0.0, 0.0, 0.0);
+    self.webView.dataDetectorTypes = UIDataDetectorTypeLink;
+    self.webView.backgroundColor = [UIColor clearColor];
+    self.webView.scrollView.bounces=NO;
     
 }
 

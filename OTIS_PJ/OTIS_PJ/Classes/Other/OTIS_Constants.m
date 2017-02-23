@@ -25,7 +25,7 @@ NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net:22281/";
 NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net:22281/";
 
 
-NSString * SZOuterNetworkCallback   = @"http://ochcsprdweb.cloudapp.net/WEBTest/CallBack/main.html";
+NSString * SZOuterNetworkCallback   = @"http://ochcsprdweb.cloudapp.net/CallBack/main.html";
 
 //NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
 //NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
