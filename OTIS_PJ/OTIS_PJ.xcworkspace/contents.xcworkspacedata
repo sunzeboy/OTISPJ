@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:OTIS_PJ.xcodeproj">
+      location = "group:/Users/sunze/Documents/&#x516c;&#x53f8;&#x4e91;&#x68af;iOS&#x9879;&#x76ee;/&#x53ec;&#x4fee;/OTISPJ/OTIS_PJ/OTIS_PJ.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
