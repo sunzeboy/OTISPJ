@@ -15,9 +15,7 @@
 
 @interface SZMaintenanceHalfMonthViewController ()<UITableViewDataSource>
 
-
 @property (nonatomic , strong) NSMutableDictionary *arrayCompetedCheckItem;
-
 
 @end
 
@@ -31,7 +29,6 @@
 
         if (self.isFixMode) {
             
-
             NSMutableArray *arrayAll = [NSMutableArray arrayWithArray:[SZModuleQueryTool quaryMaintenanceItemWithDetialItem:self.item2 andTimeType:OTISMaintenanceItemTimeTypeHalfMonth]];
 
             NSMutableDictionary *dicFix = [SZModuleQueryTool quaryMaintenanceItemFixWithDetialItem:self.item2];
@@ -72,7 +69,7 @@
             NSMutableArray *arrayTemp = [NSMutableArray arrayWithArray:[SZModuleQueryTool quaryMaintenanceItemWithDetialItem:self.item andTimeType:OTISMaintenanceItemTimeTypeHalfMonth]];
 
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
-                
+                itemAll.automType = 1;
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 if (item && item.isUpload == YES) {
                     continue;
@@ -194,7 +191,6 @@
 }
 -(BOOL)weixuan{
     
-    
     if (self.isFixMode) {
         for (SZMaintenanceCheckItem *item in self.maintenanceOperation) {
             if (item.state == 1) {
@@ -208,12 +204,8 @@
                 return NO;
             }
         }
-        
-        
     }
-    
     return NO;
-
 }
 
 -(int)unCompleteCount{
@@ -268,6 +260,32 @@
     }else{
         gb.SchedulesId = self.item2.ScheduleID;
     }
+    switch (gb.automType) {
+            break;
+        case 1:
+        {
+            [cell.automButton setImage:[UIImage imageNamed:@"OTIS_1"] forState:UIControlStateDisabled];
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        case 4:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
     cell.maintenanceOperation = gb;
     cell.isFixMode = self.isFixMode;
     if (self.ispreView) {
@@ -284,8 +302,6 @@
         SZMaintenanceOperationTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [cell operationAct:cell.operationBtn];
     }
-
-
 }
 
 @end

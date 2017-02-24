@@ -31,6 +31,9 @@
 #import "MDBoomView.h"
 #import "Masonry.h"
 #import "MDBaseButton.h"
+#import "FDAlertView.h"
+#import "MDCustomAlertView.h"
+#import "CustomTextView.h"
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
 }
@@ -84,6 +87,16 @@
 // 是否保存照片的flg
 @property (nonatomic , assign) BOOL hasSaved;
 
+
+/*******MD**/
+
+@property(nonatomic,strong) NSMutableArray* allDataArray;
+
+@property(nonatomic,strong) NSMutableArray* saveDataArray;
+
+@property(nonatomic,assign) int searchIndex;
+
+
 @end
 
 @implementation SZMaintenanceOperationViewController
@@ -135,7 +148,6 @@
     [self setNavItem];
     [self setSubTitleView];
     [self setBoomView];
-    SZLog(@"****%d",self.boomViewAllSelectBtn.selected);
 
     WEAKSELF
     
@@ -232,7 +244,7 @@
         switch (index) {
             case 10:
             {
-                
+                [weakSelf save];
             }
                 break;
             case 11:
@@ -391,12 +403,15 @@
     SZMaintenanceHalfYearViewController *halfYear = [self.childViewControllers objectAtIndex:2];
     SZMaintenanceYearViewController *year = [self.childViewControllers objectAtIndex:3];
     
-    
     NSMutableArray *arrayData = [NSMutableArray  arrayWithArray:halfMonth.maintenanceOperation];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:quarter.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:halfYear.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:year.maintenanceOperation]];
     
+    
+    [self judgeRightAndLeftIsSame:arrayData];
+    
+    return;
     int totalUncompleteCount = halfMonth.unCompleteCount+quarter.unCompleteCount+halfYear.unCompleteCount+year.unCompleteCount;
 
     
@@ -437,8 +452,7 @@
         [arraySelected addObjectsFromArray:[NSMutableArray selectedCheckItemsWithArray:quarter.maintenanceOperation]];
         [arraySelected addObjectsFromArray:[NSMutableArray selectedCheckItemsWithArray:halfYear.maintenanceOperation]];
         [arraySelected addObjectsFromArray:[NSMutableArray selectedCheckItemsWithArray:year.maintenanceOperation]];
-        
-    
+
         BOOL ret1 = halfMonth.weixuan;
         BOOL ret2 = quarter.weixuan;
         BOOL ret3 = halfYear.weixuan;
@@ -547,17 +561,76 @@
                             [alertView close];
                         }
                     };
-                    
                     [alertView show];
                     
                 });
-                
-                
             }
-            
-            
         }
 }
+
+//便利所有自控制器的数据源数组，对比自动与手动的不同之处，如有不同弹出提示框。
+-(void)judgeRightAndLeftIsSame:(NSMutableArray*)array{
+    
+    NSInteger temp=0;
+    for (int i =self.searchIndex; i<array.count; i++) {
+        //设置self.searchIndex用于跳过已经处理的项目
+        self.searchIndex=i+1;
+        SZMaintenanceCheckItem *itemAll = array[i];
+        
+        //跳过没有数据的自动项
+        if (itemAll.isHiden)  continue;
+        //        if (model.isSave)  continue;
+        
+        //判断自动与手动是否有不同之处，不同时设置temp等于1，用于标记有项目不同
+        if (itemAll.automType!=itemAll.state) {
+            temp=1;
+            break;
+        }else{
+            if ([self.saveDataArray containsObject:itemAll]) {
+                [self.saveDataArray removeObject:itemAll];
+                NSLog(@"-------------保存数组%lu",(unsigned long)self.saveDataArray.count);
+            }
+        }
+    }
+    
+    if (temp==1) {
+        SZMaintenanceCheckItem *itemAll = array[self.searchIndex-1];
+        if ([self.saveDataArray containsObject:itemAll]) {
+            [self judgeRightAndLeftIsSame:array];
+            return;
+        }
+        FDAlertView *alert = [[FDAlertView alloc] init];
+        MDCustomAlertView *contentView = [[MDCustomAlertView alloc] initWithFrame:CGRectMake(0, 0, MDScreenW-30,190)];
+        contentView.textView.placeholder=[NSString stringWithFormat:@"%@",itemAll.ItemName];
+        alert.contentView = contentView;
+        [alert show];
+        
+        contentView.jumpBlcok=^{
+            //相等时表示已经便利完毕
+            if (self.searchIndex==array.count) {
+                [self.saveDataArray addObject:itemAll];
+//                [self goBack];
+            }else{
+                //                model.isSave=YES;
+                //不相等则继续便利直到便利完成
+                [self.saveDataArray addObject:itemAll];
+                NSLog(@"+++++++++++++++++++保存数组%lu",(unsigned long)self.saveDataArray.count);
+                [self judgeRightAndLeftIsSame:array];
+            }
+        };
+        
+        //点击取消时self.searchIndex-1，当下次重新点击开始保存时从上一个未处理项继续便利
+        contentView.cancleBlcok=^{
+            self.searchIndex-=1;
+        };
+        
+    }else{
+        //手动和自动项目完全相等时直接保存跳回上一个界面
+//        [self goBack];
+    }
+}
+
+
 // 中断
 -(void)stop{
     
@@ -604,7 +677,6 @@
 
 -(BOOL)allSelect{
     
-    
     SZMaintenanceHalfMonthViewController *halfMonth = [self.childViewControllers objectAtIndex:0];
     SZMaintenanceQuarterViewController *quarter  = [self.childViewControllers objectAtIndex:1];
     SZMaintenanceHalfYearViewController *halfYear = [self.childViewControllers objectAtIndex:2];
@@ -620,8 +692,6 @@
         int totalUncompleteCount = halfMonth.unCompleteCount+quarter.unCompleteCount+halfYear.unCompleteCount+year.unCompleteCount;
         return totalUncompleteCount == 0;
     }
-
-    
     return NO;
 }
 

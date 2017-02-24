@@ -30,5 +30,6 @@ typedef NS_ENUM(NSInteger,OTISOperationateType){
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 
 - (IBAction)operationAct:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *automButton;
 
 @end

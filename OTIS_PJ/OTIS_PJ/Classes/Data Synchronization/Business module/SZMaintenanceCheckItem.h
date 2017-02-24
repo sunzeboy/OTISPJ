@@ -61,6 +61,9 @@
 @property (nonatomic , assign) BOOL isUpload;
 //@property (nonatomic , assign) BOOL isRepair;
 
+/*****************MD*****/
+@property(nonatomic,assign) NSInteger  isHiden;
 
+@property(nonatomic,assign) NSInteger  automType;
 
 @end

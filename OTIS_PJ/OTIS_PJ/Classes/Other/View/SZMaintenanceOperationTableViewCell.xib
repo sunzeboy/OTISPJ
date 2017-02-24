@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="327" height="118"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="327" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="327" height="117.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceZ-TN-fmj">
-                        <rect key="frame" x="16" y="8" width="50" height="18"/>
+                        <rect key="frame" x="16" y="8" width="50" height="17.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="XEP-xQ-8cC"/>
                         </constraints>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-yl-GeQ">
-                        <rect key="frame" x="68" y="3" width="219" height="33"/>
+                        <rect key="frame" x="68" y="3" width="219" height="32.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="eef-dO-ViR"/>
                         </constraints>
@@ -72,12 +72,12 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXz-zy-fC9">
-                        <rect key="frame" x="16" y="26" width="221" height="88"/>
+                        <rect key="frame" x="16" y="25.5" width="221" height="88.5"/>
                         <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="13"/>
                         <color key="textColor" red="0.070588235289999995" green="0.25490196079999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-2U-keu">
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-2U-keu">
                         <rect key="frame" x="251" y="43" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="TpH-UA-pcn"/>
@@ -118,7 +118,7 @@
                 <outlet property="operationId" destination="ceZ-TN-fmj" id="wrH-Df-NLR"/>
                 <outlet property="operationName" destination="Jri-yl-GeQ" id="jzJ-Jg-IDB"/>
             </connections>
-            <point key="canvasLocation" x="501.5" y="127"/>
+            <point key="canvasLocation" x="137" y="28"/>
         </tableViewCell>
     </objects>
 </document>

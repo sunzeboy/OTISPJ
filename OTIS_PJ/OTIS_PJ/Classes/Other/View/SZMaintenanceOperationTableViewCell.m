@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *operationName;
 @property (weak, nonatomic) IBOutlet UILabel *operationContent;
 - (IBAction)operationAct:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *automButton;
 
 
 @end
@@ -130,8 +129,6 @@
         }
         _maintenanceOperation.state = (int)sender.tag == -1?99:(int)sender.tag;
     }
-    
-    
 }
 
 @end
