@@ -50,7 +50,8 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
+        navigationController?.pushViewController(SZRecallProcessViewController(), animated: true)
+
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

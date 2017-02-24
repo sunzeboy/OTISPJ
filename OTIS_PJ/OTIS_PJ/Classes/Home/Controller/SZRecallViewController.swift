@@ -11,17 +11,19 @@ import UIKit
 
 class SZRecallViewController: SZPageViewController,bottomOperationable {
 
-    var btns: [String : String] {
-        return ["新增":"add"];
+    var btns: [BtnModel] {
+        
+        return [BtnModel(title: "新增", picname: "add")];
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "召修"
-        self.bottomView.actBlock = actBlock
-        bottomView.actBlock = actBlock
-        view.addSubview(bottomView)
+        bottomView.actBlock = { (button:UIButton) -> Void in
+            self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
+        }
+        
 
     }
     
@@ -35,8 +37,9 @@ class SZRecallViewController: SZPageViewController,bottomOperationable {
         addChildViewController(subVc2)
     }
 
-    func actBlock(button:UIButton) -> Void {
-        print("addddd")
-    }
+//    func actBlock(button:UIButton) -> Void {
+//        
+//        navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
+//    }
     
 }

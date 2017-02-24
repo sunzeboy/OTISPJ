@@ -8,8 +8,14 @@
 
 import UIKit
 
-class SZRecallProcessViewController: UIViewController {
-    
+class SZRecallProcessViewController: UIViewController,bottomOperationable {
+    var btns: [BtnModel] {
+        return [BtnModel(title: "出发", picname: "start"),
+                BtnModel(title: "到达扫描", picname: "scan"),
+                BtnModel(title: "完成扫描", picname: "scan"),
+                BtnModel(title: "下一步", picname: "next")];
+    }
+
     /// 召修编号
     @IBOutlet weak var recallCode: UILabel!
     
@@ -46,6 +52,20 @@ class SZRecallProcessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "召修过程"
+        bottomView.actBlock = { (button:UIButton) -> Void in
+            if button.title(for: .normal)=="下一步" {
+                
+            }else if button.title(for: .normal)=="完成扫描" {
+            
+            }else if button.title(for: .normal)=="到达扫描" {
+                
+            }else if button.title(for: .normal)=="出发" {
+            
+            }
+            
+//            self.navigationController?.popViewController(animated: true)
+        }
 
         
     }

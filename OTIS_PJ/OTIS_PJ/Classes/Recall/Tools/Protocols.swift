@@ -35,8 +35,8 @@ extension UIButton{
     }
     func topPicBottomTitleStyle() {
         contentHorizontalAlignment = .center
-        titleEdgeInsets = UIEdgeInsetsMake(imageH+6,-imageW, 0.0, 0.0)
-        imageEdgeInsets = UIEdgeInsetsMake(-6, titleW*0.5,0.0, -titleW*0.5)
+        titleEdgeInsets = UIEdgeInsetsMake(imageH+10,-imageW, 0.0, 0.0)
+        imageEdgeInsets = UIEdgeInsetsMake(-10, titleW*0.5,0.0, -titleW*0.5)
     }
     
     func rightPicLeftTitleStyle() {
@@ -47,14 +47,20 @@ extension UIButton{
     
     func setBtn(_ title: String ,imageName:String,target:Any?,action:Selector) -> UIButton {
         let leftBtn = UIButton(type: .custom)
-        leftBtn.frame = CGRect(x: 0, y: 0, width: 47, height: 47)
+        leftBtn.frame = CGRect(x: 0, y: 0, width: 50, height: 24)
         leftBtn.setTitleColor(UIColor(red: 30/255.0, green: 32/255.0, blue: 81/255.0, alpha: 1), for: .normal)
+        leftBtn.setTitleColor(UIColor.lightGray, for: .disabled)
         leftBtn.setTitle(title, for: .normal)
-        leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 9)
+        leftBtn.setTitle(title, for: .disabled)
+        leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         leftBtn.titleLabel?.contentMode = .center
+//        leftBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         leftBtn.addTarget(self, action:action, for: .touchUpInside)
-        leftBtn.setImage(UIImage.init(named: imageName), for: .normal)
+        leftBtn.setImage(UIImage.init(named: imageName+"Light"), for: .normal)
+        leftBtn.setImage(UIImage.init(named: imageName), for: .disabled)
+        leftBtn.imageView?.contentMode = .scaleAspectFit
         leftBtn.topPicBottomTitleStyle()
+        
         return leftBtn
     }
 }
@@ -90,6 +96,14 @@ extension Cellable where Self: UITableViewCell{
 
 }
 
+
+
+struct BtnModel {
+    var title: String
+    var picname: String
+}
+
+
 typealias actClosure = (UIButton)->Void
 
 class BottomView: UIView {
@@ -97,28 +111,19 @@ class BottomView: UIView {
     var actBlock: actClosure?
     
     
-    init(_ btns:[String:String],target:UIViewController,frame:CGRect) {
+    init(_ btns:[BtnModel],target:UIViewController,frame:CGRect) {
         super.init(frame: frame)
         let total:CGFloat = CGFloat(btns.count)
         var i = CGFloat(0)
         backgroundColor = UIColor.white
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGray.cgColor
-      _ =  btns.map { (title,picname) -> UIButton in
+        
+      _ =  btns.map { (btn) -> UIButton in
             i += 1
-            let btn = UIButton(type: .custom)
-            btn.setTitle(title, for: .normal)
-            btn.setTitle(title, for: .disabled)
-            btn.setTitleColor(UIColor.blue, for: .normal)
-            btn.setTitleColor(UIColor.gray, for: .disabled)
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-            btn.setImage(UIImage(named: picname+"Light"), for: .normal)
-            btn.setImage(UIImage(named:picname), for: .disabled)
-            btn.addTarget(self, action: #selector(act(_:)), for: .touchUpInside)
-            btn.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-            btn.center = CGPoint(x: (i-1)*k_screenW/total + k_screenW/total/2, y: 30)
-            btn.topPicBottomTitleStyle()
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+       let btn =  UIButton().setBtn(btn.title, imageName: btn.picname, target: self, action: #selector(act(_:)))
+//            btn.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
+            btn.center = CGPoint(x: (i-1)*k_screenW/total + k_screenW/total/2, y: 33)
             addSubview(btn)
             return btn
         }
@@ -137,7 +142,7 @@ class BottomView: UIView {
 }
 
 protocol bottomOperationable {
-    var btns:[String:String] {get}
+    var btns:[BtnModel] {get}
     
 }
 
