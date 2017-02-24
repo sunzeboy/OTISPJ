@@ -199,6 +199,7 @@
 		68183C1D1CEF19CF00B55D94 /* SZBeforehandStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68183C1C1CEF19CF00B55D94 /* SZBeforehandStorageManager.m */; };
 		68284E091D4342050080BBC9 /* SZTipVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 68284E081D4342050080BBC9 /* SZTipVIew.m */; };
 		682A86AE1E5FD02F00DAA130 /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A86AD1E5FD02F00DAA130 /* Customs.swift */; };
+		682A86B01E601ABE00DAA130 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A86AF1E601ABE00DAA130 /* Global.swift */; };
 		682DFA591CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA171CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m */; };
 		682DFA5A1CFED25000D8FBA9 /* UIView+ZLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA191CFED25000D8FBA9 /* UIView+ZLExtension.m */; };
 		682DFA5B1CFED25000D8FBA9 /* ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA1E1CFED25000D8FBA9 /* ZLCamera.m */; };
@@ -756,6 +757,7 @@
 		68284E071D4342050080BBC9 /* SZTipVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTipVIew.h; sourceTree = "<group>"; };
 		68284E081D4342050080BBC9 /* SZTipVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTipVIew.m; sourceTree = "<group>"; };
 		682A86AD1E5FD02F00DAA130 /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
+		682A86AF1E601ABE00DAA130 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		682DFA161CFED25000D8FBA9 /* UIImage+ZLPhotoLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZLPhotoLib.h"; sourceTree = "<group>"; };
 		682DFA171CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZLPhotoLib.m"; sourceTree = "<group>"; };
 		682DFA181CFED25000D8FBA9 /* UIView+ZLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZLExtension.h"; sourceTree = "<group>"; };
@@ -2205,6 +2207,7 @@
 			isa = PBXGroup;
 			children = (
 				6886348A1E5C0CF50015BAF2 /* Protocols.swift */,
+				682A86AF1E601ABE00DAA130 /* Global.swift */,
 				688634A01E5C53350015BAF2 /* SZService.swift */,
 				682A86AD1E5FD02F00DAA130 /* Customs.swift */,
 			);
@@ -2849,6 +2852,7 @@
 				68348F591DC33623001D58DF /* SZCustomTipView.m in Sources */,
 				6866BC7F1CD34CF900CBF478 /* SZTable_MaintenanceOperation.m in Sources */,
 				682DFA6A1CFED25000D8FBA9 /* UIViewController+Alert.m in Sources */,
+				682A86B01E601ABE00DAA130 /* Global.swift in Sources */,
 				6862EAE61D239A99005ED334 /* SZUploadMaintenancePicRequest.m in Sources */,
 				68FE59961CC8B96700FFB2BC /* MaintenanceViewController.m in Sources */,
 				68FE59A51CC8BEBB00FFB2BC /* OTIS_Constants.m in Sources */,
