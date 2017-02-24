@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "filename" : "召修所有图标_02.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

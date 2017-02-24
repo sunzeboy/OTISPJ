@@ -37,6 +37,7 @@ class SZMyselfViewController: UIViewController {
 
 
 extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SZMyselfCell.cellWithTableView(tableView)
 
