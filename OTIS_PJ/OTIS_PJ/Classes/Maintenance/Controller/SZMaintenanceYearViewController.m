@@ -60,10 +60,7 @@
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
                 }
-                
             }
-            
-            
             
         }else{
             
@@ -79,7 +76,17 @@
             
             
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
-           
+                
+                NSInteger  index = [arrayTemp indexOfObject:itemAll];
+                if (index>2) {
+                    itemAll.isHiden=YES;
+                }
+                
+                if (index<2){
+                    itemAll.automType = 0;
+                }else{
+                    itemAll.automType = 1;
+                }
                 
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 // (itemAll.Type<=0) 每年一次必须显示
@@ -296,6 +303,45 @@
     }else{
         gb.SchedulesId = self.item2.ScheduleID;
     }
+    
+    if (gb.isHiden) {
+        cell.automButton.hidden=YES;
+    }else{
+        cell.automButton.hidden=NO;
+    }
+    
+    switch (gb.automType) {
+        case 0:
+        {
+            [cell.automButton setImage:[UIImage imageNamed:@"OTIS_0"] forState:UIControlStateDisabled];
+        }
+            break;
+        case 1:
+        {
+            [cell.automButton setImage:[UIImage imageNamed:@"OTIS_1"] forState:UIControlStateDisabled];
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        case 4:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+
+    
     cell.maintenanceOperation = gb;
     cell.isFixMode = self.isFixMode;
     if (self.ispreView) {

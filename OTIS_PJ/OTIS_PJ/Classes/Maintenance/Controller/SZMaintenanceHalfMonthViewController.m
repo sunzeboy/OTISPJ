@@ -69,7 +69,17 @@
             NSMutableArray *arrayTemp = [NSMutableArray arrayWithArray:[SZModuleQueryTool quaryMaintenanceItemWithDetialItem:self.item andTimeType:OTISMaintenanceItemTimeTypeHalfMonth]];
 
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
-                itemAll.automType = 1;
+                NSInteger  index = [arrayTemp indexOfObject:itemAll];
+                if (index>2) {
+                    itemAll.isHiden=YES;
+                }
+                
+                if (index<2){
+                    itemAll.automType = 0;
+                }else{
+                    itemAll.automType = 1;
+                }
+                
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 if (item && item.isUpload == YES) {
                     continue;
@@ -231,9 +241,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(CXTitilesViewY + CXTitilesViewH, 0, 150, 0);
- 
-    
-
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -260,7 +267,18 @@
     }else{
         gb.SchedulesId = self.item2.ScheduleID;
     }
+    
+    if (gb.isHiden) {
+        cell.automButton.hidden=YES;
+    }else{
+        cell.automButton.hidden=NO;
+    }
+    
     switch (gb.automType) {
+        case 0:
+        {
+            [cell.automButton setImage:[UIImage imageNamed:@"OTIS_0"] forState:UIControlStateDisabled];
+        }
             break;
         case 1:
         {
@@ -269,7 +287,7 @@
             break;
         case 2:
         {
-            
+
         }
             break;
         case 3:

@@ -30,7 +30,7 @@
 }
 
 -(void)setSubviews{
-    UITableView* table=[[UITableView alloc] initWithFrame:self.frame style:UITableViewStylePlain];
+    UITableView* table=[[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.bounds.size.width, self.bounds.size.height) style:UITableViewStylePlain];
     table.delegate=self;
     table.dataSource=self;
     table.bounces=NO;

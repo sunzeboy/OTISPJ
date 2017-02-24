@@ -55,7 +55,8 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     self.automaticallyAdjustsScrollViewInsets=NO;
 //    self.edgesForExtendedLayout=UIRectEdgeNone;
     [self setSubviews];
-    
+    //自动同步
+    [SZUploadManger startUploadAndDownloadWithView:self.view];
     [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:IsAutomatickey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

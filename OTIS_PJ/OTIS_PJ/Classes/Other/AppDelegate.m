@@ -12,7 +12,7 @@
 #import "SZAnnualInspectionViewController.h"
 #import "AppDelegate+Tip.h"
 #import "SZTable_LaborHours.h"
-
+#import "MDSynchronousVC.h"
 @interface AppDelegate ()
 
 
@@ -44,7 +44,35 @@
     SZLog(@"%s",__func__);
 }
 
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    NSLog(@"=====%@",url.absoluteString);
+    
+    // 1.获取导航栏控制器
+    UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
+    //    // 2.获得主控制器
+    //    UIViewController *mainHomeVc = [rootNav.childViewControllers firstObject];
+    //
+    //    MDSynchronousVC *mainVc = [[MDSynchronousVC alloc] init];
+    //
+    //    // 3.每次跳转前必须是在跟控制器(细节)
+    //    [rootNav popToRootViewControllerAnimated:NO];
+    //
+    //    // 4.根据字符串关键字来跳转到不同页面
+    //    if ([url.absoluteString containsString:@"Page1"]) { // 跳转到应用App-B的Page1页面
+    //        // 根据segue标示进行跳转
+    //        [mainHomeVc.navigationController pushViewController:mainVc animated:YES];
+    //    }
+    
+    for (UIViewController* vc in rootNav.childViewControllers) {
+        if ([vc isMemberOfClass:[MDSynchronousVC class]]) {
+            MDSynchronousVC* synchVC = (MDSynchronousVC*)vc;
+            synchVC.appString = url.absoluteString;
+            synchVC.appBackBlock();
+        }
+    }
+    return YES;
+}
 
 
 @end
