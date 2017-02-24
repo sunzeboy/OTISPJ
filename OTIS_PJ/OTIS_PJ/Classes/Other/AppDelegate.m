@@ -67,12 +67,18 @@
     for (UIViewController* vc in rootNav.childViewControllers) {
         if ([vc isMemberOfClass:[MDSynchronousVC class]]) {
             MDSynchronousVC* synchVC = (MDSynchronousVC*)vc;
-            synchVC.appString = url.absoluteString;
+            synchVC.appString = [self URLDecodedString:url.absoluteString];
             synchVC.appBackBlock();
         }
     }
     return YES;
 }
 
+-(NSString *)URLDecodedString:(NSString *)str
+{
+    NSString *decodedString=(__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)str, CFSTR(""), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    
+    return decodedString;
+}
 
 @end
