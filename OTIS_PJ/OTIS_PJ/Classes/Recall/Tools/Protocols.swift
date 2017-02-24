@@ -118,7 +118,7 @@ class BottomView: UIView {
             i += 1
        let btn =  UIButton().setBtn(btn.title, imageName: btn.picname, target: self, action: #selector(act(_:)))
 //            btn.frame = CGRect(x: 0, y: 0, width: 35, height: 30)
-            btn.center = CGPoint(x: (i-1)*k_screenW/total + k_screenW/total/2, y: 33)
+            btn.center = CGPoint(x: (i-1)*k_screenW/total + k_screenW/total/2, y: 30)
             addSubview(btn)
             return btn
         }
