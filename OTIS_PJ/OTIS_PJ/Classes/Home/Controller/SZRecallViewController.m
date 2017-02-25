@@ -51,7 +51,11 @@
     [super viewDidLoad];
     
     //NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.30.157/CallBack/main.html"]];
-    SZOuterNetworkCallback = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
+    if ([USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"] == nil) {
+        
+    }else {
+        SZOuterNetworkCallback = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
+    }
     NSString *strUrl = [NSString stringWithFormat:@"%@?userName=%@&passWord=%@&tabType=0",SZOuterNetworkCallback,[OTISConfig EmployeeID],[self md5:[OTISConfig userPW]]];
     NSURLRequest *request= [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl]];
     self.webView.delegate = self;
