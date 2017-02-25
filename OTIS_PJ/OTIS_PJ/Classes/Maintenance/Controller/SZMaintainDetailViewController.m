@@ -357,6 +357,40 @@
             [self confirmBarcodeIsRight];
         }
     }else{
+        NSInteger yymmdd =  [NSDate currentYYMMDD];
+        NSString *strKeyWeiBao = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+        NSString *strKeyZhongduan = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo];
+        
+        NSInteger all = 0;
+        NSInteger  competed=0;
+        all= [SZModuleQueryTool queryAllMaintenanceWithUnitDetialItem:self.item];
+        competed = [SZModuleQueryTool queryCompletedMaintenanceWithUnitDetialItem:self.item];
+        
+        if (![USER_DEFAULT objectForKey:strKeyWeiBao]&&[USER_DEFAULT objectForKey:strKeyZhongduan]&&all != competed) {//维保未完成,并且中断了
+            CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+                                                                                            dialogTitle:SZLocal(@"dialog.title.tip")
+                                                                                         dialogContents:@"中断后必须完成维保才能自动计算工时！"
+                                                                                          dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
+            alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+                
+                [alertView close];
+            };
+            [alertView show];
+            return;
+        }
+        
+        if (![USER_DEFAULT objectForKey:strKeyWeiBao]&&all != competed) {//维保未完成
+            CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+                                                                                            dialogTitle:SZLocal(@"dialog.title.tip")
+                                                                                         dialogContents:@"维保未完成,必须完成维保才能自动计算工时！"
+                                                                                          dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
+            alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+                
+                [alertView close];
+            };
+            [alertView show];
+            return;
+        }
         SZJobHazardAnalysisViewController *controller = [[SZJobHazardAnalysisViewController alloc] init];
         self.item.isFixMode = self.isFixMode;
         controller.isCheckItem = NO;
