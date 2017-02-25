@@ -8,8 +8,8 @@
 
 #import "MaintenanceViewController.h"
 #import "SZNavigationController.h"
-#import <LBXScan/LBXScanView.h>
-#import <LBXScan/LBXScanViewController.h>
+#import "LBXScan/LBXScanView.h"
+#import "LBXScan/LBXScanViewController.h"
 #import "SubLBXScanViewController.h"
 #import "SZModuleQueryTool.h"
 #import "SZFinalMaintenanceUnitItem.h"

@@ -44,7 +44,7 @@
 #import "SZLaborTypeRequest.h"
 
 #import "SZSynchronizationView.h"
-#import <MBProgressHUD.h>
+#import "MBProgressHUD.h"
 
 typedef NS_ENUM(NSInteger,OTISResultType){
     

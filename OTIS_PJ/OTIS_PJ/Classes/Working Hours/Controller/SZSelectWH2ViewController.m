@@ -15,8 +15,8 @@
 #import "SZNavigationController.h"
 #import "SZBottomMainView.h"
 #import "SZTable_LaborType.h"
-#import <LBXScan/LBXScanView.h>
-#import <LBXScan/LBXScanViewController.h>
+#import "LBXScan/LBXScanView.h"
+#import "LBXScan/LBXScanViewController.h"
 #import "SubLBXScanViewController.h"
 #import "SZScanErrorViewController.h"
 #import "SZFinalMaintenanceUnitItem.h"

@@ -1,6 +1,6 @@
 platform:ios, ‘9.0‘
 
-
+use_frameworks!
 target :OTIS_PJ do
     
     pod 'AFNetworking'
@@ -20,7 +20,10 @@ target :OTIS_PJ do
     pod 'iOS-blur'
     
     pod 'MMPopupView'
-
+    
+    pod 'SwiftyJSON'
+    
+    pod 'Moya'
 end
 
 

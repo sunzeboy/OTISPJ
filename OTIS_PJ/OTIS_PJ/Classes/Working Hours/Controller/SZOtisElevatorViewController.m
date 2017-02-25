@@ -13,8 +13,8 @@
 #import "SZModuleQueryTool.h"
 #import "SZBottomWorkingHourView.h"
 #import "SZNavigationController.h"
-#import <LBXScan/LBXScanView.h>
-#import <LBXScan/LBXScanViewController.h>
+#import "LBXScan/LBXScanView.h"
+#import "LBXScan/LBXScanViewController.h"
 #import "SubLBXScanViewController.h"
 #import "SZMaintainDetailViewController.h"
 #import "SZScanErrorViewController.h"

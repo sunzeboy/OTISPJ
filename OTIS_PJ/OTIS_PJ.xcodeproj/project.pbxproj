@@ -104,7 +104,6 @@
 		41FEDC161D0E7D620093E0BE /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC151D0E7D620093E0BE /* HyperlinksButton.m */; };
 		41FEDC1C1D0E95640093E0BE /* SZChangePasswordResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC1B1D0E95640093E0BE /* SZChangePasswordResponse.m */; };
 		41FEDC221D0E97B00093E0BE /* SZChangePasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC211D0E97B00093E0BE /* SZChangePasswordRequest.m */; };
-		65B272492DA9460EE60A3AF1 /* libPods-OTIS_PJ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A511D35F76973CAAD1C994A /* libPods-OTIS_PJ.a */; };
 		68018ECD1CF5419F00DA9614 /* SZTable_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 68018ECC1CF5419F00DA9614 /* SZTable_Report.m */; };
 		68018EDA1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68018ED81CF5B82500DA9614 /* SZWorkingHoursTableViewCell.m */; };
 		68018EDB1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68018ED91CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib */; };
@@ -234,6 +233,19 @@
 		682EAF0E1CE476FF0033E623 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EAF0D1CE476FF0033E623 /* NSData+AES256.m */; };
 		682EAF111CE5C5BF0033E623 /* SZTable_System.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EAF101CE5C5BF0033E623 /* SZTable_System.m */; };
 		682EAF141CE5C5D80033E623 /* SZTable_Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 682EAF131CE5C5D80033E623 /* SZTable_Supervisor.m */; };
+		682FB9F11E6141DF007F9428 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E41E6141DF007F9428 /* AFNetworking.framework */; };
+		682FB9F21E6141DF007F9428 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E51E6141DF007F9428 /* Alamofire.framework */; };
+		682FB9F31E6141DF007F9428 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E61E6141DF007F9428 /* FMDB.framework */; };
+		682FB9F41E6141DF007F9428 /* INTULocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E71E6141DF007F9428 /* INTULocationManager.framework */; };
+		682FB9F51E6141DF007F9428 /* iOS_blur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E81E6141DF007F9428 /* iOS_blur.framework */; };
+		682FB9F61E6141DF007F9428 /* LBXScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9E91E6141DF007F9428 /* LBXScan.framework */; };
+		682FB9F71E6141DF007F9428 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9EA1E6141DF007F9428 /* Masonry.framework */; };
+		682FB9F81E6141DF007F9428 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9EB1E6141DF007F9428 /* MBProgressHUD.framework */; };
+		682FB9F91E6141DF007F9428 /* MJExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9EC1E6141DF007F9428 /* MJExtension.framework */; };
+		682FB9FA1E6141DF007F9428 /* MMPopupView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9ED1E6141DF007F9428 /* MMPopupView.framework */; };
+		682FB9FB1E6141DF007F9428 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9EE1E6141DF007F9428 /* Moya.framework */; };
+		682FB9FC1E6141DF007F9428 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9EF1E6141DF007F9428 /* Result.framework */; };
+		682FB9FD1E6141DF007F9428 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 682FB9F01E6141DF007F9428 /* ZXingObjC.framework */; };
 		68348F531DC33438001D58DF /* AppDelegate+Tip.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F521DC33438001D58DF /* AppDelegate+Tip.m */; };
 		68348F561DC33448001D58DF /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F551DC33448001D58DF /* NSDate+Format.m */; };
 		68348F591DC33623001D58DF /* SZCustomTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F581DC33623001D58DF /* SZCustomTipView.m */; };
@@ -372,6 +384,7 @@
 		8A66E8041D5B128A00924501 /* SZWorkingHoursPUIllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8061D5B128A00924501 /* SZWorkingHoursPUIllCell.xib */; };
 		8A66E80B1D5B133A00924501 /* SZBottomMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E80D1D5B133A00924501 /* SZBottomMainView.xib */; };
 		8A66E8131D5B137700924501 /* SZBottomWhInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8151D5B137700924501 /* SZBottomWhInputView.xib */; };
+		E8438FF1C63216F78FF94219 /* Pods_OTIS_PJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD0295C588CB9E253F3D35 /* Pods_OTIS_PJ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -827,6 +840,19 @@
 		682EAF101CE5C5BF0033E623 /* SZTable_System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTable_System.m; sourceTree = "<group>"; };
 		682EAF121CE5C5D80033E623 /* SZTable_Supervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTable_Supervisor.h; sourceTree = "<group>"; };
 		682EAF131CE5C5D80033E623 /* SZTable_Supervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTable_Supervisor.m; sourceTree = "<group>"; };
+		682FB9E41E6141DF007F9428 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
+		682FB9E51E6141DF007F9428 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		682FB9E61E6141DF007F9428 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/FMDB/FMDB.framework"; sourceTree = "<group>"; };
+		682FB9E71E6141DF007F9428 /* INTULocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = INTULocationManager.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/INTULocationManager/INTULocationManager.framework"; sourceTree = "<group>"; };
+		682FB9E81E6141DF007F9428 /* iOS_blur.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iOS_blur.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/iOS-blur/iOS_blur.framework"; sourceTree = "<group>"; };
+		682FB9E91E6141DF007F9428 /* LBXScan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LBXScan.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/LBXScan/LBXScan.framework"; sourceTree = "<group>"; };
+		682FB9EA1E6141DF007F9428 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/Masonry/Masonry.framework"; sourceTree = "<group>"; };
+		682FB9EB1E6141DF007F9428 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework"; sourceTree = "<group>"; };
+		682FB9EC1E6141DF007F9428 /* MJExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJExtension.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/MJExtension/MJExtension.framework"; sourceTree = "<group>"; };
+		682FB9ED1E6141DF007F9428 /* MMPopupView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMPopupView.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/MMPopupView/MMPopupView.framework"; sourceTree = "<group>"; };
+		682FB9EE1E6141DF007F9428 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/Moya/Moya.framework"; sourceTree = "<group>"; };
+		682FB9EF1E6141DF007F9428 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/Result/Result.framework"; sourceTree = "<group>"; };
+		682FB9F01E6141DF007F9428 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = "../../../../Library/Developer/Xcode/DerivedData/OTIS_PJ-cdvindunvadkhacudbmsizrjzwnu/Build/Products/Debug-iphonesimulator/ZXingObjC/ZXingObjC.framework"; sourceTree = "<group>"; };
 		68348F511DC33438001D58DF /* AppDelegate+Tip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Tip.h"; sourceTree = "<group>"; };
 		68348F521DC33438001D58DF /* AppDelegate+Tip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Tip.m"; sourceTree = "<group>"; };
 		68348F541DC33448001D58DF /* NSDate+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Format.h"; sourceTree = "<group>"; };
@@ -1091,7 +1117,6 @@
 		68FE5A4A1CCA1B3300FFB2BC /* OTISConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTISConfig.m; sourceTree = "<group>"; };
 		68FE5A511CCE106200FFB2BC /* SZDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDBTool.h; sourceTree = "<group>"; };
 		68FE5A521CCE106200FFB2BC /* SZDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDBTool.m; sourceTree = "<group>"; };
-		7A511D35F76973CAAD1C994A /* libPods-OTIS_PJ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OTIS_PJ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A297DD71D41C9B900BD286D /* SZForceUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZForceUpdateModel.h; sourceTree = "<group>"; };
 		8A297DD81D41C9B900BD286D /* SZForceUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZForceUpdateModel.m; sourceTree = "<group>"; };
 		8A4CB8281D588DB700576A8F /* SZCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1134,6 +1159,7 @@
 		8A66E8141D5B137700924501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZBottomWhInputView.xib; sourceTree = "<group>"; };
 		8A66E8171D5B137B00924501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SZBottomWhInputView.strings; sourceTree = "<group>"; };
 		8A66E8191D5B137C00924501 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SZBottomWhInputView.strings"; sourceTree = "<group>"; };
+		8EAD0295C588CB9E253F3D35 /* Pods_OTIS_PJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTIS_PJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC065F09A865783BB8072422 /* Pods-OTIS_PJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTIS_PJ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OTIS_PJ/Pods-OTIS_PJ.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1142,7 +1168,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B272492DA9460EE60A3AF1 /* libPods-OTIS_PJ.a in Frameworks */,
+				682FB9F11E6141DF007F9428 /* AFNetworking.framework in Frameworks */,
+				682FB9F21E6141DF007F9428 /* Alamofire.framework in Frameworks */,
+				682FB9F31E6141DF007F9428 /* FMDB.framework in Frameworks */,
+				682FB9F41E6141DF007F9428 /* INTULocationManager.framework in Frameworks */,
+				682FB9F51E6141DF007F9428 /* iOS_blur.framework in Frameworks */,
+				682FB9F61E6141DF007F9428 /* LBXScan.framework in Frameworks */,
+				682FB9F71E6141DF007F9428 /* Masonry.framework in Frameworks */,
+				682FB9F81E6141DF007F9428 /* MBProgressHUD.framework in Frameworks */,
+				682FB9F91E6141DF007F9428 /* MJExtension.framework in Frameworks */,
+				682FB9FA1E6141DF007F9428 /* MMPopupView.framework in Frameworks */,
+				682FB9FB1E6141DF007F9428 /* Moya.framework in Frameworks */,
+				682FB9FC1E6141DF007F9428 /* Result.framework in Frameworks */,
+				682FB9FD1E6141DF007F9428 /* ZXingObjC.framework in Frameworks */,
+				E8438FF1C63216F78FF94219 /* Pods_OTIS_PJ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2480,7 +2519,20 @@
 		C63120893864ED38798DD47F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A511D35F76973CAAD1C994A /* libPods-OTIS_PJ.a */,
+				682FB9E41E6141DF007F9428 /* AFNetworking.framework */,
+				682FB9E51E6141DF007F9428 /* Alamofire.framework */,
+				682FB9E61E6141DF007F9428 /* FMDB.framework */,
+				682FB9E71E6141DF007F9428 /* INTULocationManager.framework */,
+				682FB9E81E6141DF007F9428 /* iOS_blur.framework */,
+				682FB9E91E6141DF007F9428 /* LBXScan.framework */,
+				682FB9EA1E6141DF007F9428 /* Masonry.framework */,
+				682FB9EB1E6141DF007F9428 /* MBProgressHUD.framework */,
+				682FB9EC1E6141DF007F9428 /* MJExtension.framework */,
+				682FB9ED1E6141DF007F9428 /* MMPopupView.framework */,
+				682FB9EE1E6141DF007F9428 /* Moya.framework */,
+				682FB9EF1E6141DF007F9428 /* Result.framework */,
+				682FB9F01E6141DF007F9428 /* ZXingObjC.framework */,
+				8EAD0295C588CB9E253F3D35 /* Pods_OTIS_PJ.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2492,7 +2544,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 680628881CC77C0D002B5201 /* Build configuration list for PBXNativeTarget "OTIS_PJ" */;
 			buildPhases = (
-				34D2C6FC4E455074443B0AD5 /* 📦 Check Pods Manifest.lock */,
+				34D2C6FC4E455074443B0AD5 /* [CP] Check Pods Manifest.lock */,
 				4A2517855C9EF8A9D3514BE8 /* [CP] Check Pods Manifest.lock */,
 				680628571CC77C0B002B5201 /* Sources */,
 				680628581CC77C0B002B5201 /* Frameworks */,
@@ -2689,19 +2741,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		34D2C6FC4E455074443B0AD5 /* 📦 Check Pods Manifest.lock */ = {
+		34D2C6FC4E455074443B0AD5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4A2517855C9EF8A9D3514BE8 /* [CP] Check Pods Manifest.lock */ = {
@@ -3654,6 +3706,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -3681,6 +3734,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OTIS_PJ/Classes/Home/Controller/OTIS_PJ-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

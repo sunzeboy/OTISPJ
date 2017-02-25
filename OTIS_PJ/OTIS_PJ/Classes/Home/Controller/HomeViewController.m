@@ -18,7 +18,7 @@
 #import "SZUploadManger.h"
 #import "CustomIOSAlertView.h"
 #import "AppDelegate.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import "SZDownloadManger.h"
 #import "SZHttpTool.h"
 #import "MBProgressHUD.h"

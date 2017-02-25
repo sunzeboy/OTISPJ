@@ -17,7 +17,7 @@
 #import "OTISConfig.h"
 
 #import "SZTableViewController.h"
-#import <MJExtension.h>
+#import "MJExtension.h"
 #import "NSError+Extention.h"
 #import "UIColor+Extention.h"
 

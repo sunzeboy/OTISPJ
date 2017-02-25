@@ -15,8 +15,8 @@
 #import "CustomIOSAlertView.h"
 #import "SZNavigationController.h"
 #import "SZBottomMainView.h"
-#import <LBXScan/LBXScanView.h>
-#import <LBXScan/LBXScanViewController.h>
+#import "LBXScan/LBXScanView.h"
+#import "LBXScan/LBXScanViewController.h"
 #import "SubLBXScanViewController.h"
 #import "SZInputWorkingHourViewController.h"
 #import "SZTable_LaborType.h"

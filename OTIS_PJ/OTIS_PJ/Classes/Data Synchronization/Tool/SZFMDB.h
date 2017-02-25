@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FMDB.h>
+#import "FMDB.h"
 @interface SZFMDB : NSObject
 
 @property (nonatomic , strong) FMDatabase *db;

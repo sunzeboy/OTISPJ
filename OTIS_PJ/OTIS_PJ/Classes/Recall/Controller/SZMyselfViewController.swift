@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Moya
+import SwiftyJSON
 
 class SZMyselfViewController: UIViewController {
     
@@ -28,6 +30,52 @@ class SZMyselfViewController: UIViewController {
         dataArray.append(MyselfModel())
         dataArray.append(MyselfModel())
         dataArray.append(MyselfModel())
+        
+        let provider = MoyaProvider<SZService>()
+        provider.request(.categories(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                let data = json["data"]["categoriesLst"]
+                    print(data)
+                }
+                
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                // this means there was a network failure - either the request
+                // wasn't sent (connectivity), or no response was received (server
+                // timed out).  If the server responds with a 4xx or 5xx error, that
+                // will be sent as a ".success"-ful response.
+            }
+            print(result)
+        }
+        
+        
+        
+        let provider2 = MoyaProvider<SZService>()
+        provider2.request(.areas(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    let data = json["data"]["areasLst"]
+                    print(data)
+                }
+            // do something with the response data or statusCode
+            case let .failure(error):
+                print(error)
+                // this means there was a network failure - either the request
+                // wasn't sent (connectivity), or no response was received (server
+                // timed out).  If the server responds with a 4xx or 5xx error, that
+                // will be sent as a ".success"-ful response.
+            }
+            print(result)
+        }
+
+        
 
     }
     

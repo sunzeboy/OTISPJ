@@ -7,7 +7,7 @@
 //
 
 #import "SZSignOutView.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import "SZUploadManger.h"
 #import "SZHttpTool.h"
 #import "UIView+Extension.h"

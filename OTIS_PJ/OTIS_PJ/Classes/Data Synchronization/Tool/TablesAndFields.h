@@ -10,9 +10,9 @@
 #define TablesAndFields_h
 
 
-#import <FMDB.h>
+#import "FMDB.h"
 #import "SZFMDB.h"
-#import <MJExtension.h>
+#import "MJExtension.h"
 
 #import "SZDownload_UnitsResponse.h"
 #import "SZUnit.h"

@@ -7,7 +7,7 @@
 //
 
 #import "SZHttpTool.h"
-#import <AFNetworking.h>
+#import "AFNetworking.h"
 #import "NSData+AES256.h"
 #import "SZUploadMaintenancePicRequest.h"
 #define YYEncode(str) [str dataUsingEncoding:NSUTF8StringEncoding]

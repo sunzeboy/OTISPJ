@@ -9,7 +9,7 @@
 #import "SZUploadManger.h"
 #import "SZUploadTool.h"
 #import "SZSynchronizationView.h"
-#import <MBProgressHUD.h>
+#import "MBProgressHUD.h"
 #import "SZDownloadManger.h"
 #import "SZDownloadTool.h"
 #import "CustomIOSAlertView.h"
