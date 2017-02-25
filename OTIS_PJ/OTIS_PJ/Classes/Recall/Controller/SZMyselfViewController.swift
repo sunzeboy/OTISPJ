@@ -32,6 +32,7 @@ class SZMyselfViewController: UIViewController {
         dataArray.append(MyselfModel())
         
         let provider = MoyaProvider<SZService>()
+        
         provider.request(.categories(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):

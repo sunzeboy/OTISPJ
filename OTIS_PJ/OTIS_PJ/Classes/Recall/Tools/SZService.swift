@@ -9,7 +9,32 @@
 import UIKit
 import Moya
 
+
+let headerFields: Dictionary<String, String> = [
+    
+    "epId": OTISConfig.employeeID(),
+    
+    "psd": OTISConfig.userPW()
+]
+
+let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
+    
+    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+    
+    return Endpoint(url: url,
+        sampleResponseClosure: {.networkResponse(200, target.sampleData)},
+        method: target.method,
+        parameters: target.parameters,
+        parameterEncoding: target.parameterEncoding,
+        httpHeaderFields: headerFields)
+    
+}
+
+let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure)
+
+
 enum SZService {
+    
     case categories(intfVer:String,dtVer:Int)
     case areas(intfVer:String,dtVer:Int)
     case mains(intfVer:String,dtVer:Int)
@@ -21,6 +46,7 @@ enum SZService {
 extension SZService: TargetType {
 
     var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
+    
     var path: String {
         switch self {
         case .categories:
@@ -33,14 +59,15 @@ extension SZService: TargetType {
             return "CallBack/SubsForOffline"
         case .defects:
             return "CallBack/DefectsForOffline"
-
         
         }
     }
+    
     var method: Moya.Method {
         return .post
         
     }
+    
     var parameters: [String: Any]? {
         switch self {
         
@@ -51,7 +78,6 @@ extension SZService: TargetType {
              .defects(intfVer:let intfVer, dtVer:let dtVer):
             return ["intfVer": intfVer, "dtVer": dtVer]
             
-            
         }
     }
     
@@ -59,20 +85,18 @@ extension SZService: TargetType {
         
         return JSONEncoding.default // Send parameters as JSON in request body
         
-        
     }
+    
     var sampleData: Data {
         
         return "Half measures are as bad as nothing at all.".utf8Encoded
-        
     }
+    
     var task: Task {
+        
         return .request
         
     }
-
-    
-
 
 }
 
@@ -87,4 +111,6 @@ private extension String {
         return self.data(using: .utf8)!
     }
 }
+
+
 
