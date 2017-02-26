@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SZRecallViewController: SZPageViewController,bottomOperationable {
+class SZRecallViewController: SZPageViewController,BottomOperationable {
 
     var btns: [BtnModel] {
         
@@ -23,7 +23,7 @@ class SZRecallViewController: SZPageViewController,bottomOperationable {
         bottomView.actBlock = { (button:UIButton) -> Void in
             self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
         }
-        
+                
 
     }
     

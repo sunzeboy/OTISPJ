@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SZAddRecallViewController: UIViewController,bottomOperationable {
+class SZAddRecallViewController: UIViewController,BottomOperationable {
     var btns: [BtnModel] {
         return [BtnModel(title: "保存", picname: "save"),
                 BtnModel(title: "取消", picname: "cancel")];

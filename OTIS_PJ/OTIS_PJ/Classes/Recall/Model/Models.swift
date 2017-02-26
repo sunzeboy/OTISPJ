@@ -19,6 +19,10 @@ public protocol Mapable {
 }
 
 
+
+
+
+
 struct Areas: Mapable {
     var areas : [AreaItem]?
     

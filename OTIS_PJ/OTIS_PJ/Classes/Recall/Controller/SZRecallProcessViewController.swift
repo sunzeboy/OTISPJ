@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SZRecallProcessViewController: UIViewController,bottomOperationable {
+class SZRecallProcessViewController: UIViewController,BottomOperationable {
     var btns: [BtnModel] {
         return [BtnModel(title: "出发", picname: "start"),
                 BtnModel(title: "到达扫描", picname: "scan"),

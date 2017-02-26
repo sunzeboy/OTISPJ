@@ -31,15 +31,15 @@ class SZMyselfViewController: UIViewController {
         dataArray.append(MyselfModel())
         dataArray.append(MyselfModel())
         
-        let provider = MoyaProvider<SZService>()
         
-        provider.request(.categories(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+        
+        apiProvider.request(.categories(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):
-                
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                 let data = json["data"]["categoriesLst"]
+                    RecallCategory.storage(jsonData: data)
                     print(data)
                 }
                 
@@ -56,13 +56,15 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        let provider2 = MoyaProvider<SZService>()
-        provider2.request(.areas(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+        
+        apiProvider.request(.areas(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):
+                moyaResponse.response
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let data = json["data"]["areasLst"]
+                    ComponentArea.storage(jsonData: data)
                     print(data)
                 }
             // do something with the response data or statusCode
@@ -76,6 +78,7 @@ class SZMyselfViewController: UIViewController {
             print(result)
         }
 
+        
         
 
     }

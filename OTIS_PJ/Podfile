@@ -24,6 +24,8 @@ target :OTIS_PJ do
     pod 'SwiftyJSON'
     
     pod 'Moya'
+    
+    pod 'RealmSwift'
 end
 
 

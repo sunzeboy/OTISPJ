@@ -136,12 +136,12 @@ class BottomView: UIView {
     }
 }
 
-protocol bottomOperationable {
+protocol BottomOperationable {
     var btns:[BtnModel] {get}
     
 }
 
-extension bottomOperationable where Self:UIViewController {
+extension BottomOperationable where Self:UIViewController {
 
     var bottomView: BottomView {
         

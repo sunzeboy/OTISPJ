@@ -338,6 +338,7 @@
 		6886349E1E5C22800015BAF2 /* SZRecallInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6886349C1E5C22800015BAF2 /* SZRecallInputViewController.swift */; };
 		6886349F1E5C22800015BAF2 /* SZRecallInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6886349D1E5C22800015BAF2 /* SZRecallInputViewController.xib */; };
 		688634A11E5C53350015BAF2 /* SZService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688634A01E5C53350015BAF2 /* SZService.swift */; };
+		68881F4D1E623D8E0030C83C /* ComponentArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68881F4C1E623D8E0030C83C /* ComponentArea.swift */; };
 		688F90FF1CD060B6001E2A9D /* NSError+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 688F90FE1CD060B6001E2A9D /* NSError+Extention.m */; };
 		68A6BF641D460AD80025ED84 /* UIImage+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A6BF631D460AD80025ED84 /* UIImage+Extention.m */; };
 		68BF6EFB1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BF6EFA1CEB01670018946F /* SZFinalMaintenanceUnitDetialItem.m */; };
@@ -1050,6 +1051,7 @@
 		6886349C1E5C22800015BAF2 /* SZRecallInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZRecallInputViewController.swift; sourceTree = "<group>"; };
 		6886349D1E5C22800015BAF2 /* SZRecallInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZRecallInputViewController.xib; sourceTree = "<group>"; };
 		688634A01E5C53350015BAF2 /* SZService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZService.swift; sourceTree = "<group>"; };
+		68881F4C1E623D8E0030C83C /* ComponentArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentArea.swift; sourceTree = "<group>"; };
 		688F90F71CD0605D001E2A9D /* SZMaintain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZMaintain.h; sourceTree = "<group>"; };
 		688F90F81CD0605D001E2A9D /* SZMaintain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZMaintain.m; sourceTree = "<group>"; };
 		688F90FA1CD06090001E2A9D /* SZLogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZLogoutRequest.h; sourceTree = "<group>"; };
@@ -2238,6 +2240,7 @@
 			isa = PBXGroup;
 			children = (
 				688634901E5C14FD0015BAF2 /* Models.swift */,
+				68881F4C1E623D8E0030C83C /* ComponentArea.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2890,6 +2893,7 @@
 				1A4CC4E51CDAE9F0004B8D42 /* SZPitViewController.m in Sources */,
 				68125AFA1D13D10C0098A61C /* KMDatePickerDateModel.m in Sources */,
 				0B60C7B31CE2FCFD00A1BEEE /* SZHelp.m in Sources */,
+				68881F4D1E623D8E0030C83C /* ComponentArea.swift in Sources */,
 				682DFA691CFED25000D8FBA9 /* ZLPhotoPickerGroup.m in Sources */,
 				6866BC761CD3432900CBF478 /* SZTable_Log.m in Sources */,
 				68125B971D1D22100098A61C /* SZDownload_UnfinishedItemsResponse.m in Sources */,
