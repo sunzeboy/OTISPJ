@@ -1,0 +1,35 @@
+{
+	"errorCode": 0,
+	"message": "操作成功！",
+	"data": {
+		"subsLst": [{
+			"subID": 1,
+			"subCode": "0A",
+			"subName": "断路开关（空气开关）Broken Circuit Switch",
+			"subShortName": "",
+			"subNameZh": "断路开关（空气开关）",
+			"mainCode": "1A"
+		}, {
+			"subID": 2,
+			"subCode": "0B",
+			"subName": "电容器 Capacitor",
+			"subShortName": "",
+			"subNameZh": "电容器",
+			"mainCode": "1A"
+		}, {
+			"subID": 3,
+			"subCode": "0C",
+			"subName": "二极管 Diodes",
+			"subShortName": "",
+			"subNameZh": "二极管",
+			"mainCode": "1A"
+		}, {
+			"subID": 4,
+			"subCode": "0D",
+			"subName": "电子计时器Electronic Timer",
+			"subShortName": "",
+			"subNameZh": "电子计时器",
+			"mainCode": "1A"
+		}]
+	}
+}

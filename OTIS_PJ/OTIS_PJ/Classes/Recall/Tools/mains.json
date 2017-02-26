@@ -1,0 +1,21 @@
+{
+	"errorCode": 0,
+	"message": "操作成功！",
+	"data": {
+		"mainsLst": [{
+			"mainID": 1,
+			"mainCode": "1A",
+			"mainName": "控制柜 Controller",
+			"mainShortName": "",
+			"mainNameZh": "控制柜",
+			"areaID": 1
+		}, {
+			"mainID": 2,
+			"mainCode": "1B",
+			"mainName": "主机 Main Motor",
+			"mainShortName": "",
+			"mainNameZh": "主机",
+			"areaID": 1
+		}]
+	}
+}

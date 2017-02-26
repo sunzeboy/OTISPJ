@@ -199,11 +199,6 @@
 		68284E091D4342050080BBC9 /* SZTipVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 68284E081D4342050080BBC9 /* SZTipVIew.m */; };
 		682A86AE1E5FD02F00DAA130 /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A86AD1E5FD02F00DAA130 /* Customs.swift */; };
 		682A86B01E601ABE00DAA130 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682A86AF1E601ABE00DAA130 /* Global.swift */; };
-		682BFA7E1E63295300DF031A /* areas.json in Resources */ = {isa = PBXBuildFile; fileRef = 682BFA791E63295300DF031A /* areas.json */; };
-		682BFA7F1E63295300DF031A /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 682BFA7A1E63295300DF031A /* categories.json */; };
-		682BFA801E63295300DF031A /* defects.json in Resources */ = {isa = PBXBuildFile; fileRef = 682BFA7B1E63295300DF031A /* defects.json */; };
-		682BFA811E63295300DF031A /* mains.json in Resources */ = {isa = PBXBuildFile; fileRef = 682BFA7C1E63295300DF031A /* mains.json */; };
-		682BFA821E63295300DF031A /* subs.json in Resources */ = {isa = PBXBuildFile; fileRef = 682BFA7D1E63295300DF031A /* subs.json */; };
 		682DFA591CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA171CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m */; };
 		682DFA5A1CFED25000D8FBA9 /* UIView+ZLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA191CFED25000D8FBA9 /* UIView+ZLExtension.m */; };
 		682DFA5B1CFED25000D8FBA9 /* ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 682DFA1E1CFED25000D8FBA9 /* ZLCamera.m */; };
@@ -254,6 +249,11 @@
 		68348F531DC33438001D58DF /* AppDelegate+Tip.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F521DC33438001D58DF /* AppDelegate+Tip.m */; };
 		68348F561DC33448001D58DF /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F551DC33448001D58DF /* NSDate+Format.m */; };
 		68348F591DC33623001D58DF /* SZCustomTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68348F581DC33623001D58DF /* SZCustomTipView.m */; };
+		6836EBAA1E6357B400F20C7B /* areas.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA51E6357B400F20C7B /* areas.json */; };
+		6836EBAB1E6357B400F20C7B /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA61E6357B400F20C7B /* categories.json */; };
+		6836EBAC1E6357B400F20C7B /* defects.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA71E6357B400F20C7B /* defects.json */; };
+		6836EBAD1E6357B400F20C7B /* mains.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA81E6357B400F20C7B /* mains.json */; };
+		6836EBAE1E6357B400F20C7B /* subs.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA91E6357B400F20C7B /* subs.json */; };
 		68383B6C1D12A6E200323D04 /* SZWorkingHoursBigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68383B6B1D12A6E200323D04 /* SZWorkingHoursBigCell.m */; };
 		684A15CF1D7E5620002ED4D5 /* SZVersionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */; };
 		684A15D01D7FB018002ED4D5 /* SZSignatureBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A15D21D7FB018002ED4D5 /* SZSignatureBoardViewController.xib */; };
@@ -777,11 +777,6 @@
 		68284E081D4342050080BBC9 /* SZTipVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTipVIew.m; sourceTree = "<group>"; };
 		682A86AD1E5FD02F00DAA130 /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		682A86AF1E601ABE00DAA130 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
-		682BFA791E63295300DF031A /* areas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = areas.json; path = ../../../../../../../../Desktop/areas.json; sourceTree = "<group>"; };
-		682BFA7A1E63295300DF031A /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = categories.json; path = ../../../../../../../../Desktop/categories.json; sourceTree = "<group>"; };
-		682BFA7B1E63295300DF031A /* defects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = defects.json; path = ../../../../../../../../Desktop/defects.json; sourceTree = "<group>"; };
-		682BFA7C1E63295300DF031A /* mains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mains.json; path = ../../../../../../../../Desktop/mains.json; sourceTree = "<group>"; };
-		682BFA7D1E63295300DF031A /* subs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = subs.json; path = ../../../../../../../../Desktop/subs.json; sourceTree = "<group>"; };
 		682DFA161CFED25000D8FBA9 /* UIImage+ZLPhotoLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZLPhotoLib.h"; sourceTree = "<group>"; };
 		682DFA171CFED25000D8FBA9 /* UIImage+ZLPhotoLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZLPhotoLib.m"; sourceTree = "<group>"; };
 		682DFA181CFED25000D8FBA9 /* UIView+ZLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZLExtension.h"; sourceTree = "<group>"; };
@@ -870,6 +865,11 @@
 		68348F551DC33448001D58DF /* NSDate+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Format.m"; sourceTree = "<group>"; };
 		68348F571DC33623001D58DF /* SZCustomTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCustomTipView.h; sourceTree = "<group>"; };
 		68348F581DC33623001D58DF /* SZCustomTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCustomTipView.m; sourceTree = "<group>"; };
+		6836EBA51E6357B400F20C7B /* areas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areas.json; sourceTree = "<group>"; };
+		6836EBA61E6357B400F20C7B /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		6836EBA71E6357B400F20C7B /* defects.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defects.json; sourceTree = "<group>"; };
+		6836EBA81E6357B400F20C7B /* mains.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mains.json; sourceTree = "<group>"; };
+		6836EBA91E6357B400F20C7B /* subs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = subs.json; sourceTree = "<group>"; };
 		68383B6A1D12A6E200323D04 /* SZWorkingHoursBigCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZWorkingHoursBigCell.h; sourceTree = "<group>"; };
 		68383B6B1D12A6E200323D04 /* SZWorkingHoursBigCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZWorkingHoursBigCell.m; sourceTree = "<group>"; };
 		684A15CD1D7E5620002ED4D5 /* SZVersionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZVersionListViewController.h; sourceTree = "<group>"; };
@@ -2258,15 +2258,15 @@
 		688634841E5C0BDB0015BAF2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				6836EBA51E6357B400F20C7B /* areas.json */,
+				6836EBA61E6357B400F20C7B /* categories.json */,
+				6836EBA71E6357B400F20C7B /* defects.json */,
+				6836EBA81E6357B400F20C7B /* mains.json */,
+				6836EBA91E6357B400F20C7B /* subs.json */,
 				6886348A1E5C0CF50015BAF2 /* Protocols.swift */,
 				682A86AF1E601ABE00DAA130 /* Global.swift */,
 				688634A01E5C53350015BAF2 /* SZService.swift */,
 				682A86AD1E5FD02F00DAA130 /* Customs.swift */,
-				682BFA791E63295300DF031A /* areas.json */,
-				682BFA7A1E63295300DF031A /* categories.json */,
-				682BFA7B1E63295300DF031A /* defects.json */,
-				682BFA7C1E63295300DF031A /* mains.json */,
-				682BFA7D1E63295300DF031A /* subs.json */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2674,12 +2674,12 @@
 				684A15E01D7FB2D6002ED4D5 /* SZSignTableViewCell.xib in Resources */,
 				68FE59B31CC8D40C00FFB2BC /* SZPithilyTableViewCell.xib in Resources */,
 				8A66E7E11D5AFBF700924501 /* SZWorkingHoursViewController.xib in Resources */,
-				682BFA821E63295300DF031A /* subs.json in Resources */,
+				6836EBAE1E6357B400F20C7B /* subs.json in Resources */,
 				1AFD03731CD057BA007C9199 /* records.plist in Resources */,
 				1A7A4BC11CDB6F4400968A9E /* maintenanceOperation.plist in Resources */,
 				684A166C1D7FB3CD002ED4D5 /* SZSignOutView.xib in Resources */,
 				684A163B1D7FB389002ED4D5 /* SZAnnualInspectionTableViewCell.xib in Resources */,
-				682BFA801E63295300DF031A /* defects.json in Resources */,
+				6836EBAC1E6357B400F20C7B /* defects.json in Resources */,
 				684A162D1D7FB36B002ED4D5 /* SZCheckLookTableViewDetialCell.xib in Resources */,
 				1AD9F3D01CE03BF500B532B1 /* workingHours.plist in Resources */,
 				684A15EE1D7FB2F9002ED4D5 /* SZCustomerSignDetailView.xib in Resources */,
@@ -2735,14 +2735,14 @@
 				682DFA781CFEE02400D8FBA9 /* ZLPhotoLib.bundle in Resources */,
 				0B69FE4B1CE9C396005ED21E /* signDetailList.plist in Resources */,
 				684A168F1D7FB41C002ED4D5 /* SZSignDetailBottomOperationView.xib in Resources */,
-				682BFA811E63295300DF031A /* mains.json in Resources */,
+				6836EBAD1E6357B400F20C7B /* mains.json in Resources */,
 				8A66E7CC1D5AC7CA00924501 /* SZLoginViewController.xib in Resources */,
 				8A66E80B1D5B133A00924501 /* SZBottomMainView.xib in Resources */,
 				684A15D01D7FB018002ED4D5 /* SZSignatureBoardViewController.xib in Resources */,
 				684A16181D7FB352002ED4D5 /* SZTitleHeadView.xib in Resources */,
 				68125B481D1CC9B90098A61C /* SZButton.xib in Resources */,
-				682BFA7E1E63295300DF031A /* areas.json in Resources */,
-				682BFA7F1E63295300DF031A /* categories.json in Resources */,
+				6836EBAA1E6357B400F20C7B /* areas.json in Resources */,
+				6836EBAB1E6357B400F20C7B /* categories.json in Resources */,
 				68CB02B81D5ABF9F00D19F69 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

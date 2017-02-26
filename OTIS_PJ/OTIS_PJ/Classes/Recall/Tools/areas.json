@@ -1,0 +1,42 @@
+{
+	"errorCode": 0,
+	"message": "操作成功！",
+	"data": {
+		"areasLst": [{
+			"areaID": 1,
+			"areaName": "机房MACHINE ROOM",
+			"areaShortName": "1",
+			"areaNameZh": "机房"
+		}, {
+			"areaID": 2,
+			"areaName": "井道HOISTWAY",
+			"areaShortName": "2",
+			"areaNameZh": "井道"
+		}, {
+			"areaID": 3,
+			"areaName": "轿厢CAR",
+			"areaShortName": "3",
+			"areaNameZh": "轿厢"
+		}, {
+			"areaID": 4,
+			"areaName": "扶梯/观光梯ESCALATOR/TRAV - O - LATOR",
+			"areaShortName": "4",
+			"areaNameZh": "扶梯/观光梯"
+		}, {
+			"areaID": 5,
+			"areaName": "外围设备PERIPHERAL DEVICES",
+			"areaShortName": "5",
+			"areaNameZh": "外围设备"
+		}, {
+			"areaID": 6,
+			"areaName": "杂项MISCELLANEOUS",
+			"areaShortName": "6",
+			"areaNameZh": "杂项"
+		}, {
+			"areaID": 7,
+			"areaName": "客户原因CUSTOMER REASON",
+			"areaShortName": "7",
+			"areaNameZh": "客户原因"
+		}]
+	}
+}

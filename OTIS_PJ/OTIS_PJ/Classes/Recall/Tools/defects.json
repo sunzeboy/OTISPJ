@@ -1,0 +1,28 @@
+{
+	"errorCode": 0,
+	"message": "操作成功！",
+	"data": {
+		"defectsLst": [{
+			"defectID": 1,
+			"defectCode": "0A",
+			"defectName": "老化 Aging",
+			"defectShortName": "",
+			"defectNameZh": "老化",
+			"subCode": "0A"
+		}, {
+			"defectID": 2,
+			"defectCode": "0B",
+			"defectName": "接线问题 Bad connection",
+			"defectShortName": "",
+			"defectNameZh": "接线问题",
+			"subCode": "0A"
+		}, {
+			"defectID": 3,
+			"defectCode": "0C",
+			"defectName": "烧毁 Burn out",
+			"defectShortName": "",
+			"defectNameZh": "烧毁",
+			"subCode": "0A"
+		}]
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"errorCode": 0,
+	"message": "操作成功！",
+	"data": {
+		"categoriesLst": [{
+			"categoryId": 1,
+			"categoryName": "停梯ELEVATOR STOPPED",
+			"categoryShortName": "A",
+			"categoryNameZh": "A-停梯"
+		}, {
+			"categoryId": 2,
+			"categoryName": "运行中出现的故障(需调整)PERFORMANCE DETERIORATION",
+			"categoryShortName": "B",
+			"categoryNameZh": "B-运行中出现的故障(需调整)"
+		}, {
+			"categoryId": 3,
+			"categoryName": "轻微问题MINOR PROBLEMS",
+			"categoryShortName": "C",
+			"categoryNameZh": "C-轻微问题"
+		}, {
+			"categoryId": 4,
+			"categoryName": "用户或其它问题CUSTOMER OR OTHER",
+			"categoryShortName": "D",
+			"categoryNameZh": "D-用户或其它问题"
+		}, {
+			"categoryId": 5,
+			"categoryName": "乘客被困/安全问题TRAPPED PASSENGERS",
+			"categoryShortName": "X",
+			"categoryNameZh": "X-乘客被困/安全问题"
+		}]
+	}
+}
