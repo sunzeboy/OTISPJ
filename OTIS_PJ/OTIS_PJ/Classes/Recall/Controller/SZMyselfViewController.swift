@@ -60,7 +60,7 @@ class SZMyselfViewController: UIViewController {
         apiProvider.request(.areas(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):
-                moyaResponse.response
+                
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let data = json["data"]["areasLst"]
