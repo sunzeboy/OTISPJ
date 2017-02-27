@@ -159,6 +159,7 @@
     [self.view endEditing:YES];
 }
 
+
 -(void)confirm{
     SZOuterNetworkCallback = self.xhbox2.text;
     if (SZOuterNetworkCallback&&[SZOuterNetworkCallback containsString:@"://"]) {
@@ -168,9 +169,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 -(void)dismiss{
-    
-    SZOuterNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
+    if ([USER_DEFAULT objectForKey:@"SZOuterNetwork"]) {
+        SZOuterNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
