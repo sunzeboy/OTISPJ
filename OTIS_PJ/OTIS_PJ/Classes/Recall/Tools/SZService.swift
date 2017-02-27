@@ -28,9 +28,12 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
 
 let headerFields: Dictionary<String, String> = [
     
-    "epId": OTISConfig.employeeID(),
+    "employeeID": OTISConfig.employeeID(),
     
-    "psd": OTISConfig.userPW()
+    "password": OTISConfig.userPW(),
+    
+    "ver": "LBS_V10.0.0"
+
 ]
 
 let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
@@ -53,17 +56,17 @@ let myStubClosure = { (target: SZService) -> Moya.StubBehavior in
 }
 
 
-//let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:networkPlugin1)
-let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
+let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
+//let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
 
 
 enum SZService {
     
-    case categories(intfVer:String,dtVer:Int)
-    case areas(intfVer:String,dtVer:Int)
-    case mains(intfVer:String,dtVer:Int)
-    case subs(intfVer:String,dtVer:Int)
-    case defects(intfVer:String,dtVer:Int)
+    case categories(dtVer:Int)
+    case areas(dtVer:Int)
+    case mains(dtVer:Int)
+    case subs(dtVer:Int)
+    case defects(dtVer:Int)
 
 }
 
@@ -95,12 +98,12 @@ extension SZService: TargetType {
     var parameters: [String: Any]? {
         switch self {
         
-        case .categories(intfVer:let intfVer, dtVer:let dtVer),
-             .areas(intfVer:let intfVer, dtVer:let dtVer),
-             .mains (intfVer:let intfVer, dtVer:let dtVer),
-             .subs(intfVer:let intfVer, dtVer:let dtVer),
-             .defects(intfVer:let intfVer, dtVer:let dtVer):
-            return ["intfVer": intfVer, "dtVer": dtVer]
+        case .categories(dtVer:let dtVer),
+             .areas(dtVer:let dtVer),
+             .mains (dtVer:let dtVer),
+             .subs(dtVer:let dtVer),
+             .defects(dtVer:let dtVer):
+            return ["dtVer": dtVer]
             
         }
     }

@@ -33,7 +33,7 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        apiProvider.request(.categories(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+        apiProvider.request(.categories(dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
@@ -57,7 +57,7 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        apiProvider.request(.areas(intfVer: "LBS_V10.0.0", dtVer: -1)) { result in
+        apiProvider.request(.areas(dtVer: -1)) { result in
             switch result {
             case let .success(moyaResponse):
                 
