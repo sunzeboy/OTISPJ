@@ -554,7 +554,12 @@
     }else{
         NSInteger yymmdd =  [NSDate currentYYMMDD];
         NSString *strKey = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo];
-        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+        NSString *strKey2 = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+
+        NSInteger time = [NSDate sinceDistantPastTime];
+        [USER_DEFAULT setObject:@(time) forKey:strKey];
+        [USER_DEFAULT setObject:@(time) forKey:strKey2];
+
         // 只要做了保养项目的保存，中断或者保存，都将工时进入的状态清除
         [SZTable_Schedules updateAddLaborHoursState:0 andScheduleID:self.item.ScheduleID];
         
