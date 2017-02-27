@@ -8,6 +8,27 @@
 
 import UIKit
 import Moya
+import SwiftyJSON
+
+//struct HttpHead {
+//    var employeeID: Int = Int(OTISConfig.employeeID())!
+//    var password: String = OTISConfig.userPW()
+//    var ver: String = "LBS_V10.0.0"
+//
+//}
+//
+//struct HttpReq {
+//    var head: HttpHead = HttpHead(employeeID: Int(OTISConfig.employeeID())!, password: OTISConfig.userPW(), ver: "LBS_V10.0.0")
+//    var body: [String: Any]
+//}
+
+private func ruquestParameters(p:[String: Any]) -> [String: Any]? {
+    return ["head":["employeeID": OTISConfig.employeeID(),
+                    "password": OTISConfig.userPW(),
+                    "ver": "LBS_V10.0.0"],
+            "body":p]
+}
+
 
 let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
     
@@ -26,15 +47,14 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
     }        
 }
 
-let headerFields: Dictionary<String, String> = [
-    
-    "employeeID": OTISConfig.employeeID(),
-    
-    "password": OTISConfig.userPW(),
-    
-    "ver": "LBS_V10.0.0"
-
-]
+//let headerFields: Dictionary<String, String> = [
+//    
+//    "employeeID": OTISConfig.employeeID(),
+//    
+//    "password": OTISConfig.userPW(),
+//    
+//    "ver": "LBS_V10.0.0"
+//]
 
 let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
     
@@ -44,8 +64,7 @@ let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
         sampleResponseClosure: {.networkResponse(200, target.sampleData)},
         method: target.method,
         parameters: target.parameters,
-        parameterEncoding: target.parameterEncoding,
-        httpHeaderFields: headerFields)
+        parameterEncoding: target.parameterEncoding)
     
 }
 
@@ -97,14 +116,13 @@ extension SZService: TargetType {
     
     var parameters: [String: Any]? {
         switch self {
-        
+            
         case .categories(dtVer:let dtVer),
              .areas(dtVer:let dtVer),
              .mains (dtVer:let dtVer),
              .subs(dtVer:let dtVer),
              .defects(dtVer:let dtVer):
-            return ["dtVer": dtVer]
-            
+            return ruquestParameters(p: ["dtVer":dtVer])
         }
     }
     
