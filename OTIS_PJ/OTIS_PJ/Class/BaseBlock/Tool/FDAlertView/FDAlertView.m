@@ -89,7 +89,7 @@ CGFloat contentViewHeight;
 
 - (void)setContentView:(UIView *)contentView {
     _contentView = contentView;
-    _contentView.center = self.center;
+    _contentView.center = CGPointMake(self.center.x, self.center.y-30);
     [self addSubview:_contentView];
 }
 

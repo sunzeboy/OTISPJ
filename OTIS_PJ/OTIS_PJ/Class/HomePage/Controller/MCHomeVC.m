@@ -49,6 +49,12 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     return _imageArray;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.leftBarButtonItem = nil;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"OTIS MD";

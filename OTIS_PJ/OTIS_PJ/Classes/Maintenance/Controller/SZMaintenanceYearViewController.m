@@ -11,6 +11,7 @@
 #import "SZMaintenanceOperationTableViewCell.h"
 #import "SZModuleQueryTool.h"
 #import "SZMaintenanceCheckItem.h"
+#import "NSObject+MDObjectTool.h"
 @interface SZMaintenanceYearViewController ()<UITableViewDataSource>
 
 @property (nonatomic , strong) NSMutableDictionary *arrayCompetedCheckItem;
@@ -86,6 +87,10 @@
                     itemAll.automType = 0;
                 }else{
                     itemAll.automType = 1;
+                }
+                
+                if (![self IsAutomaticOpen]) {
+                    itemAll.isHiden=YES;
                 }
                 
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];

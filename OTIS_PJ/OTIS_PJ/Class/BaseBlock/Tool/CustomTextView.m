@@ -34,6 +34,7 @@
         placeholderLabel.textColor = [UIColor lightGrayColor];
         placeholderLabel.hidden = YES;
         placeholderLabel.numberOfLines = 0;
+        [placeholderLabel sizeToFit];
         placeholderLabel.backgroundColor = [UIColor clearColor];
         placeholderLabel.font = self.font;
         [self insertSubview:placeholderLabel atIndex:0];
@@ -57,7 +58,7 @@
         // 计算frame
         CGFloat placeholderX = 5;
         CGFloat placeholderY = 7;
-        CGRect placeholderSize = [placeholder boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.placeholderLabel.font} context:nil];
+        CGRect placeholderSize = [placeholder boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width-35, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.placeholderLabel.font} context:nil];
         
         
         self.placeholderLabel.frame = CGRectMake(placeholderX, placeholderY, placeholderSize.size.width, placeholderSize.size.height);
@@ -91,8 +92,5 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-
-
 
 @end

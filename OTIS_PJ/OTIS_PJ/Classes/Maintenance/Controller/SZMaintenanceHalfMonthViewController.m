@@ -12,7 +12,7 @@
 #import "SZModuleQueryTool.h"
 #import "SZMaintenanceCheckItem.h"
 #import "TablesAndFields.h"
-
+#import "NSObject+MDObjectTool.h"
 @interface SZMaintenanceHalfMonthViewController ()<UITableViewDataSource>
 
 @property (nonatomic , strong) NSMutableDictionary *arrayCompetedCheckItem;
@@ -79,6 +79,11 @@
                 }else{
                     itemAll.automType = 1;
                 }
+                
+                if (![self IsAutomaticOpen]) {
+                    itemAll.isHiden=YES;
+                }
+                
                 
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 if (item && item.isUpload == YES) {
@@ -291,11 +296,6 @@
         }
             break;
         case 3:
-        {
-            
-        }
-            break;
-        case 4:
         {
             
         }

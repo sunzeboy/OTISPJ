@@ -61,6 +61,21 @@
 
 @implementation SZLoginViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden=YES;
+    
+    if (self.passWordTF) {
+        self.passWordTF.text = @"";
+    }
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden=NO;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUp];
@@ -121,10 +136,7 @@
     return UIInterfaceOrientationPortrait;
 }
 
--(void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-}
+
 
 #pragma mark - 初始化登录界面
 -(void)setUp
@@ -261,8 +273,9 @@
         }else if ([str isEqualToString:@"1"]){
             MCHomeVC *vc = [[MCHomeVC alloc] init];
 //            vc.isLocalLogin = NO;
-            SZNavigationController *nav = [[SZNavigationController alloc] initWithRootViewController:vc];
-            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+//            SZNavigationController *nav = [[SZNavigationController alloc] initWithRootViewController:vc];
+//            [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+            [self.navigationController pushViewController:vc animated:YES];
             return ;
         }
         

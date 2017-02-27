@@ -34,6 +34,8 @@
 #import "FDAlertView.h"
 #import "MDCustomAlertView.h"
 #import "CustomTextView.h"
+#import "MaintenanceViewController.h"
+
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
 }
@@ -283,22 +285,25 @@
 }
 
 -(void)back{
-    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                    dialogTitle:SZLocal(@"dialog.title.tip")
-                                                                                 dialogContents:SZLocal(@"dialog.content.Maintenance content is not saved, whether to quit?")
-                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
-    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-        [alertView close];
-        if(buttonIndex == 0){
-
-            [self.navigationController popViewControllerAnimated:YES];
-          
-        }else if(buttonIndex == 1){
-            [alertView close];
-        }
-    };
-    [self.view endEditing:YES];
-    [alertView show];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+//    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                    dialogTitle:SZLocal(@"dialog.title.tip")
+//                                                                                 dialogContents:SZLocal(@"dialog.content.Maintenance content is not saved, whether to quit?")
+//                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
+//    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//        [alertView close];
+//        if(buttonIndex == 0){
+//
+//            [self.navigationController popViewControllerAnimated:YES];
+//          
+//        }else if(buttonIndex == 1){
+//            [alertView close];
+//        }
+//    };
+//    [self.view endEditing:YES];
+//    [alertView show];
 }
 
 // 设置副标题
@@ -601,7 +606,48 @@
         }
         FDAlertView *alert = [[FDAlertView alloc] init];
         MDCustomAlertView *contentView = [[MDCustomAlertView alloc] initWithFrame:CGRectMake(0, 0, MDScreenW-30,190)];
-        contentView.textView.placeholder=[NSString stringWithFormat:@"%@",itemAll.ItemName];
+        
+        NSString* automType;
+        switch (itemAll.automType) {
+            case 0:
+                automType=@"正常项目";
+                break;
+            case 1:
+                 automType=@"调整更换部件";
+                break;
+            case 2:
+                 automType=@"清洁,润滑更换";
+                break;
+            case 3:
+                 automType=@"无此项目";
+                break;
+            default:
+                break;
+        }
+        
+        NSString* stateStr;
+        switch (itemAll.state) {
+            case 0:
+                stateStr=@"正常项目";
+                break;
+            case 1:
+                stateStr=@"调整更换部件";
+                break;
+            case 2:
+                stateStr=@"清洁,润滑更换";
+                break;
+            case 3:
+                stateStr=@"无此项目";
+                break;
+            default:
+                break;
+        }
+        
+        if (stateStr==nil) {
+            stateStr=@"技师未操作";
+        }
+        
+        contentView.textView.placeholder=[NSString stringWithFormat:@"%@:%@ 自动:%@ 手动:%@",itemAll.ItemCode,itemAll.ItemName,automType,stateStr];
         alert.contentView = contentView;
         [alert show];
         
@@ -609,7 +655,7 @@
             //相等时表示已经便利完毕
             if (self.searchIndex==array.count) {
                 [self.saveDataArray addObject:itemAll];
-//                [self goBack];
+                [self goBack];
             }else{
                 //                model.isSave=YES;
                 //不相等则继续便利直到便利完成
@@ -626,11 +672,19 @@
         
     }else{
         //手动和自动项目完全相等时直接保存跳回上一个界面
-//        [self goBack];
+        [self goBack];
     }
 }
 
-
+-(void)goBack{
+    NSLog(@"==============保存数组%lu",(unsigned long)self.saveDataArray.count);
+    
+    for (UIViewController* vc in self.navigationController.childViewControllers) {
+        if ([vc isMemberOfClass:[MaintenanceViewController class]]) {
+            [self.navigationController popToViewController:vc animated:YES];
+        }
+    }
+}
 // 中断
 -(void)stop{
     

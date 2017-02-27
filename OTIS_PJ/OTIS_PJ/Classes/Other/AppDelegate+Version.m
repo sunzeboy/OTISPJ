@@ -509,7 +509,7 @@
 -(void)rootController
 {
     SZLoginViewController *loginVc = [[SZLoginViewController alloc] init];
-    self.window.rootViewController = loginVc;
+    self.window.rootViewController = [[SZNavigationController alloc] initWithRootViewController:loginVc];
     
 #if 1
 
