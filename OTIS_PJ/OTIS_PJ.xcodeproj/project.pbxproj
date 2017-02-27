@@ -2631,6 +2631,7 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = TQ85BX5255;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 					680628731CC77C0D002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -3721,7 +3722,7 @@
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.aaotis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.bbotis;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3750,7 +3751,7 @@
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.aaotis;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.bbotis;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

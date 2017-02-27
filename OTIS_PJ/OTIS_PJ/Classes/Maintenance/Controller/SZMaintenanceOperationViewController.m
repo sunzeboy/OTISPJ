@@ -450,6 +450,8 @@
                             
                             // 更新计划表中的状态
                             [SZTable_Schedules updateIsComplete:2 andScheduleID:(int)self.item.ScheduleID];
+                            [SZTable_QRCode storageWeiBaoWorkingHoursWithParams:self.item andGroupID:0 withProperty:1];
+
                             
                             if (halfMonth.ischanged||quarter.ischanged||halfYear.ischanged||year.ischanged) {
                                 [SZTable_Report updateCheckItemWithDetialItem2:arrayData andCheckItem:self.item isModify:YES];

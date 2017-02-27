@@ -324,9 +324,11 @@
         
         SZLabor *labor = self.types[0];
         labor.item1.Hour1Rate = gongshihours ;
-        labor.item1.Hour1Str = [NSString stringWithFormat:@"%d:%d",(int)gongshihours,(int)((gongshihours-(int)gongshihours)*60)];
+        labor.item1.LaborTypeId = 1;
+        labor.item1.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)gongshihours,(int)((gongshihours-(int)gongshihours)*60)];
+        labor.item2.LaborTypeId = 2;
         labor.item2.Hour1Rate = lutuhours ;
-        labor.item2.Hour1Str = [NSString stringWithFormat:@"%d:%d",(int)lutuhours,(int)((lutuhours-(int)lutuhours)*60)];
+        labor.item2.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)lutuhours,(int)((lutuhours-(int)lutuhours)*60)];
         
         NSNumber *zhongduanTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
         NSNumber *lutuTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
