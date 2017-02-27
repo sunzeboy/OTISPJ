@@ -14,7 +14,7 @@
 #import "SZMaintainDetailViewController.h"
 #import "CustomIOSAlertView.h"
 #import "SZTable_QRCode.h"
-
+#import "MDSynchronousVC.h"
 @interface NotCompletedViewController ()<UITableViewDataSource,UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *sousuoArray;
@@ -72,6 +72,13 @@
 
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SZFinalMaintenanceUnitDetialItem *item = self.sousuoArray[indexPath.row];
+    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
+    [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    return;
     __block NSInteger iCell = 0;
     __block NSString *cellContent = @"";
     [self.view endEditing:YES];

@@ -55,7 +55,6 @@
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
                 }
-                
             }
         }else{
             
@@ -70,14 +69,14 @@
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
                 
                 NSInteger  index = [arrayTemp indexOfObject:itemAll];
-                if (index>2) {
+                if (index>1) {
                     itemAll.isHiden=YES;
                 }
                 
-                if (index<2){
+                if (index<1){
                     itemAll.automType = 0;
                 }else{
-                    itemAll.automType = 1;
+                    itemAll.automType = 0;
                 }
                 
                 

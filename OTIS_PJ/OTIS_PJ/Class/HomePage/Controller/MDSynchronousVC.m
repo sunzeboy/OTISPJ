@@ -19,7 +19,7 @@
 #import "SZMaintenanceOperationViewController.h"
 
 
-static NSString* wifiNameFix = @"CX";
+static NSString* wifiNameFix = @"Otis-";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
