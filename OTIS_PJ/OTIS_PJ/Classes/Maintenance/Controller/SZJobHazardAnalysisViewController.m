@@ -186,7 +186,7 @@
          */
         NSNumber *scheduleID = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
         if (scheduleID.integerValue != self.item.ScheduleID) {//没有进行过正常维保操作（不会产生一条维保记录）
-            [SZTable_QRCode storageWeiBaoWorkingHoursWithParams:self.item andGroupID:0 withProperty:0];
+            [SZTable_QRCode storageWeiBaoWorkingHoursWithParams:self.item andGroupID:0 withProperty:1];
         }
         
         self.arrayCompetedJHA = nil;

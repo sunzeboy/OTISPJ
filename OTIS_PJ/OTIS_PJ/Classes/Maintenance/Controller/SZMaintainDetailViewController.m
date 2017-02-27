@@ -14,7 +14,7 @@
 #import "SZFinalMaintenanceUnitDetialItem.h"
 #import "SZJobHazardAnalysisViewController.h"
 #import "SZPreviewViewController.h"
-#import <INTULocationManager/INTULocationManager.h>
+#import "INTULocationManager/INTULocationManager.h"
 #import "UIBarButtonItem+Extention.h"
 #import "SZBottomSaveOperationView.h"
 #import "SZInputWorkingHourViewController.h"

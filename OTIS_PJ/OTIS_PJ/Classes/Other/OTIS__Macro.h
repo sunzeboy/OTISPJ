@@ -235,7 +235,7 @@ return _instance; \
 #define kNumberOfEachDeposit                500
 
 
-#define SZQRCodeProtocal                   @"http://ochcsprdweb.cloudapp.net/qr/elevator"
+#define SZQRCodeProtocal                   @"http://ochcsprdoeweb.cloudapp.net/qr/elevator"
 
 #define APIForceUpdate                     [SZNetwork stringByAppendingString:@"Terminal/TerminalVersionValidationV7"]
 

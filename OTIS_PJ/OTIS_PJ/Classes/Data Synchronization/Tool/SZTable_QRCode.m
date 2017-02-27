@@ -8,7 +8,7 @@
 
 #import "SZTable_QRCode.h"
 #import "TablesAndFields.h"
-#import <INTULocationManager/INTULocationManager.h>
+#import "INTULocationManager/INTULocationManager.h"
 #import "NSDate+Extention.h"
 @implementation SZTable_QRCode
 
@@ -154,10 +154,13 @@
         SZLog(@"SQL storageWithParams:%@",sql1);
         FMResultSet *set = [db executeQuery:sql1];
         
-        
+        NSInteger yymmdd =  [NSDate currentYYMMDD];
+        NSString *strKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,item.UnitNo];
+        NSString *strKey2 = [NSString stringWithFormat:@"%ld_%@END",yymmdd,item.UnitNo];
+
         while ([set next]) {
             int QRCodeCount = [set intForColumn:@"QRCodeCount"];
-            NSInteger  endTime =[NSDate sinceDistantPastTime]; // 结束时间使用当前时间
+            NSInteger  endTime =[[USER_DEFAULT objectForKey:strKey2] longValue]; // 结束时间使用当前时间
             
             if (QRCodeCount) {
                 
@@ -190,6 +193,7 @@
                     SZLog(@"错误：t_QRCode更新失败！！！");
                 }
             }else{
+                long startTime = [[USER_DEFAULT objectForKey:strKey] longValue];
                 NSString *sql = [NSString stringWithFormat:@"INSERT INTO t_QRCode ( \
                                  GroupID, \
                                  EmployeeId, \
@@ -213,7 +217,7 @@
                                  (long)scheduleID,
                                  item.isFixMode,
                                  item.QRCode,
-                                 endTime,
+                                 startTime,
                                  endTime,// 创建的时候就，结束时间默认为当前时间
                                  (item.StartLocalX==nil)?@"0":item.StartLocalX,
                                  (item.StartLocalY==nil)?@"0":item.StartLocalY,
