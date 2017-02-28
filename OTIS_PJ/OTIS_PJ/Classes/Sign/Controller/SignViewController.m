@@ -73,7 +73,7 @@ CGFloat const MaxSignElevatorNum = 20;
     
     if(_operationView ==nil){
         _operationView =[SZBottomOperationView loadSZBottomOperationView];
-        _operationView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH-5, SCREEN_WIDTH, OTIS_BottomOperationH+5);
+        _operationView.frame = CGRectMake(0,SCREEN_HEIGHT-OTIS_BottomOperationH, SCREEN_WIDTH, OTIS_BottomOperationH);
         [_operationView.confirmBtn setTitle:SZLocal(@"btn.title.confirm") forState:0];
         //[_operationView.confirmBtn setBackgroundColor:[UIColor lightGrayColor]];
         [self.view addSubview:_operationView];
@@ -144,12 +144,12 @@ CGFloat const MaxSignElevatorNum = 20;
 
 -(void)setUpTableView
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64+CXTitilesViewH+40-5, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource =self;
     [self.view addSubview:tableView];
     self.tableView = tableView;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 190, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0);
 }
 
 //设置数据（from plist）
@@ -215,7 +215,7 @@ CGFloat const MaxSignElevatorNum = 20;
 
 // 设置副标题
 - (void) setSubTitle{
-    UIView *subTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64+CXTitilesViewH-5, SCREEN_WIDTH, 40)];
+    UIView *subTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 40)];
     subTitleView.backgroundColor = [UIColor colorWithRed:3.0f/255.0f green:96.0f/255.0f blue:169.0f/255.0f alpha:1.0f];
     UIImageView *signListImage =[[UIImageView alloc] initWithFrame:CGRectMake(15, 8, 20, 25)];
     signListImage.image = [UIImage imageNamed:@"lbl_list"];

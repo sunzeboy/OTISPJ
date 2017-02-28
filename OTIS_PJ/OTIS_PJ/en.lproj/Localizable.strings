@@ -66,6 +66,7 @@
 "title.If you have any questions, please specify"                                                       = "如果有问题，请具体说明";
 
 "title.Problems found in the work and the need to deal with customers"                                  = "本次工作中发现的问题及需要客户处理的事项";
+"title.SignatureBoardViewController" = "签字";
 
 //error
 "error.OTISLoginStateLocked"                                                                            = "您账号已被锁定，请联系管理员！";

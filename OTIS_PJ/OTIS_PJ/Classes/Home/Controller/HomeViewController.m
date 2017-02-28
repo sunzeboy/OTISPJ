@@ -84,14 +84,14 @@
 
 -(void)setUpSZButton{
     self.weibao.iconImage.image = [UIImage imageNamed:@"menu_weibao"];
-    self.qianzi.iconImage.image = [UIImage imageNamed:@"recall"];
+    self.qianzi.iconImage.image = [UIImage imageNamed:@"menu_qianzi"];
     self.gongshi.iconImage.image = [UIImage imageNamed:@"menu_gongshi"];
     self.tongbu.iconImage.image = [UIImage imageNamed:@"menu_tongbu"];
     self.nianjian.iconImage.image = [UIImage imageNamed:@"menu_nianjian"];
     self.bangzhu.iconImage.image = [UIImage imageNamed:@"menu_bangzhu"];
     
     self.weibao.titleLabel.text = SZLocal(@"title.MaintenanceViewController");
-    self.qianzi.titleLabel.text = SZLocal(@"title.RecallViewController");
+    self.qianzi.titleLabel.text = SZLocal(@"title.SignatureBoardViewController");
     self.gongshi.titleLabel.text = SZLocal(@"title.gongshi");
     self.tongbu.titleLabel.text = SZLocal(@"title.tongbu");
     self.nianjian.titleLabel.text = SZLocal(@"title.nianjian");
@@ -186,7 +186,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)qianziAct:(UIButton *)sender {
-    SZRecallViewController *vc =[[SZRecallViewController alloc] init];
+    SignViewController *vc =[[SignViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

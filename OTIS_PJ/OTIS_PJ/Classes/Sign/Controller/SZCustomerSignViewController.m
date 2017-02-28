@@ -17,7 +17,7 @@
 #import "NSDate+Extention.h"
 #import "UIImage+Extention.h"
 #import "MBProgressHUD.h"
-#import "MaintenanceViewController.h"
+#import "SignViewController.h"
 
 
 @interface SZCustomerSignViewController ()
@@ -217,7 +217,7 @@
       
         //返回未签字列表
         for (UIViewController *controller in self.navigationController.viewControllers) {
-            if ([controller isKindOfClass:[MaintenanceViewController class]]) {
+            if ([controller isKindOfClass:[SignViewController class]]) {
                 [self.navigationController popToViewController:controller animated:YES];
             }
         }
