@@ -631,7 +631,11 @@
         weekendOvertimeTF.text = item.Hour2Str;
         holidayOvertimeTF.text = item.Hour3Str;
     }
+    weekdayOvertimeTF.enabled = NO;
+    weekendOvertimeTF.enabled = NO;
+    holidayOvertimeTF.enabled = NO;
     
+
     self.item.Hour1Str = item.Hour1Str;
     self.item.Hour15Str = item.Hour15Str;
     self.item.Hour2Str = item.Hour2Str;
@@ -672,16 +676,22 @@
         make.right.equalTo(contentsview.mas_right).offset(-padding);
         make.height.equalTo(@30);
     }];
+    weekdayOvertimeTF.enabled = NO;
+
     [weekendOvertimeTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weekdayTF.mas_bottom).offset(padding);
         make.right.equalTo(contentsview.mas_centerX).offset(-padding);
         make.height.equalTo(@30);
     }];
+    weekendOvertimeTF.enabled = NO;
+
     [holidayOvertimeTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weekdayOvertimeTF.mas_bottom).offset(padding);
         make.right.equalTo(contentsview.mas_right).offset(-padding);
         make.height.equalTo(@30);
     }];
+    holidayOvertimeTF.enabled = NO;
+
     // X1平日Label
     [weekdayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleLabel.mas_bottom).offset(padding);
@@ -694,18 +704,23 @@
         make.right.equalTo(weekdayOvertimeTF.mas_left).offset(-padding/2);
         make.height.equalTo(@30);
     }];
+    weekdayOvertimeLabel.enabled = YES;
     // X2双休日加班Label
     [weekendOvertimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weekdayLabel.mas_bottom).offset(padding);
         make.right.equalTo(weekendOvertimeTF.mas_left).offset(-padding/2);
         make.height.equalTo(@30);
     }];
+    weekendOvertimeLabel.enabled = YES;
+
     // X3国定假日加班Label
     [holidayOvertimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weekdayOvertimeLabel.mas_bottom).offset(padding);
         make.right.equalTo(holidayOvertimeTF.mas_left).offset(-padding/2);
         make.height.equalTo(@30);
     }];
+    holidayOvertimeLabel.enabled = YES;
+
     weekdayLabel.font = [UIFont systemFontOfSize:14];
     weekdayOvertimeLabel.font = [UIFont systemFontOfSize:12];
     weekendOvertimeLabel.font = [UIFont systemFontOfSize:12];

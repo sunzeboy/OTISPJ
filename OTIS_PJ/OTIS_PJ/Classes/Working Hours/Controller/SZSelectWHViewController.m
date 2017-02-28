@@ -239,6 +239,7 @@
         SZInputWorkingHourViewController *controller = [[SZInputWorkingHourViewController alloc] init];
         controller.records = self.records;
         controller.outItem = self.item;
+        controller.feizaibao = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
 

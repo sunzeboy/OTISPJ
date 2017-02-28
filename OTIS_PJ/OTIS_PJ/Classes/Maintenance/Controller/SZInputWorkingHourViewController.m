@@ -281,7 +281,7 @@
     self.title = [NSString stringWithFormat:@"工时填写－%@", self.labor.LaborName];
     self.view.backgroundColor=[UIColor lightGrayColor];
     [self dateView];
-    if (self.inWarranty || self.isWorkhour) {
+    if (self.inWarranty || self.isWorkhour || self.feizaibao) {
         NSString *titleDate = nil;
         if (self.item.GenerateDate == 0||!self.item.GenerateDate) {
             titleDate = [self getCurrentDate];
@@ -297,8 +297,11 @@
         [self judegeBottomView];
         
         
-    } else {
-        
+    } else if(0){
+//        [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:@"0"];
+
+
+    }else{
         NSInteger yymmdd =  [NSDate currentYYMMDD];
         
         NSString *startKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
@@ -323,11 +326,11 @@
         float hours = (start.longValue-lutuEnd.longValue)/10000000.0/3600.0;
         float lutuhours = hours>0?hours:0 ;
         
-       
+        
         
         NSNumber *zhongduanTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
         NSNumber *lutuTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
-
+        
         if (self.zhongduan) {
             NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
             
@@ -362,19 +365,20 @@
                 [weakSelf confirmSaveWorkingHours];
                 [[NSUserDefaults standardUserDefaults] setObject:@(gongshihours) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
                 [[NSUserDefaults standardUserDefaults] setObject:@(lutuhours) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
-
+                
                 if (weakSelf.inputMode == 0&&weakSelf.zhongduan == NO) {
                     [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,weakSelf.item.UnitNo]];
                     [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
                     [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
                 }
                 [[NSUserDefaults standardUserDefaults] setObject:end forKey:@"ENDTIME"];
-
+                
                 
             }
         };
         
         [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:[NSString stringWithFormat:@"%.2f",gongshihours+lutuhours]];
+    
     }
     
     
