@@ -83,7 +83,7 @@ class MainComponent: Object,Storageable {
     dynamic var mainName = ""
     dynamic var mainShortName = ""
     dynamic var mainNameZh = ""
-    dynamic var areaID = ""
+    dynamic var areaID = 0
     override static func primaryKey() -> String? {
         return "mainID"
     }
@@ -100,7 +100,7 @@ class MainComponent: Object,Storageable {
             main.mainName = subJson["mainName"].string!
             main.mainShortName = subJson["mainShortName"].string!
             main.mainNameZh = subJson["mainNameZh"].string!
-            main.areaID = subJson["areaID"].string!
+            main.areaID = subJson["areaID"].int!
             mains.append(main)
         }
         let realm = try! Realm()

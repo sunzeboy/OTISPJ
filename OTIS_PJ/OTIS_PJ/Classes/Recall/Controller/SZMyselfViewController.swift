@@ -67,18 +67,73 @@ class SZMyselfViewController: UIViewController {
                     ComponentArea.storage(jsonData: data)
                     print(data)
                 }
-            // do something with the response data or statusCode
+            
             case let .failure(error):
                 print(error)
-                // this means there was a network failure - either the request
-                // wasn't sent (connectivity), or no response was received (server
-                // timed out).  If the server responds with a 4xx or 5xx error, that
-                // will be sent as a ".success"-ful response.
+
             }
             print(result)
         }
 
         
+        
+        
+        apiProvider.request(.mains(dtVer: -1)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    let data = json["data"]["mainsLst"]
+                    MainComponent.storage(jsonData: data)
+                    print(data)
+                }
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            print(result)
+        }
+        
+        
+        apiProvider.request(.subs(dtVer: -1)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    let data = json["data"]["subsLst"]
+                    SubComponent.storage(jsonData: data)
+                    print(data)
+                }
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            print(result)
+        }
+
+        
+        
+        apiProvider.request(.defects(dtVer: -1)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    let data = json["data"]["defectsLst"]
+                    Defect.storage(jsonData: data)
+                    print(data)
+                }
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+
+        }
         
 
     }
