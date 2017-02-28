@@ -376,6 +376,7 @@
 		68FE5A3C1CCA0B2200FFB2BC /* SZDownloadManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE5A3B1CCA0B2200FFB2BC /* SZDownloadManger.m */; };
 		68FE5A4B1CCA1B3300FFB2BC /* OTISConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE5A4A1CCA1B3300FFB2BC /* OTISConfig.m */; };
 		68FE5A531CCE106200FFB2BC /* SZDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE5A521CCE106200FFB2BC /* SZDBTool.m */; };
+		8A11FD851E65720600107640 /* MDSVTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A11FD841E65720600107640 /* MDSVTModel.m */; };
 		8A297DD91D41C9B900BD286D /* SZForceUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A297DD81D41C9B900BD286D /* SZForceUpdateModel.m */; };
 		8A4CB82A1D588DB700576A8F /* SZCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CB8291D588DB700576A8F /* SZCollectionViewCell.m */; };
 		8A578C141D2E33C900463CC3 /* SZBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A578C131D2E33C900463CC3 /* SZBackController.m */; };
@@ -1167,6 +1168,8 @@
 		68FE5A4A1CCA1B3300FFB2BC /* OTISConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTISConfig.m; sourceTree = "<group>"; };
 		68FE5A511CCE106200FFB2BC /* SZDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZDBTool.h; sourceTree = "<group>"; };
 		68FE5A521CCE106200FFB2BC /* SZDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDBTool.m; sourceTree = "<group>"; };
+		8A11FD831E65720600107640 /* MDSVTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSVTModel.h; sourceTree = "<group>"; };
+		8A11FD841E65720600107640 /* MDSVTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSVTModel.m; sourceTree = "<group>"; };
 		8A297DD71D41C9B900BD286D /* SZForceUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZForceUpdateModel.h; sourceTree = "<group>"; };
 		8A297DD81D41C9B900BD286D /* SZForceUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZForceUpdateModel.m; sourceTree = "<group>"; };
 		8A4CB8281D588DB700576A8F /* SZCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2275,6 +2278,8 @@
 				682A863C1E5D5ACF00DAA130 /* MDMainTainVM.m */,
 				682A863D1E5D5ACF00DAA130 /* MDMatainModel.h */,
 				682A863E1E5D5ACF00DAA130 /* MDMatainModel.m */,
+				8A11FD831E65720600107640 /* MDSVTModel.h */,
+				8A11FD841E65720600107640 /* MDSVTModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3138,6 +3143,7 @@
 				6862EAE31D2394CD005ED334 /* SZUploadFixRequest.m in Sources */,
 				68777F681D2F7DF400DCAD2D /* FMResultSet+Extention.m in Sources */,
 				682DFA651CFED25000D8FBA9 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				8A11FD851E65720600107640 /* MDSVTModel.m in Sources */,
 				682A865B1E5D5ACF00DAA130 /* MDBaseButton.m in Sources */,
 				682DFA5A1CFED25000D8FBA9 /* UIView+ZLExtension.m in Sources */,
 				6866BC731CD342A300CBF478 /* SZTable_Building.m in Sources */,

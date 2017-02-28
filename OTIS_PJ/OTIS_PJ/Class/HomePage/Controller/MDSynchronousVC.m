@@ -17,14 +17,18 @@
 #import "MBProgressHUD.h"
 #import "SZFinalMaintenanceUnitDetialItem.h"
 #import "SZMaintenanceOperationViewController.h"
+#import "MDSVTModel.h"
 
-
-static NSString* wifiNameFix = @"Otis-";
+//Otis-
+static NSString* wifiNameFix = @"CX";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
 @property(assign) CGFloat titleHeight;
 @property(nonatomic,strong) SZFinalMaintenanceUnitDetialItem* liftModel;
+
+@property(nonatomic,weak) UITextView* textView;
+
 
 @end
 
@@ -62,13 +66,27 @@ static NSString* wifiNameFix = @"Otis-";
             tempStr = @"SVT数据获取失败";
             [coverView.dataArray addObject:tempStr];
         }else{
+            
+            
+            NSLog(@"-----------%@",weakSelf.appString);
+          
+            
+            
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
-            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&"];
+            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
             NSLog(@"%lu----%lu",(unsigned long)range.length,(unsigned long)range.location);
             weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
             NSLog(@"++++++%@",weakSelf.appString);
             [coverView.dataArray addObject:weakSelf.appString];
+            weakSelf.textView.text=weakSelf.appString;
+            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
+
+            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+            
+            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
+            
+            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
         }
         
         [coverView.table reloadData];
@@ -79,9 +97,9 @@ static NSString* wifiNameFix = @"Otis-";
             [alertView1 close];
         };
         [alertView1 show];
+        
     };
 }
-
 
 -(void)setSubviews{
     
@@ -121,6 +139,7 @@ static NSString* wifiNameFix = @"Otis-";
     resultDetailLabel.layer.borderColor=[UIColor lightGrayColor].CGColor;
     resultDetailLabel.editable=NO;
     [self.view addSubview:resultDetailLabel];
+    self.textView=resultDetailLabel;
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).with.offset(64);
@@ -272,7 +291,7 @@ static NSString* wifiNameFix = @"Otis-";
 //                };
 //                [alertView1 show];
                 
-                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
+                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTAppCX://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
                 NSLog(@"----%@",[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]);
                 // 2.判断手机中是否安装了对应程序
                 if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) {

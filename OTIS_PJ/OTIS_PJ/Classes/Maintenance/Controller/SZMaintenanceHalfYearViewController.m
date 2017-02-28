@@ -74,20 +74,7 @@
             NSMutableArray *arrayTemp = [NSMutableArray arrayWithArray:[SZModuleQueryTool quaryOtherMaintenanceItemWithDetialItem:self.item andTimeType:OTISMaintenanceItemTimeTypeHalfYear]];
             
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
-                NSInteger  index = [arrayTemp indexOfObject:itemAll];
-                if (index>1) {
-                    itemAll.isHiden=YES;
-                }
-                
-                if (index<1){
-                    itemAll.automType = 0;
-                }else{
-                    itemAll.automType = 1;
-                }
-                
-                if (![self IsAutomaticOpen]) {
-                    itemAll.isHiden=YES;
-                }
+             
                 
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 if (item &&  item.isUpload == YES) {
@@ -99,6 +86,21 @@
                         itemAll.state2 = item.state;
                     }
                     [_maintenanceOperation addObject:itemAll];
+                    
+                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
+                    if (index>1) {
+                        itemAll.isHiden=YES;
+                    }
+                    
+                    if (index<1){
+                        itemAll.automType = 0;
+                    }else{
+                        itemAll.automType = 0;
+                    }
+                    
+                    if (![self IsAutomaticOpen]) {
+                        itemAll.isHiden=YES;
+                    }
                 }
             }
         }

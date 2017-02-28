@@ -69,24 +69,10 @@
             NSMutableArray *arrayTemp = [NSMutableArray arrayWithArray:[SZModuleQueryTool quaryMaintenanceItemWithDetialItem:self.item andTimeType:OTISMaintenanceItemTimeTypeHalfMonth]];
 
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
-                NSInteger  index = [arrayTemp indexOfObject:itemAll];
-                if (index>2) {
-                    itemAll.isHiden=YES;
-                }
-                
-                if (index<2){
-                    itemAll.automType = 0;
-                }else{
-                    itemAll.automType = 1;
-                }
-                
-                if (![self IsAutomaticOpen]) {
-                    itemAll.isHiden=YES;
-                }
-                
                 
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 if (item && item.isUpload == YES) {
+//                    NSLog(@"-----------++=%ld",(long)itemAll.isHiden);
                     continue;
                     
                 }else {
@@ -95,6 +81,21 @@
                         itemAll.state2 = item.state;
                     }
                     [_maintenanceOperation addObject:itemAll];
+                    
+                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
+                    if (index>2) {
+                        itemAll.isHiden=YES;
+                    }
+                    if (index<2){
+                        itemAll.automType = 0;
+                    }else{
+                        itemAll.automType = 1;
+                    }
+                    
+                    if (![self IsAutomaticOpen]) {
+                        itemAll.isHiden=YES;
+                    }
+                    
                 }
             }
         }
@@ -267,6 +268,10 @@
     
     //2 设置cell内部的子控件
     SZMaintenanceCheckItem *gb = self.maintenanceOperation[indexPath.row];
+    
+    NSLog(@"=========%ld",(long)gb.isHiden);
+    
+    
     if (self.item) {
         gb.SchedulesId = self.item.ScheduleID;
     }else{

@@ -34,6 +34,7 @@
     table.delegate=self;
     table.dataSource=self;
     table.bounces=NO;
+//    table.rowHeight=120;
     table.separatorStyle=UITableViewCellSeparatorStyleNone;
     [self addSubview:table];
     table.tableFooterView=[[UIView alloc] init];
@@ -51,8 +52,17 @@
     if (!cell) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
+    cell.textLabel.numberOfLines=0;
+    [cell.textLabel sizeToFit];
     cell.textLabel.text=self.dataArray[indexPath.row];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row==1) {
+        return 120;
+    }
+    return 40;
 }
 
 @end

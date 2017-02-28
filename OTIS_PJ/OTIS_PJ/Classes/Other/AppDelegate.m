@@ -64,10 +64,13 @@
     //        [mainHomeVc.navigationController pushViewController:mainVc animated:YES];
     //    }
     
+    
+    NSString* eDeCodeStr=[self URLDecodedString:url.absoluteString];
+    
     for (UIViewController* vc in rootNav.childViewControllers) {
         if ([vc isMemberOfClass:[MDSynchronousVC class]]) {
             MDSynchronousVC* synchVC = (MDSynchronousVC*)vc;
-            synchVC.appString = [self URLDecodedString:url.absoluteString];
+            synchVC.appString = [self URLDecodedString:eDeCodeStr];
             synchVC.appBackBlock();
         }
     }

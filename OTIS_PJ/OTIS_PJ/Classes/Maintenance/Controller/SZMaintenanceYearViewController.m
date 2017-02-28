@@ -78,21 +78,7 @@
             
             for (SZMaintenanceCheckItem *itemAll in arrayTemp) {
                 
-                NSInteger  index = [arrayTemp indexOfObject:itemAll];
-                if (index>1) {
-                    itemAll.isHiden=YES;
-                }
-                
-                if (index<1){
-                    itemAll.automType = 0;
-                }else{
-                    itemAll.automType = 1;
-                }
-                
-                if (![self IsAutomaticOpen]) {
-                    itemAll.isHiden=YES;
-                }
-                
+             
                 SZMaintenanceCheckItem *item = self.arrayCompetedCheckItem[itemAll.ItemCode];
                 // (itemAll.Type<=0) 每年一次必须显示
                 if ((item && item.isUpload == YES) && !(itemAll.Type<=0)) {
@@ -110,6 +96,22 @@
                         }
                     }
                     [_maintenanceOperation addObject:itemAll];
+                    
+                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
+                    if (index>1) {
+                        itemAll.isHiden=YES;
+                    }
+                    
+                    if (index<1){
+                        itemAll.automType = 0;
+                    }else{
+                        itemAll.automType = 0;
+                    }
+                    
+                    if (![self IsAutomaticOpen]) {
+                        itemAll.isHiden=YES;
+                    }
+                    
                 }
                 
                 
