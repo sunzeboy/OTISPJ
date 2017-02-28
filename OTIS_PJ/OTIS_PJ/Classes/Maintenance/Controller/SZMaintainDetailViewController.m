@@ -365,8 +365,10 @@
         NSInteger  competed=0;
         all= [SZModuleQueryTool queryAllMaintenanceWithUnitDetialItem:self.item];
         competed = [SZModuleQueryTool queryCompletedMaintenanceWithUnitDetialItem:self.item];
-        
-        if (![USER_DEFAULT objectForKey:strKeyWeiBao]&&[USER_DEFAULT objectForKey:strKeyZhongduan]&&all != competed) {//维保未完成,并且中断了
+        SZLog(@"++++++++%@",[USER_DEFAULT objectForKey:strKeyWeiBao]);
+        BOOL isShowDlg = [SZTable_QRCode isShowQRSelectDlg:self.item.isFixMode andScheduleID:(int)self.item.ScheduleID];
+
+        if ([USER_DEFAULT objectForKey:strKeyZhongduan]&&all != competed&&isShowDlg == NO) {//维保未完成,并且中断了
             CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                             dialogTitle:SZLocal(@"dialog.title.tip")
                                                                                          dialogContents:@"中断后必须完成维保才能自动计算工时！"
@@ -379,7 +381,7 @@
             return;
         }
         
-        if (![USER_DEFAULT objectForKey:strKeyWeiBao]&&all != competed) {//维保未完成
+        if (all != competed&&isShowDlg == NO) {//维保未完成
             CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                             dialogTitle:SZLocal(@"dialog.title.tip")
                                                                                          dialogContents:@"维保未完成,必须完成维保才能自动计算工时！"

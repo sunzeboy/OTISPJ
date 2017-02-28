@@ -322,13 +322,7 @@
         float hours = (start.longLongValue-lutuEnd.longLongValue)/10000000.0/3600.0;
         float lutuhours = hours>0?hours:0 ;
         
-        SZLabor *labor = self.types[0];
-        labor.item1.Hour1Rate = gongshihours ;
-        labor.item1.LaborTypeId = 1;
-        labor.item1.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)gongshihours,(int)((gongshihours-(int)gongshihours)*60)];
-        labor.item2.LaborTypeId = 2;
-        labor.item2.Hour1Rate = lutuhours ;
-        labor.item2.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)lutuhours,(int)((lutuhours-(int)lutuhours)*60)];
+       
         
         NSNumber *zhongduanTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
         NSNumber *lutuTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
@@ -350,7 +344,15 @@
             
         }
         
-        [self setUpAutoWorkingHoursWithtime:gongshihours lutuTime:lutuhours];
+        SZLabor *labor = self.types[0];
+        labor.item1.Hour1Rate = gongshihours ;
+        labor.item1.LaborTypeId = 1;
+        labor.item1.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)gongshihours,(int)((gongshihours-(int)gongshihours)*60)];
+        labor.item2.LaborTypeId = 2;
+        labor.item2.Hour1Rate = lutuhours ;
+        labor.item2.Hour1Str = [NSString stringWithFormat:@"%d:%.2d",(int)lutuhours,(int)((lutuhours-(int)lutuhours)*60)];
+        
+        [self setUpAutoWorkingHoursWithtime:labor.item1.Hour1Str lutuTime:labor.item2.Hour1Str];
         
         WEAKSELF
         self.operationView.confirmActBlock = ^(UIButton *btn){
@@ -366,7 +368,6 @@
                     [USER_DEFAULT setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
                 }
                 
-
             }
         };
         
@@ -594,7 +595,7 @@
 }
 
 
-- (void)setUpAutoWorkingHoursWithtime:(float)gongzuoVale lutuTime:(float)lutuVale {
+- (void)setUpAutoWorkingHoursWithtime:(NSString *)gongzuoVale lutuTime:(NSString *)lutuVale {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 80+64, SCREEN_WIDTH, SCREEN_HEIGHT-(80+64))];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
@@ -607,7 +608,7 @@
     gongzuo.textColor = RGB(30, 32, 81);
     
     UILabel *gongzuoTime = [[UILabel alloc] initWithFrame:CGRectMake(25, 60, 100, 30)];
-    gongzuoTime.text = [NSString stringWithFormat:@"%.2f小时",gongzuoVale];
+    gongzuoTime.text = [NSString stringWithFormat:@"%@",gongzuoVale];
     gongzuoTime.font = [UIFont systemFontOfSize:14.0];
     gongzuoTime.textColor = RGB(30, 32, 81);
     
@@ -617,7 +618,7 @@
     lutu.textColor = RGB(30, 32, 81);
     
     UILabel *lutuTime = [[UILabel alloc] initWithFrame:CGRectMake(25, 140, 100, 30)];
-    lutuTime.text = [NSString stringWithFormat:@"%.2f小时",lutuVale];
+    lutuTime.text = [NSString stringWithFormat:@"%@",lutuVale];
     lutuTime.font = [UIFont systemFontOfSize:14.0];
     lutuTime.textColor = RGB(30, 32, 81);
     
