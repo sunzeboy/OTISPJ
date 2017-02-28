@@ -184,7 +184,7 @@
         /**
          *  保存t_QRCode(如果没有进行过正常维保操作就保存一条操作记录，如果有进行过完整的维保操作，就不保存)
          */
-        NSNumber *scheduleID = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
+        NSNumber *scheduleID = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
         if (scheduleID.integerValue != self.item.ScheduleID) {//没有进行过正常维保操作（不会产生一条维保记录）
             [SZTable_QRCode storageWeiBaoWorkingHoursWithParams:self.item andGroupID:0 withProperty:1];
         }
@@ -262,9 +262,9 @@
 
                     NSString *strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
 
-                    if (![USER_DEFAULT objectForKey:strKey]) {
-                        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
-                        [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
+                    if (![[NSUserDefaults standardUserDefaults] objectForKey:strKey]) {
+                        [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+//                        [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
                     }
                     
 

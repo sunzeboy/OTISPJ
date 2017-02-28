@@ -139,12 +139,12 @@
     self.item.StartTime = [NSDate sinceDistantPastTime];
     NSInteger yymmdd =  [NSDate currentYYMMDD];
     NSString *strKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
-    if (![USER_DEFAULT objectForKey:strKey]) {
-        [USER_DEFAULT setObject:@(self.item.StartTime) forKey:strKey];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:strKey]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(self.item.StartTime) forKey:strKey];
     }
-    NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+    NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
     if (numTime&&numTime.integerValue>3) {
-        [USER_DEFAULT setObject:@(self.item.StartTime) forKey:strKey];
+        [[NSUserDefaults standardUserDefaults] setObject:@(self.item.StartTime) forKey:strKey];
     }
     
     self.currentLocationLabel.text=[NSString stringWithFormat:SZLocal(@"dialog.content.locationing")];
@@ -294,18 +294,18 @@
     }
     
     if (_barcodeType) {
-        [USER_DEFAULT setObject:_barcodeType forKey:self.item.UnitNo];
+        [[NSUserDefaults standardUserDefaults] setObject:_barcodeType forKey:self.item.UnitNo];
     }
     
     self.unitRegcode.text = _barcodeType;
     if (self.rCode) {
         self.unitRegcode.text = self.rCode;
-        [USER_DEFAULT setObject:self.rCode forKey:self.item.UnitNo];
+        [[NSUserDefaults standardUserDefaults] setObject:self.rCode forKey:self.item.UnitNo];
     }
     
     // 直接进入的情况，没有扫描二维码，此时去QRcode表中获取结果；因为此时一定是扫过的
     if(self.isDirectEntry){
-        self.unitRegcode.text = [USER_DEFAULT objectForKey:self.item.UnitNo];
+        self.unitRegcode.text = [[NSUserDefaults standardUserDefaults] objectForKey:self.item.UnitNo];
     }
     
     if ([self.unitRegcode.text isEqualToString:SZLocal(@"dialog.content.noBarcode")]) {
@@ -365,10 +365,10 @@
         NSInteger  competed=0;
         all= [SZModuleQueryTool queryAllMaintenanceWithUnitDetialItem:self.item];
         competed = [SZModuleQueryTool queryCompletedMaintenanceWithUnitDetialItem:self.item];
-        SZLog(@"++++++++%@",[USER_DEFAULT objectForKey:strKeyWeiBao]);
+        SZLog(@"++++++++%@",[[NSUserDefaults standardUserDefaults] objectForKey:strKeyWeiBao]);
         BOOL isShowDlg = [SZTable_QRCode isShowQRSelectDlg:self.item.isFixMode andScheduleID:(int)self.item.ScheduleID];
 
-        if ([USER_DEFAULT objectForKey:strKeyZhongduan]&&all != competed&&isShowDlg == NO) {//维保未完成,并且中断了
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:strKeyZhongduan]&&all != competed&&isShowDlg == NO) {//维保未完成,并且中断了
             CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                             dialogTitle:SZLocal(@"dialog.title.tip")
                                                                                          dialogContents:@"中断后必须完成维保才能自动计算工时！"

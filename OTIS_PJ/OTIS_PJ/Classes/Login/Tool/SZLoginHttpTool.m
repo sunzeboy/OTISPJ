@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger,OTISLoginState){
         SZLoginResponse * response = [SZLoginResponse mj_objectWithKeyValues:obj];
         int lockTime = 10 - [response.WrongTimes intValue];
         SZLog(@"SZLoginResponse ：%@",response.mj_keyValues);
-        [USER_DEFAULT setObject:response.UserInfo.BeltLevel forKey:OTIS_BeltLevel];
+        [[NSUserDefaults standardUserDefaults] setObject:response.UserInfo.BeltLevel forKey:OTIS_BeltLevel];
         
         NSError *err = nil;
         int intWrongTimes = 0;
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger,OTISLoginState){
             case OTISLoginStateVerified:{
                 SZLog(@"-----登录成功！！");
                 NSString *strLoginKey = [NSString stringWithFormat:@"onlineLoginSuccess%@",request.UserNo];
-                [USER_DEFAULT setObject:[NSDate date] forKey:strLoginKey];
+                [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:strLoginKey];
                 SZUserInfo *userInfo = response.UserInfo;
                 userInfo.LastLoginDate=[[NSDate currentDate2] integerValue];
 //                SZLog(@"-----------%@",userInfo.mj_keyValues);
@@ -189,7 +189,7 @@ typedef NS_ENUM(NSInteger,OTISLoginState){
 //        SZLog(@"%@",error.userInfo[@"NSLocalizedDescription"]);
         NSString *strLoginKey = [NSString stringWithFormat:@"onlineLoginSuccess%@",request.UserNo];
 
-        NSDate *date = [USER_DEFAULT objectForKey:strLoginKey];
+        NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:strLoginKey];
         if ([NSDate isSameDay:date]) {
             if (error.code == -1009) {//没有网络，本地登录
                 

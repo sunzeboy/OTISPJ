@@ -122,28 +122,29 @@
 {
     //1 创建可重用的自定义的cell
     SZCheckLookTableViewCell *cell = [SZCheckLookTableViewCell cellWithTableView:tableView];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     SZCheckLookModel * model = self.sectionRows[indexPath.section][indexPath.row];
     cell.model = model;
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SZCheckLookModel *model = self.sectionRows[indexPath.section][indexPath.row];
-    if (model.feishengchanxing) {
-        SZLaborHoursItem *item = [model.laborHours lastObject];
-        model.GenerateDate = item.GenerateDate;
-        SZInputWorkingHourNonProductiveViewController *vc = [[SZInputWorkingHourNonProductiveViewController alloc] init];
-        vc.LaborTypeID = model.LaborTypeID;
-        vc.item = item;
-        vc.model = model;
-        vc.hasInput=YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        SZCheckWHDetialViewController *vc = [[SZCheckWHDetialViewController alloc] init];
-        vc.model = model;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    SZCheckLookModel *model = self.sectionRows[indexPath.section][indexPath.row];
+//    if (model.feishengchanxing) {
+//        SZLaborHoursItem *item = [model.laborHours lastObject];
+//        model.GenerateDate = item.GenerateDate;
+//        SZInputWorkingHourNonProductiveViewController *vc = [[SZInputWorkingHourNonProductiveViewController alloc] init];
+//        vc.LaborTypeID = model.LaborTypeID;
+//        vc.item = item;
+//        vc.model = model;
+//        vc.hasInput=YES;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }else{
+//        SZCheckWHDetialViewController *vc = [[SZCheckWHDetialViewController alloc] init];
+//        vc.model = model;
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
+//}
 
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

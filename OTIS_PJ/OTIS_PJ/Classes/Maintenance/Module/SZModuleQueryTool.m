@@ -1886,7 +1886,7 @@
                         [dicReport setObject:item forKey:item.Code];
                     }
                     NSMutableArray *arrayTempReport = [NSMutableArray array];
-                    int sc = [(NSNumber *)[USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%@_每年一次",maintenancemRequest.ScheduleID]] intValue];
+                    int sc = [(NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@_每年一次",maintenancemRequest.ScheduleID]] intValue];
                     //检查一下如果是全做完的（除了每年一次），有99项的要删掉
                     if (sc == maintenancemRequest.ScheduleID.intValue) {
                         NSMutableArray *arrayTempReport2 = [NSMutableArray array];

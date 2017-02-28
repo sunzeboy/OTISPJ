@@ -127,13 +127,13 @@
 }
 
 -(void)confirm{
-     [USER_DEFAULT setObject:SZOuterNetwork forKey:@"SZOuterNetwork"];
+     [[NSUserDefaults standardUserDefaults] setObject:SZOuterNetwork forKey:@"SZOuterNetwork"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dismiss{
     
-    SZOuterNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
+    SZOuterNetwork = [[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

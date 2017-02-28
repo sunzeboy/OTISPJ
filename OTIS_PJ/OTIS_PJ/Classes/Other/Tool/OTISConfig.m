@@ -35,15 +35,15 @@ NSString * const kPassWord = @"passWord";
 
 +(NSString *)EmployeeID{
     
-    return [USER_DEFAULT objectForKey:kEmployeeID];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kEmployeeID];
 }
 
 +(NSString *)userPW{
-    return [USER_DEFAULT objectForKey:kPassWord];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kPassWord];
 }
 
 +(NSString *)username{
-    return [USER_DEFAULT objectForKey:kUsername];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kUsername];
 }
 
 

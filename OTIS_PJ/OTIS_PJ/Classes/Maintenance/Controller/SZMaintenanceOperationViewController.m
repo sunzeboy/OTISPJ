@@ -429,15 +429,15 @@
                         if(buttonIndex == 0){
                              NSInteger yymmdd =  [NSDate currentYYMMDD];
                             NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
-                            if (![USER_DEFAULT objectForKey:strKey]) {
-                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
-                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
-                                
+                            NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:strKey];
+                            if (!num) {
+                                long time = [NSDate sinceDistantPastTime];
+                                [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];                                
 
                             }
-                            NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
-                            if (numTime&&numTime.integerValue>3&&![[USER_DEFAULT objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
-                                [USER_DEFAULT setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                            NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+                            if (numTime&&numTime.integerValue>3&&![[[NSUserDefaults standardUserDefaults] objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
+                                [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
                             }
                             /**
                              *  保存完成的保养项目
@@ -460,7 +460,7 @@
                             /**
                              *  (如果没有进行过正常维保操作就保存一条操作记录，如果有进行过完整的维保操作，就不保存)
                              */
-                            [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
+                            [[NSUserDefaults standardUserDefaults] setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
 
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -472,7 +472,7 @@
                                 [self.navigationController pushViewController:vc animated:YES];
                             });
                             //检查一下如果是全做完的（除了每年一次），有99项的要删掉
-                            [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d_每年一次",(int)self.item.ScheduleID]];
+                            [[NSUserDefaults standardUserDefaults] setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d_每年一次",(int)self.item.ScheduleID]];
                             [alertView close];
                             
                         }else if(buttonIndex == 1){
@@ -559,8 +559,8 @@
         NSString *strKey2 = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
 
         NSInteger time = [NSDate sinceDistantPastTime];
-        [USER_DEFAULT setObject:@(time) forKey:strKey];
-        [USER_DEFAULT setObject:@(time) forKey:strKey2];
+        [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];
+        [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey2];
 
         // 只要做了保养项目的保存，中断或者保存，都将工时进入的状态清除
         [SZTable_Schedules updateAddLaborHoursState:0 andScheduleID:self.item.ScheduleID];

@@ -145,7 +145,7 @@
     
     self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     
-    NSNumber *num = [USER_DEFAULT objectForKey:OTIS_isNewfeatureVersion];
+    NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:OTIS_isNewfeatureVersion];
     if (num.intValue) {
         [SZClearLocalDataTool clearData];
     }
@@ -261,7 +261,7 @@
         [_myHeadPortrait setBackgroundImage:headImage forState:0];
     }
     
-    NSString *beltLevelStr = [USER_DEFAULT objectForKey:OTIS_BeltLevel];
+    NSString *beltLevelStr = [[NSUserDefaults standardUserDefaults] objectForKey:OTIS_BeltLevel];
     switch (beltLevelStr.intValue) {
         case 1:
             self.beltLevelIView.image = [UIImage imageNamed:@"blackBelt"];

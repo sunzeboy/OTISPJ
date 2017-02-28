@@ -65,9 +65,9 @@
     [super viewDidLoad];
     [self setUp];
 
-    if ([USER_DEFAULT objectForKey:@"SZOuterNetwork"]) {
-        SZOuterNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
-        SZNetwork = [USER_DEFAULT objectForKey:@"SZOuterNetwork"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"]) {
+        SZOuterNetwork = [[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"];
+        SZNetwork = [[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"];
     }
     
     NSMutableAttributedString *content = [[NSMutableAttributedString alloc] initWithString:@"OES系统支持热线：0571-81608858"];

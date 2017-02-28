@@ -245,8 +245,8 @@
     
     comments.commentTextDetailBlock = ^(NSString *question){
         szModel.question = question;
-        [USER_DEFAULT setObject:question forKey:[NSString stringWithFormat:@"Comments_%ld",(long)self.rowIndex]];
-        [USER_DEFAULT synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:question forKey:[NSString stringWithFormat:@"Comments_%ld",(long)self.rowIndex]];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     };
     
     

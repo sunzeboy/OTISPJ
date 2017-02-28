@@ -520,23 +520,23 @@
 #if 1
 
     // 上一次的使用版本（存储在沙盒中的版本号）
-    NSString *lastVersion = [USER_DEFAULT objectForKey:@"NewfeatureVersion"];
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"NewfeatureVersion"];
     // 当前软件的版本号（从Info.plist中获得）
     NSString *currentVersion = [NSBundle bundleVersionString];
     
     if ([currentVersion isEqualToString:lastVersion]) { // 版本号相同：这次打开和上次打开的是同一个版本
         
-        [USER_DEFAULT setObject:@0 forKey:OTIS_isNewfeatureVersion];
+        [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:OTIS_isNewfeatureVersion];
 
     } else { // 这次打开的版本和上一次不一样，显示新特性
 
-        [USER_DEFAULT setObject:@1 forKey:OTIS_isNewfeatureVersion];
+        [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:OTIS_isNewfeatureVersion];
 
         [self createTable];
         
         // 将当前的版本号存进沙盒
-        [USER_DEFAULT setObject:currentVersion forKey:@"NewfeatureVersion"];
-        [USER_DEFAULT synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"NewfeatureVersion"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         /**
          *  预先存储一些JHA信息(当应用程序第一次安装或版本升级的时候才执行)
          */

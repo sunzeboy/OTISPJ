@@ -303,7 +303,7 @@
         
         NSString *startKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
         
-        NSNumber *start = (NSNumber *)[USER_DEFAULT objectForKey:startKey];
+        NSNumber *start = (NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:startKey];
         
         NSString *endKey;
         if (self.inputMode== 1 || self.inputMode== 2 ) { // 维保灰色，工时进入
@@ -313,22 +313,23 @@
             endKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
         }
         
-        NSNumber *end = (NSNumber *)[USER_DEFAULT objectForKey:endKey];
+        NSNumber *end = (NSNumber *)[[NSUserDefaults standardUserDefaults] objectForKey:endKey];
         
         float gongshihours = fabs((end.longLongValue - start.longLongValue)/10000000.0/3600.0);
         
-        NSNumber *lutuEnd = [USER_DEFAULT objectForKey:@"ENDTIME"]?[USER_DEFAULT objectForKey:@"ENDTIME"]:@(MAXFLOAT);
+        NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:@"ENDTIME"];
+        NSNumber *lutuEnd = num?num:@(MAXFLOAT);
         
-        float hours = (start.longLongValue-lutuEnd.longLongValue)/10000000.0/3600.0;
+        float hours = (start.longValue-lutuEnd.longValue)/10000000.0/3600.0;
         float lutuhours = hours>0?hours:0 ;
         
        
         
-        NSNumber *zhongduanTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
-        NSNumber *lutuTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
+        NSNumber *zhongduanTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,self.item.UnitNo]]?:@(0);
+        NSNumber *lutuTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,self.item.UnitNo]]?:@(0);
 
         if (self.zhongduan) {
-            NSNumber *numTime = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+            NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
             
             
             gongshihours = fabs((numTime.longLongValue-start.longLongValue)/10000000.0/3600.0)+zhongduanTime.floatValue;
@@ -359,14 +360,16 @@
             
             if ([btn.titleLabel.text isEqualToString:SZLocal(@"btn.title.save")]) {
                 [weakSelf confirmSaveWorkingHours];
-                [USER_DEFAULT setObject:@(gongshihours) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
-                [USER_DEFAULT setObject:@(lutuhours) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
+                [[NSUserDefaults standardUserDefaults] setObject:@(gongshihours) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
+                [[NSUserDefaults standardUserDefaults] setObject:@(lutuhours) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
 
                 if (weakSelf.inputMode == 0&&weakSelf.zhongduan == NO) {
-                    [USER_DEFAULT setObject:@"NO" forKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,weakSelf.item.UnitNo]];
-                    [USER_DEFAULT setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
-                    [USER_DEFAULT setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
+                    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,weakSelf.item.UnitNo]];
+                    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
+                    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
                 }
+                [[NSUserDefaults standardUserDefaults] setObject:end forKey:@"ENDTIME"];
+
                 
             }
         };
@@ -467,7 +470,7 @@
     alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
         if(buttonIndex == 0){
             [self.navigationController popViewControllerAnimated:YES];
-            [USER_DEFAULT setObject:@"YES" forKey:@"BACKACT"];
+            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"BACKACT"];
             [alertView close];
         }else if(buttonIndex == 1){
             [alertView close];
@@ -948,7 +951,7 @@
             break;
     }
 
-    [USER_DEFAULT setObject:@"NO" forKey:@"BACKACT"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"BACKACT"];
 
 }
 
@@ -1087,7 +1090,7 @@
                 /**
                  *  保存t_QRCode(，如果有进如果没有进行过正常维保操作就保存一条操作记录行过完整的维保操作，就不保存)
                  */
-                NSNumber *scheduleID = [USER_DEFAULT objectForKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
+                NSNumber *scheduleID = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
                 if (scheduleID.integerValue != self.item.ScheduleID) {//没有进行过正常维保操作（不会产生一条维保记录）
                     [SZTable_QRCode storageWeiBaoWorkingHoursWithParams:self.item andGroupID:0 withProperty:1];
                 }
@@ -1099,7 +1102,7 @@
 
                 }
                 
-                [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
+                [[NSUserDefaults standardUserDefaults] setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
 
             }
             
