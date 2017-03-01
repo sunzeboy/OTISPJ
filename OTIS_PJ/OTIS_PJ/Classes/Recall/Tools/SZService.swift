@@ -23,10 +23,13 @@ import SwiftyJSON
 //}
 
 private func ruquestParameters(p:[String: Any]) -> [String: Any]? {
-    return ["head":["employeeID": OTISConfig.employeeID(),
-                    "password": OTISConfig.userPW(),
-                    "ver": "LBS_V10.0.0"],
-            "body":p]
+    return [
+        
+        "strHttpReq" : ["head":["employeeID": OTISConfig.employeeID(),
+                                "password": OTISConfig.userPW(),
+                                "ver": "LBS_V10.0.0"],
+                        "body":p]
+        ]
 }
 
 
@@ -47,14 +50,14 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
     }        
 }
 
-//let headerFields: Dictionary<String, String> = [
-//    
-//    "employeeID": OTISConfig.employeeID(),
-//    
-//    "password": OTISConfig.userPW(),
-//    
-//    "ver": "LBS_V10.0.0"
-//]
+let headerFields: Dictionary<String, String> = [
+    
+    "employeeID": OTISConfig.employeeID(),
+    
+    "password": OTISConfig.userPW(),
+    
+    "ver": "LBS_V10.0.0"
+]
 
 let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
     
@@ -64,7 +67,8 @@ let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
         sampleResponseClosure: {.networkResponse(200, target.sampleData)},
         method: target.method,
         parameters: target.parameters,
-        parameterEncoding: target.parameterEncoding)
+        parameterEncoding: target.parameterEncoding,
+        httpHeaderFields:headerFields)
     
 }
 
@@ -75,8 +79,8 @@ let myStubClosure = { (target: SZService) -> Moya.StubBehavior in
 }
 
 
-//let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
-let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
+let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
+//let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
 
 
 enum SZService {
@@ -122,7 +126,9 @@ extension SZService: TargetType {
              .mains (dtVer:let dtVer),
              .subs(dtVer:let dtVer),
              .defects(dtVer:let dtVer):
-            return ruquestParameters(p: ["dtVer":dtVer])
+//            let pa  = ruquestParameters(p: ["dtVer":dtVer])
+//            print(pa ?? "")
+            return ["dtVer":dtVer]
         }
     }
     
