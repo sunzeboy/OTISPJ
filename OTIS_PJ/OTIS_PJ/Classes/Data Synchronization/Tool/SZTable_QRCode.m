@@ -217,7 +217,7 @@
                                  (long)scheduleID,
                                  item.isFixMode,
                                  item.QRCode,
-                                 startTime,
+                                 (startTime == 0)? [NSDate sinceDistantPastTime]:startTime,
                                  (endTime == 0)? [NSDate sinceDistantPastTime]:endTime,
                                  (item.StartLocalX==nil)?@"0":item.StartLocalX,
                                  (item.StartLocalY==nil)?@"0":item.StartLocalY,

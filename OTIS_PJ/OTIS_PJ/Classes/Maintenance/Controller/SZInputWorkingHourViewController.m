@@ -1137,6 +1137,9 @@
                 }
                 if (target) {
                     [self.navigationController popToViewController:target animated:YES]; //跳转
+                }else{
+                    [self.navigationController popToViewController:self.navigationController.viewControllers[2] animated:YES]; //跳转
+
                 }
                 
                 
