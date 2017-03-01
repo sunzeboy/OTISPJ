@@ -378,15 +378,18 @@
         };
         
         
-        NSString *gongzuoStr = [labor.item1.Hour1Str stringByReplacingOccurrencesOfString:@":" withString:@"."];
-        float gonzuoF = gongzuoStr.floatValue;
+        NSArray *gzs = [labor.item1.Hour1Str componentsSeparatedByString:@":"];
+        int gzH =  [gzs[0] intValue];
+        int gzM =  [gzs[1] intValue];
+        float gz = gzH+gzM/60.0;
         
-        NSString *lutuStr = [labor.item1.Hour1Str stringByReplacingOccurrencesOfString:@":" withString:@"."];
-        float lutuF = lutuStr.floatValue;
-        float totalF = lutuF+gonzuoF;
-        NSString *strTotal = [NSString stringWithFormat:@":",(int)totalF];
+        NSArray *lts = [labor.item2.Hour1Str componentsSeparatedByString:@":"];
+        int ltH =  [lts[0] intValue];
+        int ltM =  [lts[1] intValue];
+        float lu = ltH+ltM/60.0;
+        NSString *strTotal = [NSString stringWithFormat:@"%.2f",lu+gz];
         
-        [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:[NSString stringWithFormat:@"%.2f",gongshihours+lutuhours]];
+        [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:strTotal];
     
     }
     
