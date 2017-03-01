@@ -55,7 +55,7 @@
                 [USER_DEFAULT setObject:nil forKey:strKey];
                 strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,response.UnitNo];
                 [USER_DEFAULT setObject:nil forKey:strKey];
-                [USER_DEFAULT setObject:nil forKey:@"ENDTIME"];
+//                [USER_DEFAULT setObject:nil forKey:@"ENDTIME"];
                 strKey = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,response.UnitNo];
                 [USER_DEFAULT setObject:nil forKey:strKey];
                 strKey = [NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,response.UnitNo];
