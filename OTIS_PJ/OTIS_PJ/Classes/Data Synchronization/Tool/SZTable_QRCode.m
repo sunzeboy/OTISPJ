@@ -178,7 +178,7 @@
                                  IsFixItem=%d;",
                                  item.StartLocalX,
                                  item.StartLocalY,
-                                 endTime,
+                                 (endTime == 0)? [NSDate sinceDistantPastTime]:endTime,
                                  (item.EndLocalX==nil)?@"0":item.EndLocalX,
                                  (item.EndLocalY==nil)?@"0":item.EndLocalY,
                                  (long)item.UpdateTime,
@@ -218,7 +218,7 @@
                                  item.isFixMode,
                                  item.QRCode,
                                  startTime,
-                                 endTime,// 创建的时候就，结束时间默认为当前时间
+                                 (endTime == 0)? [NSDate sinceDistantPastTime]:endTime,
                                  (item.StartLocalX==nil)?@"0":item.StartLocalX,
                                  (item.StartLocalY==nil)?@"0":item.StartLocalY,
                                  (item.EndLocalX==nil)?@"0":item.EndLocalX,

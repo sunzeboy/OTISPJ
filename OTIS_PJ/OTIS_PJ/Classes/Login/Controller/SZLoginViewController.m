@@ -65,6 +65,7 @@
     [super viewDidLoad];
     [self setUp];
 
+    
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"]) {
         SZOuterNetwork = [[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"];
         SZNetwork = [[NSUserDefaults standardUserDefaults] objectForKey:@"SZOuterNetwork"];

@@ -229,9 +229,9 @@
     unPlanned.delegate=self;
     [self addChildViewController:unPlanned];
     
-    SignViewController *signVc = [[SignViewController alloc] init];
-    signVc.title = SZLocal(@"title.signViewController");
-    [self addChildViewController:signVc];
+//    SignViewController *signVc = [[SignViewController alloc] init];
+//    signVc.title = SZLocal(@"title.signViewController");
+//    [self addChildViewController:signVc];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

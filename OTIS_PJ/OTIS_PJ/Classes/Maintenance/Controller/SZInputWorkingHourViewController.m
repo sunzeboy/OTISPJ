@@ -377,6 +377,15 @@
             }
         };
         
+        
+        NSString *gongzuoStr = [labor.item1.Hour1Str stringByReplacingOccurrencesOfString:@":" withString:@"."];
+        float gonzuoF = gongzuoStr.floatValue;
+        
+        NSString *lutuStr = [labor.item1.Hour1Str stringByReplacingOccurrencesOfString:@":" withString:@"."];
+        float lutuF = lutuStr.floatValue;
+        float totalF = lutuF+gonzuoF;
+        NSString *strTotal = [NSString stringWithFormat:@":",(int)totalF];
+        
         [self setSubTitleViewWithEvelatorNumber:self.item.UnitNo subTitleDate:[self getCurrentDate] totalHour:[NSString stringWithFormat:@"%.2f",gongshihours+lutuhours]];
     
     }
