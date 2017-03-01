@@ -39,6 +39,7 @@ PODS:
     - Realm (= 2.4.3)
   - Result (3.1.0)
   - SwiftyJSON (3.1.4)
+  - SwiftyUserDefaults (3.0.0)
   - ZXingObjC (3.1.0):
     - ZXingObjC/All (= 3.1.0)
   - ZXingObjC/All (3.1.0)
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Moya
   - RealmSwift
   - SwiftyJSON
+  - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -73,8 +75,9 @@ SPEC CHECKSUMS:
   RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: ec8633fb28dba8712f0423f367b15ddf40c68b50
+PODFILE CHECKSUM: f5e108cb8933050bef7e19e6bc35c77be199eff1
 
 COCOAPODS: 1.2.0

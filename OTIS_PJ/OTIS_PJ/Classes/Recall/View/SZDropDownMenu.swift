@@ -18,6 +18,8 @@ public protocol SZDropDownMenuDelegate:class{
     
     public weak var delegate:SZDropDownMenuDelegate?
     
+    public var clickClosure:(() -> Void )?
+    
     public var inputClosure: ((SZDropDownMenu , _ text: String) ->Void )?
     
     public var chooseClosure: ((SZDropDownMenu , _ index: Int) ->Void )?
@@ -121,7 +123,7 @@ public protocol SZDropDownMenuDelegate:class{
     
     private var isShown:Bool = false
     
-    private var contentTextField:UITextField!
+    var contentTextField:UITextField!
     
     private var pullDownButton:UIButton!
     
@@ -151,6 +153,9 @@ public protocol SZDropDownMenuDelegate:class{
     }
     
     func showOrHide() {
+        if let clickClosure = clickClosure {
+            clickClosure()
+        }
         if isShown {
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.pullDownButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI*2))

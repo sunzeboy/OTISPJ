@@ -26,6 +26,9 @@ target :OTIS_PJ do
     pod 'Moya'
     
     pod 'RealmSwift'
+    
+    pod 'SwiftyUserDefaults'
+
 end
 
 

@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import SwiftyJSON
+import SwiftyUserDefaults
 
 class SZMyselfViewController: UIViewController {
     
@@ -33,36 +34,38 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        apiProvider.request(.categories(dtVer: -1)) { result in
+        apiProvider.request(.categories(dtVer: Defaults[.categoriesVer])) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
+                let ver = json["data"]["version"]
+                    Defaults[.categoriesVer] = ver.intValue
                 let data = json["data"]["categoriesLst"]
                     RecallCategory.storage(jsonData: data)
                     print(data)
                 }
                 
-            // do something with the response data or statusCode
+            
             case let .failure(error):
                 print(error)
-                // this means there was a network failure - either the request
-                // wasn't sent (connectivity), or no response was received (server
-                // timed out).  If the server responds with a 4xx or 5xx error, that
-                // will be sent as a ".success"-ful response.
+                
             }
-            print(result)
+            
         }
         
         
         
         
-        apiProvider.request(.areas(dtVer: -1)) { result in
+        apiProvider.request(.areas(dtVer: Defaults[.areasVer])) { result in
             switch result {
             case let .success(moyaResponse):
                 
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
+                    let ver = json["data"]["version"]
+                    Defaults[.areasVer] = ver.intValue
+
                     let data = json["data"]["areasLst"]
                     ComponentArea.storage(jsonData: data)
                     print(data)
@@ -72,18 +75,21 @@ class SZMyselfViewController: UIViewController {
                 print(error)
 
             }
-            print(result)
+            
         }
 
         
         
         
-        apiProvider.request(.mains(dtVer: -1)) { result in
+        apiProvider.request(.mains(dtVer:  Defaults[.mainsVer])) { result in
             switch result {
             case let .success(moyaResponse):
                 
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
+                    let ver = json["data"]["version"]
+                    Defaults[.mainsVer] = ver.intValue
+
                     let data = json["data"]["mainsLst"]
                     MainComponent.storage(jsonData: data)
                     print(data)
@@ -93,16 +99,19 @@ class SZMyselfViewController: UIViewController {
                 print(error)
                 
             }
-            print(result)
+            
         }
         
         
-        apiProvider.request(.subs(dtVer: -1)) { result in
+        apiProvider.request(.subs(dtVer: Defaults[.subsVer])) { result in
             switch result {
             case let .success(moyaResponse):
                 
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
+                    let ver = json["data"]["version"]
+                    Defaults[.subsVer] = ver.intValue
+                    
                     let data = json["data"]["subsLst"]
                     SubComponent.storage(jsonData: data)
                     print(data)
@@ -112,17 +121,20 @@ class SZMyselfViewController: UIViewController {
                 print(error)
                 
             }
-            print(result)
+            
         }
 
         
         
-        apiProvider.request(.defects(dtVer: -1)) { result in
+        apiProvider.request(.defects(dtVer: Defaults[.defectsVer])) { result in
             switch result {
             case let .success(moyaResponse):
                 
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
+                    let ver = json["data"]["ver"]
+                    Defaults[.defectsVer] = ver.intValue
+                    
                     let data = json["data"]["defectsLst"]
                     Defect.storage(jsonData: data)
                     print(data)
