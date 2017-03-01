@@ -212,6 +212,9 @@
     style.animationImage = imgFullNet;
     SubLBXScanViewController *vc = [SubLBXScanViewController new];
     
+    SZNavigationController *nav = (SZNavigationController*)self.navigationController;
+    nav.laborProperty = 1;
+
     WEAKSELF
     vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
         SZFinalMaintenanceUnitItem *unitItem = [self isExistenceWithQRCode:item];
