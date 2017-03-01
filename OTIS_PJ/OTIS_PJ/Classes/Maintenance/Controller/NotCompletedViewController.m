@@ -100,17 +100,13 @@
     if (ret) {
         alertView = [[CustomIOSAlertView alloc] initSelectDialogVieWithImageName:@""
                                                                      dialogTitle:SZLocal(@"dialog.title.selectNext")
-                                                                  dialogContents:[NSMutableArray arrayWithObjects:SZLocal(@"dialog.content.scanBarcode"),
-                                                                                  SZLocal(@"dialog.content.noBarcodeButExist"),
-                                                                                  SZLocal(@"dialog.content.canNotIdentify"),nil]
+                                                                  dialogContents:[NSMutableArray arrayWithObjects:SZLocal(@"dialog.content.scanBarcode"),nil]
                                                                    dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),
                                                                                   SZLocal(@"btn.title.cencel"), nil]];
     } else {
         alertView = [[CustomIOSAlertView alloc] initSelectDialogVieWithImageName:@""
                                                                      dialogTitle:SZLocal(@"dialog.title.selectNext")
-                                                                  dialogContents:[NSMutableArray arrayWithObjects:SZLocal(@"dialog.content.scanBarcode"),
-                                                                                  SZLocal(@"dialog.content.noBarcode"),
-                                                                                  SZLocal(@"dialog.content.canNotIdentify"),nil]
+                                                                  dialogContents:[NSMutableArray arrayWithObjects:SZLocal(@"dialog.content.scanBarcode"),nil]
                                                                    dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),
                                                                                   SZLocal(@"btn.title.cencel"), nil]];
     }
