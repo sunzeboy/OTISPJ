@@ -40,9 +40,11 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                 let ver = json["data"]["version"]
-                    Defaults[.categoriesVer] = ver.intValue
                 let data = json["data"]["categoriesLst"]
-                    RecallCategory.storage(jsonData: data)
+                    if ver.intValue != Defaults[.categoriesVer]  {
+                        RecallCategory.storage(jsonData: data)
+                        Defaults[.categoriesVer] = ver.intValue
+                    }
                     print(data)
                 }
                 
@@ -64,10 +66,11 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
-                    Defaults[.areasVer] = ver.intValue
-
                     let data = json["data"]["areasLst"]
-                    ComponentArea.storage(jsonData: data)
+                    if ver.intValue != Defaults[.categoriesVer]  {
+                        ComponentArea.storage(jsonData: data)
+                        Defaults[.areasVer] = ver.intValue
+                    }
                     print(data)
                 }
             
@@ -88,10 +91,11 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
-                    Defaults[.mainsVer] = ver.intValue
-
                     let data = json["data"]["mainsLst"]
-                    MainComponent.storage(jsonData: data)
+                    if ver.intValue != Defaults[.categoriesVer]  {
+                        MainComponent.storage(jsonData: data)
+                        Defaults[.mainsVer] = ver.intValue
+                    }
                     print(data)
                 }
                 
@@ -110,10 +114,11 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
-                    Defaults[.subsVer] = ver.intValue
-                    
                     let data = json["data"]["subsLst"]
-                    SubComponent.storage(jsonData: data)
+                    if ver.intValue != Defaults[.categoriesVer]  {
+                        SubComponent.storage(jsonData: data)
+                        Defaults[.subsVer] = ver.intValue
+                    }
                     print(data)
                 }
                 
@@ -133,10 +138,11 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["ver"]
-                    Defaults[.defectsVer] = ver.intValue
-                    
                     let data = json["data"]["defectsLst"]
-                    Defect.storage(jsonData: data)
+                    if ver.intValue != Defaults[.categoriesVer]  {
+                        Defect.storage(jsonData: data)
+                        Defaults[.defectsVer] = ver.intValue
+                    }
                     print(data)
                 }
                 

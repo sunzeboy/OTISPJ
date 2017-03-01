@@ -90,6 +90,12 @@ class SZRecallInputViewController: UIViewController {
     
     func setUpcontentView() {
         
+        recallCategory.placeholder = "请选择召修分类"
+        componentArea.placeholder = "请选择部件区域"
+        mainComponent.placeholder = "请选择主部件"
+        secondaryPart.placeholder = "请选择次部件"
+        code.placeholder = "请选择代码"
+
         recallCategory.delegate = self
         componentArea.delegate = self
         mainComponent.delegate = self
