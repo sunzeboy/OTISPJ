@@ -13,17 +13,22 @@ import SwiftyJSON
 
 class SZMyselfCell: UITableViewCell,Cellable {
     
-    var myCallBackItem: [String:JSON] {
+    var myCallBackItem: [String:JSON] = [:] {
         
-        set {
-            callbackNo.text = newValue["callbackNo"]?.string
-            unitNo.text = newValue["unitNo"]?.string
-            customerName.text = newValue["customerName"]?.string
-            customerTel.text = newValue["callbackNo"]?.string
-            callbackNo.text = newValue["callbackNo"]?.string
+        willSet {
+        
+        }
+        didSet {
+            callbackNo.text = myCallBackItem["callbackNo"]?.string
+            unitNo.text = myCallBackItem["unitNo"]?.string
+            customerName.text = myCallBackItem["customerName"]?.string
+            customerTel.text = myCallBackItem["customerTel"]?.string
+            callbackNo.text = myCallBackItem["callbackNo"]?.string
 
         }
     }
+    
+    
     
     @IBOutlet weak var callbackNo: UILabel!
 

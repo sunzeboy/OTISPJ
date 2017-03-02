@@ -29,6 +29,10 @@ target :OTIS_PJ do
     
     pod 'SwiftyUserDefaults'
 
+    pod 'IQKeyboardManagerSwift'
+
+    pod 'SVProgressHUD'
+
 end
 
 

@@ -25,45 +25,20 @@ class SZMyselfViewController: UIViewController {
         return tView
     }()
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        requestData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
         
-        apiProvider.request(.getCallBackList(callback_pageIndex: 0)) { result in
-            switch result {
-            case let .success(moyaResponse):
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    self.dataArray = json["data"]["callbackLst"].arrayValue
-
-                }
-                
-                
-            case let .failure(error):
-                print(error)
-                
-            }
-            
-        }
         
         
         
-//        apiProvider.request(.addNewCallback(callbackNo: "1234567", customerName: "fsaf", customerTel: "13162153278")) { result in
-//            switch result {
-//            case let .success(moyaResponse):
-//                let json = JSON(data: moyaResponse.data)
-//                if json["errorCode"].int == 0 {
-//                    let data = json["data"]["callbackLst"]
-//                    
-//                    print(data)
-//                }
-//                
-//                
-//            case let .failure(error):
-//                print(error)
-//                
-//            }
-//        }
+        
         
         
         
@@ -73,7 +48,24 @@ class SZMyselfViewController: UIViewController {
 
     }
     
-
+    func requestData() {
+        apiProvider.request(.getCallBackList(callback_pageIndex: 0)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    self.dataArray = json["data"]["callbackLst"].arrayValue
+                    self.tableView.reloadData()
+                }
+                
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            
+        }
+    }
 
 }
 
@@ -82,7 +74,7 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SZMyselfCell.cellWithTableView(tableView)
-
+        cell.myCallBackItem = dataArray[indexPath.row].dictionary!
         return cell
     }
     

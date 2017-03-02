@@ -9,6 +9,8 @@
 import UIKit
 import Moya
 import SwiftyJSON
+import SVProgressHUD
+
 
 //private func ruquestParameters(p:[String: Any]) -> [String: Any]? {
 //    return [
@@ -30,10 +32,11 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
     case .ended:
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        
+        SVProgressHUD.dismiss()
     case .began:
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        SVProgressHUD.show()
         
     }        
 }

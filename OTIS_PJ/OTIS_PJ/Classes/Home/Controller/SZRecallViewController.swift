@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 import SwiftyJSON
+import IQKeyboardManagerSwift
 
 class SZRecallViewController: SZPageViewController,BottomOperationable {
 
@@ -20,6 +21,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         title = "召修"
         bottomView.actBlock = { (button:UIButton) -> Void in
             self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
