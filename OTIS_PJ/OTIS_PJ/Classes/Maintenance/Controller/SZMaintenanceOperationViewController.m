@@ -427,18 +427,6 @@
                     //WEAKSELF
                     alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
                         if(buttonIndex == 0){
-                             NSInteger yymmdd =  [NSDate currentYYMMDD];
-                            NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
-                            NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:strKey];
-                            if (!num) {
-                                long time = [NSDate sinceDistantPastTime];
-                                [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];                                
-
-                            }
-                            NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
-                            if (numTime&&numTime.integerValue>3&&![[[NSUserDefaults standardUserDefaults] objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
-                                [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
-                            }
                             /**
                              *  保存完成的保养项目
                              */
@@ -462,18 +450,11 @@
                              */
                             [[NSUserDefaults standardUserDefaults] setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
 
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
-                                vc.scheduleID = (int)self.item.ScheduleID;
-                                //vc.isWorkhour=YES;
-                                vc.item = self.item;
-                                //            vc.item = self.item;
-                                [self.navigationController pushViewController:vc animated:YES];
-                            });
                             //检查一下如果是全做完的（除了每年一次），有99项的要删掉
                             [[NSUserDefaults standardUserDefaults] setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d_每年一次",(int)self.item.ScheduleID]];
                             [alertView close];
+                            
+                            [self ZhiFuBaoStyle];
                             
                         }else if(buttonIndex == 1){
                             [alertView close];
@@ -529,6 +510,94 @@
     
 
 }
+
+
+
+
+- (void)ZhiFuBaoStyle
+{
+    
+    //设置扫码区域参数
+    LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+    style.centerUpOffset = 60;
+    style.xScanRetangleOffset = 30;
+    
+    if ([UIScreen mainScreen].bounds.size.height <= 480 )
+    {
+        //3.5inch 显示的扫码缩小
+        style.centerUpOffset = 40;
+        style.xScanRetangleOffset = 20;
+    }
+    
+    
+    style.alpa_notRecoginitonArea = 0.6;
+    
+    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Inner;
+    style.photoframeLineW = 2.0;
+    style.photoframeAngleW = 16;
+    style.photoframeAngleH = 16;
+    
+    style.isNeedShowRetangle = NO;
+    
+    style.anmiationStyle = LBXScanViewAnimationStyle_NetGrid;
+    
+    //使用的支付宝里面网格图片
+    UIImage *imgFullNet = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_full_net"];
+    
+    style.animationImage = imgFullNet;
+    SubLBXScanViewController *vc = [SubLBXScanViewController new];
+    
+    WEAKSELF
+    vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
+        
+        if ([item.UNIT_NO isEqualToString:self.item.UnitNo]) {//如果找到了二维码
+            
+            NSInteger yymmdd =  [NSDate currentYYMMDD];
+            NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+            NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:strKey];
+            if (!num) {
+                long time = [NSDate sinceDistantPastTime];
+                [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];
+                
+            }
+            NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+            if (numTime&&numTime.integerValue>3&&![[[NSUserDefaults standardUserDefaults] objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
+                [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
+                vc.scheduleID = (int)self.item.ScheduleID;
+                //vc.isWorkhour=YES;
+                vc.item = self.item;
+                //            vc.item = self.item;
+                [self.navigationController pushViewController:vc animated:YES];
+            });
+            
+            
+            
+        }else{//如果没找到二维码
+            
+            
+        }
+        
+    };
+    vc.style = style;
+    //vc.isOpenInterestRect = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+
+
+
+
+
+
+
+
 // 中断
 -(void)stop{
     
