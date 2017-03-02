@@ -117,6 +117,13 @@
                     <constraint firstItem="COx-Mb-aJB" firstAttribute="leading" secondItem="iOz-ZV-0nh" secondAttribute="leading" id="yVD-O6-Cdp"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="callbackNo" destination="iOz-ZV-0nh" id="FLB-Y4-MV0"/>
+                <outlet property="callbackStatus" destination="bsa-fS-p4k" id="y1k-ur-dGH"/>
+                <outlet property="customerName" destination="3Hq-Zy-Mvr" id="7xH-iH-Dwl"/>
+                <outlet property="customerTel" destination="zip-Ho-vcH" id="u8x-Mg-VCu"/>
+                <outlet property="unitNo" destination="COx-Mb-aJB" id="5Wd-cd-rXS"/>
+            </connections>
             <point key="canvasLocation" x="-27" y="8.5"/>
         </tableViewCell>
     </objects>

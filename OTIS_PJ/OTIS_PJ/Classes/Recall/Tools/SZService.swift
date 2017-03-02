@@ -90,7 +90,9 @@ extension SZService: TargetType {
     var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
     
     var path: String {
+        
         switch self {
+            
         case .categories:
             return "CallBack/CategoriesForOffline"
         case .areas:

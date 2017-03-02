@@ -7,9 +7,34 @@
 //
 
 import UIKit
+import SwiftyJSON
+
+
 
 class SZMyselfCell: UITableViewCell,Cellable {
+    
+    var myCallBackItem: [String:JSON] {
+        
+        set {
+            callbackNo.text = newValue["callbackNo"]?.string
+            unitNo.text = newValue["unitNo"]?.string
+            customerName.text = newValue["customerName"]?.string
+            customerTel.text = newValue["callbackNo"]?.string
+            callbackNo.text = newValue["callbackNo"]?.string
 
+        }
+    }
+    
+    @IBOutlet weak var callbackNo: UILabel!
+
+    @IBOutlet weak var unitNo: UILabel!
+    
+    @IBOutlet weak var customerName: UILabel!
+    
+    @IBOutlet weak var customerTel: UILabel!
+    
+    @IBOutlet weak var callbackStatus: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

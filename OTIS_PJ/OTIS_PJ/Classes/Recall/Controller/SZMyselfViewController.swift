@@ -13,8 +13,8 @@ import SwiftyUserDefaults
 
 class SZMyselfViewController: UIViewController {
     
-    lazy var dataArray: [MyselfModel] = {
-        let array = [MyselfModel]()
+    lazy var dataArray: [JSON] = {
+        let array = [JSON]()
         return array
     }()
     lazy var tableView: UITableView = {
@@ -28,17 +28,33 @@ class SZMyselfViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        dataArray.append(MyselfModel())
-        dataArray.append(MyselfModel())
-        dataArray.append(MyselfModel())
         
-//        apiProvider.request(.getCallBackList(callback_pageIndex: 0)) { result in
+        apiProvider.request(.getCallBackList(callback_pageIndex: 0)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    self.dataArray = json["data"]["callbackLst"].arrayValue
+
+                }
+                
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            
+        }
+        
+        
+        
+//        apiProvider.request(.addNewCallback(callbackNo: "1234567", customerName: "fsaf", customerTel: "13162153278")) { result in
 //            switch result {
 //            case let .success(moyaResponse):
 //                let json = JSON(data: moyaResponse.data)
 //                if json["errorCode"].int == 0 {
 //                    let data = json["data"]["callbackLst"]
-//
+//                    
 //                    print(data)
 //                }
 //                
@@ -47,27 +63,7 @@ class SZMyselfViewController: UIViewController {
 //                print(error)
 //                
 //            }
-//            
 //        }
-        
-        
-        
-        apiProvider.request(.addNewCallback(callbackNo: "1234567", customerName: "fsaf", customerTel: "13162153278")) { result in
-            switch result {
-            case let .success(moyaResponse):
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    let data = json["data"]["callbackLst"]
-                    
-                    print(data)
-                }
-                
-                
-            case let .failure(error):
-                print(error)
-                
-            }
-        }
         
         
         
