@@ -32,127 +32,48 @@ class SZMyselfViewController: UIViewController {
         dataArray.append(MyselfModel())
         dataArray.append(MyselfModel())
         
+//        apiProvider.request(.getCallBackList(callback_pageIndex: 0)) { result in
+//            switch result {
+//            case let .success(moyaResponse):
+//                let json = JSON(data: moyaResponse.data)
+//                if json["errorCode"].int == 0 {
+//                    let data = json["data"]["callbackLst"]
+//
+//                    print(data)
+//                }
+//                
+//                
+//            case let .failure(error):
+//                print(error)
+//                
+//            }
+//            
+//        }
         
         
-        apiProvider.request(.categories(dtVer: Defaults[.categoriesVer])) { result in
+        
+        apiProvider.request(.addNewCallback(callbackNo: "1234567", customerName: "fsaf", customerTel: "13162153278")) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
-                let ver = json["data"]["version"]
-                let data = json["data"]["categoriesLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
-                        RecallCategory.storage(jsonData: data)
-                        Defaults[.categoriesVer] = ver.intValue
-                    }
+                    let data = json["data"]["callbackLst"]
+                    
                     print(data)
                 }
                 
-            
-            case let .failure(error):
-                print(error)
-                
-            }
-            
-        }
-        
-        
-        
-        
-        apiProvider.request(.areas(dtVer: Defaults[.areasVer])) { result in
-            switch result {
-            case let .success(moyaResponse):
-                
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    let ver = json["data"]["version"]
-                    let data = json["data"]["areasLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
-                        ComponentArea.storage(jsonData: data)
-                        Defaults[.areasVer] = ver.intValue
-                    }
-                    print(data)
-                }
-            
-            case let .failure(error):
-                print(error)
-
-            }
-            
-        }
-
-        
-        
-        
-        apiProvider.request(.mains(dtVer:  Defaults[.mainsVer])) { result in
-            switch result {
-            case let .success(moyaResponse):
-                
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    let ver = json["data"]["version"]
-                    let data = json["data"]["mainsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
-                        MainComponent.storage(jsonData: data)
-                        Defaults[.mainsVer] = ver.intValue
-                    }
-                    print(data)
-                }
                 
             case let .failure(error):
                 print(error)
                 
             }
-            
         }
         
         
-        apiProvider.request(.subs(dtVer: Defaults[.subsVer])) { result in
-            switch result {
-            case let .success(moyaResponse):
-                
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    let ver = json["data"]["version"]
-                    let data = json["data"]["subsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
-                        SubComponent.storage(jsonData: data)
-                        Defaults[.subsVer] = ver.intValue
-                    }
-                    print(data)
-                }
-                
-            case let .failure(error):
-                print(error)
-                
-            }
-            
-        }
-
         
         
-        apiProvider.request(.defects(dtVer: Defaults[.defectsVer])) { result in
-            switch result {
-            case let .success(moyaResponse):
-                
-                let json = JSON(data: moyaResponse.data)
-                if json["errorCode"].int == 0 {
-                    let ver = json["data"]["ver"]
-                    let data = json["data"]["defectsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
-                        Defect.storage(jsonData: data)
-                        Defaults[.defectsVer] = ver.intValue
-                    }
-                    print(data)
-                }
-                
-            case let .failure(error):
-                print(error)
-                
-            }
-
-        }
         
+                
 
     }
     

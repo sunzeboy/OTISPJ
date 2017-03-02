@@ -10,27 +10,15 @@ import UIKit
 import Moya
 import SwiftyJSON
 
-//struct HttpHead {
-//    var employeeID: Int = Int(OTISConfig.employeeID())!
-//    var password: String = OTISConfig.userPW()
-//    var ver: String = "LBS_V10.0.0"
-//
+//private func ruquestParameters(p:[String: Any]) -> [String: Any]? {
+//    return [
+//        
+//        "strHttpReq" : ["head":["employeeID": OTISConfig.employeeID(),
+//                                "password": OTISConfig.userPW(),
+//                                "ver": "LBS_V10.0.0"],
+//                        "body":p]
+//        ]
 //}
-//
-//struct HttpReq {
-//    var head: HttpHead = HttpHead(employeeID: Int(OTISConfig.employeeID())!, password: OTISConfig.userPW(), ver: "LBS_V10.0.0")
-//    var body: [String: Any]
-//}
-
-private func ruquestParameters(p:[String: Any]) -> [String: Any]? {
-    return [
-        
-        "strHttpReq" : ["head":["employeeID": OTISConfig.employeeID(),
-                                "password": OTISConfig.userPW(),
-                                "ver": "LBS_V10.0.0"],
-                        "body":p]
-        ]
-}
 
 
 let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
@@ -74,7 +62,7 @@ let endpointClosure = { (target: SZService) -> Endpoint<SZService> in
 
 let myStubClosure = { (target: SZService) -> Moya.StubBehavior in
     
-    return StubBehavior.delayed(seconds: 3)
+    return StubBehavior.delayed(seconds: 1)
     
 }
 
@@ -90,6 +78,10 @@ enum SZService {
     case mains(dtVer:Int)
     case subs(dtVer:Int)
     case defects(dtVer:Int)
+    //0：本人召修  1：停梯召修
+    case getCallBackList(callback_pageIndex:Int)
+    //新增召修
+    case addNewCallback(callbackNo:String, customerName:String , customerTel:String )
 
 }
 
@@ -109,7 +101,14 @@ extension SZService: TargetType {
             return "CallBack/SubsForOffline"
         case .defects:
             return "CallBack/DefectsForOffline"
-        
+            
+        case .getCallBackList:
+            return "CallBack/GetCallBackList"
+            
+        case .addNewCallback:
+            return "CallBack/AddNewCallback"
+ 
+
         }
     }
     
@@ -129,6 +128,18 @@ extension SZService: TargetType {
 //            let pa  = ruquestParameters(p: ["dtVer":dtVer])
 //            print(pa ?? "")
             return ["dtVer":dtVer]
+            
+        case .getCallBackList(callback_pageIndex: let pageIndex):
+            return ["callback_pageIndex":pageIndex]
+            
+        case .addNewCallback(callbackNo: let callbackNo, customerName: let customerName , customerTel: let customerTel):
+            return [
+                "strHttpReq":["callbackNo":callbackNo,
+                            "customerName":customerName,
+                            "customerTel":customerTel]
+            ]
+            
+
         }
     }
     
@@ -141,6 +152,7 @@ extension SZService: TargetType {
     var sampleData: Data {
         
         switch self {
+            
         case .categories:
             return try! readJson2Data(fileName: "categories")
             
@@ -156,6 +168,9 @@ extension SZService: TargetType {
         case .defects:
             return try! readJson2Data(fileName: "defects")
             
+        default:
+            return Data()
+
         }
     }
     
