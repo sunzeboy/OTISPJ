@@ -40,10 +40,6 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        
-        
-        
-        
                 
 
     }
