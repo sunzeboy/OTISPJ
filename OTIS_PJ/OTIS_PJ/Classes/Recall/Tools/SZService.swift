@@ -118,7 +118,8 @@ extension SZService: TargetType {
             return "CallBack/AddNewCallback"
         case .getCallbackProcess:
             return "CallBack/GetCallbackProcess"
-        case .saveCallBackStatus(callbackId: <#T##Int#>)
+        case .saveCallBackStatus:
+            return ""
         }
     }
     
@@ -149,6 +150,8 @@ extension SZService: TargetType {
                             "customerTel":customerTel]
             ]
         case .getCallbackProcess(callbackId: let callbackId):
+            return ["callbackId":callbackId]
+        case .saveCallBackStatus(callbackId: let callbackId):
             return ["callbackId":callbackId]
 
         }
