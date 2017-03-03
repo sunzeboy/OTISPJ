@@ -18,7 +18,7 @@
 #import "CustomIOSAlertView.h"
 #import "MaintenanceViewController.h"
 #import "SZUploadManger.h"
-
+#import "SZHttpTool.h"
 @interface MCHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,weak) UICollectionView* topCollectionView;
@@ -97,7 +97,7 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     boomCollectionViewFlowLayout.itemSize=CGSizeMake(120, 120);
     boomCollectionViewFlowLayout.minimumInteritemSpacing=10;
     boomCollectionViewFlowLayout.minimumLineSpacing=60;
-    boomCollectionViewFlowLayout.sectionInset=UIEdgeInsetsMake(30, 40, 10, 40);
+    boomCollectionViewFlowLayout.sectionInset=UIEdgeInsetsMake(30, 30, 10, 30);
     boomCollectionViewFlowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     
     UICollectionView* boomCollectionView=[[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:boomCollectionViewFlowLayout];
@@ -201,6 +201,16 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
             case 3:{
                 MDAboutVC* aboutVC=[[MDAboutVC alloc] init];
                 [self.navigationController pushViewController:aboutVC animated:YES];
+                
+//                NSDictionary* dic = @{@"head":@{@"employeeID":@103338,@"password":@"a.123",@"ver":@"1.0"},@"body":@{@"scheduleID":@11,@"unitNo":@"HT222NH",@"createTime":[self getNowDate],@"eventLog":@"ddd"}};
+//                
+//                NSLog(@"==%@",dic.mj_JSONString);
+//                
+//                [SZHttpTool noPasswordpost:@"http://192.168.30.65/LBS_Mobile/Terminal/mdSaveEventLog" parameters:dic success:^(id obj) {
+//                    
+//                } failure:^(NSError *error) {
+//                    
+//                }];
             }
                 break;
             default:
@@ -209,6 +219,11 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     }
 }
 
+-(NSString*)getNowDate{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    return [formatter stringFromDate:[NSDate date]];
+}
 
 -(void)tongbushuju{
     WEAKSELF

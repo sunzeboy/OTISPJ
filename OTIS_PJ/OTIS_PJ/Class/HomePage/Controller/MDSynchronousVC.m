@@ -20,16 +20,13 @@
 #import "MDSVTModel.h"
 
 //Otis-
-static NSString* wifiNameFix = @"CX";
+static NSString* wifiNameFix = @"Otis-";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
 @property(assign) CGFloat titleHeight;
 @property(nonatomic,strong) SZFinalMaintenanceUnitDetialItem* liftModel;
-
 @property(nonatomic,weak) UITextView* textView;
-
-
 @end
 
 @implementation MDSynchronousVC
@@ -40,6 +37,173 @@ static NSString* wifiNameFix = @"CX";
     }
     return self;
 }
+
+/*
+ 
+ {
+ "SVT": {
+ "Controller": {
+ "SoftwareBaselineVersion": "GP130782GAD",
+ "SCN": "30782",
+ "NumberOfRuns": "00000",
+ "ElapsedMinutes": "050291",
+ "EventLog": [
+ {
+ "EventNumber": "0010",
+ "EventSubcode": "",
+ "EventName": "DrvCommErr",
+ "Counter": "010",
+ "ElapsedTime": "011941",
+ "CarPosition": "01"
+ },
+ {
+ "EventNumber": "0027",
+ "EventSubcode": "",
+ "EventName": "PowerReturn",
+ "Counter": "001",
+ "ElapsedTime": "027002",
+ "CarPosition": "**"
+ }
+ ],
+ "ErrorData": [
+ {
+ "Step": "Step5",
+ "ErrorText": "Incompatible SCN"
+ },
+ {
+ "Step": "Step10",
+ "ErrorText": ""
+ }
+ ]
+ },
+ "Drive": {
+ "SoftwareBaselineVersion": "A5131400CAD",
+ "SCN": "31400",
+ "ElapsedTime": "0002:00:18:35.24",
+ "CurrentLog": [
+ {
+ "EventNumber": "001",
+ "EventName": "New Run",
+ "ElapsedTime": "0000:22:39:39.30"
+ },
+ {
+ "EventNumber": "524",
+ "EventName": "No Enc Signl",
+ "ElapsedTime": "0000:23:40:40.10"
+ }
+ ],
+ "SavedLog": [
+ {
+ "EventNumber": "524",
+ "EventName": "No Enc Signl",
+ "ElapsedTime": "0004:10:20:30.00"
+ }
+ ],
+ "Metrics": [
+ {
+ "MetricName": "Max Enc Cnt",
+ "Value": "4"
+ }
+ ],
+ "ErrorData": [
+ {
+ "Step": "Step5",
+ "ErrorText": "Incompatible SCN"
+ },
+ {
+ "Step": "Step10",
+ "ErrorText": ""
+ }
+ ]
+ }
+ }
+ }
+ 
+ */
+
+
+/*
+ 
+ {
+ "SVT": {
+ "Controller": {
+ "SoftwareBaselineVersion": "GP130782GAD",
+ "SCN": "30782",
+ "NumberOfRuns": "00000",
+ "ElapsedMinutes": "050291",
+ "EventLog": [
+ {
+ "EventNumber": "0010",
+ "EventSubcode": "",
+ "EventName": "DrvCommErr",
+ "Counter": "010",
+ "ElapsedTime": "011941",
+ "CarPosition": "01"
+ },
+ {
+ "EventNumber": "0027",
+ "EventSubcode": "",
+ "EventName": "PowerReturn",
+ "Counter": "001",
+ "ElapsedTime": "027002",
+ "CarPosition": "**"
+ }
+ ],
+ "ErrorData": [
+ {
+ "Step": "Step5",
+ "ErrorText": "Incompatible SCN"
+ },
+ {
+ "Step": "Step10",
+ "ErrorText": ""
+ }
+ ]
+ },
+ "Drive": {
+ "SoftwareBaselineVersion": "A5131400CAD",
+ "SCN": "31400",
+ "ElapsedTime": "0002:00:18:35.24",
+ "CurrentLog": [
+ {
+ "EventNumber": "001",
+ "EventName": "New Run",
+ "ElapsedTime": "0000:22:39:39.30"
+ },
+ {
+ "EventNumber": "524",
+ "EventName": "No Enc Signl",
+ "ElapsedTime": "0000:23:40:40.10"
+ }
+ ],
+ "SavedLog": [
+ {
+ "EventNumber": "524",
+ "EventName": "No Enc Signl",
+ "ElapsedTime": "0004:10:20:30.00"
+ }
+ ],
+ "Metrics": [
+ {
+ "MetricName": "Max Enc Cnt",
+ "Value": "4"
+ }
+ ],
+ "ErrorData": [
+ {
+ "Step": "Step5",
+ "ErrorText": "Incompatible SCN"
+ },
+ {
+ "Step": "Step10",
+ "ErrorText": ""
+ }
+ ]
+ }
+ }
+ }
+ 
+ */
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,11 +231,8 @@ static NSString* wifiNameFix = @"CX";
             [coverView.dataArray addObject:tempStr];
         }else{
             
-            
             NSLog(@"-----------%@",weakSelf.appString);
           
-            
-            
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
             NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
@@ -86,7 +247,7 @@ static NSString* wifiNameFix = @"CX";
             
             NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
             
-            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
+//            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
         }
         
         [coverView.table reloadData];
@@ -291,7 +452,7 @@ static NSString* wifiNameFix = @"CX";
 //                };
 //                [alertView1 show];
                 
-                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTAppCX://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
+                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
                 NSLog(@"----%@",[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]);
                 // 2.判断手机中是否安装了对应程序
                 if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) {

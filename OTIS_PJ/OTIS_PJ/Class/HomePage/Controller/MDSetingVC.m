@@ -34,6 +34,7 @@
     [backView addSubview:lineView2];
     
     UILabel* titleLabel=[[UILabel alloc] init];
+    titleLabel.font=[UIFont systemFontOfSize:16.0];
     titleLabel.textColor=[UIColor blackColor];
     titleLabel.text=@"是否显示自动维护结果？";
     [backView addSubview:titleLabel];

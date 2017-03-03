@@ -35,4 +35,8 @@
 
 +(void)upload:(NSString*)urlpath param:(id)parameters uploadParam:(SZImageUploadParam *)uploadParam success:(void (^)(id))success failure:(void (^)(NSError *))failure;
 
+
+
++(void)noPasswordpost:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure;
+
 @end
