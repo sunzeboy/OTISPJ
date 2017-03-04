@@ -86,9 +86,13 @@ enum SZService {
     //新增召修
     case addNewCallback(callbackNo: String, customerName: String , customerTel: String )
     //获取召修过程信息
-    case getCallbackProcess(callbackId: Int)
+    case getCallbackProcess(intCallbId: Int)
     //更新召修状态
     case saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo)
+    //获取召修详细信息
+    case getCallBackDetailInfo(intCallbId: Int)
+    //更新召修状态
+//    case saveCallBackDetail(callbackProcessInfo: CallbackProcessInfo)
 
 }
 
@@ -122,6 +126,11 @@ extension SZService: TargetType {
             
         case .saveCallBackStatus:
             return "CallBack/SaveCallBackStatus"
+            
+        case .getCallBackDetailInfo:
+            return "CallBack/GetCallBackDetailInfo"
+            
+            
         }
     }
     
@@ -151,11 +160,15 @@ extension SZService: TargetType {
                             "customerName":customerName,
                             "customerTel":customerTel]
             ]
-        case .getCallbackProcess(callbackId: let callbackId):
-            return ["callbackId":callbackId]
+        case .getCallbackProcess(intCallbId : let intCallbId ):
+            return ["intCallbId":intCallbId]
         case .saveCallBackStatus(callbackProcessInfo: let callbackProcessInfo):
-            return JSON(callbackProcessInfo).dictionary
-
+            print(["strHttpReq":callbackProcessInfo.keyValues()])
+            return ["strHttpReq":callbackProcessInfo.keyValues()]
+        case .getCallBackDetailInfo(intCallbId : let intCallbId ):
+            return ["intCallbId":intCallbId]
+            
+            
         }
     }
     

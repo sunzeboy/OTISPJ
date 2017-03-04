@@ -52,25 +52,12 @@ struct AreaItem: Mapable {
 
 
 
-//protocol reflectable {
-//    
-//}
-//extension reflectable {
-//    func keyvalues() -> [String:String]? {
-//        let mirror = Mirror(reflecting: self)
-//        var dic = [String:String]()
-//        
-//        for case let (key,value) in mirror.children {
-//            
-//        }
-//        for case let (label?,value) in mirror.children {
-//            dic[label+""] = value
-//        }
-//        return dic
-//    }
-//
-//}
-
+public enum CallbackStatus: Int {
+    case new = 1
+    case start
+    case arrive
+    case complete
+}
 
 struct CallbackProcessInfo {
     
@@ -101,12 +88,62 @@ struct CallbackProcessInfo {
     /// <summary>离场纬度</summary>
     var  finishSiteLat:String?
     /// <summary>召修状态</summary>
-    var  callbackStatus:Int?
+    var  callbackStatus:CallbackStatus
     
+    func keyValues() -> [String: Any]? {
+        return [
+            "callbackId":callbackId ?? 0,
+            "callbackNo":callbackNo ?? "",
+            "unitNo":unitNo ?? "",
+            "customerName":customerName ?? "",
+            "customerTel":customerTel ?? "",
+            "setOffTime":setOffTime ?? "",
+            "arrivalSiteTime":arrivalSiteTime ?? "",
+            "pTrapRelsTime":pTrapRelsTime ?? "",
+            "arrivalSiteLong":arrivalSiteLong ?? "",
+            "arrivalSiteLat":arrivalSiteLat ?? "",
+            "finishSiteLong":finishSiteLong ?? "",
+            "finishSiteLat":finishSiteLat ?? "",
+            "callbackStatus":callbackStatus ?? .new
+        ]
+    }
     
 }
 
-
+//class CallbackProcessInfo {
+//    
+//    /// <summary>召修ID</summary>
+//    var  callbackId: Int?
+//    /// <summary>召修编号</summary>
+//    var  callbackNo:String?
+//    /// <summary>电梯编号</summary>
+//    var  unitNo:String?
+//    /// <summary>客户名称</summary>
+//    var  customerName:String?
+//    /// <summary>客户电话</summary>
+//    var  customerTel:String?
+//    /// <summary>出发时间</summary>
+//    var  setOffTime:String?
+//    /// <summary>到达时间</summary>
+//    var  arrivalSiteTime:String?
+//    /// <summary>完成时间</summary>
+//    var  finishTime:String?
+//    /// <summary>放人时间</summary>
+//    var  pTrapRelsTime:String?
+//    /// <summary>到场经度</summary>
+//    var  arrivalSiteLong:String?
+//    /// <summary>到场纬度</summary>
+//    var  arrivalSiteLat:String?
+//    /// <summary>离场经度</summary>
+//    var  finishSiteLong:String?
+//    /// <summary>离场纬度</summary>
+//    var  finishSiteLat:String?
+//    /// <summary>召修状态</summary>
+//    var  callbackStatus:CallbackStatus = .new
+//    
+//    
+//    
+//}
 
 
 

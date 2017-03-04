@@ -37,7 +37,7 @@ class SZMyselfViewController: UIViewController {
         
         
         
-        
+
         
         
                 
@@ -81,7 +81,13 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(SZRecallProcessViewController(), animated: true)
+        let vc = SZRecallProcessViewController()
+        let jsonData = dataArray[indexPath.row]
+//        if let callbackId = jsonData["callbackId"].int {
+//            vc.intCallbId = callbackId
+//        }
+        vc.intCallbId = jsonData["callbackId"].int!
+        navigationController?.pushViewController(vc, animated: true)
 
         
     }

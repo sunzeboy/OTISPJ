@@ -1,0 +1,114 @@
+
+public const int CALLBACK_STATUS_NEW = 0;
+// 召修状态：出发
+public const int CALLBACK_STATUS_START = 1;
+// 召修状态：到达
+public const int CALLBACK_STATUS_ARRIVE = 2;
+// 召修状态：完成（关闭）
+public const int CALLBACK_STATUS_COMPLETE = 3;
+
+// 召修单状态：新建
+public const int CB_STATUS_ADD = 0;
+// 召修单状态：完成
+public const int CB_STATUS_DONE = 1;
+// 召修单状态：关闭
+public const int CB_STATUS_SHUT = 2;
+// 召修单状态：停梯
+public const int CB_STATUS_STOPPING = 3;
+// 召修单状态：取消
+public const int CB_STATUS_CANCELED = 4;
+
+
+
+1.接口名：
+获取召修过程信息  GetCallbackProcess
+请求参数  intCallbId
+返回结果
+public class cb_res_CallbackProcessInfo
+{
+/// <summary>召修ID</summary>
+public int callbackId { get; set; }
+/// <summary>召修编号</summary>
+public string callbackNo { get; set; }
+/// <summary>电梯编号</summary>
+public string unitNo { get; set; }
+/// <summary>客户名称</summary>
+public string customerName { get; set; }
+/// <summary>客户电话</summary>
+public string customerTel { get; set; }
+/// <summary>出发时间</summary>
+public string setOffTime { get; set; }
+/// <summary>到达时间</summary>
+public string arrivalSiteTime { get; set; }
+/// <summary>完成时间</summary>
+public string finishTime { get; set; }
+/// <summary>放人时间</summary>
+public string pTrapRelsTime { get; set; }
+/// <summary>到场经度</summary>
+public string arrivalSiteLong { get; set; }
+/// <summary>到场纬度</summary>
+public string arrivalSiteLat { get; set; }
+/// <summary>离场经度</summary>
+public string finishSiteLong { get; set; }
+/// <summary>离场纬度</summary>
+public string finishSiteLat { get; set; }
+/// <summary>召修状态</summary>
+public int callbackStatus { get; set; }
+}
+
+2.接口名：
+更新召修状态  SaveCallBackStatus
+请求参数
+public class cb_res_CallbackProcessInfo
+{
+/// <summary>召修ID</summary>
+public int callbackId { get; set; }
+/// <summary>召修编号</summary>
+public string callbackNo { get; set; }
+/// <summary>电梯编号</summary>
+public string unitNo { get; set; }
+/// <summary>客户名称</summary>
+public string customerName { get; set; }
+/// <summary>客户电话</summary>
+public string customerTel { get; set; }
+/// <summary>出发时间</summary>
+public string setOffTime { get; set; }
+/// <summary>到达时间</summary>
+public string arrivalSiteTime { get; set; }
+/// <summary>完成时间</summary>
+public string finishTime { get; set; }
+/// <summary>放人时间</summary>
+public string pTrapRelsTime { get; set; }
+/// <summary>到场经度</summary>
+public string arrivalSiteLong { get; set; }
+/// <summary>到场纬度</summary>
+public string arrivalSiteLat { get; set; }
+/// <summary>离场经度</summary>
+public string finishSiteLong { get; set; }
+/// <summary>离场纬度</summary>
+public string finishSiteLat { get; set; }
+/// <summary>召修状态</summary>
+public int callbackStatus { get; set; }
+}
+
+
+
+
+1.接口名：
+获取召修一览 GetCallBackList
+请求参数 callback_pageIndex  0：本人召修  1：停梯召修
+
+2.接口：
+新增召修  AddNewCallback
+请求参数
+public class cb_req_AddCallbackModel
+{
+/// <summary>召修编号</summary>
+public string callbackNo { get; set; }
+/// <summary>客户名称</summary>
+public string customerName { get; set; }
+/// <summary>客户电话</summary>
+public string customerTel { get; set; }
+}
+
+
