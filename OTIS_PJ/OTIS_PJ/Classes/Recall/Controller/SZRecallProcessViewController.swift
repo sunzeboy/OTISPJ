@@ -8,8 +8,7 @@
 
 import UIKit
 import SwiftyJSON
-
-
+import SwiftyUserDefaults
 
 
 
@@ -45,7 +44,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                     }
                 case .arrive:
                     bottomView.btns.forEach{ (btn) in
-                        if btn.currentTitle == "到达" || btn.currentTitle == "取消" || btn.currentTitle == "下一步" {
+                        if btn.currentTitle == "到达扫描" || btn.currentTitle == "取消" || btn.currentTitle == "下一步" || btn.currentTitle == "出发" {
                             btn.isEnabled = false
                         }else {
                             btn.isEnabled = true
@@ -54,7 +53,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 
                 case .complete:
                     bottomView.btns.forEach{ (btn) in
-                        if btn.currentTitle == "完成" || btn.currentTitle == "取消" {
+                        if btn.currentTitle == "完成扫描" || btn.currentTitle == "取消" || btn.currentTitle == "出发" || btn.currentTitle == "到达扫描" {
                             btn.isEnabled = false
                         }else {
                             btn.isEnabled = true
@@ -128,7 +127,9 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
         requestData()
     }
     
-    
+    deinit {
+        print(self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "召修过程"
@@ -146,11 +147,15 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 
             }else if button.title(for: .normal)=="完成扫描" {
                 self.state = .complete
+                self.completeLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
+                self.completeLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?
                 self.postCallBackStatus()
 
             
             }else if button.title(for: .normal)=="到达扫描" {
                 self.state = .arrive
+                self.arriveLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
+                self.arriveLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?
                 self.postCallBackStatus()
 
                 
@@ -194,6 +199,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
     
     
     func updateDataOnView(json: JSON) {
+        
             recallCode.text = json["callbackNo"].string
             customerName.text = json["customerName"].string
             customerPhone.text = json["customerTel"].string
@@ -213,20 +219,20 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
     
     func postCallBackStatus() {
 
-        apiProvider.request(.saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo(callbackId: intCallbId,
-                                                                                         callbackNo: recallCode.text,
-                                                                                         unitNo: eleCodeTF.text,
-                                                                                         customerName: customerName.text,
-                                                                                         customerTel: customerPhone.text,
-                                                                                         setOffTime: startTime.text,
-                                                                                         arrivalSiteTime: arriveTime.text,
-                                                                                         finishTime: completeTime.text,
-                                                                                         pTrapRelsTime: rescueTime.text,
-                                                                                         arrivalSiteLong: arriveLo.text,
-                                                                                         arrivalSiteLat: arriveLa.text,
-                                                                                         finishSiteLong: completeLo.text,
-                                                                                         finishSiteLat: completeLa.text,
-                                                                                         callbackStatus: state)))
+        apiProvider.request(.saveCallBackStatus(callbackId: intCallbId,
+                                                                                         callbackNo: recallCode.text!,
+                                                                                         unitNo: eleCodeTF.text!,
+                                                                                         customerName: customerName.text!,
+                                                                                         customerTel: customerPhone.text!,
+                                                                                         setOffTime: startTime.text!,
+                                                                                         arrivalSiteTime: arriveTime.text!,
+                                                                                         finishTime: completeTime.text!,
+                                                                                         pTrapRelsTime: rescueTime.text!,
+                                                                                         arrivalSiteLong: arriveLo.text!,
+                                                                                         arrivalSiteLat: arriveLa.text!,
+                                                                                         finishSiteLong: completeLo.text!,
+                                                                                         finishSiteLat: completeLa.text!,
+                                                                                         callbackStatus: state))
         { result in
                                                                                             
                                                                                             
@@ -262,5 +268,4 @@ extension SZRecallProcessViewController: KMDatePickerDelegate {
     }
     
 }
-
 

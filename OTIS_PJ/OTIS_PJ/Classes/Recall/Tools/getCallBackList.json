@@ -1,0 +1,37 @@
+{
+    "errorCode": 0,
+    "message": "操作成功！",
+    "data": {
+        "callbackLst": [{
+                    "callbackId": 1,
+                    "callbackNo": "0A",
+                    "customerTel": "断路开关（空气开关）Broken Circuit Switch",
+                    "customerName": "",
+                    "unitNo": "断路开关（空气开关）",
+                    "callbackNo": "1A"
+                    }, {
+                    "callbackId": 2,
+                    "callbackNo": "0A",
+                    "customerTel": "断路开关（空气开关）Broken Circuit Switch",
+                    "customerName": "",
+                    "unitNo": "断路开关（空气开关）",
+                    "callbackNo": "1A"
+                    }, {
+                    "callbackId": 3,
+                    "callbackNo": "0A",
+                    "customerTel": "断路开关（空气开关）Broken Circuit Switch",
+                    "customerName": "",
+                    "unitNo": "断路开关（空气开关）",
+                    "callbackNo": "1A"
+                    }, {
+                    "callbackId": 4,
+                    "callbackNo": "0A",
+                    "customerTel": "断路开关（空气开关）Broken Circuit Switch",
+                    "customerName": "",
+                    "unitNo": "断路开关（空气开关）",
+                    "callbackNo": "1A"
+                    }]
+    }
+}
+
+

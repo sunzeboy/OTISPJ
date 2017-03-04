@@ -22,5 +22,8 @@ extension DefaultsKeys {
     static let mainsVer = DefaultsKey<Int>("mainsVer")
     static let subsVer = DefaultsKey<Int>("subsVer")
     static let defectsVer = DefaultsKey<Int>("defectsVer")
+    static let userLastLocationLat = DefaultsKey<String>("userLastLocationLat")
+    static let userLastLocationLon = DefaultsKey<String>("userLastLocationLon")
+
 
 }

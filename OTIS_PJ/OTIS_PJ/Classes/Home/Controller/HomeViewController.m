@@ -350,8 +350,8 @@
     [locMgr subscribeToLocationUpdatesWithDesiredAccuracy:INTULocationAccuracyRoom
                                                     block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
                                                         if (status == INTULocationStatusSuccess) {
-                                                            NSString *strLa = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:currentLocation.coordinate.latitude]];
-                                                            NSString *strLo = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:currentLocation.coordinate.longitude]];
+                                                            NSString *strLa = [NSString stringWithFormat:@"%.15lf",currentLocation.coordinate.latitude];
+                                                            NSString *strLo = [NSString stringWithFormat:@"%.15lf",currentLocation.coordinate.longitude];
                                                             //                                                            SZLog(@"我在这呢！！！%@ %@",strLa,strLo);
                                                             
                                                             [[NSUserDefaults standardUserDefaults] setObject:strLa forKey:@"userLastLocationLat"];

@@ -30,28 +30,21 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         title = "召修"
         bottomView.actBlock = { (button:UIButton) -> Void in
-            self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
-            let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 220))//220
-            contentView.layer.cornerRadius = 5
-            contentView.layer.masksToBounds = true
-            self.alertView?.contentView = contentView
-            self.alertView?.show()
-            contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
-            contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
-//            self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
+//            self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
+//            let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 220))//220
+//            contentView.layer.cornerRadius = 5
+//            contentView.layer.masksToBounds = true
+//            self.alertView?.contentView = contentView
+//            self.alertView?.show()
+//            contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
+//            contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
+            self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
         }
                 
 
     }
     
-    func cancleClick(button: UIButton) {
-        alertView?.hidenAnimation()
-    }
     
-    func confirmClick(button: UIButton) {
-        alertView?.hidenAnimation()
-
-    }
     
     override func setupChildVces() {
         let subVc1 = SZMyselfViewController()

@@ -103,7 +103,7 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         
         bottomView.actBlock = {[unowned self] (button:UIButton) -> Void in
             self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
-            let contentView = CancleAlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
+            let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
             contentView.layer.cornerRadius = 5
             contentView.layer.masksToBounds = true
             self.alertView?.contentView = contentView
@@ -134,13 +134,13 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     }
 
     func cancleClick(button: UIButton) {
-        
+        alertView?.hidenAnimation()
     }
     
     func confirmClick(button: UIButton) {
+        alertView?.hidenAnimation()
         
-    }
-    
+    }    
     func setUpcontentView() {
         
         recallCategory.placeholder = "请选择召修分类"

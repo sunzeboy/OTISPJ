@@ -70,8 +70,8 @@ let myStubClosure = { (target: SZService) -> Moya.StubBehavior in
 }
 
 
-let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
-//let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
+//let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
+let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
 
 
 enum SZService {
@@ -88,11 +88,37 @@ enum SZService {
     //获取召修过程信息
     case getCallbackProcess(intCallbId: Int)
     //更新召修状态
-    case saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo)
+    case saveCallBackStatus(callbackId: Int,
+                            callbackNo: String,
+                            unitNo: String,
+                            customerName: String,
+                            customerTel: String,
+                            setOffTime: String,
+                            arrivalSiteTime: String,
+                            finishTime: String,
+                            pTrapRelsTime: String,
+                            arrivalSiteLong: String,
+                            arrivalSiteLat: String,
+                            finishSiteLong: String,
+                            finishSiteLat: String,
+                            callbackStatus: CallbackStatus)
     //获取召修详细信息
     case getCallBackDetailInfo(intCallbId: Int)
     //保存召修详细信息
-    case saveCallBackDetail(callbackProcessInfo: CallbackProcessInfo)
+    case saveCallBackDetail(callbackId: Int,
+                            callbackNo: String,
+                            unitNo: String,
+                            customerName: String,
+                            customerTel: String,
+                            setOffTime: String,
+                            arrivalSiteTime: String,
+                            finishTime: String,
+                            pTrapRelsTime: String,
+                            arrivalSiteLong: String,
+                            arrivalSiteLat: String,
+                            finishSiteLong: String,
+                            finishSiteLat: String,
+                            callbackStatus: CallbackStatus)
     //关闭或者完成召修单
     case closeCallBack(callbackId: Int ,isComplete: Int,shutdownReason: String,closeTime: String)
     //取消召修单
@@ -175,8 +201,6 @@ extension SZService: TargetType {
              .mains (dtVer:let dtVer),
              .subs(dtVer:let dtVer),
              .defects(dtVer:let dtVer):
-//            let pa  = ruquestParameters(p: ["dtVer":dtVer])
-//            print(pa ?? "")
             return ["dtVer":dtVer]
             
         case .getCallBackList(callback_pageIndex: let pageIndex):
@@ -191,16 +215,72 @@ extension SZService: TargetType {
         case .getCallbackProcess(intCallbId : let intCallbId ):
             return ["intCallbId":intCallbId]
             
-        case .saveCallBackStatus(callbackProcessInfo: let callbackProcessInfo):
-            print(["strHttpReq":callbackProcessInfo.keyValues()])
-            return ["strHttpReq":callbackProcessInfo.keyValues()]
+        case .saveCallBackStatus(callbackId: let callbackId,
+                                 callbackNo: let callbackNo,
+                                 unitNo: let unitNo,
+                                 customerName: let customerName,
+                                 customerTel: let customerTel,
+                                 setOffTime: let setOffTime,
+                                 arrivalSiteTime: let arrivalSiteTime,
+                                 finishTime: let finishTime,
+                                 pTrapRelsTime: let pTrapRelsTime,
+                                 arrivalSiteLong: let arrivalSiteLong,
+                                 arrivalSiteLat: let arrivalSiteLat,
+                                 finishSiteLong: let finishSiteLong,
+                                 finishSiteLat: let finishSiteLat,
+                                 callbackStatus: let callbackStatus):
+            
+            return [
+                "strHttpReq":[
+                    "callbackId":callbackId ,
+                    "callbackNo":callbackNo ,
+                    "unitNo":unitNo ,
+                    "customerName":customerName ,
+                    "customerTel":customerTel ,
+                    "setOffTime":setOffTime ,
+                    "arrivalSiteTime":arrivalSiteTime ,
+                    "pTrapRelsTime":pTrapRelsTime ,
+                    "arrivalSiteLong":arrivalSiteLong ,
+                    "arrivalSiteLat":arrivalSiteLat ,
+                    "finishSiteLong":finishSiteLong ,
+                    "finishSiteLat":finishSiteLat ,
+                    "callbackStatus":callbackStatus.rawValue
+                ]]
             
         case .getCallBackDetailInfo(intCallbId : let intCallbId ):
             return ["intCallbId":intCallbId]
             
-        case .saveCallBackDetail(callbackProcessInfo: let callbackProcessInfo):
-            print(["strHttpReq":callbackProcessInfo.keyValues()])
-            return ["strHttpReq":callbackProcessInfo.keyValues()]
+        case .saveCallBackDetail(callbackId: let callbackId,
+                                 callbackNo: let callbackNo,
+                                 unitNo: let unitNo,
+                                 customerName: let customerName,
+                                 customerTel: let customerTel,
+                                 setOffTime: let setOffTime,
+                                 arrivalSiteTime: let arrivalSiteTime,
+                                 finishTime: let finishTime,
+                                 pTrapRelsTime: let pTrapRelsTime,
+                                 arrivalSiteLong: let arrivalSiteLong,
+                                 arrivalSiteLat: let arrivalSiteLat,
+                                 finishSiteLong: let finishSiteLong,
+                                 finishSiteLat: let finishSiteLat,
+                                 callbackStatus: let callbackStatus):
+            
+            return [
+                "strHttpReq":[
+                    "callbackId":callbackId ,
+                    "callbackNo":callbackNo ,
+                    "unitNo":unitNo ,
+                    "customerName":customerName ,
+                    "customerTel":customerTel ,
+                    "setOffTime":setOffTime ,
+                    "arrivalSiteTime":arrivalSiteTime ,
+                    "pTrapRelsTime":pTrapRelsTime ,
+                    "arrivalSiteLong":arrivalSiteLong ,
+                    "arrivalSiteLat":arrivalSiteLat ,
+                    "finishSiteLong":finishSiteLong ,
+                    "finishSiteLat":finishSiteLat ,
+                    "callbackStatus":callbackStatus.rawValue
+                    ]]
             
         case .closeCallBack(callbackId: let callbackId, isComplete: let isComplete, shutdownReason: let shutdownReason, closeTime: let closeTime):
             return [
@@ -255,6 +335,12 @@ extension SZService: TargetType {
 
         case .defects:
             return try! readJson2Data(fileName: "defects")
+            
+        case .getCallBackList:
+            return try! readJson2Data(fileName: "getCallBackList")
+            
+        case .saveCallBackStatus:
+            return try! readJson2Data(fileName: "saveCallBackStatus")
             
         default:
             return Data()
