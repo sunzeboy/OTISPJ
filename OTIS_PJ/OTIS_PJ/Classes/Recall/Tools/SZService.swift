@@ -37,7 +37,7 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         SVProgressHUD.show()
-        
+        SVProgressHUD.setDefaultMaskType(.clear)
     }        
 }
 
