@@ -28,12 +28,6 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
             switch state {
                 
                 case .new:
-//                    let arr = bottomView.btns.filter({ (btn) -> Bool in
-//                        return btn.currentTitle != "出发" && btn.currentTitle != "取消"
-//                    })
-//                    arr.forEach {
-//                        $0.isEnabled = false
-//                    }
                     bottomView.btns.forEach{ (btn) in
                         if btn.currentTitle == "出发" || btn.currentTitle == "取消" {
                             btn.isEnabled = true
@@ -127,6 +121,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
     @IBOutlet weak var completeLa: UILabel!
     
     @IBOutlet weak var rescueTime: UITextField!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         

@@ -10,7 +10,11 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 
-class SZRecallInputViewController: UIViewController {
+class SZRecallInputViewController: UIViewController,BottomOperationable {
+    
+    var btns: [BtnModel] {
+        return [BtnModel(title: "保存", picname: "save")];
+    }
     
     var intCallbId: Int = 0
 
@@ -80,6 +84,10 @@ class SZRecallInputViewController: UIViewController {
     /// 处理结果
     @IBOutlet weak var treatmentResultTV: UITextView!
     
+    var alertView: ABAlertView?
+    
+//    var cancelAlertView: CancleAlertView?
+    
     override func viewWillAppear(_ animated: Bool) {
 //        requestData()
     }
@@ -87,7 +95,23 @@ class SZRecallInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
         setUpcontentView()
+        
+        bottomView.actBlock = {[unowned self] (button:UIButton) -> Void in
+            self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
+            let contentView = CancleAlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
+            contentView.layer.cornerRadius = 5
+            contentView.layer.masksToBounds = true
+            self.alertView?.contentView = contentView
+            self.alertView?.show()
+            contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
+            contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
+        }
+        
         
         apiProvider.request(.closeCallBack(callbackId: intCallbId, isComplete: 1, shutdownReason: "停梯", closeTime: "")) { result in
             switch result {
@@ -107,11 +131,15 @@ class SZRecallInputViewController: UIViewController {
         
 //        apiProvider.request(.cancelc , completion: <#T##Completion##Completion##(Result<Response, MoyaError>) -> Void#>)
         
-        
-        
     }
 
+    func cancleClick(button: UIButton) {
+        
+    }
     
+    func confirmClick(button: UIButton) {
+        
+    }
     
     func setUpcontentView() {
         
