@@ -98,8 +98,9 @@ enum SZService {
 
 extension SZService: TargetType {
 
-    var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
-    
+//    var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
+    var baseURL: URL { return URL(string: "http://192.168.30.61:8081/")! }
+
     var path: String {
         
         switch self {

@@ -146,39 +146,39 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
 
     
     func postCallBackStatus() {
-//
-//        apiProvider.request(.saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo(callbackId: intCallbId,
-//                                                                                         callbackNo: recallCode.text,
-//                                                                                         unitNo: eleCodeTF.text,
-//                                                                                         customerName: customerName.text,
-//                                                                                         customerTel: customerPhone.text,
-//                                                                                         setOffTime: startTime.text,
-//                                                                                         arrivalSiteTime: arriveTime.text,
-//                                                                                         finishTime: completeTime.text,
-//                                                                                         pTrapRelsTime: rescueTime.text,
-//                                                                                         arrivalSiteLong: arriveLo.text,
-//                                                                                         arrivalSiteLat: arriveLa.text,
-//                                                                                         finishSiteLong: completeLo.text,
-//                                                                                         finishSiteLat: completeLa.text,
-//                                                                                         callbackStatus: .start)))
-//        { result in
-//                                                                                            
-//                                                                                            
-//            switch result {
-//            case let .success(moyaResponse):
-//                let json = JSON(data: moyaResponse.data)
-//                if json["errorCode"].int == 0 {
-////                    self.dataArray = json["data"]["callbackLst"].arrayValue
-////                    self.tableView.reloadData()
-//                }
-//                
-//                
-//            case let .failure(error):
-//                print(error)
-//                
-//            }
-//            
-//        }
+
+        apiProvider.request(.saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo(callbackId: intCallbId,
+                                                                                         callbackNo: recallCode.text,
+                                                                                         unitNo: eleCodeTF.text,
+                                                                                         customerName: customerName.text,
+                                                                                         customerTel: customerPhone.text,
+                                                                                         setOffTime: startTime.text,
+                                                                                         arrivalSiteTime: arriveTime.text,
+                                                                                         finishTime: completeTime.text,
+                                                                                         pTrapRelsTime: rescueTime.text,
+                                                                                         arrivalSiteLong: arriveLo.text,
+                                                                                         arrivalSiteLat: arriveLa.text,
+                                                                                         finishSiteLong: completeLo.text,
+                                                                                         finishSiteLat: completeLa.text,
+                                                                                         callbackStatus: .start)))
+        { result in
+                                                                                            
+                                                                                            
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+//                    self.dataArray = json["data"]["callbackLst"].arrayValue
+//                    self.tableView.reloadData()
+                }
+                
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            
+        }
     }
 
 
