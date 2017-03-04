@@ -55,6 +55,7 @@
 "title.helpMenu.privateEscalatorsAndWalkways"                                                           = "扶梯";
 "title.helpMenu.unusually"                                                                              = "不常用";
 "title.WorkingHoursViewController.addType"                                                              = "工时类型选择";
+"title.WorkingHoursViewController.interrupt"                                                            = "工作调整";
 "title.nianjian"                                                                                        = "年检提醒";
 "title.tongbu"                                                                                          = "数据同步";
 "title.gongshi"                                                                                         = "工时";

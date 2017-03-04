@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,11 +18,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="584" height="74"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88e-In-TU5">
-                            <rect key="frame" x="0.0" y="0.0" width="103" height="74"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="0.0" y="0.0" width="102.5" height="74"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgs-vv-KjC" userLabel="全选1">
-                            <rect key="frame" x="103" y="0.0" width="58" height="74"/>
+                            <rect key="frame" x="102.5" y="0.0" width="58" height="74"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="58" id="d0h-x1-zjR"/>
                             </constraints>
@@ -26,10 +30,10 @@
                             <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
                             <state key="normal" title="确定" image="btn_confirm">
-                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled" image="workChangeConfrim">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" title="确认" image="btn_confirm"/>
                             <variation key="default">
@@ -42,8 +46,8 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxQ-Xq-2vR">
-                            <rect key="frame" x="161" y="0.0" width="102" height="74"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="160.5" y="0.0" width="102.5" height="74"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVU-GQ-pwY" userLabel="全选2">
                             <rect key="frame" x="263" y="0.0" width="58" height="74"/>
@@ -53,11 +57,11 @@
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
-                            <state key="normal" title="上一部" image="btn_pre_blue">
-                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="上一页" image="btn_pre_blue">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled" image="btn_pre_gray">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="selected" title="上一页" image="btn_pre"/>
                             <connections>
@@ -65,28 +69,28 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sn6-JA-CxG">
-                            <rect key="frame" x="321" y="0.0" width="103" height="74"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="321" y="0.0" width="102.5" height="74"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmY-yH-YrI" userLabel="全选3">
-                            <rect key="frame" x="424" y="0.0" width="58" height="74"/>
+                            <rect key="frame" x="423.5" y="0.0" width="58" height="74"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <inset key="titleEdgeInsets" minX="-28" minY="38" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="10"/>
-                            <state key="normal" title="下一部" image="btn_next_blue">
-                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="下一页" image="btn_next_blue">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <state key="disabled" image="btn_next_gray">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
-                            <state key="selected" title="下一部" image="btn_next"/>
+                            <state key="selected" title="下一页" image="btn_next"/>
                             <connections>
                                 <action selector="nextAct:" destination="osD-Cr-kSZ" eventType="touchUpInside" id="bVz-Dw-jPx"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-mx-pvB">
-                            <rect key="frame" x="482" y="0.0" width="102" height="74"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="481.5" y="0.0" width="102.5" height="74"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
                     <constraints>
@@ -99,13 +103,13 @@
                 </stackView>
                 <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bi5-Ht-knc">
                     <rect key="frame" x="0.0" y="0.0" width="584" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="EG3-OA-Kxh"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QGU-hf-Whs" firstAttribute="top" secondItem="osD-Cr-kSZ" secondAttribute="top" id="6s0-RF-Fsa"/>
                 <constraint firstAttribute="trailing" secondItem="QGU-hf-Whs" secondAttribute="trailing" id="F41-uh-amM"/>
@@ -132,6 +136,6 @@
         <image name="btn_pre" width="23" height="23"/>
         <image name="btn_pre_blue" width="29" height="29"/>
         <image name="btn_pre_gray" width="29" height="29"/>
-        <image name="workChangeConfrim" width="58" height="58"/>
+        <image name="workChangeConfrim" width="29" height="29"/>
     </resources>
 </document>

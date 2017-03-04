@@ -54,6 +54,7 @@
 "title.helpMenu.privateEscalatorsAndWalkways"                                                           = "扶梯";
 "title.helpMenu.unusually"                                                                              = "不常用";
 "title.WorkingHoursViewController.addType"                                                              = "工时类型选择";
+"title.WorkingHoursViewController.interrupt"                                                            = "工作调整";
 "title.nianjian"                                                                                        = "年检提醒";
 "title.tongbu"                                                                                          = "数据同步";
 "title.gongshi"                                                                                         = "工时";
@@ -316,6 +317,6 @@
 "dialog.content.One time batch sign up to 20 sets of elevators"="一次性批量签字最多20台电梯。";
 "dialog.content.More than 100 of the text can not be saved"="具体说明超过100文字不能保存。";
 "dialog.content.Whether to return to the elevator list screen, fill in the problem description will not be saved?"="是否返回电梯清单画面,填写的问题说明将不保存）？";
-"dialog.content.Last one"="上一部";
+"dialog.content.Last one"="上一页";
 "dialog.content.Whether to return to the elevator information screen, fill in the signature information will not be saved?"="是否返回电梯信息画面,填写的签字信息将不保存）？";
 
