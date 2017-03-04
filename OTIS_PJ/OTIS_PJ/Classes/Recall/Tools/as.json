@@ -1,0 +1,20 @@
+
+{
+"errorCode": 0,
+"message": "操作成功！",
+"data": {
+    "customerName": 1,
+    "callbackNo": "0A",
+    "customerTel": "断路开关（空气开关）Broken Circuit Switch",
+    "customerName": "",
+    "unitNo": "断路开关（空气开关）",
+    "setOffTime": "1A"
+    "arrivalSiteTime": "1A"
+    "arrivalSiteLong": "1A"
+    "arrivalSiteLat": "1A"
+    "finishTime": "1A"
+    "finishSiteLong": "1A"
+    "finishSiteLat": "1A"
+    }
+
+}
