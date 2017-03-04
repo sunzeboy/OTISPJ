@@ -8,9 +8,12 @@
 
 import UIKit
 import RealmSwift
+import SwiftyJSON
 
 class SZRecallInputViewController: UIViewController {
     
+    var intCallbId: Int = 0
+
     /// 父控件View
     @IBOutlet weak var contentView: UIScrollView!
     
@@ -77,11 +80,33 @@ class SZRecallInputViewController: UIViewController {
     /// 处理结果
     @IBOutlet weak var treatmentResultTV: UITextView!
     
+    override func viewWillAppear(_ animated: Bool) {
+//        requestData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpcontentView()
+        
+        apiProvider.request(.closeCallBack(callbackId: intCallbId, isComplete: 1, shutdownReason: "停梯", closeTime: "")) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    print(json)
+                }
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+
+        }
+        
+        
+//        apiProvider.request(.cancelc , completion: <#T##Completion##Completion##(Result<Response, MoyaError>) -> Void#>)
+        
         
         
     }
@@ -135,6 +160,50 @@ class SZRecallInputViewController: UIViewController {
         fangRenTF.inputView = datePicker
         
     }
+    
+    
+    func requestData() {
+        apiProvider.request(.getCallBackDetailInfo(intCallbId : intCallbId)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    
+                    self.updateDataOnView(json: json["data"])
+                    
+                }
+                
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            
+        }
+    }
+    
+    
+    func updateDataOnView(json: JSON) {
+        recallCode.text = json["callbackNo"].string
+        customerName.text = json["customerName"].string
+        customerPhone.text = json["customerTel"].string
+        startTime.text = json["setOffTime"].string
+        eleCodeTF.text = json["unitNo"].string
+        arriveTime.text = json["arrivalSiteTime"].string
+        arriveLo.text = json["arrivalSiteLong"].string
+        arriveLa.text = json["arrivalSiteLat"].string
+        completeTime.text = json["finishTime"].string
+        completeLo.text = json["finishSiteLong"].string
+        completeLa.text = json["finishSiteLat"].string
+        treatmentResultTV.text = json["results"].string
+        
+        let realm = try! Realm()
+        let areas: [String] = realm.objects(ComponentArea.self).filter("areaID = \(json["areaId"].int)").map{ return $0.areaNameZh}
+        componentArea.contentTextField.text = areas.last
+        
+        
+    }
+    
 }
 
 

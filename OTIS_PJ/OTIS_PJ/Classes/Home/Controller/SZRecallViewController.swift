@@ -21,6 +21,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        downloadDatas()
+        
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         title = "召修"

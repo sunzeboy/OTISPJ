@@ -52,11 +52,21 @@ struct AreaItem: Mapable {
 
 
 
-public enum CallbackStatus: Int {
-    case new = 1
+//public enum CallbackStatus: Int {
+//    case new = 0
+//    case start
+//    case arrive
+//    case complete
+//}
+
+enum CallbackStatus: Int {
+    case new = 0
     case start
     case arrive
     case complete
+    case save
+    case next
+    case cancel
 }
 
 struct CallbackProcessInfo {
@@ -90,7 +100,7 @@ struct CallbackProcessInfo {
     /// <summary>召修状态</summary>
     var  callbackStatus:CallbackStatus
     
-    func keyValues() -> [String: Any]? {
+    func keyValues() -> [String: Any] {
         return [
             "callbackId":callbackId ?? 0,
             "callbackNo":callbackNo ?? "",

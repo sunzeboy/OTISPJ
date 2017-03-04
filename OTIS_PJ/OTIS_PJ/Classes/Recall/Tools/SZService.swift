@@ -91,15 +91,24 @@ enum SZService {
     case saveCallBackStatus(callbackProcessInfo: CallbackProcessInfo)
     //获取召修详细信息
     case getCallBackDetailInfo(intCallbId: Int)
-    //更新召修状态
-//    case saveCallBackDetail(callbackProcessInfo: CallbackProcessInfo)
-
+    //保存召修详细信息
+    case saveCallBackDetail(callbackProcessInfo: CallbackProcessInfo)
+    //关闭或者完成召修单
+    case closeCallBack(callbackId: Int ,isComplete: Int,shutdownReason: String,closeTime: String)
+    //取消召修单
+    case cancelCallBack(callbackId: Int ,currentStatus: Int,cancelReason: String,cancelTime: String)
+    //召修单停梯处理
+    case stopEveCallBack(callbackId: Int, isStop: Int)
+    //接单
+    case acceptOrder(intCallbId: Int)
+    //查看上次召修信息
+    case getLastCallBackInfo(intCallbId: Int)
 }
 
 extension SZService: TargetType {
 
-//    var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
-    var baseURL: URL { return URL(string: "http://192.168.30.61:8081/")! }
+    var baseURL: URL { return URL(string: "http://192.168.30.61/LBS_Mobile2/")! }
+//    var baseURL: URL { return URL(string: "http://192.168.30.61:8081/")! }
 
     var path: String {
         
@@ -131,7 +140,25 @@ extension SZService: TargetType {
         case .getCallBackDetailInfo:
             return "CallBack/GetCallBackDetailInfo"
             
+        case .saveCallBackDetail:
+            return "CallBack/SaveCallBackDetail"
+   
+        case .closeCallBack:
+            return "CallBack/CloseCallBack"
             
+        case .cancelCallBack:
+            return "CallBack/CancelCallBack"
+
+        case .stopEveCallBack:
+            return "CallBack/StopEveCallBack"
+            
+        case .acceptOrder:
+            return "CallBack/AcceptOrder"
+            
+        case .getLastCallBackInfo:
+            return "CallBack/GetLastCallBackInfo"
+        
+
         }
     }
     
@@ -163,12 +190,43 @@ extension SZService: TargetType {
             ]
         case .getCallbackProcess(intCallbId : let intCallbId ):
             return ["intCallbId":intCallbId]
+            
         case .saveCallBackStatus(callbackProcessInfo: let callbackProcessInfo):
             print(["strHttpReq":callbackProcessInfo.keyValues()])
             return ["strHttpReq":callbackProcessInfo.keyValues()]
+            
         case .getCallBackDetailInfo(intCallbId : let intCallbId ):
             return ["intCallbId":intCallbId]
             
+        case .saveCallBackDetail(callbackProcessInfo: let callbackProcessInfo):
+            print(["strHttpReq":callbackProcessInfo.keyValues()])
+            return ["strHttpReq":callbackProcessInfo.keyValues()]
+            
+        case .closeCallBack(callbackId: let callbackId, isComplete: let isComplete, shutdownReason: let shutdownReason, closeTime: let closeTime):
+            return [
+                    "strHttpReq":["callbackId":callbackId,
+                                  "isComplete":isComplete,
+                                  "shutdownReason":shutdownReason,
+                                  "closeTime":closeTime]
+                    ]
+        case .cancelCallBack(callbackId: let callbackId, currentStatus: let currentStatus, cancelReason: let cancelReason, cancelTime: let cancelTime):
+            return [
+                "strHttpReq":["callbackId":callbackId,
+                              "currentStatus":currentStatus,
+                              "cancelReason":cancelReason,
+                              "cancelTime":cancelTime]
+                    ]
+        case .stopEveCallBack(callbackId: let callbackId, isStop: let isStop):
+            return [
+                "strHttpReq":["callbackId":callbackId,
+                              "isStop":isStop]
+            ]
+  
+        case .acceptOrder(intCallbId : let intCallbId ):
+            return ["intCallbId":intCallbId]
+            
+        case .getLastCallBackInfo(intCallbId : let intCallbId ):
+            return ["intCallbId":intCallbId]
             
         }
     }

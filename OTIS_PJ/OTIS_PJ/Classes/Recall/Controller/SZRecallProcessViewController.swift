@@ -13,7 +13,72 @@ import SwiftyJSON
 
 
 
+
 class SZRecallProcessViewController: UIViewController,BottomOperationable {
+    
+    //当前界面的状态
+//    var state: ProcessState = .initialized
+    var state: CallbackStatus = .new {
+        
+        willSet {
+            
+        }
+        didSet {
+            
+            switch state {
+                
+                case .new:
+//                    let arr = bottomView.btns.filter({ (btn) -> Bool in
+//                        return btn.currentTitle != "出发" && btn.currentTitle != "取消"
+//                    })
+//                    arr.forEach {
+//                        $0.isEnabled = false
+//                    }
+                    bottomView.btns.forEach{ (btn) in
+                        if btn.currentTitle == "出发" || btn.currentTitle == "取消" {
+                            btn.isEnabled = true
+                        }else {
+                            btn.isEnabled = false
+                        }
+                    }
+                case .start:
+                    bottomView.btns.forEach{ (btn) in
+                        if btn.currentTitle == "出发" || btn.currentTitle == "完成扫描" || btn.currentTitle == "下一步" {
+                            btn.isEnabled = false
+                        }else {
+                            btn.isEnabled = true
+                        }
+                    }
+                case .arrive:
+                    bottomView.btns.forEach{ (btn) in
+                        if btn.currentTitle == "到达" || btn.currentTitle == "取消" || btn.currentTitle == "下一步" {
+                            btn.isEnabled = false
+                        }else {
+                            btn.isEnabled = true
+                        }
+                    }
+                
+                case .complete:
+                    bottomView.btns.forEach{ (btn) in
+                        if btn.currentTitle == "完成" || btn.currentTitle == "取消" {
+                            btn.isEnabled = false
+                        }else {
+                            btn.isEnabled = true
+                        }
+                }
+
+                
+                case .save: break
+                
+                case .next: break
+                
+                case .cancel: break
+
+                default: break
+                    
+            }
+        }
+    }
     
     var intCallbId: Int = 0
     
@@ -72,24 +137,30 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "召修过程"
+        state = .new
         
         let datePicker = KMDatePicker(frame: CGRect(x: 0, y: 0, width: k_screenW, height: 216.0), delegate: self, datePickerStyle: .yearMonthDayHourMinute)
         rescueTime.inputView = datePicker
         
         bottomView.actBlock = { (button:UIButton) -> Void in
+            
             if button.title(for: .normal)=="下一步" {
-                
+                let vc = SZRecallInputViewController()
+                vc.intCallbId = self.intCallbId
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             }else if button.title(for: .normal)=="完成扫描" {
+                self.state = .complete
                 self.postCallBackStatus()
 
             
             }else if button.title(for: .normal)=="到达扫描" {
+                self.state = .arrive
                 self.postCallBackStatus()
 
                 
             }else if button.title(for: .normal)=="出发" {
-                
+                self.state = .start
                 self.postCallBackStatus()
             
             }else if button.title(for: .normal)=="放人" {
@@ -160,7 +231,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                                                                                          arrivalSiteLat: arriveLa.text,
                                                                                          finishSiteLong: completeLo.text,
                                                                                          finishSiteLat: completeLa.text,
-                                                                                         callbackStatus: .start)))
+                                                                                         callbackStatus: state)))
         { result in
                                                                                             
                                                                                             
@@ -168,8 +239,8 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
-//                    self.dataArray = json["data"]["callbackLst"].arrayValue
-//                    self.tableView.reloadData()
+
+                    self.updateDataOnView(json: json["data"])
                 }
                 
                 

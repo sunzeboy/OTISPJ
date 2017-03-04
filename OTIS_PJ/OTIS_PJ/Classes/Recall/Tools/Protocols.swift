@@ -105,6 +105,19 @@ class BottomView: UIView {
     
     var actBlock: actClosure?
     
+//    var btns:[UIButton] = <#value#>
+
+    var btns: [UIButton] {
+        
+        var array = [UIButton]()
+        
+        for subview in subviews {
+            if subview is UIButton {
+                array.append(subview as! UIButton)
+            }
+        }
+        return array
+    }
     
     init(_ btns:[BtnModel],target:UIViewController,frame:CGRect) {
         super.init(frame: frame)
