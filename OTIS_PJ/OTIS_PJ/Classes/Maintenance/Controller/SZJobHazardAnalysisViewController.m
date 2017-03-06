@@ -309,15 +309,20 @@
     vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
         
         if ([item.UNIT_NO isEqualToString:self.item.UnitNo]) {//如果找到了二维码
+            
+            SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
             NSInteger yymmdd =  [NSDate currentYYMMDD];
             
             NSString *strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
             
             if (![[NSUserDefaults standardUserDefaults] objectForKey:strKey]) {
                 [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                vc.isChange = YES;
+            }else{
+                
+                vc.isChange = NO;
             }
             
-            SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
             vc.inputMode = self.inputMode;
             if (self.inputMode== 1 || self.inputMode== 2) { // 只要是工时进入，将状态传入工时页面;为2的情况，进入状态更新
                 [SZTable_Schedules updateAddLaborHoursState:1 andScheduleID:self.item.ScheduleID];

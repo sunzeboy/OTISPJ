@@ -360,7 +360,8 @@
         NSInteger yymmdd =  [NSDate currentYYMMDD];
         NSString *strKeyWeiBao = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
         NSString *strKeyZhongduan = [NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo];
-        
+        NSString *strKeyJHA = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
+
         NSInteger all = 0;
         NSInteger  competed=0;
         all= [SZModuleQueryTool queryAllMaintenanceWithUnitDetialItem:self.item];
@@ -381,7 +382,7 @@
             return;
         }
         
-        if (all != competed&&isShowDlg == NO) {//维保未完成
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:strKeyJHA]&&all != competed&&isShowDlg == NO) {//维保未完成
             CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                             dialogTitle:SZLocal(@"dialog.title.tip")
                                                                                          dialogContents:@"维保未完成,必须完成维保才能自动计算工时！"

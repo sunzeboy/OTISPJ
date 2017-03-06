@@ -70,7 +70,6 @@
 
 @property (nonatomic , strong)  SZBottomSaveOperationView *operationView;
 
-
 @end
 
 @implementation SZInputWorkingHourViewController
@@ -302,6 +301,7 @@
 
 
     }else{
+        
         NSInteger yymmdd =  [NSDate currentYYMMDD];
         
         NSString *startKey = [NSString stringWithFormat:@"%ld_%@START",yymmdd,self.item.UnitNo];
@@ -348,6 +348,10 @@
             
         }
         
+        if (self.isChange == NO) {
+            lutuhours = lutuTime.floatValue;
+        }
+        
         SZLabor *labor = self.types[0];
         labor.item1.Hour1Rate = gongshihours ;
         labor.item1.LaborTypeId = 1;
@@ -371,7 +375,10 @@
                     [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@zhongduanTime",yymmdd,weakSelf.item.UnitNo]];
                     [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:[NSString stringWithFormat:@"%ld_%@lutuTime",yymmdd,weakSelf.item.UnitNo]];
                 }
+//                [[NSUserDefaults standardUserDefaults] setObject:end forKey:@"ENDTIME"]
+//                [[NSUserDefaults standardUserDefaults] setObject:end forKey:@"ENDTIME"]
                 [[NSUserDefaults standardUserDefaults] setObject:end forKey:@"ENDTIME"];
+                
                 
                 
             }

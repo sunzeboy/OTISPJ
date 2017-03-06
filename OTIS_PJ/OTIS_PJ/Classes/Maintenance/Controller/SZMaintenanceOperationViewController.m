@@ -552,22 +552,25 @@
         
         if ([item.UNIT_NO isEqualToString:self.item.UnitNo]) {//如果找到了二维码
             
-            NSInteger yymmdd =  [NSDate currentYYMMDD];
-            NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
-            NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:strKey];
-            if (!num) {
-                long time = [NSDate sinceDistantPastTime];
-                [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];
-                
-            }
-            NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
-            if (numTime&&numTime.integerValue>3&&![[[NSUserDefaults standardUserDefaults] objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
-                [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
-            }
+            
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
+                NSInteger yymmdd =  [NSDate currentYYMMDD];
+                NSString *strKey = [NSString stringWithFormat:@"%ld_%@END",yymmdd,self.item.UnitNo];
+                NSNumber *num = [[NSUserDefaults standardUserDefaults] objectForKey:strKey];
+                if (!num) {
+                    long time = [NSDate sinceDistantPastTime];
+                    [[NSUserDefaults standardUserDefaults] setObject:@(time) forKey:strKey];
+                    vc.isChange = YES;
+                }else{
+                    vc.isChange = NO;
+                }
+                NSNumber *numTime = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%ld_%@zhongduan",yymmdd,self.item.UnitNo]];
+                if (numTime&&numTime.integerValue>3&&![[[NSUserDefaults standardUserDefaults] objectForKey:@"BACKACT"] isEqualToString:@"YES"]) {
+                    [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                }
                 vc.scheduleID = (int)self.item.ScheduleID;
                 //vc.isWorkhour=YES;
                 vc.item = self.item;

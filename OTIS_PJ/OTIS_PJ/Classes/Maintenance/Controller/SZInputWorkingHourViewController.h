@@ -39,5 +39,7 @@
 @property (nonatomic , assign) int  inputMode;
 //
 @property (nonatomic , assign) BOOL feizaibao;
+//endtime是否需要更改
+@property (nonatomic , assign) BOOL isChange;
 
 @end
