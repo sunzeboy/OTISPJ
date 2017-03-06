@@ -39,7 +39,7 @@
     [self.view addSubview:titleLabel];
     
     UILabel* phoneLabel=[[UILabel alloc] init];
-    phoneLabel.attributedText = [self setString:@"姓名1: 15618253221"];
+    phoneLabel.attributedText = [self setString:@"杨   柯: 18516290280"];
     phoneLabel.textAlignment=NSTextAlignmentCenter;
     phoneLabel.userInteractionEnabled = YES;
     [self.view addSubview:phoneLabel];
@@ -49,7 +49,8 @@
     UILabel* phoneLabel1=[[UILabel alloc] init];
     phoneLabel1.textColor=[UIColor blackColor];
     phoneLabel1.textAlignment=NSTextAlignmentCenter;
-    phoneLabel1.attributedText = [self setString:@"姓名2: 15618253221"];
+    
+    phoneLabel1.attributedText = [self setString:@"童倞昱: 18918735200"];
     phoneLabel1.userInteractionEnabled = YES;
     [phoneLabel1 sizeToFit];
     phoneLabel1.numberOfLines=0;
@@ -59,7 +60,7 @@
     
     UILabel* phoneLabel2=[[UILabel alloc] init];
     phoneLabel2.textAlignment=NSTextAlignmentCenter;
-    phoneLabel2.attributedText = [self setString:@"姓名3: 15618253221"];
+    phoneLabel2.attributedText = [self setString:@"陈仁祥: 13636348928"];
     phoneLabel2.userInteractionEnabled = YES;
     [phoneLabel2 sizeToFit];
     phoneLabel2.numberOfLines=0;
@@ -69,7 +70,7 @@
     
     UILabel* phoneLabel3=[[UILabel alloc] init];
     phoneLabel3.textAlignment=NSTextAlignmentCenter;
-    phoneLabel3.attributedText = [self setString:@"姓名4: 15618253221"];
+    phoneLabel3.attributedText = [self setString:@"黄文博: 13816777530"];
     phoneLabel3.userInteractionEnabled = YES;
     [phoneLabel3 sizeToFit];
     phoneLabel3.numberOfLines=0;
@@ -128,7 +129,7 @@
     
     [versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).with.offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-30);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-20);
         make.size.mas_equalTo(CGSizeMake(200, 20));
     }];
 }
@@ -136,14 +137,19 @@
 -(void)tapClick3:(UITapGestureRecognizer*)ges{
     UILabel* label = (UILabel*)ges.view;
     NSString* phone = [label.text substringWithRange:NSMakeRange(label.text.length-11, 11)];
-    NSLog(@"---------------------%@",phone);
+    
+    UIWebView * callWebview = [[UIWebView alloc]init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phone]]]];
+    [[UIApplication sharedApplication].keyWindow addSubview:callWebview];
+//    NSString *str=[[NSMutableString alloc] initWithFormat:@"tel:%@",phone];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
 
 -(NSMutableAttributedString*)setString:(NSString*)phone{
     NSDictionary* dic2=@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:MDColor(19, 65, 131, 1.0)};
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString: phone];
-    [attributedStr addAttributes:dic2 range: NSMakeRange(4, attributedStr.length-4)];
+    [attributedStr addAttributes:dic2 range: NSMakeRange(attributedStr.length-11, 11)];
     return attributedStr;
 }
 
