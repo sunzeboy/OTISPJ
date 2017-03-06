@@ -256,6 +256,10 @@
 		6836EBAE1E6357B400F20C7B /* subs.json in Resources */ = {isa = PBXBuildFile; fileRef = 6836EBA91E6357B400F20C7B /* subs.json */; };
 		68383B6C1D12A6E200323D04 /* SZWorkingHoursBigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68383B6B1D12A6E200323D04 /* SZWorkingHoursBigCell.m */; };
 		683C03981E6D29CC00FDA5CD /* ABAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C03971E6D29CC00FDA5CD /* ABAlertView.swift */; };
+		683C039D1E6D2AE800FDA5CD /* as.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C03991E6D2AE800FDA5CD /* as.json */; };
+		683C039E1E6D2AE800FDA5CD /* doc.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039A1E6D2AE800FDA5CD /* doc.json */; };
+		683C039F1E6D2AE800FDA5CD /* getCallBackList.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039B1E6D2AE800FDA5CD /* getCallBackList.json */; };
+		683C03A01E6D2AE800FDA5CD /* saveCallBackStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039C1E6D2AE800FDA5CD /* saveCallBackStatus.json */; };
 		684A15CF1D7E5620002ED4D5 /* SZVersionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */; };
 		684A15D01D7FB018002ED4D5 /* SZSignatureBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A15D21D7FB018002ED4D5 /* SZSignatureBoardViewController.xib */; };
 		684A15E01D7FB2D6002ED4D5 /* SZSignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A15E21D7FB2D6002ED4D5 /* SZSignTableViewCell.xib */; };
@@ -874,6 +878,10 @@
 		68383B6A1D12A6E200323D04 /* SZWorkingHoursBigCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZWorkingHoursBigCell.h; sourceTree = "<group>"; };
 		68383B6B1D12A6E200323D04 /* SZWorkingHoursBigCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZWorkingHoursBigCell.m; sourceTree = "<group>"; };
 		683C03971E6D29CC00FDA5CD /* ABAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABAlertView.swift; sourceTree = "<group>"; };
+		683C03991E6D2AE800FDA5CD /* as.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = as.json; sourceTree = "<group>"; };
+		683C039A1E6D2AE800FDA5CD /* doc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doc.json; sourceTree = "<group>"; };
+		683C039B1E6D2AE800FDA5CD /* getCallBackList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCallBackList.json; sourceTree = "<group>"; };
+		683C039C1E6D2AE800FDA5CD /* saveCallBackStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = saveCallBackStatus.json; sourceTree = "<group>"; };
 		684A15CD1D7E5620002ED4D5 /* SZVersionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZVersionListViewController.h; sourceTree = "<group>"; };
 		684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZVersionListViewController.m; sourceTree = "<group>"; };
 		684A15D91D7FB2A5002ED4D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZSignatureBoardViewController.xib; sourceTree = "<group>"; };
@@ -2260,6 +2268,10 @@
 		688634841E5C0BDB0015BAF2 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				683C03991E6D2AE800FDA5CD /* as.json */,
+				683C039A1E6D2AE800FDA5CD /* doc.json */,
+				683C039B1E6D2AE800FDA5CD /* getCallBackList.json */,
+				683C039C1E6D2AE800FDA5CD /* saveCallBackStatus.json */,
 				6836EBA51E6357B400F20C7B /* areas.json */,
 				6836EBA61E6357B400F20C7B /* categories.json */,
 				6836EBA71E6357B400F20C7B /* defects.json */,
@@ -2684,6 +2696,7 @@
 				684A166C1D7FB3CD002ED4D5 /* SZSignOutView.xib in Resources */,
 				684A163B1D7FB389002ED4D5 /* SZAnnualInspectionTableViewCell.xib in Resources */,
 				6836EBAC1E6357B400F20C7B /* defects.json in Resources */,
+				683C039F1E6D2AE800FDA5CD /* getCallBackList.json in Resources */,
 				684A162D1D7FB36B002ED4D5 /* SZCheckLookTableViewDetialCell.xib in Resources */,
 				1AD9F3D01CE03BF500B532B1 /* workingHours.plist in Resources */,
 				684A15EE1D7FB2F9002ED4D5 /* SZCustomerSignDetailView.xib in Resources */,
@@ -2697,10 +2710,12 @@
 				684A16501D7FB3A8002ED4D5 /* SZRegardingViewController.xib in Resources */,
 				684A161F1D7FB359002ED4D5 /* SZCheckLookTableViewCell.xib in Resources */,
 				8A66E7DA1D5AF14200924501 /* SZMaintainDetailViewController.xib in Resources */,
+				683C039D1E6D2AE800FDA5CD /* as.json in Resources */,
 				6806286E1CC77C0C002B5201 /* LaunchScreen.storyboard in Resources */,
 				1A1DB9D31CD1E6E000393DFB /* nonProductive.plist in Resources */,
 				8A66E7FD1D5B122700924501 /* SZWorkingHoursSmallCell.xib in Resources */,
 				8A66E7F61D5B10E000924501 /* SZWorkingHoursBigCell.xib in Resources */,
+				683C03A01E6D2AE800FDA5CD /* saveCallBackStatus.json in Resources */,
 				6886349B1E5C223E0015BAF2 /* SZRecallProcessViewController.xib in Resources */,
 				68018EDB1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib in Resources */,
 				684A16421D7FB392002ED4D5 /* SZAnnualInspectionDetailView.xib in Resources */,
@@ -2715,6 +2730,7 @@
 				68CB02BF1D5ABFF400D19F69 /* SZWorkAdjustmentController.xib in Resources */,
 				1A7A4BBC1CDB6DD700968A9E /* SZMaintenanceOperationTableViewCell.xib in Resources */,
 				41EB6B0E1CE3073F000F36FA /* SZElevatorRepairTableViewCell.xib in Resources */,
+				683C039E1E6D2AE800FDA5CD /* doc.json in Resources */,
 				684A167A1D7FB3FB002ED4D5 /* SZSignBottomOperationView.xib in Resources */,
 				684A160A1D7FB33C002ED4D5 /* SZPuiWorkHoursTableViewCell.xib in Resources */,
 				8A66E8041D5B128A00924501 /* SZWorkingHoursPUIllCell.xib in Resources */,
