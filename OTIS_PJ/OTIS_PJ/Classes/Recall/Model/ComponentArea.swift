@@ -16,6 +16,16 @@ public protocol Storageable {
    static func storage(jsonData:JSON)
 }
 
+
+enum RecallModel {
+    case recallCategory(item: RecallCategory)
+    case componentArea(item: ComponentArea)
+    case mainComponent(item: MainComponent)
+    case subComponent(item: SubComponent)
+    case defect(item: Defect)
+}
+
+
 class RecallCategory: Object,Storageable {
     dynamic var categoryId = 0
     dynamic var categoryName = ""

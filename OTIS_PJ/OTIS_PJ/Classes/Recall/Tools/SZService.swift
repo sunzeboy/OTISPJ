@@ -70,8 +70,8 @@ let myStubClosure = { (target: SZService) -> Moya.StubBehavior in
 }
 
 
-//let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
-let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
+let apiProvider = MoyaProvider<SZService>(endpointClosure: endpointClosure,plugins:[networkPlugin1])
+//let apiProvider = MoyaProvider<SZService>(stubClosure: myStubClosure,plugins: [networkPlugin1])
 
 
 enum SZService {
@@ -106,19 +106,16 @@ enum SZService {
     case getCallBackDetailInfo(intCallbId: Int)
     //保存召修详细信息
     case saveCallBackDetail(callbackId: Int,
-                            callbackNo: String,
-                            unitNo: String,
-                            customerName: String,
-                            customerTel: String,
-                            setOffTime: String,
-                            arrivalSiteTime: String,
-                            finishTime: String,
+                            categoryId: Int ,
+                            areaId: Int,
+                            mainCode: String,
+                            subCode: String,
+                            defectCode: String,
                             pTrapRelsTime: String,
-                            arrivalSiteLong: String,
-                            arrivalSiteLat: String,
-                            finishSiteLong: String,
-                            finishSiteLat: String,
-                            callbackStatus: CallbackStatus)
+                            pTrapInfo: String,
+                            faultCause: String,
+                            faultPhenomenon: String,
+                            results: String)
     //关闭或者完成召修单
     case closeCallBack(callbackId: Int ,isComplete: Int,shutdownReason: String,closeTime: String)
     //取消召修单
@@ -251,35 +248,30 @@ extension SZService: TargetType {
             return ["intCallbId":intCallbId]
             
         case .saveCallBackDetail(callbackId: let callbackId,
-                                 callbackNo: let callbackNo,
-                                 unitNo: let unitNo,
-                                 customerName: let customerName,
-                                 customerTel: let customerTel,
-                                 setOffTime: let setOffTime,
-                                 arrivalSiteTime: let arrivalSiteTime,
-                                 finishTime: let finishTime,
+                                 categoryId: let categoryId ,
+                                 areaId: let areaId,
+                                 mainCode: let mainCode,
+                                 subCode: let subCode,
+                                 defectCode: let defectCode,
                                  pTrapRelsTime: let pTrapRelsTime,
-                                 arrivalSiteLong: let arrivalSiteLong,
-                                 arrivalSiteLat: let arrivalSiteLat,
-                                 finishSiteLong: let finishSiteLong,
-                                 finishSiteLat: let finishSiteLat,
-                                 callbackStatus: let callbackStatus):
+                                 pTrapInfo: let pTrapInfo,
+                                 faultCause: let faultCause,
+                                 faultPhenomenon: let faultPhenomenon,
+                                 results: let results):
             
             return [
                 "strHttpReq":[
                     "callbackId":callbackId ,
-                    "callbackNo":callbackNo ,
-                    "unitNo":unitNo ,
-                    "customerName":customerName ,
-                    "customerTel":customerTel ,
-                    "setOffTime":setOffTime ,
-                    "arrivalSiteTime":arrivalSiteTime ,
+                    "categoryId":categoryId ,
+                    "areaId":areaId ,
+                    "mainCode":mainCode ,
+                    "subCode":subCode ,
+                    "defectCode":defectCode ,
                     "pTrapRelsTime":pTrapRelsTime ,
-                    "arrivalSiteLong":arrivalSiteLong ,
-                    "arrivalSiteLat":arrivalSiteLat ,
-                    "finishSiteLong":finishSiteLong ,
-                    "finishSiteLat":finishSiteLat ,
-                    "callbackStatus":callbackStatus.rawValue
+                    "pTrapInfo":pTrapInfo ,
+                    "faultCause":faultCause ,
+                    "faultPhenomenon":faultPhenomenon ,
+                    "results":results
                     ]]
             
         case .closeCallBack(callbackId: let callbackId, isComplete: let isComplete, shutdownReason: let shutdownReason, closeTime: let closeTime):

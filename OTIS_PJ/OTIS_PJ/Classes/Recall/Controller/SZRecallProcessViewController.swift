@@ -53,7 +53,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 
                 case .complete:
                     bottomView.btns.forEach{ (btn) in
-                        if btn.currentTitle == "完成扫描" || btn.currentTitle == "取消" || btn.currentTitle == "出发" || btn.currentTitle == "到达扫描" {
+                        if btn.currentTitle == "完成扫描" || btn.currentTitle == "取消" || btn.currentTitle == "出发" || btn.currentTitle == "到达扫描" || btn.currentTitle == "放人"  {
                             btn.isEnabled = false
                         }else {
                             btn.isEnabled = true
@@ -67,7 +67,6 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 
                 case .cancel: break
 
-                default: break
                     
             }
         }
@@ -121,7 +120,8 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
     
     @IBOutlet weak var rescueTime: UITextField!
     
-    
+    var alertView: ABAlertView?
+
     override func viewWillAppear(_ animated: Bool) {
         
         requestData()
@@ -168,12 +168,38 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 
             }else if button.title(for: .normal)=="取消" {
                 
+               self.cancleAlert()
                 
             }
             
 //            self.navigationController?.popViewController(animated: true)
         }
 
+        
+    }
+    
+    func cancleAlert() {
+        self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
+        let contentView = CancleAlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = true
+        self.alertView?.contentView = contentView
+        self.alertView?.show()
+        contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
+        contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
+    }
+    
+    func cancleClick(button: UIButton) {
+        alertView?.hidenAnimation()
+        
+        let cancelView: CancleAlertView = alertView?.contentView as! CancleAlertView
+        apiProvider.request(.cancelCallBack(callbackId: intCallbId ,currentStatus: 4,cancelReason: cancelView.reasonTextView.text ,cancelTime: "")) { result in
+            
+        }
+    }
+    
+    func confirmClick(button: UIButton) {
+        alertView?.hidenAnimation()
         
     }
     

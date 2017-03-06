@@ -13,7 +13,6 @@ import IQKeyboardManagerSwift
 
 class SZRecallViewController: SZPageViewController,BottomOperationable {
 
-    var alertView: ABAlertView?
 
     var btns: [BtnModel] {
         
@@ -30,14 +29,6 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         title = "召修"
         bottomView.actBlock = { (button:UIButton) -> Void in
-//            self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
-//            let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 220))//220
-//            contentView.layer.cornerRadius = 5
-//            contentView.layer.masksToBounds = true
-//            self.alertView?.contentView = contentView
-//            self.alertView?.show()
-//            contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
-//            contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
             self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
         }
                 
@@ -60,6 +51,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
     
     func downloadDatas() {
         
+        if Defaults[.categoriesVer] == 0 {
+            Defaults[.categoriesVer] = -1
+        }
         apiProvider.request(.categories(dtVer: Defaults[.categoriesVer])) { result in
             switch result {
             case let .success(moyaResponse):
@@ -84,7 +78,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         
         
         
-        
+        if Defaults[.areasVer] == 0 {
+            Defaults[.areasVer] = -1
+        }
         apiProvider.request(.areas(dtVer: Defaults[.areasVer])) { result in
             switch result {
             case let .success(moyaResponse):
@@ -93,7 +89,7 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
                     let data = json["data"]["areasLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
+                    if ver.intValue != Defaults[.areasVer]  {
                         ComponentArea.storage(jsonData: data)
                         Defaults[.areasVer] = ver.intValue
                     }
@@ -109,7 +105,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         
         
         
-        
+        if Defaults[.mainsVer] == 0 {
+            Defaults[.mainsVer] = -1
+        }
         apiProvider.request(.mains(dtVer:  Defaults[.mainsVer])) { result in
             switch result {
             case let .success(moyaResponse):
@@ -118,7 +116,7 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
                     let data = json["data"]["mainsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
+                    if ver.intValue != Defaults[.mainsVer]  {
                         MainComponent.storage(jsonData: data)
                         Defaults[.mainsVer] = ver.intValue
                     }
@@ -132,7 +130,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
             
         }
         
-        
+        if Defaults[.subsVer] == 0 {
+            Defaults[.subsVer] = -1
+        }
         apiProvider.request(.subs(dtVer: Defaults[.subsVer])) { result in
             switch result {
             case let .success(moyaResponse):
@@ -141,7 +141,7 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["version"]
                     let data = json["data"]["subsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
+                    if ver.intValue != Defaults[.subsVer]  {
                         SubComponent.storage(jsonData: data)
                         Defaults[.subsVer] = ver.intValue
                     }
@@ -156,7 +156,9 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         }
         
         
-        
+        if Defaults[.defectsVer] == 0 {
+            Defaults[.defectsVer] = -1
+        }
         apiProvider.request(.defects(dtVer: Defaults[.defectsVer])) { result in
             switch result {
             case let .success(moyaResponse):
@@ -165,7 +167,7 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     let ver = json["data"]["ver"]
                     let data = json["data"]["defectsLst"]
-                    if ver.intValue != Defaults[.categoriesVer]  {
+                    if ver.intValue != Defaults[.defectsVer]  {
                         Defect.storage(jsonData: data)
                         Defaults[.defectsVer] = ver.intValue
                     }

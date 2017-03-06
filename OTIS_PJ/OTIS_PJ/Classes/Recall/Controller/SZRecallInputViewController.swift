@@ -89,7 +89,7 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
 //    var cancelAlertView: CancleAlertView?
     
     override func viewWillAppear(_ animated: Bool) {
-//        requestData()
+        requestData()
     }
     
     override func viewDidLoad() {
@@ -140,7 +140,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     func confirmClick(button: UIButton) {
         alertView?.hidenAnimation()
         
-    }    
+    }
+    
     func setUpcontentView() {
         
         recallCategory.placeholder = "请选择召修分类"
@@ -210,6 +211,50 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         }
     }
     
+    func save() {
+        let realm = try! Realm()
+        let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(recallCategory.contentTextField.text)'").map({ return $0.categoryId })
+        
+        let categoryId = ids[0]
+        
+        let ids2 = realm.objects(ComponentArea.self).filter("areaNameZh = '\(componentArea.contentTextField.text)'").map({ return $0.areaID })
+        let areaID = ids2[0]
+        
+        let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainComponent.contentTextField.text)'").map({ return $0.mainCode })
+        let mainCode = ids3[0]
+        
+        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(secondaryPart.contentTextField.text)'").map({ return $0.subCode })
+        let subCode = ids4[0]
+        
+        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(code.contentTextField.text)'").map({ return $0.defectCode })
+        let defectCode = ids5[0]
+
+
+        apiProvider.request(.saveCallBackDetail(callbackId: intCallbId,
+                                                categoryId: categoryId,
+                                                areaId: areaID,
+                                                mainCode: mainCode,
+                                                subCode: subCode,
+                                                defectCode: defectCode, pTrapRelsTime: "",
+                                                pTrapInfo: closeInformationTV.text, faultCause: failureCauseTV.text, faultPhenomenon: failurePhenomenonTV.text, results: treatmentResultTV.text)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    
+                    self.updateDataOnView(json: json["data"])
+                    
+                }
+                
+                
+            case let .failure(error):
+                print(error)
+                
+            }
+            
+        }
+        
+    }
     
     func updateDataOnView(json: JSON) {
         recallCode.text = json["callbackNo"].string

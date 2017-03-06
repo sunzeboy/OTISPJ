@@ -513,7 +513,7 @@ class CancleAlertView: UIView {
     lazy var cancleButton: UIButton = {
         let button = UIButton.init(frame: CGRect.init(x: 15, y: self.reasonTextView.frame.maxY+20, width: ((screenW-30)/2.0)-30, height: 50))
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
-        button.setTitle("本次召修完成", for: .normal)
+        button.setTitle("是", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.masksToBounds = true
         button.backgroundColor = UIColor.init(red: 37/255.0, green: 128/255.0, blue:  236/255.0, alpha: 1.0)
@@ -523,7 +523,7 @@ class CancleAlertView: UIView {
     lazy var confirmButton: UIButton = {
         let button = UIButton.init(frame: CGRect.init(x:(screenW/2.0), y: self.reasonTextView.frame.maxY+20, width: ((screenW-30)/2.0)-30, height: 50))
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
-        button.setTitle("本次召修未完成", for: .normal)
+        button.setTitle("否", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.masksToBounds = true
         button.layer.borderWidth = 0.5
