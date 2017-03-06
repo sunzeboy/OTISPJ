@@ -131,7 +131,6 @@
     
     [self locationChanged];
 
-
     [self createDirectory];
     [self setUpSZButton];
     self.empLabel.text = [OTISConfig username];
@@ -153,9 +152,6 @@
         [SZUploadManger localloginWithView:self.view];
 
     }
-
-    
-
 }
 
 -(void)updateUI{

@@ -111,16 +111,21 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.navigationController popViewControllerAnimated:YES];
         });
-        
     };
     
     self.context[@"scanQrcode"] = ^(){
         [weakSelf ZhiFuBaoStyle];
-        
     };
-   // self.context[@"qrcodeResult"] = ^NSString *(NSString *qrcode){
-     //   return weakSelf.qrCode;
-    //};
+    
+    self.context[@"getPosition"] = ^(){
+        [weakSelf jsGetLocation];
+    };
+//    [self jsGetLocation];
+
+    
+//    self.context[@"qrcodeResult"] = ^NSString *(NSString *qrcode){
+//        return weakSelf.qrCode;
+//    };
 }
 
 
@@ -189,6 +194,19 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
+-(void)jsGetLocation{
+    JSValue* value = self.context[@"getLocationResult"];
+    
+    NSString* lat = [[NSUserDefaults standardUserDefaults] objectForKey:@"userLastLocationLat"];
+    NSString* lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"userLastLocationLon"];
+    
+    if (lat==nil||lon==nil||[lat isEqualToString:@""]||[lon isEqualToString:@""]) {
+        return;
+    }
+    
+    NSArray* locationArray = @[@[lat,lon]];
+//    NSLog(@"%@-----%@",[locationArray firstObject],[locationArray lastObject]);
+    [value callWithArguments:locationArray];
+}
 
 @end
