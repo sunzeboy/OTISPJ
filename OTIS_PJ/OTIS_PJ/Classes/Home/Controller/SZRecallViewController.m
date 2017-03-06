@@ -201,6 +201,7 @@
     NSString* lon = [[NSUserDefaults standardUserDefaults] objectForKey:@"userLastLocationLon"];
     
     if (lat==nil||lon==nil||[lat isEqualToString:@""]||[lon isEqualToString:@""]) {
+        [value callWithArguments:@[@[@"0",@"0"]]];
         return;
     }
     
