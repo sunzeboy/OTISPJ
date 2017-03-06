@@ -30,11 +30,11 @@ static NSTimeInterval kTipDeltTime = 60;
 
 -(void)Tip{
     //主动更新是否做过工时的状态
-    [SZTable_LaborHours isLaborHoursed];
-    BOOL haveWritedgongshi = [[USER_DEFAULT objectForKey:SZIsLaborHoursed] integerValue];
-    if (self.timer == nil&& haveWritedgongshi== NO) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:kTipDeltTime target:self selector:@selector(checkCurrentTime) userInfo:nil repeats:YES];
-    }
+//    [SZTable_LaborHours isLaborHoursed];
+//    BOOL haveWritedgongshi = [[USER_DEFAULT objectForKey:SZIsLaborHoursed] integerValue];
+//    if (self.timer == nil&& haveWritedgongshi== NO) {
+//        self.timer = [NSTimer scheduledTimerWithTimeInterval:kTipDeltTime target:self selector:@selector(checkCurrentTime) userInfo:nil repeats:YES];
+//    }
 }
 
 -(void)checkCurrentTime{
