@@ -38,35 +38,45 @@
     titleLabel.text=@"Helpdesk电话:";
     [self.view addSubview:titleLabel];
     
-    UIButton* phoneLabel=[[UIButton alloc] init];
-    [phoneLabel setTitle:@"姓名1: 15618253221" forState:UIControlStateNormal];
-    [phoneLabel setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    phoneLabel.titleLabel.textAlignment=NSTextAlignmentCenter;
+    UILabel* phoneLabel=[[UILabel alloc] init];
+    phoneLabel.attributedText = [self setString:@"姓名1: 15618253221"];
+    phoneLabel.textAlignment=NSTextAlignmentCenter;
+    phoneLabel.userInteractionEnabled = YES;
     [self.view addSubview:phoneLabel];
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick3:)];
+    [phoneLabel addGestureRecognizer:tap];
     
     UILabel* phoneLabel1=[[UILabel alloc] init];
     phoneLabel1.textColor=[UIColor blackColor];
     phoneLabel1.textAlignment=NSTextAlignmentCenter;
-    phoneLabel1.text=@"姓名2: 15618253221";
+    phoneLabel1.attributedText = [self setString:@"姓名2: 15618253221"];
+    phoneLabel1.userInteractionEnabled = YES;
     [phoneLabel1 sizeToFit];
     phoneLabel1.numberOfLines=0;
     [self.view addSubview:phoneLabel1];
+    UITapGestureRecognizer* tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick3:)];
+    [phoneLabel1 addGestureRecognizer:tap1];
     
     UILabel* phoneLabel2=[[UILabel alloc] init];
     phoneLabel2.textAlignment=NSTextAlignmentCenter;
-    phoneLabel2.text=@"姓名3: 15618253221";
-    phoneLabel2.textColor=[UIColor blackColor];
+    phoneLabel2.attributedText = [self setString:@"姓名3: 15618253221"];
+    phoneLabel2.userInteractionEnabled = YES;
     [phoneLabel2 sizeToFit];
     phoneLabel2.numberOfLines=0;
     [self.view addSubview:phoneLabel2];
+    UITapGestureRecognizer* tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick3:)];
+    [phoneLabel2 addGestureRecognizer:tap2];
     
     UILabel* phoneLabel3=[[UILabel alloc] init];
     phoneLabel3.textAlignment=NSTextAlignmentCenter;
-    phoneLabel3.textColor=[UIColor blackColor];
-    phoneLabel3.text=@"姓名4: 15618253221";
+    phoneLabel3.attributedText = [self setString:@"姓名4: 15618253221"];
+    phoneLabel3.userInteractionEnabled = YES;
     [phoneLabel3 sizeToFit];
     phoneLabel3.numberOfLines=0;
     [self.view addSubview:phoneLabel3];
+    
+    UITapGestureRecognizer* tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick3:)];
+    [phoneLabel3 addGestureRecognizer:tap3];
     
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -121,6 +131,20 @@
         make.bottom.equalTo(self.view.mas_bottom).with.offset(-30);
         make.size.mas_equalTo(CGSizeMake(200, 20));
     }];
+}
+
+-(void)tapClick3:(UITapGestureRecognizer*)ges{
+    UILabel* label = (UILabel*)ges.view;
+    NSString* phone = [label.text substringWithRange:NSMakeRange(label.text.length-11, 11)];
+    NSLog(@"---------------------%@",phone);
+}
+
+
+-(NSMutableAttributedString*)setString:(NSString*)phone{
+    NSDictionary* dic2=@{NSFontAttributeName:[UIFont systemFontOfSize:17],NSForegroundColorAttributeName:MDColor(19, 65, 131, 1.0)};
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString: phone];
+    [attributedStr addAttributes:dic2 range: NSMakeRange(4, attributedStr.length-4)];
+    return attributedStr;
 }
 
 @end
