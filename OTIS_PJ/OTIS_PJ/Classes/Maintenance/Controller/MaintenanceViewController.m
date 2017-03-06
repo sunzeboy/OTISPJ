@@ -26,7 +26,7 @@
 #import "MDBaseButton.h"
 #import "Masonry.h"
 #import "MDBoomView.h"
-
+#import "MDSynchronousVC.h"
 @interface MaintenanceViewController ()
 
 @property (nonatomic , strong)  SZBottomMainView *bottomMainView;
@@ -214,14 +214,17 @@
         }
         
         if (unitItem.ScheduleID!=0) {//如果找到了二维码
-            SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] init];
-            controller.title = weakSelf.selectedButton.titleLabel.text;
-            controller.scheduleID = unitItem.ScheduleID;
-            controller.rCode = item.rCode;
-            controller.isDirectEntry = NO;
-            controller.isWorkingHours = unitItem.isFixMode;
-            controller.isFixMode = unitItem.isFixMode;
-            [weakSelf.navigationController pushViewController:controller animated:YES];
+//            SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] init];
+//            controller.title = weakSelf.selectedButton.titleLabel.text;
+//            controller.scheduleID = unitItem.ScheduleID;
+//            controller.rCode = item.rCode;
+//            controller.isDirectEntry = NO;
+//            controller.isWorkingHours = unitItem.isFixMode;
+//            controller.isFixMode = unitItem.isFixMode;
+//            [weakSelf.navigationController pushViewController:controller animated:YES];
+            MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:unitItem];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+            
             
         }else{//如果没找到二维码
             //[weakSelf alertDialogShow];

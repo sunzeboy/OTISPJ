@@ -8,6 +8,7 @@
 
 #import "MDAboutVC.h"
 #import "Masonry.h"
+#import "UIDevice+Extention.h"
 @interface MDAboutVC ()
 
 @end
@@ -33,12 +34,12 @@
     titleLabel.textColor=[UIColor lightGrayColor];
     titleLabel.textAlignment=NSTextAlignmentCenter;
     titleLabel.font=[UIFont systemFontOfSize:15.0];
-    titleLabel.text=@"Helpdesk电话：13162153278";
+    titleLabel.text=@"Helpdesk电话";
     [self.view addSubview:titleLabel];
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).with.offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-100);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-200);
         make.size.mas_equalTo(CGSizeMake(210, 20));
     }];
     
@@ -56,19 +57,14 @@
     versionLabel.font=[UIFont systemFontOfSize:15.0];
     versionLabel.textColor=MDColor(23, 22, 65, 1.0);
     versionLabel.textAlignment=NSTextAlignmentCenter;
-    versionLabel.text=@"V 1.0";
+    versionLabel.text=[NSString stringWithFormat:@"Version：%@",[UIDevice getAppVersion]];
     [self.view addSubview:versionLabel];
     
     [versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX).with.offset(0);
-        make.top.equalTo(titleLabel.mas_bottom).with.offset(5);
-        make.size.mas_equalTo(CGSizeMake(100, 20));
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-30);
+        make.size.mas_equalTo(CGSizeMake(200, 20));
     }];
 }
-
-
-
-
-
 
 @end

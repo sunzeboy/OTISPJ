@@ -82,17 +82,11 @@
     return cell;
 }
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-  
-    
+
     SZFinalMaintenanceUnitDetialItem *item = self.sousuoArray[indexPath.row];
-    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
-    [self.navigationController pushViewController:vc animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
-    
-    
-#if 0
+//#if 0
     self.isFixMode = item.isFixMode;
     BOOL isShowDlg = [SZTable_QRCode isShowQRSelectDlg:item.isFixMode andScheduleID:(int)item.ScheduleID];
     if(!isShowDlg){
@@ -147,15 +141,15 @@
         } else if (iCell >= 0) {
             if (buttonIndex == 0) {
                 
-                    
-                    SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] initWithBarcodeType:cellContent];
-                    controller.scheduleID = item.ScheduleID;
-                    controller.title = weakSelf.title;
-                    controller.isDirectEntry = NO;
-                    controller.isWorkingHours = item.isFixMode;
-                    controller.isFixMode = item.isFixMode;
-
-                    [self.navigationController pushViewController:controller animated:YES];
+//                    SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] initWithBarcodeType:cellContent];
+//                    controller.scheduleID = item.ScheduleID;
+//                    controller.title = weakSelf.title;
+//                    controller.isDirectEntry = NO;
+//                    controller.isWorkingHours = item.isFixMode;
+//                    controller.isFixMode = item.isFixMode;
+                    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
+                    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
                 
                 
                 [alertView close];
@@ -174,15 +168,13 @@
         }
     };
     [alertView show];
-#endif
+//#endif
 //    }
 }
 
 -(void)dealloc{
     SZLog(@"silelele");
 }
-
-
 
 
 -(SZFinalMaintenanceUnitItem *)isExistenceWithQRCode:(SZQRCodeProcotolitem *)item{
@@ -197,7 +189,6 @@
                     return unitItem;
                 }
             }
-
             
         }else{
             
@@ -208,7 +199,6 @@
                 if ([item.UNIT_NO isEqualToString:unitItem.UnitNo]&&unitItem.isFixMode == self.isFixMode) {
                     return unitItem;
                 }
-            
             }
         }
     }

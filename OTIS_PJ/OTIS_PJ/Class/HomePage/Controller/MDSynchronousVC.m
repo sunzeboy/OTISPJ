@@ -18,196 +18,81 @@
 #import "SZFinalMaintenanceUnitDetialItem.h"
 #import "SZMaintenanceOperationViewController.h"
 #import "MDSVTModel.h"
-
+#import "AFNetworking.h"
 //Otis-
-static NSString* wifiNameFix = @"Otis-";
+static NSString* wifiNameFix = @"CX_D";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
 @property(assign) CGFloat titleHeight;
-@property(nonatomic,strong) SZFinalMaintenanceUnitDetialItem* liftModel;
+@property(nonatomic,strong) SZFinalMaintenanceUnitItem* liftModel;
 @property(nonatomic,weak) UITextView* textView;
+
+
+@property(nonatomic,weak) UILabel* titleLabel;
+@property(nonatomic,weak) UILabel* wifiLabel;
+@property(nonatomic,strong) NSTimer* timer;
+
 @end
 
 @implementation MDSynchronousVC
 
--(instancetype)initWithLiftModel:(SZFinalMaintenanceUnitDetialItem*)model{
+-(void)dealloc{
+    self.liftModel = nil;
+    self.wifiName = nil;
+}
+
+
+-(NSTimer*)timer{
+    
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(timerfunc) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
+
+-(void)timerfunc{
+    NSDictionary* wifiDic =[MDTool SSIDInfo];
+    if (wifiDic==nil) return;
+    self.wifiName=wifiDic[@"SSID"];
+    if (![self.wifiName hasPrefix:wifiNameFix]) {
+        self.titleHeight=30;
+    }else{
+        self.titleHeight=0;
+        self.wifiLabel.text = [NSString stringWithFormat:@"当前所连接wifi名称：%@",self.wifiName];
+        [self clearTimer];
+        [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(MDScreenW, self.titleHeight));
+        }];
+    }
+}
+
+-(instancetype)initWithLiftModel:(SZFinalMaintenanceUnitItem*)model{
     if (self=[super init]) {
         self.liftModel = model;
     }
     return self;
 }
 
-/*
- 
- {
- "SVT": {
- "Controller": {
- "SoftwareBaselineVersion": "GP130782GAD",
- "SCN": "30782",
- "NumberOfRuns": "00000",
- "ElapsedMinutes": "050291",
- "EventLog": [
- {
- "EventNumber": "0010",
- "EventSubcode": "",
- "EventName": "DrvCommErr",
- "Counter": "010",
- "ElapsedTime": "011941",
- "CarPosition": "01"
- },
- {
- "EventNumber": "0027",
- "EventSubcode": "",
- "EventName": "PowerReturn",
- "Counter": "001",
- "ElapsedTime": "027002",
- "CarPosition": "**"
- }
- ],
- "ErrorData": [
- {
- "Step": "Step5",
- "ErrorText": "Incompatible SCN"
- },
- {
- "Step": "Step10",
- "ErrorText": ""
- }
- ]
- },
- "Drive": {
- "SoftwareBaselineVersion": "A5131400CAD",
- "SCN": "31400",
- "ElapsedTime": "0002:00:18:35.24",
- "CurrentLog": [
- {
- "EventNumber": "001",
- "EventName": "New Run",
- "ElapsedTime": "0000:22:39:39.30"
- },
- {
- "EventNumber": "524",
- "EventName": "No Enc Signl",
- "ElapsedTime": "0000:23:40:40.10"
- }
- ],
- "SavedLog": [
- {
- "EventNumber": "524",
- "EventName": "No Enc Signl",
- "ElapsedTime": "0004:10:20:30.00"
- }
- ],
- "Metrics": [
- {
- "MetricName": "Max Enc Cnt",
- "Value": "4"
- }
- ],
- "ErrorData": [
- {
- "Step": "Step5",
- "ErrorText": "Incompatible SCN"
- },
- {
- "Step": "Step10",
- "ErrorText": ""
- }
- ]
- }
- }
- }
- 
- */
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [self.timer fire];
+}
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self clearTimer];
+}
 
-/*
- 
- {
- "SVT": {
- "Controller": {
- "SoftwareBaselineVersion": "GP130782GAD",
- "SCN": "30782",
- "NumberOfRuns": "00000",
- "ElapsedMinutes": "050291",
- "EventLog": [
- {
- "EventNumber": "0010",
- "EventSubcode": "",
- "EventName": "DrvCommErr",
- "Counter": "010",
- "ElapsedTime": "011941",
- "CarPosition": "01"
- },
- {
- "EventNumber": "0027",
- "EventSubcode": "",
- "EventName": "PowerReturn",
- "Counter": "001",
- "ElapsedTime": "027002",
- "CarPosition": "**"
- }
- ],
- "ErrorData": [
- {
- "Step": "Step5",
- "ErrorText": "Incompatible SCN"
- },
- {
- "Step": "Step10",
- "ErrorText": ""
- }
- ]
- },
- "Drive": {
- "SoftwareBaselineVersion": "A5131400CAD",
- "SCN": "31400",
- "ElapsedTime": "0002:00:18:35.24",
- "CurrentLog": [
- {
- "EventNumber": "001",
- "EventName": "New Run",
- "ElapsedTime": "0000:22:39:39.30"
- },
- {
- "EventNumber": "524",
- "EventName": "No Enc Signl",
- "ElapsedTime": "0000:23:40:40.10"
- }
- ],
- "SavedLog": [
- {
- "EventNumber": "524",
- "EventName": "No Enc Signl",
- "ElapsedTime": "0004:10:20:30.00"
- }
- ],
- "Metrics": [
- {
- "MetricName": "Max Enc Cnt",
- "Value": "4"
- }
- ],
- "ErrorData": [
- {
- "Step": "Step5",
- "ErrorText": "Incompatible SCN"
- },
- {
- "Step": "Step10",
- "ErrorText": ""
- }
- ]
- }
- }
- }
- 
- */
+-(void)clearTimer{
+    [self.timer invalidate];
+    self.timer=nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"从SVT获取数据";
+    [self setNetwork];
     NSDictionary* wifiDic =[MDTool SSIDInfo];
     self.wifiName=wifiDic[@"SSID"];
     if (self.wifiName==nil||[self.wifiName isEqualToString:@""]||![self.wifiName hasPrefix:wifiNameFix]) {
@@ -230,36 +115,52 @@ static NSString* wifiNameFix = @"Otis-";
             tempStr = @"SVT数据获取失败";
             [coverView.dataArray addObject:tempStr];
         }else{
-            
             NSLog(@"-----------%@",weakSelf.appString);
-          
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
             NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
-            NSLog(@"%lu----%lu",(unsigned long)range.length,(unsigned long)range.location);
             weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
-            NSLog(@"++++++%@",weakSelf.appString);
             [coverView.dataArray addObject:weakSelf.appString];
             weakSelf.textView.text=weakSelf.appString;
-            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
-
-            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-            
-            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
-            
+//            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
+//            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+//            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
 //            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
         }
         
         [coverView.table reloadData];
-        
         CustomIOSAlertView* alertView1=[[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:nil dialogTitle:@"温馨提示" dialogContents:tempStr dialogButtons:[NSMutableArray arrayWithObjects:@"确定", nil]];
         alertView1.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView1, int buttonIndex){
             [coverView removeFromSuperview];
             [alertView1 close];
         };
         [alertView1 show];
-        
     };
+}
+
+
+-(void)setNetwork{
+
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+                case AFNetworkReachabilityStatusNotReachable:{
+                    NSLog(@"无网络");
+                    break;
+                }
+                case AFNetworkReachabilityStatusReachableViaWiFi:{
+                    NSLog(@"WiFi网络");
+                    break;
+                }
+                case AFNetworkReachabilityStatusReachableViaWWAN:{
+                    NSLog(@"3G网络");
+                    break;
+                }
+            default:
+                break;
+        }
+    }];
 }
 
 -(void)setSubviews{
@@ -267,8 +168,9 @@ static NSString* wifiNameFix = @"Otis-";
     UILabel* titleLabel=[[UILabel alloc] init];
     titleLabel.font=[UIFont systemFontOfSize:14.0];
     titleLabel.text=@"请连接到指定wifi网络";
-    titleLabel.textColor=[UIColor redColor];
+    titleLabel.textColor=MDColor(37, 63, 96, 1.0);
     [self.view addSubview:titleLabel];
+    self.titleLabel = titleLabel;
     
     UILabel* UnitNoLabel=[[UILabel alloc] init];
     UnitNoLabel.text=[NSString stringWithFormat:@"电梯编号                 ：%@",self.liftModel.UnitNo];
@@ -281,8 +183,13 @@ static NSString* wifiNameFix = @"Otis-";
     
     UILabel* wifiLabel=[[UILabel alloc] init];
     wifiLabel.textColor=MDColor(37, 63, 96, 1.0);
-    wifiLabel.text=[NSString stringWithFormat:@"当前所连接wifi名称：%@",self.wifiName];
+    if (self.wifiName!=nil) {
+        wifiLabel.text=[NSString stringWithFormat:@"当前所连接wifi名称：%@",self.wifiName];
+    }else{
+        wifiLabel.text=[NSString stringWithFormat:@"当前所连接wifi名称：请连接到指定wifi网络"];
+    }
     [self.view addSubview:wifiLabel];
+    self.wifiLabel = wifiLabel;
     
     UIView*lineView2=[[UIView alloc] init];
     lineView2.backgroundColor=MDDescriptionColor;
@@ -413,45 +320,25 @@ static NSString* wifiNameFix = @"Otis-";
     
     BOOL isCanUse;
     NSString* alertTitle;
-    
+    NSString* confirmStr;
     if (self.wifiName==nil||[self.wifiName isEqualToString:@""]||![self.wifiName hasPrefix:wifiNameFix]) {
         alertTitle = @"请在指定Wifi下操作";
+        confirmStr = @"设置";
         isCanUse = NO;
     }else{
         alertTitle = @"您确认从SVT获取数据吗？";
+        confirmStr = @"确定";
         isCanUse = YES;
     }
     
     CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                     dialogTitle:@"温馨提示"
                                                                                  dialogContents:alertTitle
-                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:@"确定",@"取消", nil]];
+                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:confirmStr,@"取消", nil]];
     alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
         if (buttonIndex==0) {
              [alertView close];
             if (isCanUse) {
-//                MDCoverView* coverView=[[MDCoverView alloc] initWithFrame:weakSelf.view.bounds];
-//                coverView.alpha=0.9;
-//                [weakSelf.view addSubview:coverView];
-//                
-//                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:coverView animated:YES];
-//                hud.bezelView.backgroundColor=[UIColor blackColor];
-//                hud.contentColor=[UIColor whiteColor];
-//                hud.label.text=@"正在获取中";
-//                hud.bezelView.alpha=1;
-//                hud.backgroundView.style = MBProgressHUDModeIndeterminate;
-//                
-//                [hud hideAnimated:YES];
-//                [coverView.dataArray addObject:@"SVT数据获取成功"];
-//                [coverView.table reloadData];
-//                
-//                CustomIOSAlertView* alertView1=[[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:nil dialogTitle:@"温馨提示" dialogContents:@"数据获取成功" dialogButtons:[NSMutableArray arrayWithObjects:@"确定", nil]];
-//                alertView1.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView1, int buttonIndex){
-//                    [coverView removeFromSuperview];
-//                    [alertView1 close];
-//                };
-//                [alertView1 show];
-                
                 NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
                 NSLog(@"----%@",[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]);
                 // 2.判断手机中是否安装了对应程序
@@ -465,6 +352,8 @@ static NSString* wifiNameFix = @"Otis-";
                     };
                     [alertView2 show];
                 }
+            }else{
+                 [[UIApplication sharedApplication]openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
             }
         }else{
             [alertView close];
@@ -474,11 +363,6 @@ static NSString* wifiNameFix = @"Otis-";
 }
 
 -(void)nextButtonClick{
-//    MDMainOperationVC* mainOperationVC=[[MDMainOperationVC alloc] initWithTitleArray:@[@"半月",@"季度",@"半年",@"年度"] boomViewButtonArray:@[@"保存",@"全选"]];
-//    mainOperationVC.liftModel=self.liftModel;
-//    [self.navigationController pushViewController:mainOperationVC animated:YES];
-    
-    
     SZMaintenanceOperationViewController *vc = [[SZMaintenanceOperationViewController alloc] init];
     vc.isJHAComplete = YES;
     vc.item = self.liftModel;
