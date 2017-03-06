@@ -352,6 +352,10 @@
             lutuhours = lutuTime.floatValue;
         }
         
+        if (lutuhours>12) {
+            lutuhours = 0;
+        }
+        
         SZLabor *labor = self.types[0];
         labor.item1.Hour1Rate = gongshihours ;
         labor.item1.LaborTypeId = 1;
