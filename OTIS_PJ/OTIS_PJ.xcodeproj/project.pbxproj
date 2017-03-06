@@ -260,6 +260,8 @@
 		683C039E1E6D2AE800FDA5CD /* doc.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039A1E6D2AE800FDA5CD /* doc.json */; };
 		683C039F1E6D2AE800FDA5CD /* getCallBackList.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039B1E6D2AE800FDA5CD /* getCallBackList.json */; };
 		683C03A01E6D2AE800FDA5CD /* saveCallBackStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = 683C039C1E6D2AE800FDA5CD /* saveCallBackStatus.json */; };
+		683C03A31E6D6D4300FDA5CD /* SZLastProcessingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C03A11E6D6D4300FDA5CD /* SZLastProcessingResultViewController.swift */; };
+		683C03A41E6D6D4300FDA5CD /* SZLastProcessingResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683C03A21E6D6D4300FDA5CD /* SZLastProcessingResultViewController.xib */; };
 		684A15CF1D7E5620002ED4D5 /* SZVersionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */; };
 		684A15D01D7FB018002ED4D5 /* SZSignatureBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A15D21D7FB018002ED4D5 /* SZSignatureBoardViewController.xib */; };
 		684A15E01D7FB2D6002ED4D5 /* SZSignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A15E21D7FB2D6002ED4D5 /* SZSignTableViewCell.xib */; };
@@ -882,6 +884,8 @@
 		683C039A1E6D2AE800FDA5CD /* doc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = doc.json; sourceTree = "<group>"; };
 		683C039B1E6D2AE800FDA5CD /* getCallBackList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCallBackList.json; sourceTree = "<group>"; };
 		683C039C1E6D2AE800FDA5CD /* saveCallBackStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = saveCallBackStatus.json; sourceTree = "<group>"; };
+		683C03A11E6D6D4300FDA5CD /* SZLastProcessingResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZLastProcessingResultViewController.swift; sourceTree = "<group>"; };
+		683C03A21E6D6D4300FDA5CD /* SZLastProcessingResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SZLastProcessingResultViewController.xib; sourceTree = "<group>"; };
 		684A15CD1D7E5620002ED4D5 /* SZVersionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZVersionListViewController.h; sourceTree = "<group>"; };
 		684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZVersionListViewController.m; sourceTree = "<group>"; };
 		684A15D91D7FB2A5002ED4D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZSignatureBoardViewController.xib; sourceTree = "<group>"; };
@@ -2246,6 +2250,8 @@
 			children = (
 				688634861E5C0C290015BAF2 /* SZMyselfViewController.swift */,
 				688634881E5C0CA10015BAF2 /* SZStopLaddersViewController.swift */,
+				683C03A11E6D6D4300FDA5CD /* SZLastProcessingResultViewController.swift */,
+				683C03A21E6D6D4300FDA5CD /* SZLastProcessingResultViewController.xib */,
 				688634921E5C1EAB0015BAF2 /* SZAddRecallViewController.swift */,
 				688634931E5C1EAB0015BAF2 /* SZAddRecallViewController.xib */,
 				688634981E5C223E0015BAF2 /* SZRecallProcessViewController.swift */,
@@ -2748,6 +2754,7 @@
 				1A7A4BB71CDB3F9300968A9E /* jobHazard.plist in Resources */,
 				684A16031D7FB32D002ED4D5 /* SZNormalWorkHoursTableViewCell.xib in Resources */,
 				8A66E7D31D5ACA7B00924501 /* SZTipVIew.xib in Resources */,
+				683C03A41E6D6D4300FDA5CD /* SZLastProcessingResultViewController.xib in Resources */,
 				684A16111D7FB346002ED4D5 /* SZBottomWorkingHourView.xib in Resources */,
 				684A15FC1D7FB31A002ED4D5 /* SZNonOtisElevatorViewController.xib in Resources */,
 				1AD9F3D51CE0715A00B532B1 /* SZElevatorInfoTableViewCell.xib in Resources */,
@@ -3032,6 +3039,7 @@
 				4133CEA21CEC04BD006FB6AB /* CustomIOSAlertView.m in Sources */,
 				68125BA41D1D22100098A61C /* SZReservedSubjectItem.m in Sources */,
 				68125B4B1D1CFA4A0098A61C /* SZUploadTool.m in Sources */,
+				683C03A31E6D6D4300FDA5CD /* SZLastProcessingResultViewController.swift in Sources */,
 				6886348B1E5C0CF50015BAF2 /* Protocols.swift in Sources */,
 				1E619AFF1CD0989A00C392E0 /* SZSign.m in Sources */,
 				682DFA611CFED25000D8FBA9 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,

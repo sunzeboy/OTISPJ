@@ -13,7 +13,19 @@ import SwiftyUserDefaults
 
 
 
-class SZRecallProcessViewController: UIViewController,BottomOperationable {
+class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanable {
+    
+   override var qRItem: SZQRCodeProcotolitem? {
+        willSet {
+            
+        }
+        didSet {
+            
+        }
+    }
+    
+    //是否停梯，默认为否
+    var isStopLadders:Bool = false
     
     //当前界面的状态
 //    var state: ProcessState = .initialized
@@ -146,6 +158,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }else if button.title(for: .normal)=="完成扫描" {
+                self.ZhiFuBaoStyle(self)
                 self.state = .complete
                 self.completeLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
                 self.completeLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?
@@ -153,6 +166,8 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable {
 
             
             }else if button.title(for: .normal)=="到达扫描" {
+                self.ZhiFuBaoStyle(self)
+
                 self.state = .arrive
                 self.arriveLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
                 self.arriveLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?

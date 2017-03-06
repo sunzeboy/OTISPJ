@@ -9,3 +9,6 @@
 #import "CustomIOSAlertView.h"
 #import "MBProgressHUD.h"
 
+#import "LBXScan/LBXScanView.h"
+#import "LBXScan/LBXScanViewController.h"
+#import "SubLBXScanViewController.h"

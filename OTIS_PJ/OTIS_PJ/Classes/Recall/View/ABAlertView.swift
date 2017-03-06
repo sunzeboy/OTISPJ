@@ -335,7 +335,7 @@ fileprivate let screenW = UIScreen.main.bounds.size.width
 class AlertView: UIView {
     
     var table: UITableView!
-    var indexArray = [IndexPath]()
+    var indexArray = [String]()
     var tempStr = "dd"
     
     lazy var titleLabel: UILabel = {
@@ -436,15 +436,15 @@ class AlertView: UIView {
         
         table.isHidden = !button.isSelected
         
-        if indexArray.count == 0 {
-            for index in 0...5 {
-                
-                let indexPath = IndexPath.init(row: index, section: 0)
-                indexArray.append(indexPath)
-                
-            }
-            table.insertRows(at: indexArray, with: .none)
-        }
+//        if indexArray.count == 0 {
+//            for index in 0...5 {
+//                
+//                let indexPath = IndexPath.init(row: index, section: 0)
+//                indexArray.append(indexPath)
+//                
+//            }
+//            table.insertRows(at: indexArray, with: .none)
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -459,7 +459,7 @@ extension AlertView: UITableViewDelegate,UITableViewDataSource{
         print(indexPath.row)
         tableView.isHidden = true
         rightBtn.isSelected = false
-        textField.text = "\(indexPath.row)"
+        textField.text = indexArray[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -475,7 +475,7 @@ extension AlertView: UITableViewDelegate,UITableViewDataSource{
         if cell == nil{
             cell = UITableViewCell.init(style: .default, reuseIdentifier: cellID)
         }
-        cell?.textLabel?.text = "\(indexPath.row)"
+        cell?.textLabel?.text = indexArray[indexPath.row]
         return cell!
     }
 }

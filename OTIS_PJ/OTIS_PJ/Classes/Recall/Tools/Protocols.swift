@@ -173,5 +173,81 @@ extension BottomOperationable where Self:UIViewController {
 }
 
 
+protocol Scanable:class {
+    
+    func ZhiFuBaoStyle(_ v_c:UIViewController)
+}
+
+extension Scanable {
+    //MARK: ---模仿支付宝------
+    func ZhiFuBaoStyle(_ v_c:UIViewController)
+    {
+        //设置扫码区域参数
+        let style = LBXScanViewStyle()
+        
+        style.centerUpOffset = 60;
+        style.xScanRetangleOffset = 30;
+        
+        if UIScreen.main.bounds.size.height <= 480
+        {
+            //3.5inch 显示的扫码缩小
+            style.centerUpOffset = 40;
+            style.xScanRetangleOffset = 20;
+        }
+        
+        style.red_notRecoginitonArea = 0.4
+        style.green_notRecoginitonArea = 0.4
+        style.blue_notRecoginitonArea = 0.4
+        style.alpa_notRecoginitonArea = 0.4
+        
+        
+        style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Inner;
+        style.photoframeLineW = 2.0;
+        style.photoframeAngleW = 16;
+        style.photoframeAngleH = 16;
+        
+        style.isNeedShowRetangle = false;
+        
+        style.anmiationStyle = LBXScanViewAnimationStyle_NetGrid;
+        style.animationImage = UIImage(named: "CodeScan.bundle/qrcode_scan_full_net")
+        
+        
+        
+        let vc = SubLBXScanViewController();
+        vc.successBlock = { item in
+
+            v_c.qRItem = item
+        }
+
+        vc.style = style
+        v_c.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+}
 
 
+
+extension UIViewController {
+
+    struct RuntimeKey {
+        static let qRItem = UnsafeRawPointer.init(bitPattern: "qRItem".hashValue)
+
+        /// ...其他Key声明
+    }
+    
+    
+    
+    var qRItem: SZQRCodeProcotolitem? {
+        set {
+            objc_setAssociatedObject(self, RuntimeKey.qRItem, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+        
+        get {
+            return  objc_getAssociatedObject(self, RuntimeKey.qRItem) as? SZQRCodeProcotolitem
+        }
+    }
+    
+    
+    
+}

@@ -29,7 +29,7 @@ class SZAddRecallViewController: UIViewController,BottomOperationable {
             if button.title(for: .normal)=="保存" {
                 self.saveAct()
             }else{
-            
+                self.navigationController?.popViewController(animated: true)
             }
         }
 

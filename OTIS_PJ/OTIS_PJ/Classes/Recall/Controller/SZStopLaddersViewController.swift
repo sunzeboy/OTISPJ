@@ -82,7 +82,7 @@ extension SZStopLaddersViewController: UITableViewDelegate,UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SZRecallProcessViewController()
+        let vc = SZLastProcessingResultViewController()
         let jsonData = dataArray[indexPath.row]
         vc.intCallbId = jsonData["callbackId"].int!
         navigationController?.pushViewController(vc, animated: true)

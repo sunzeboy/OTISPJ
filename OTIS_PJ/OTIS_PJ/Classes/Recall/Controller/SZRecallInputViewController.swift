@@ -9,11 +9,16 @@
 import UIKit
 import RealmSwift
 import SwiftyJSON
+import SVProgressHUD
 
 class SZRecallInputViewController: UIViewController,BottomOperationable {
     
+    //是否停梯，默认为否
+    var isStopLadders:Bool = false
+
     var btns: [BtnModel] {
-        return [BtnModel(title: "保存", picname: "save")];
+        return [BtnModel(title: "保存", picname: "save"),
+                BtnModel(title: "下一步", picname: "next")];
     }
     
     var intCallbId: Int = 0
@@ -95,50 +100,77 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "召修详情"
         
-        
-        
+        bottomView.btns.forEach{ (btn) in
+            if btn.currentTitle == "下一步" {
+                btn.isEnabled = false
+            }
+        }
         
         setUpcontentView()
         
         bottomView.actBlock = {[unowned self] (button:UIButton) -> Void in
-            self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
-            let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
-            contentView.layer.cornerRadius = 5
-            contentView.layer.masksToBounds = true
-            self.alertView?.contentView = contentView
-            self.alertView?.show()
-            contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
-            contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
+            if button.currentTitle == "下一步" {
+                self.saveAlert()
+            }else{
+                self.save()
+            }
+            
         }
         
         
-        apiProvider.request(.closeCallBack(callbackId: intCallbId, isComplete: 1, shutdownReason: "停梯", closeTime: "")) { result in
+        
+        
+        
+    }
+
+    
+    func closeCallBack(isComplete: Int,shutdownReason: String) {
+        apiProvider.request(.closeCallBack(callbackId: intCallbId, isComplete: isComplete, shutdownReason: shutdownReason, closeTime: "")) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     print(json)
+                    self.navigationController?.popToViewController((self.navigationController?.childViewControllers[1])!, animated: true)
+
                 }
                 
             case let .failure(error):
                 print(error)
                 
             }
-
+            
         }
-        
-        
-//        apiProvider.request(.cancelc , completion: <#T##Completion##Completion##(Result<Response, MoyaError>) -> Void#>)
-        
     }
-
+    
+    func saveAlert() {
+        self.alertView = ABAlertView.init(frame: UIScreen.main.bounds)
+        let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
+        contentView.indexArray = ["多次维修","换人维修","领取配件","T修理","总部技术支持","停梯"]
+        contentView.layer.cornerRadius = 5
+        contentView.layer.masksToBounds = true
+        self.alertView?.contentView = contentView
+        self.alertView?.show()
+        contentView.cancleButton.addTarget(self, action: #selector(self.cancleClick(button:)), for: .touchUpInside)
+        contentView.confirmButton.addTarget(self, action: #selector(self.confirmClick(button:)), for: .touchUpInside)
+    }
+    
     func cancleClick(button: UIButton) {
         alertView?.hidenAnimation()
+        closeCallBack(isComplete: 0, shutdownReason:"")
+
     }
     
     func confirmClick(button: UIButton) {
         alertView?.hidenAnimation()
+        let alert: AlertView = self.alertView?.contentView as! AlertView
+        if (alert.textField.text?.isEmpty)! {
+            SVProgressHUD.showInfo(withStatus: "请选择再次处理原因！")
+            return
+        }
+        closeCallBack(isComplete: 1, shutdownReason: alert.textField.text!)
         
     }
     
@@ -183,7 +215,7 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         componentArea.options = areas
         
         
-        contentView.contentSize = CGSize(width: 0, height: 1260)
+        contentView.contentSize = CGSize(width: 0, height: 1300)
         contentView.alwaysBounceVertical = true
         let datePicker = KMDatePicker(frame: CGRect(x: 0, y: 0, width: k_screenW, height: 216.0), delegate: self, datePickerStyle: .yearMonthDayHourMinute)
         fangRenTF.inputView = datePicker
@@ -213,20 +245,20 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     
     func save() {
         let realm = try! Realm()
-        let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(recallCategory.contentTextField.text)'").map({ return $0.categoryId })
+        let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(recallCategory.contentTextField.text!)'").map({ return $0.categoryId })
         
         let categoryId = ids[0]
         
-        let ids2 = realm.objects(ComponentArea.self).filter("areaNameZh = '\(componentArea.contentTextField.text)'").map({ return $0.areaID })
+        let ids2 = realm.objects(ComponentArea.self).filter("areaNameZh = '\(componentArea.contentTextField.text!)'").map({ return $0.areaID })
         let areaID = ids2[0]
         
-        let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainComponent.contentTextField.text)'").map({ return $0.mainCode })
+        let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainComponent.contentTextField.text!)'").map({ return $0.mainCode })
         let mainCode = ids3[0]
         
-        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(secondaryPart.contentTextField.text)'").map({ return $0.subCode })
+        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(secondaryPart.contentTextField.text!)'").map({ return $0.subCode })
         let subCode = ids4[0]
         
-        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(code.contentTextField.text)'").map({ return $0.defectCode })
+        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(code.contentTextField.text!)'").map({ return $0.defectCode })
         let defectCode = ids5[0]
 
 
@@ -235,17 +267,24 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                                                 areaId: areaID,
                                                 mainCode: mainCode,
                                                 subCode: subCode,
-                                                defectCode: defectCode, pTrapRelsTime: "",
-                                                pTrapInfo: closeInformationTV.text, faultCause: failureCauseTV.text, faultPhenomenon: failurePhenomenonTV.text, results: treatmentResultTV.text)) { result in
+                                                defectCode: defectCode,
+                                                pTrapRelsTime: "",
+                                                pTrapInfo: closeInformationTV.text,
+                                                faultCause: failureCauseTV.text,
+                                                faultPhenomenon: failurePhenomenonTV.text,
+                                                results: treatmentResultTV.text)) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
-                    
-                    self.updateDataOnView(json: json["data"])
-                    
+                    print(Thread.current)
+//                    self.updateDataOnView(json: json["data"])
+                    self.bottomView.btns.forEach{ (btn) in
+                        if btn.currentTitle == "下一步" {
+                            btn.isEnabled = true
+                        }
+                    }
                 }
-                
                 
             case let .failure(error):
                 print(error)
@@ -269,11 +308,25 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         completeLo.text = json["finishSiteLong"].string
         completeLa.text = json["finishSiteLat"].string
         treatmentResultTV.text = json["results"].string
-        
+        closeInformationTV.text = json["pTrapInfo"].string
+        failureCauseTV.text = json["faultCause"].string
+        failurePhenomenonTV.text = json["faultPhenomenon"].string
+
         let realm = try! Realm()
-        let areas: [String] = realm.objects(ComponentArea.self).filter("areaID = \(json["areaId"].int)").map{ return $0.areaNameZh}
+        let areas: [String] = realm.objects(ComponentArea.self).filter("areaID = \(json["areaId"].int!)").map{ return $0.areaNameZh}
         componentArea.contentTextField.text = areas.last
         
+        let recallCategorys: [String] = realm.objects(RecallCategory.self).filter("categoryId = \(json["categoryId"].int!)").map{ return $0.categoryNameZh}
+        recallCategory.contentTextField.text = recallCategorys.last
+        
+        let mainComponents: [String] = realm.objects(MainComponent.self).filter("mainCode = '\(json["mainCode"].string!)'").map{ return $0.mainNameZh}
+        mainComponent.contentTextField.text = mainComponents.last
+
+        let subComponents: [String] = realm.objects(SubComponent.self).filter("subCode = '\(json["subCode"].string!)'").map{ return $0.subNameZh}
+        secondaryPart.contentTextField.text = subComponents.last
+
+        let defects: [String] = realm.objects(Defect.self).filter("defectCode = '\(json["defectCode"].string!)'").map{ return $0.defectNameZh}
+        code.contentTextField.text = defects.last
         
     }
     
@@ -355,7 +408,9 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
         
         let mains: [String] = realm.objects(MainComponent.self).filter("areaID = \(id)").map { return $0.mainNameZh }
         
+        mainComponent.contentTextField.text = nil
         mainComponent.options = mains
+        
         secondaryPart.contentTextField.text = nil
         secondaryPart.options = []
 
@@ -373,7 +428,9 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
         
         let subs: [String] = realm.objects(SubComponent.self).filter("mainCode = '\(cd)'").map { return $0.subNameZh }
         
+        secondaryPart.contentTextField.text = nil
         secondaryPart.options = subs
+        
         code.contentTextField.text = nil
         code.options = []
 
@@ -389,6 +446,7 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
         
         let defects: [String] = realm.objects(Defect.self).filter("subCode = '\(id)'").map { return $0.defectNameZh }
         
+        code.contentTextField.text = nil
         code.options = defects
 
     }
