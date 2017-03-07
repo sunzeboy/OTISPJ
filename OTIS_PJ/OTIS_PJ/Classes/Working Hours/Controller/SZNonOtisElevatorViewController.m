@@ -133,6 +133,7 @@
     vc.contant_NO = self.hetongbianhao.text;
     vc.CustomerName = self.kehuxinxi.text;
     vc.inWarranty = NO;
+    vc.feizaibao = YES;
 //    vc.scheduleID = (int)self.item.ScheduleID;
     //            vc.item = self.item;
     [self.navigationController pushViewController:vc animated:YES];

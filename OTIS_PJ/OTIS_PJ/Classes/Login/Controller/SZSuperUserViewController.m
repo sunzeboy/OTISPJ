@@ -49,7 +49,7 @@
     self.xhbox.delegate =self;
     self.xhbox.tag = 1000;
 
-    NSArray *arr = @[@"http://ochcsprdweb.cloudapp.net:22281/",@"http://ochcsprdweb.cloudapp.net/MobileTest/",@"http://192.168.30.84:22282/"];
+    NSArray *arr = @[@"http://ochcsprdoeweb.cloudapp.net:22281/",@"http://ochcsprdoeweb.cloudapp.net/MobileTest/",@"http://192.168.30.84:22282/"];
     NSArray *arr2 = @[@"云服务",@"云测试-技师勿设",@"畅星测试-技师勿设"];
     NSInteger index = [arr indexOfObject:SZOuterNetwork];
     
@@ -92,14 +92,14 @@
     switch (index) {
         case 0:
 
-            SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
-            SZNetwork = @"http://ochcsprdweb.cloudapp.net:22281/";
+            SZOuterNetwork = @"http://ochcsprdoeweb.cloudapp.net:22281/";
+            SZNetwork = @"http://ochcsprdoeweb.cloudapp.net:22281/";
 
             break;
         case 1:
 
-            SZOuterNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
-            SZNetwork = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
+            SZOuterNetwork = @"http://ochcsprdoeweb.cloudapp.net/MobileTest/";
+            SZNetwork = @"http://ochcsprdoeweb.cloudapp.net/MobileTest/";
 
 
             break;

@@ -37,6 +37,9 @@
 // 1:维保是亮的，工时进入
 // 2:维保是灰色的，工时进入
 @property (nonatomic , assign) int  inputMode;
-
+//
+@property (nonatomic , assign) BOOL feizaibao;
+//endtime是否需要更改
+@property (nonatomic , assign) BOOL isChange;
 
 @end

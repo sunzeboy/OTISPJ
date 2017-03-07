@@ -201,14 +201,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
 
             
-//            if (self.IsFixItem) {
-//                SZMaintenanceOperationViewController *vc = [[SZMaintenanceOperationViewController alloc] init];
-//                vc.isJHAComplete = NO;
-//                vc.isFixMode = YES;
-//                vc.item = self.item;
-//                [self.navigationController pushViewController:vc animated:YES];
-//                return;
-//            }
+
             
             if (self.isCheckItem) {//维保
         
@@ -258,27 +251,8 @@
             }else{//工时
         
                 if (ret1 && ret2 && ret3) {
-                    NSInteger yymmdd =  [NSDate currentYYMMDD];
-
-                    NSString *strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
-
-                    if (![[NSUserDefaults standardUserDefaults] objectForKey:strKey]) {
-                        [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
-//                        [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:@"ENDTIME"];
-                    }
                     
-
-                    SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
-                    vc.inputMode = self.inputMode;
-                    if (self.inputMode== 1 || self.inputMode== 2) { // 只要是工时进入，将状态传入工时页面;为2的情况，进入状态更新
-                        [SZTable_Schedules updateAddLaborHoursState:1 andScheduleID:self.item.ScheduleID];
-
-                    }
-                        vc.item = self.item;
-                        vc.scheduleID = self.item.ScheduleID;
-                    
-                        [self.navigationController pushViewController:vc animated:YES];
-
+                    [self ZhiFuBaoStyle];
                 
                 }else {
                         CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@"person"
@@ -295,6 +269,82 @@
         
     });
 }
+
+
+
+- (void)ZhiFuBaoStyle
+{
+    
+    //设置扫码区域参数
+    LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+    style.centerUpOffset = 60;
+    style.xScanRetangleOffset = 30;
+    
+    if ([UIScreen mainScreen].bounds.size.height <= 480 )
+    {
+        //3.5inch 显示的扫码缩小
+        style.centerUpOffset = 40;
+        style.xScanRetangleOffset = 20;
+    }
+    
+    
+    style.alpa_notRecoginitonArea = 0.6;
+    
+    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Inner;
+    style.photoframeLineW = 2.0;
+    style.photoframeAngleW = 16;
+    style.photoframeAngleH = 16;
+    
+    style.isNeedShowRetangle = NO;
+    
+    style.anmiationStyle = LBXScanViewAnimationStyle_NetGrid;
+    
+    //使用的支付宝里面网格图片
+    UIImage *imgFullNet = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_full_net"];
+    
+    style.animationImage = imgFullNet;
+    SubLBXScanViewController *vc = [SubLBXScanViewController new];
+    
+    WEAKSELF
+    vc.SuccessBlock = ^(SZQRCodeProcotolitem *item){
+        
+        if ([item.UNIT_NO isEqualToString:self.item.UnitNo]) {//如果找到了二维码
+            
+            SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
+            NSInteger yymmdd =  [NSDate currentYYMMDD];
+            
+            NSString *strKey = [NSString stringWithFormat:@"%ld_%@ENDJHA",yymmdd,self.item.UnitNo];
+            
+            if (![[NSUserDefaults standardUserDefaults] objectForKey:strKey]) {
+                [[NSUserDefaults standardUserDefaults] setObject:@([NSDate sinceDistantPastTime]) forKey:strKey];
+                vc.isChange = YES;
+            }else{
+                
+                vc.isChange = NO;
+            }
+            
+            vc.inputMode = self.inputMode;
+            if (self.inputMode== 1 || self.inputMode== 2) { // 只要是工时进入，将状态传入工时页面;为2的情况，进入状态更新
+                [SZTable_Schedules updateAddLaborHoursState:1 andScheduleID:self.item.ScheduleID];
+                
+            }
+            vc.item = self.item;
+            vc.scheduleID = self.item.ScheduleID;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }else{//如果没找到二维码
+            
+            
+        }
+        
+    };
+    vc.style = style;
+    //vc.isOpenInterestRect = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 
 -(void)setupChildVces
 {

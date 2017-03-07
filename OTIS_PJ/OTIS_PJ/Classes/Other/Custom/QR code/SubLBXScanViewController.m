@@ -117,6 +117,13 @@
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult
 {
     
+//    ScanResultViewController *vc = [ScanResultViewController new];
+//    vc.imgScan = strResult.imgScanned;
+//    
+//    vc.strScan = strResult.strScanned;
+//    
+//    vc.strCodeType = strResult.strBarCodeType;
+//
     NSString *rCode = strResult.strScanned;
     
     NSMutableArray *arrayCode = [NSMutableArray array];

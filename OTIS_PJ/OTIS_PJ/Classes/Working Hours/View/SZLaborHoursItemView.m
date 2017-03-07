@@ -50,6 +50,7 @@
     self.h2.text = item.Hour2RateStr;
     self.h3.text = item.Hour3RateStr;
 
+    
 
 }
 
