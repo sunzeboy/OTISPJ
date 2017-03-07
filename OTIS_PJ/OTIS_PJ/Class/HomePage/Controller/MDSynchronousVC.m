@@ -102,6 +102,7 @@ static NSString* wifiNameFix = @"CX_D";
     }
     [self setSubviews];
     
+    [self testModel];
     WEAKSELF
     self.appBackBlock = ^{
       
@@ -125,7 +126,9 @@ static NSString* wifiNameFix = @"CX_D";
 //            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
 //            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
 //            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
-//            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
+//            MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+            
+//            NSLog(@"%@",model);
         }
         
         [coverView.table reloadData];
@@ -136,6 +139,39 @@ static NSString* wifiNameFix = @"CX_D";
         };
         [alertView1 show];
     };
+}
+
+
+-(void)testModel{
+    
+    NSDictionary* dic = @{@"SVT":@{@"controllerModel":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"False",@"ErrorData":@{
+        @"Step": @"GECB+macro+step22",
+        @"ErrorCode": @"1001",
+        },},@"Drive":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"True",@"SCN": @"31400",@"DriveEvents":@[@{ @"EventNumber": @"912",
+                                                                                                       @"EventName": @"+No+FloorInfo",
+                                                                                                       @"ElapsedTime": @"0000:00:00:01.81"}, @{
+                                                                                                           @"EventNumber": @"517",
+                                                                                                           @"EventName": @"+DDP+Error+++",
+                                                                                                           @"ElapsedTime": @"0000:00:00:01.17"
+                                                                                                           },  @{
+                                                                                                               @"EventNumber": @"000",
+                                                                                                               @"EventName": @"+Power+On++++",
+                                                                                                               @"ElapsedTime": @"0000:00:00:00.62"
+                                                                                                           }],@"SavedDriveEvents":@[@{
+                                                                                                                                         @"EventNumber": @"912",
+                                                                                                                                         @"EventName": @"+No+FloorInfo",
+                                                                                                                                         @"ElapsedTime": @"0000:00:00:01.81"
+                                                                                                                                         },@{
+                                                                                                                                             @"EventNumber": @"517",
+                                                                                                                                             @"EventName": @"+DDP+Error+++",
+                                                                                                                                             @"ElapsedTime": @"0000:00:00:01.17"
+                                                                                                                                             }, @{
+                                                                                                                                                 @"EventNumber": @"517",
+                                                                                                                                                 @"EventName": @"+DDP+Error+++",
+                                                                                                                                                 @"ElapsedTime": @"0000:00:00:52.18"
+                                                                                                                                             },]}}};
+    
+    MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
 }
 
 
