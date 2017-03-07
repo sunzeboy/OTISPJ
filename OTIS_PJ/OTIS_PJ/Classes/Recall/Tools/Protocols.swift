@@ -240,7 +240,7 @@ extension UIViewController {
     
     var qRItem: SZQRCodeProcotolitem? {
         set {
-            objc_setAssociatedObject(self, RuntimeKey.qRItem, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self, RuntimeKey.qRItem, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
         
         get {
@@ -251,3 +251,26 @@ extension UIViewController {
     
     
 }
+
+
+
+
+protocol Emptyable {
+    
+}
+
+extension Emptyable where Self: UIViewController{
+    
+    func showEmptyDataStyle() {
+        let view = UIImageView(image: UIImage(named: "defult"))
+        view.contentMode = .scaleAspectFit
+        view.frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+        view.center = CGPoint(x: k_screenW/2.0, y: k_screenH/2.0)
+        view.tag = k_nullViewTag
+        self.view.addSubview(view)
+        
+    }
+    
+}
+
+

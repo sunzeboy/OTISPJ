@@ -11,13 +11,9 @@ import SwiftyUserDefaults
 import SwiftyJSON
 import IQKeyboardManagerSwift
 
-class SZRecallViewController: SZPageViewController,BottomOperationable {
+class SZRecallViewController: SZPageViewController {
 
 
-    var btns: [BtnModel] {
-        
-        return [BtnModel(title: "新增", picname: "add")];
-    }
     
     
     override func viewDidLoad() {
@@ -28,9 +24,6 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         title = "召修"
-        bottomView.actBlock = { (button:UIButton) -> Void in
-            self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
-        }
                 
 
     }
@@ -69,8 +62,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -96,8 +89,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                     print(data)
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -123,8 +116,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                     print(data)
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -148,8 +141,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                     print(data)
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -174,8 +167,8 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
                     print(data)
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -183,9 +176,5 @@ class SZRecallViewController: SZPageViewController,BottomOperationable {
 
     }
     
-//    func actBlock(button:UIButton) -> Void {
-//        
-//        navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
-//    }
     
 }

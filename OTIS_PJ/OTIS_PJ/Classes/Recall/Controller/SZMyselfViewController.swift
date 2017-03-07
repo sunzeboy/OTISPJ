@@ -11,7 +11,13 @@ import Moya
 import SwiftyJSON
 import SwiftyUserDefaults
 
-class SZMyselfViewController: UIViewController {
+class SZMyselfViewController: UIViewController,BottomOperationable,Emptyable {
+    
+    var btns: [BtnModel] {
+        
+        return [BtnModel(title: "新增", picname: "add")];
+    }
+    
     
     lazy var dataArray: [JSON] = {
         let array = [JSON]()
@@ -33,13 +39,12 @@ class SZMyselfViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(tableView)
         
-        
-        
-        
-        
-        
+        bottomView.actBlock = { (button:UIButton) -> Void in
+            self.navigationController?.pushViewController(SZAddRecallViewController(), animated: true)
+        }
                 
 
     }
@@ -51,13 +56,19 @@ class SZMyselfViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     self.dataArray = json["data"]["callbackLst"].arrayValue
-                    self.tableView.reloadData()
+                    if self.dataArray.count == 0{
+                        self.tableView.removeFromSuperview()
+                        self.showEmptyDataStyle()
+                        
+                    }else{
+                        self.view.viewWithTag(k_nullViewTag)?.removeFromSuperview()
+                        self.tableView.reloadData()
+                    }
                 }
                 
                 
-            case let .failure(error):
-                print(error)
-                
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
             }
             
         }
@@ -84,6 +95,10 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
         let vc = SZRecallProcessViewController()
         let jsonData = dataArray[indexPath.row]
         vc.intCallbId = jsonData["callbackId"].int!
+        if let jsonStr = jsonData["callbackNo"].string {
+            vc.isStopLadders = jsonStr.hasPrefix("T")
+        }
+
         navigationController?.pushViewController(vc, animated: true)
 
         

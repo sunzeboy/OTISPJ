@@ -18,15 +18,15 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
     
     @IBOutlet weak var fangRenTF: UITextField!
 
-    @IBOutlet weak var recallCategory: SZDropDownMenu!
+    @IBOutlet weak var recallCategory: UILabel!
     
-    @IBOutlet weak var componentArea: SZDropDownMenu!
+    @IBOutlet weak var componentArea: UILabel!
     
-    @IBOutlet weak var mainComponent: SZDropDownMenu!
+    @IBOutlet weak var mainComponent: UILabel!
     
-    @IBOutlet weak var secondaryPart: SZDropDownMenu!
+    @IBOutlet weak var secondaryPart: UILabel!
     
-    @IBOutlet weak var code: SZDropDownMenu!
+    @IBOutlet weak var code: UILabel!
     
     @IBOutlet weak var closeInformationTV: UITextView!
     
@@ -37,6 +37,7 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
     @IBOutlet weak var treatmentResultTV: UITextView!
     
     @IBOutlet weak var contentView: UIScrollView!
+    
     override func viewWillAppear(_ animated: Bool) {
         
         requestData()
@@ -44,7 +45,8 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        defaultConfiguration()
+        
         title = "上次召修处理信息"
         contentView.contentSize = CGSize(width: 0, height: 900)
         contentView.alwaysBounceVertical = true
@@ -54,6 +56,11 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
 
     }
     
+    func defaultConfiguration() {
+
+    }
+    
+    
     func requestData() {
         apiProvider.request(.getLastCallBackInfo(intCallbId: intCallbId) ) { result in
             switch result {
@@ -61,12 +68,12 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
 
-                    self.updateDataOnView(json: json)
+                    self.updateDataOnView(json: json["data"])
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -80,12 +87,11 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
         closeInformationTV.text = json["pTrapInfo"].string
         failureCauseTV.text = json["faultCause"].string
         failurePhenomenonTV.text = json["faultPhenomenon"].string
-        componentArea.contentTextField.text = json["faultPhenomenon"].string
-        recallCategory.contentTextField.text = json["faultPhenomenon"].string
-        mainComponent.contentTextField.text = json["faultPhenomenon"].string
-        secondaryPart.contentTextField.text = json["faultPhenomenon"].string
-        code.contentTextField.text = json["faultPhenomenon"].string
-        
+        componentArea.text = json["areaName"].string
+        recallCategory.text = json["categoryName"].string
+        mainComponent.text = json["mainName"].string
+        secondaryPart.text = json["subName"].string
+        code.text = json["defectName"].string
     }
 
     func acceptOrder() {
@@ -98,8 +104,8 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             

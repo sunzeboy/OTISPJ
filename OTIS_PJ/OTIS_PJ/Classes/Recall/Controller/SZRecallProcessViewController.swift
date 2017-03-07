@@ -15,12 +15,18 @@ import SwiftyUserDefaults
 
 class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanable {
     
+    var currentBtn: UIButton?
+    
    override var qRItem: SZQRCodeProcotolitem? {
         willSet {
             
         }
         didSet {
-            
+            if let unitNo = qRItem?.unit_NO {
+                eleCodeTF.text = unitNo
+            }
+            postCallBackStatus()
+
         }
     }
     
@@ -28,7 +34,6 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
     var isStopLadders:Bool = false
     
     //当前界面的状态
-//    var state: ProcessState = .initialized
     var state: CallbackStatus = .new {
         
         willSet {
@@ -151,43 +156,43 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
         rescueTime.inputView = datePicker
         
         bottomView.actBlock = { (button:UIButton) -> Void in
-            
-            if button.title(for: .normal)=="下一步" {
+            self.currentBtn = button
+            if button.currentTitle == "下一步" {
                 let vc = SZRecallInputViewController()
+                vc.isStopLadders = self.isStopLadders
                 vc.intCallbId = self.intCallbId
                 self.navigationController?.pushViewController(vc, animated: true)
                 
-            }else if button.title(for: .normal)=="完成扫描" {
+            }else if button.currentTitle == "完成扫描" {
+//                self.state = .complete
+                self.completeLo.text = Defaults[.userLastLocationLon]
+                self.completeLa.text = Defaults[.userLastLocationLat]
                 self.ZhiFuBaoStyle(self)
-                self.state = .complete
-                self.completeLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
-                self.completeLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?
-                self.postCallBackStatus()
-
             
-            }else if button.title(for: .normal)=="到达扫描" {
-                self.ZhiFuBaoStyle(self)
-
-                self.state = .arrive
-                self.arriveLo.text = UserDefaults.standard.object(forKey: "userLastLocationLon") as! String?
-                self.arriveLa.text = UserDefaults.standard.object(forKey: "userLastLocationLat") as! String?
-                self.postCallBackStatus()
-
+            }else if button.currentTitle == "到达扫描" {
+//                self.state = .arrive  
                 
-            }else if button.title(for: .normal)=="出发" {
-                self.state = .start
+                self.arriveLo.text = Defaults[.userLastLocationLon]
+                self.arriveLa.text = Defaults[.userLastLocationLat]
+                self.ZhiFuBaoStyle(self)
+                
+            }else if button.currentTitle == "出发" {
+//                self.state = .start
                 self.postCallBackStatus()
             
-            }else if button.title(for: .normal)=="放人" {
+            }else if button.currentTitle == "放人" {
+
+                let timeFormatter = DateFormatter()
+                timeFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" 
+                self.rescueTime.text = timeFormatter.string(from: Date())
                 
-                
-            }else if button.title(for: .normal)=="取消" {
+            }else if button.currentTitle == "取消" {
                 
                self.cancleAlert()
                 
             }
             
-//            self.navigationController?.popViewController(animated: true)
+
         }
 
         
@@ -230,8 +235,8 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -261,19 +266,19 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
     func postCallBackStatus() {
 
         apiProvider.request(.saveCallBackStatus(callbackId: intCallbId,
-                                                                                         callbackNo: recallCode.text!,
-                                                                                         unitNo: eleCodeTF.text!,
-                                                                                         customerName: customerName.text!,
-                                                                                         customerTel: customerPhone.text!,
-                                                                                         setOffTime: startTime.text!,
-                                                                                         arrivalSiteTime: arriveTime.text!,
-                                                                                         finishTime: completeTime.text!,
-                                                                                         pTrapRelsTime: rescueTime.text!,
-                                                                                         arrivalSiteLong: arriveLo.text!,
-                                                                                         arrivalSiteLat: arriveLa.text!,
-                                                                                         finishSiteLong: completeLo.text!,
-                                                                                         finishSiteLat: completeLa.text!,
-                                                                                         callbackStatus: state))
+                                                                                     callbackNo: recallCode.text!,
+                                                                                     unitNo: eleCodeTF.text!,
+                                                                                     customerName: customerName.text!,
+                                                                                     customerTel: customerPhone.text!,
+                                                                                     setOffTime: startTime.text!,
+                                                                                     arrivalSiteTime: arriveTime.text!,
+                                                                                     finishTime: completeTime.text!,
+                                                                                     pTrapRelsTime: rescueTime.text!,
+                                                                                     arrivalSiteLong: arriveLo.text!,
+                                                                                     arrivalSiteLat: arriveLa.text!,
+                                                                                     finishSiteLong: completeLo.text!,
+                                                                                     finishSiteLat: completeLa.text!,
+                                                                                     callbackStatus: state))
         { result in
                                                                                             
                                                                                             
@@ -283,11 +288,21 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                 if json["errorCode"].int == 0 {
 
                     self.updateDataOnView(json: json["data"])
+                    
+                    //成功返回数据后更改各btn的状态
+                    if self.currentBtn?.currentTitle == "到达扫描" {
+                        self.state = .arrive
+                    }else if self.currentBtn?.currentTitle == "完成扫描" {
+                        self.state = .complete
+                    }else if self.currentBtn?.currentTitle == "出发" {
+                        self.state = .start
+                    }
+                    
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             

@@ -112,7 +112,11 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         
         bottomView.actBlock = {[unowned self] (button:UIButton) -> Void in
             if button.currentTitle == "下一步" {
-                self.saveAlert()
+                if self.isStopLadders {
+                    self.saveAlertStop()
+                }else{
+                    self.saveAlert()
+                }
             }else{
                 self.save()
             }
@@ -137,8 +141,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
 
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -174,6 +178,42 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         
     }
     
+    
+    func saveAlertStop() {
+        let alertView = CustomIOSAlertView(alertDialogVieWithImageName: "", dialogTitle: "温馨提示", dialogContents: "本次工单所有信息客户已经确认，停梯是否恢复？", dialogButtons: ["是","否"])
+        alertView?.onButtonTouchUpInside = {(alertView: CustomIOSAlertView?,buttonIndex: Int32) in
+            
+            if buttonIndex == 0 {
+                self.stopEveCallBack(isStop: 1)
+            }else{
+                self.stopEveCallBack(isStop: 0)
+            }
+            alertView?.close()
+        }
+        alertView?.show()
+    }
+    
+    func stopEveCallBack(isStop: Int) {
+        apiProvider.request(.stopEveCallBack(callbackId: intCallbId, isStop: isStop)) { result in
+                switch result {
+                case let .success(moyaResponse):
+                    let json = JSON(data: moyaResponse.data)
+                    if json["errorCode"].int == 0 {
+
+//                        SVProgressHUD.showInfo(withStatus: "成功")
+                        self.navigationController?.popToViewController((self.navigationController?.childViewControllers[1])!, animated: true)
+                    }
+                    
+                case .failure(_):
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
+                    
+                }
+            
+        }
+
+    }
+    
+    
     func setUpcontentView() {
         
         recallCategory.placeholder = "请选择召修分类"
@@ -189,20 +229,20 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         code.delegate = self
         
         recallCategory.clickClosure = {[weak self] in
-            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/2.0), animated: true)
+            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/3.0), animated: true)
         }
         
         componentArea.clickClosure = {[weak self] in
-            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/2.0), animated: true)
+            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/3.0), animated: true)
         }
         mainComponent.clickClosure = {[weak self] in
-            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/2.0), animated: true)
+            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/3.0), animated: true)
         }
         secondaryPart.clickClosure = {[weak self] in
-            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/2.0), animated: true)
+            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/3.0), animated: true)
         }
         code.clickClosure = {[weak self] in
-            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/2.0), animated: true)
+            self?.contentView.setContentOffset(CGPoint(x:0,y:k_screenH/3.0), animated: true)
         }
 
         let realm = try! Realm()
@@ -235,8 +275,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
@@ -286,8 +326,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                     }
                 }
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             

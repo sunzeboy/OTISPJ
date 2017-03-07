@@ -14,6 +14,10 @@ let k_screenH = UIScreen.main.bounds.height
 
 let bottomViewH:CGFloat = 60.0
 
+let k_noNetwork = "NoNetwork"
+let k_nullViewTag = 1001
+
+
 
 extension DefaultsKeys {
     

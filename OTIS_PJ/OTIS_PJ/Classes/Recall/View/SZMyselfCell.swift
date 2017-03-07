@@ -23,8 +23,17 @@ class SZMyselfCell: UITableViewCell,Cellable {
             unitNo.text = myCallBackItem["unitNo"]?.string
             customerName.text = myCallBackItem["customerName"]?.string
             customerTel.text = myCallBackItem["customerTel"]?.string
-            callbackNo.text = myCallBackItem["callbackNo"]?.string
-
+            let cbackStatus = myCallBackItem["callbackStatus"]?.int
+            if cbackStatus == 0 {
+                callbackStatus.text = "新增"
+            }else if cbackStatus == 1 {
+                callbackStatus.text = "出发"
+            }else if cbackStatus == 2 {
+                callbackStatus.text = "到达"
+            }else if cbackStatus == 3 {
+                callbackStatus.text = "完成（关闭）"
+            }
+            
         }
     }
     

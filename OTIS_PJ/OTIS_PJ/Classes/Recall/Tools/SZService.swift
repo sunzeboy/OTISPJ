@@ -23,6 +23,14 @@ import SVProgressHUD
 //}
 
 
+enum SZServiceError {
+    case networkConnectionFailed
+    case other(message: String ,errorCode: Int)
+    
+}
+
+
+
 let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
     
     print("networkPlugin \(change)")
@@ -33,6 +41,7 @@ let networkPlugin1 = NetworkActivityPlugin { (change) -> () in
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.dismiss()
+        
     case .began:
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

@@ -59,15 +59,12 @@ class SZAddRecallViewController: UIViewController,BottomOperationable {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     self.navigationController?.popViewController(animated: true)
-
-                    let data = json["data"]["callbackLst"]
                     
-                    print(data)
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
         }

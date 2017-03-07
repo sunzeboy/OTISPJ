@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class SZStopLaddersViewController: UIViewController {
+class SZStopLaddersViewController: UIViewController,Emptyable {
     
     lazy var dataArray: [JSON] = {
         let array = [JSON]()
@@ -49,12 +49,19 @@ class SZStopLaddersViewController: UIViewController {
                 let json = JSON(data: moyaResponse.data)
                 if json["errorCode"].int == 0 {
                     self.dataArray = json["data"]["callbackLst"].arrayValue
-                    self.tableView.reloadData()
+                    if self.dataArray.count == 0{
+                        self.tableView.removeFromSuperview()
+                        self.showEmptyDataStyle()
+
+                    }else{
+                        self.view.viewWithTag(k_nullViewTag)?.removeFromSuperview()
+                        self.tableView.reloadData()
+                    }
                 }
                 
                 
-            case let .failure(error):
-                print(error)
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
             }
             
