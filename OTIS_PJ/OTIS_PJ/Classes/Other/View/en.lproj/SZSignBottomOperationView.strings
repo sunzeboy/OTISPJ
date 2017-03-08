@@ -5,14 +5,14 @@
 /* Class = "UIButton"; selectedTitle = "确认"; ObjectID = "Dgs-vv-KjC"; */
 "Dgs-vv-KjC.selectedTitle" = "确认";
 
-/* Class = "UIButton"; normalTitle = "下一部"; ObjectID = "qmY-yH-YrI"; */
-"qmY-yH-YrI.normalTitle" = "下一部";
+/* Class = "UIButton"; normalTitle = "下一页"; ObjectID = "qmY-yH-YrI"; */
+"qmY-yH-YrI.normalTitle" = "下一页";
 
-/* Class = "UIButton"; selectedTitle = "下一部"; ObjectID = "qmY-yH-YrI"; */
-"qmY-yH-YrI.selectedTitle" = "下一部";
+/* Class = "UIButton"; selectedTitle = "下一页"; ObjectID = "qmY-yH-YrI"; */
+"qmY-yH-YrI.selectedTitle" = "下一页";
 
-/* Class = "UIButton"; normalTitle = "上一部"; ObjectID = "tVU-GQ-pwY"; */
-"tVU-GQ-pwY.normalTitle" = "上一部";
+/* Class = "UIButton"; normalTitle = "上一页"; ObjectID = "tVU-GQ-pwY"; */
+"tVU-GQ-pwY.normalTitle" = "上一页";
 
 /* Class = "UIButton"; selectedTitle = "上一页"; ObjectID = "tVU-GQ-pwY"; */
 "tVU-GQ-pwY.selectedTitle" = "上一页";
