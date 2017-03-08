@@ -170,20 +170,17 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }else if button.currentTitle == "完成扫描" {
-//                self.state = .complete
                 self.completeLo.text = Defaults[.userLastLocationLon]
                 self.completeLa.text = Defaults[.userLastLocationLat]
                 self.ZhiFuBaoStyle(self)
             
             }else if button.currentTitle == "到达扫描" {
-//                self.state = .arrive  
-                
                 self.arriveLo.text = Defaults[.userLastLocationLon]
                 self.arriveLa.text = Defaults[.userLastLocationLat]
                 self.ZhiFuBaoStyle(self)
                 
             }else if button.currentTitle == "出发" {
-//                self.state = .start
+
                 self.postCallBackStatus(callbackState: .start)
             
             }else if button.currentTitle == "放人" {

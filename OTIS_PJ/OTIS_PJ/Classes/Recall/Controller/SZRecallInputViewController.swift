@@ -284,23 +284,47 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     }
     
     func save() {
+        
+        let categoryStr = recallCategory.contentTextField.text!
+        let areaStr = componentArea.contentTextField.text!
+        let mainStr = mainComponent.contentTextField.text!
+        let subStr = secondaryPart.contentTextField.text!
+        let codeStr = code.contentTextField.text!
+
+        if categoryStr.isEmpty {
+            showAlert(dialogContents:"请输入召修分类信息！")
+            return
+        }else if areaStr.isEmpty {
+            showAlert(dialogContents:"请输入部件区域信息！")
+            return
+        }else if mainStr.isEmpty {
+            showAlert(dialogContents:"请输入主部件信息！")
+            return
+        }else if subStr.isEmpty {
+            showAlert(dialogContents:"请输入次部件信息！")
+            return
+        }else if codeStr.isEmpty {
+            showAlert(dialogContents:"请输入代码信息！")
+            return
+        }
+        
         let realm = try! Realm()
-        let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(recallCategory.contentTextField.text!)'").map({ return $0.categoryId })
+        let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(categoryStr)'").map({ return $0.categoryId })
         
         let categoryId = ids[0]
         
-        let ids2 = realm.objects(ComponentArea.self).filter("areaNameZh = '\(componentArea.contentTextField.text!)'").map({ return $0.areaID })
+        let ids2 = realm.objects(ComponentArea.self).filter("areaNameZh = '\(areaStr)'").map({ return $0.areaID })
         let areaID = ids2[0]
         
-        let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainComponent.contentTextField.text!)'").map({ return $0.mainCode })
+        let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainStr)'").map({ return $0.mainCode })
         let mainCode = ids3[0]
         
-        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(secondaryPart.contentTextField.text!)'").map({ return $0.subCode })
+        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(subStr)'").map({ return $0.subCode })
         let subCode = ids4[0]
         
-        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(code.contentTextField.text!)'").map({ return $0.defectCode })
+        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(codeStr)'").map({ return $0.defectCode })
         let defectCode = ids5[0]
-
+        
 
         apiProvider.request(.saveCallBackDetail(callbackId: intCallbId,
                                                 categoryId: categoryId,
@@ -492,3 +516,24 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
     }
 
 }
+
+
+
+
+extension SZRecallInputViewController: UITextViewDelegate {
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        var length = 0
+        for char in textView.text!.characters {
+            // 判断是否中文，是中文+2 ，不是+1
+            length += "\(char)".lengthOfBytes(using: String.Encoding.utf8) == 3 ? 2 : 1
+        }
+        if length > 500 {
+            showAlert(dialogContents:"已超出字数限制，最多可入500字！")
+            return false
+        }
+        return true
+    }
+
+}
+
