@@ -357,6 +357,7 @@
 		8A66E8041D5B128A00924501 /* SZWorkingHoursPUIllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8061D5B128A00924501 /* SZWorkingHoursPUIllCell.xib */; };
 		8A66E80B1D5B133A00924501 /* SZBottomMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E80D1D5B133A00924501 /* SZBottomMainView.xib */; };
 		8A66E8131D5B137700924501 /* SZBottomWhInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8151D5B137700924501 /* SZBottomWhInputView.xib */; };
+		8AB05DCC1E700F4600547AFA /* SZCompanyInformVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB05DCB1E700F4600547AFA /* SZCompanyInformVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1105,6 +1106,8 @@
 		8A66E8141D5B137700924501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZBottomWhInputView.xib; sourceTree = "<group>"; };
 		8A66E8171D5B137B00924501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SZBottomWhInputView.strings; sourceTree = "<group>"; };
 		8A66E8191D5B137C00924501 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SZBottomWhInputView.strings"; sourceTree = "<group>"; };
+		8AB05DCA1E700F4600547AFA /* SZCompanyInformVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCompanyInformVC.h; sourceTree = "<group>"; };
+		8AB05DCB1E700F4600547AFA /* SZCompanyInformVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCompanyInformVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1373,6 +1376,8 @@
 		6806289B1CC77C56002B5201 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8AB05DCA1E700F4600547AFA /* SZCompanyInformVC.h */,
+				8AB05DCB1E700F4600547AFA /* SZCompanyInformVC.m */,
 				0B60C7B61CE3011600A1BEEE /* SZHelpTableViewController.h */,
 				0B60C7B71CE3011600A1BEEE /* SZHelpTableViewController.m */,
 				0B60C7B91CE30AC400A1BEEE /* SZToolViewController.h */,
@@ -2789,6 +2794,7 @@
 				68125B901D1D220F0098A61C /* SZBuilding.m in Sources */,
 				68125B2D1D1945580098A61C /* SZLaborHour.m in Sources */,
 				413F145E1CFBE30700DBDA5A /* SZInputWorkingHourViewController.m in Sources */,
+				8AB05DCC1E700F4600547AFA /* SZCompanyInformVC.m in Sources */,
 				0B429A0F1CE4862E00813271 /* SZPassWordChangeViewController.m in Sources */,
 				6866BC551CD20AE500CBF478 /* SZTable_Schedules.m in Sources */,
 				1ABDD2A21CDC830D002D2250 /* SZWorkingHoursViewController.m in Sources */,
