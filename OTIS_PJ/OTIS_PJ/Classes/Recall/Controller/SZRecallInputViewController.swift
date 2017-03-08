@@ -184,9 +184,9 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         alertView?.onButtonTouchUpInside = {(alertView: CustomIOSAlertView?,buttonIndex: Int32) in
             
             if buttonIndex == 0 {
-                self.stopEveCallBack(isStop: 1)
-            }else{
                 self.stopEveCallBack(isStop: 0)
+            }else{
+                self.stopEveCallBack(isStop: 1)
             }
             alertView?.close()
         }

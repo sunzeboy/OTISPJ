@@ -25,7 +25,13 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
             if let unitNo = qRItem?.unit_NO {
                 eleCodeTF.text = unitNo
             }
-            postCallBackStatus()
+            if self.currentBtn?.currentTitle == "到达扫描" {
+                postCallBackStatus(callbackState: .arrive)
+            }else if self.currentBtn?.currentTitle == "完成扫描" {
+                postCallBackStatus(callbackState: .complete)
+            }else if self.currentBtn?.currentTitle == "出发" {
+                postCallBackStatus(callbackState: .start)
+            }
 
         }
     }
@@ -150,7 +156,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "召修过程"
-        state = .new
+//        state = .new
         
         let datePicker = KMDatePicker(frame: CGRect(x: 0, y: 0, width: k_screenW, height: 216.0), delegate: self, datePickerStyle: .yearMonthDayHourMinute)
         rescueTime.inputView = datePicker
@@ -178,7 +184,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                 
             }else if button.currentTitle == "出发" {
 //                self.state = .start
-                self.postCallBackStatus()
+                self.postCallBackStatus(callbackState: .start)
             
             }else if button.currentTitle == "放人" {
 
@@ -257,13 +263,13 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
             completeTime.text = json["finishTime"].string
             completeLo.text = json["finishSiteLong"].string
             completeLa.text = json["finishSiteLat"].string
-        
+            rescueTime.text = json["pTrapRelsTime"].string
     }
     
     
 
     
-    func postCallBackStatus() {
+    func postCallBackStatus(callbackState: CallbackStatus) {
 
         apiProvider.request(.saveCallBackStatus(callbackId: intCallbId,
                                                                                      callbackNo: recallCode.text!,
@@ -278,7 +284,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                                                                                      arrivalSiteLat: arriveLa.text!,
                                                                                      finishSiteLong: completeLo.text!,
                                                                                      finishSiteLat: completeLa.text!,
-                                                                                     callbackStatus: state))
+                                                                                     callbackStatus: callbackState))
         { result in
                                                                                             
                                                                                             

@@ -98,7 +98,20 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
         if let jsonStr = jsonData["callbackNo"].string {
             vc.isStopLadders = jsonStr.hasPrefix("T")
         }
-
+//        vc.state = jsonData["callbackStatus"].int
+        let state = jsonData["callbackStatus"].int
+        
+        if state == 0 {
+            vc.state = .new
+        }else if state == 1 {
+            vc.state = .start
+        }else if state == 2 {
+            vc.state = .arrive
+        }else if state == 3 {
+            vc.state = .complete
+        }
+        
+        
         navigationController?.pushViewController(vc, animated: true)
 
         
