@@ -8,7 +8,7 @@
 
 #import "SZPageViewController.h"
 #import "SZFinalMaintenanceUnitDetialItem.h"
-
+@class MDSVTModel;
 @interface SZMaintenanceOperationViewController : SZPageViewController
 
 @property (nonatomic , strong)  SZFinalMaintenanceUnitDetialItem *item;
@@ -18,5 +18,12 @@
 @property (nonatomic , assign) BOOL isJHAComplete;
 
 @property (nonatomic , assign) BOOL isFixMode;
+
+
+/**
+ MD 从SVT获取的数据model
+ */
+
+@property(nonatomic,strong) MDSVTModel* svtModel;
 
 @end

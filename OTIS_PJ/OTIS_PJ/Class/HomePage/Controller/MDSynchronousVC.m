@@ -19,8 +19,9 @@
 #import "SZMaintenanceOperationViewController.h"
 #import "MDSVTModel.h"
 #import "AFNetworking.h"
+
 //Otis-
-static NSString* wifiNameFix = @"CX_D";
+static NSString* wifiNameFix = @"Otis-";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
@@ -32,6 +33,7 @@ static NSString* wifiNameFix = @"CX_D";
 @property(nonatomic,weak) UILabel* titleLabel;
 @property(nonatomic,weak) UILabel* wifiLabel;
 @property(nonatomic,strong) NSTimer* timer;
+@property(nonatomic,strong) MDSVTModel* svtModel;
 
 @end
 
@@ -119,8 +121,8 @@ static NSString* wifiNameFix = @"CX_D";
             NSLog(@"-----------%@",weakSelf.appString);
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
-            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
-            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
+//            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
+//            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
             [coverView.dataArray addObject:weakSelf.appString];
             weakSelf.textView.text=weakSelf.appString;
 //            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
@@ -172,6 +174,7 @@ static NSString* wifiNameFix = @"CX_D";
                                                                                                                                              },]}}};
     
     MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+    self.svtModel = model;
 }
 
 
@@ -401,7 +404,8 @@ static NSString* wifiNameFix = @"CX_D";
 -(void)nextButtonClick{
     SZMaintenanceOperationViewController *vc = [[SZMaintenanceOperationViewController alloc] init];
     vc.isJHAComplete = YES;
-    vc.item = self.liftModel;
+    vc.item = (SZFinalMaintenanceUnitDetialItem*)self.liftModel;
+    vc.svtModel = self.svtModel;
     vc.isFixMode = self.liftModel.isFixMode;
     [self.navigationController pushViewController:vc animated:YES];
 

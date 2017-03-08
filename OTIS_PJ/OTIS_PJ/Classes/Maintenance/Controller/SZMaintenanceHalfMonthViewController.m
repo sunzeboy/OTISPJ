@@ -13,13 +13,115 @@
 #import "SZMaintenanceCheckItem.h"
 #import "TablesAndFields.h"
 #import "NSObject+MDObjectTool.h"
+#import "MDSVTModel.h"
 @interface SZMaintenanceHalfMonthViewController ()<UITableViewDataSource>
 
 @property (nonatomic , strong) NSMutableDictionary *arrayCompetedCheckItem;
 
+
+/**
+ MD 属性
+ */
+
+//MD需要测试的dirve的三个维保项
+@property(nonatomic,strong) NSArray* driveProjectArray;
+
+//MD需要测试的controller的三个维保项
+@property(nonatomic,strong) NSArray* controllerProjectArray;
+
+//Drive 包含这个数组中的元素时打❌
+@property(nonatomic,strong) NSArray* driveErrorCodeArray;
+
+//GECB=controller  包含这个数组中的元素时 打❌
+@property(nonatomic,strong) NSArray* controllerErrorCodeArray;
+
 @end
 
 @implementation SZMaintenanceHalfMonthViewController
+
+
+/**
+ 处理MD自动项方法
+ */
+
+-(NSArray*)driveProjectArray{
+    
+    if (!_driveProjectArray) {
+        _driveProjectArray = [NSArray arrayWithObjects:@"A-1_6",@"A-2_5",@"A-3_4", nil];
+    }
+    return _driveProjectArray;
+}
+
+
+-(NSArray*)controllerProjectArray{
+    
+    if (!_controllerProjectArray) {
+        _controllerProjectArray = [NSArray arrayWithObjects:@"A-1_18 ",@"A-1_19",@"A-1_25", nil];
+    }
+    return _controllerProjectArray;
+}
+
+
+-(NSArray*)driveErrorCodeArray{
+
+    if (!_driveErrorCodeArray) {
+        _driveErrorCodeArray = [NSArray arrayWithObjects:@[@"524",@"504",@"529",@"530",@"502",@"507",@"508",@"509",@"510",@"514"],@[@"32",@"33",@"34",@"37",@"38",@"728",@"526"],@[@"400",@"401",@"408",@"409",@"418",@"419"], nil];
+    }
+    return _driveErrorCodeArray;
+}
+
+-(NSArray*)controllerErrorCodeArray{
+    if (!_controllerErrorCodeArray) {
+        _controllerErrorCodeArray = [NSArray arrayWithObjects:@[@"0211",@"0212"],@[@"0301",@"0304",@"307",@"0102", @"0103",@"0312",@"0313"],@[@"0102",@"0237",@"0238",@"0302",@"0306"], nil];
+    }
+    return _controllerErrorCodeArray;
+}
+
+-(void)setControllerMdsvtModel{
+    
+    if ([self.svtModel.controllerModel.IsEventLogComplete isEqualToString:@"true"]) {
+        
+    }else{
+        
+    }
+    
+
+}
+
+-(NSString*)setDriveMdsvtModel{
+    
+    if ([self.svtModel.Drive.IsEventLogComplete isEqualToString:@"true"]) {
+        
+        for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
+            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        
+        for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
+            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"0";
+        
+    }else{
+        for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
+            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        
+        for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
+            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"-1";
+    }
+}
+
+
 // 懒加载
 - (NSMutableArray *)maintenanceOperation {
     
@@ -149,8 +251,6 @@
             return YES;
         }
     }
-    
-    
     return ret;
 }
 
