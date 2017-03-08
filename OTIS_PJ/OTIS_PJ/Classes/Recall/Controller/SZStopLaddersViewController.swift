@@ -55,10 +55,15 @@ class SZStopLaddersViewController: UIViewController,Emptyable {
 
                     }else{
                         self.view.viewWithTag(k_nullViewTag)?.removeFromSuperview()
+                        self.view.addSubview(self.tableView)
                         self.tableView.reloadData()
                     }
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
                 
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)

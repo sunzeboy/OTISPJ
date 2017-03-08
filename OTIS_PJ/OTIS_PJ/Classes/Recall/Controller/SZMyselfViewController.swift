@@ -27,7 +27,7 @@ class SZMyselfViewController: UIViewController,BottomOperationable,Emptyable {
         let tView = UITableView(frame: self.view.bounds , style: .plain)
         tView.dataSource = self
         tView.delegate = self
-        tView.contentInset = UIEdgeInsets(top: 90, left: 0, bottom: 0, right: 0)
+        tView.contentInset = UIEdgeInsets(top: 90, left: 0, bottom: bottomViewH, right: 0)
         return tView
     }()
     
@@ -59,13 +59,18 @@ class SZMyselfViewController: UIViewController,BottomOperationable,Emptyable {
                     if self.dataArray.count == 0{
                         self.tableView.removeFromSuperview()
                         self.showEmptyDataStyle()
-                        
+
                     }else{
                         self.view.viewWithTag(k_nullViewTag)?.removeFromSuperview()
+                        self.view.insertSubview(self.tableView, belowSubview: self.bottomView)
                         self.tableView.reloadData()
                     }
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
                 
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
@@ -98,7 +103,7 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
         if let jsonStr = jsonData["callbackNo"].string {
             vc.isStopLadders = jsonStr.hasPrefix("T")
         }
-//        vc.state = jsonData["callbackStatus"].int
+
         let state = jsonData["callbackStatus"].int
         
         if state == 0 {
@@ -113,10 +118,11 @@ extension SZMyselfViewController: UITableViewDelegate,UITableViewDataSource {
         
         
         navigationController?.pushViewController(vc, animated: true)
-
         
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
 }

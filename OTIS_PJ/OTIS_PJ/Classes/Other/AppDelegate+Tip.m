@@ -32,9 +32,9 @@ static NSTimeInterval kTipDeltTime = 60;
     //主动更新是否做过工时的状态
     [SZTable_LaborHours isLaborHoursed];
     BOOL haveWritedgongshi = [[[NSUserDefaults standardUserDefaults] objectForKey:SZIsLaborHoursed] integerValue];
-    if (self.timer == nil&& haveWritedgongshi== NO) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:kTipDeltTime target:self selector:@selector(checkCurrentTime) userInfo:nil repeats:YES];
-    }
+//    if (self.timer == nil&& haveWritedgongshi== NO) {
+//        self.timer = [NSTimer scheduledTimerWithTimeInterval:kTipDeltTime target:self selector:@selector(checkCurrentTime) userInfo:nil repeats:YES];
+//    }
 }
 
 -(void)checkCurrentTime{

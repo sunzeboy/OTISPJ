@@ -138,9 +138,12 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     print(json)
                     self.navigationController?.popToViewController((self.navigationController?.childViewControllers[1])!, animated: true)
-
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
@@ -202,8 +205,12 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
 
 //                        SVProgressHUD.showInfo(withStatus: "成功")
                         self.navigationController?.popToViewController((self.navigationController?.childViewControllers[1])!, animated: true)
+                        return
                     }
-                    
+                    if let message = json["message"].string {
+                        showAlert(dialogContents:"\(message)")
+                    }
+
                 case .failure(_):
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                     
@@ -271,9 +278,12 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                 if json["errorCode"].int == 0 {
                     
                     self.updateDataOnView(json: json["data"])
-                    
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
                 
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
@@ -348,8 +358,12 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
                             btn.isEnabled = true
                         }
                     }
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
                 
@@ -375,7 +389,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         closeInformationTV.text = json["pTrapInfo"].string
         failureCauseTV.text = json["faultCause"].string
         failurePhenomenonTV.text = json["faultPhenomenon"].string
-
+        fangRenTF.text = json["pTrapRelsTime"].string
+        
         let realm = try! Realm()
         let areas: [String] = realm.objects(ComponentArea.self).filter("areaID = \(json["areaId"].int!)").map{ return $0.areaNameZh}
         componentArea.contentTextField.text = areas.last
@@ -529,6 +544,7 @@ extension SZRecallInputViewController: UITextViewDelegate {
             length += "\(char)".lengthOfBytes(using: String.Encoding.utf8) == 3 ? 2 : 1
         }
         if length > 500 {
+            view.endEditing(true)
             showAlert(dialogContents:"已超出字数限制，最多可入500字！")
             return false
         }

@@ -22,16 +22,26 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
             
         }
         didSet {
-            if let unitNo = qRItem?.unit_NO {
-                eleCodeTF.text = unitNo
+            
+            guard let unitNo = qRItem?.unit_NO else {
+                return
             }
+            
             if self.currentBtn?.currentTitle == "到达扫描" {
+                eleCodeTF.text = unitNo
                 postCallBackStatus(callbackState: .arrive)
             }else if self.currentBtn?.currentTitle == "完成扫描" {
+                if qRItem?.unit_NO != eleCodeTF.text {
+                    showAlert(dialogContents: "请确保和到达扫描的电梯编号一致！")
+                    return
+                }
+                eleCodeTF.text = unitNo
                 postCallBackStatus(callbackState: .complete)
             }else if self.currentBtn?.currentTitle == "出发" {
+                eleCodeTF.text = unitNo
                 postCallBackStatus(callbackState: .start)
             }
+            
 
         }
     }
@@ -213,12 +223,34 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
     }
     
     func cancleClick(button: UIButton) {
-        alertView?.hidenAnimation()
         
         let cancelView: CancleAlertView = alertView?.contentView as! CancleAlertView
-        apiProvider.request(.cancelCallBack(callbackId: intCallbId ,currentStatus: 4,cancelReason: cancelView.reasonTextView.text ,cancelTime: "")) { result in
-            
+        if cancelView.reasonTextView.text.isEmpty {
+            showAlert(dialogContents: "请输入取消理由！")
+            return
         }
+        apiProvider.request(.cancelCallBack(callbackId: intCallbId ,currentStatus: 4,cancelReason: cancelView.reasonTextView.text ,cancelTime: "")) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = JSON(data: moyaResponse.data)
+                if json["errorCode"].int == 0 {
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+                
+                
+            case .failure(_):
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
+                
+            }
+
+        }
+        alertView?.hidenAnimation()
+
     }
     
     func confirmClick(button: UIButton) {
@@ -234,9 +266,12 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                 if json["errorCode"].int == 0 {
                     
                     self.updateDataOnView(json: json["data"])
-                    
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
                 
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
@@ -300,9 +335,12 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                     }else if self.currentBtn?.currentTitle == "出发" {
                         self.state = .start
                     }
-                    
+                    return
                 }
-                
+                if let message = json["message"].string {
+                    showAlert(dialogContents:"\(message)")
+                }
+
                 
             case .failure(_):
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: k_noNetwork), object: self, userInfo: nil)
