@@ -357,6 +357,7 @@
 		8A66E8041D5B128A00924501 /* SZWorkingHoursPUIllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8061D5B128A00924501 /* SZWorkingHoursPUIllCell.xib */; };
 		8A66E80B1D5B133A00924501 /* SZBottomMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E80D1D5B133A00924501 /* SZBottomMainView.xib */; };
 		8A66E8131D5B137700924501 /* SZBottomWhInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A66E8151D5B137700924501 /* SZBottomWhInputView.xib */; };
+		8AB05DC91E7002BA00547AFA /* SZCompanyNotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB05DC81E7002BA00547AFA /* SZCompanyNotificationVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1105,6 +1106,8 @@
 		8A66E8141D5B137700924501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SZBottomWhInputView.xib; sourceTree = "<group>"; };
 		8A66E8171D5B137B00924501 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SZBottomWhInputView.strings; sourceTree = "<group>"; };
 		8A66E8191D5B137C00924501 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SZBottomWhInputView.strings"; sourceTree = "<group>"; };
+		8AB05DC71E7002BA00547AFA /* SZCompanyNotificationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCompanyNotificationVC.h; sourceTree = "<group>"; };
+		8AB05DC81E7002BA00547AFA /* SZCompanyNotificationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZCompanyNotificationVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1390,6 +1393,8 @@
 				684A15CE1D7E5620002ED4D5 /* SZVersionListViewController.m */,
 				6881AA7E1D9A06B5008D5DC4 /* SZVersionWebViewController.h */,
 				6881AA7F1D9A06B5008D5DC4 /* SZVersionWebViewController.m */,
+				8AB05DC71E7002BA00547AFA /* SZCompanyNotificationVC.h */,
+				8AB05DC81E7002BA00547AFA /* SZCompanyNotificationVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2855,6 +2860,7 @@
 				68125B471D1CC9B90098A61C /* SZButton.m in Sources */,
 				68125B391D1A8FC90098A61C /* SZCheckWHDetialViewController.m in Sources */,
 				68777F651D2BAEC100DCAD2D /* SZAddWorkingHoursView.m in Sources */,
+				8AB05DC91E7002BA00547AFA /* SZCompanyNotificationVC.m in Sources */,
 				419CB99C1CE1CF8E0003FE44 /* SZNonOtisElevatorViewController.m in Sources */,
 				1A4CC4E21CDAE9C1004B8D42 /* SZCarTopViewController.m in Sources */,
 				68018FCF1CF6977900DA9614 /* SZMaintenanceCheckItem.m in Sources */,

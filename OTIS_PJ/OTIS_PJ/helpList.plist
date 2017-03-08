@@ -62,5 +62,15 @@
 		<key>gotoImage</key>
 		<string></string>
 	</dict>
+	<dict>
+		<key>iconImage</key>
+		<string>help_notification</string>
+		<key>iconName</key>
+		<string>企业通知</string>
+		<key>titleNo</key>
+		<string>1</string>
+		<key>gotoImage</key>
+		<string>cell_right</string>
+	</dict>
 </array>
 </plist>

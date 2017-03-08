@@ -21,6 +21,7 @@
 #import "SZUploadManger.h"
 #import "SZVersionListViewController.h"
 #import "SZVersionWebViewController.h"
+#import "SZCompanyNotificationVC.h"
 
 @interface SZHelpTableViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(strong,nonatomic) UITableView *tableView;
@@ -186,10 +187,15 @@
         [self.navigationController pushViewController:controller animated:YES];
 
     }else if (indexPath.section == 0) {
-        //工具
-        SZToolViewController *controller = [[SZToolViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
-    
+        
+        if (indexPath.row==0) {
+            //工具
+            SZToolViewController *controller = [[SZToolViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }else{
+            SZCompanyNotificationVC* companyVC = [[SZCompanyNotificationVC alloc] init];
+            [self.navigationController pushViewController:companyVC animated:YES];
+        }
     }else if (indexPath.section == 2) {
         //版本说明
         SZVersionWebViewController *controller = [[SZVersionWebViewController alloc] init];
