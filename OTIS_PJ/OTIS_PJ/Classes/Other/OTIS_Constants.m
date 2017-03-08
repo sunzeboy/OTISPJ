@@ -6,6 +6,9 @@
 //  Copyright © 2016年 sunzeboy. All rights reserved.
 //
 
+/*
+ 此文件杜亚伟不提及
+ */
 
 /** 顶部标题的高度 */
 CGFloat const CXTitilesViewH                = 35;
@@ -25,6 +28,7 @@ NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net:22281/";
 NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net:22281/";
 NSString * SZOuterNetworkCallback   = @"http://ochcsprdweb.cloudapp.net/CallBack/main.html";
 
+//NSString * SZOuterNetworkCallback   = @"http://ochcsprdweb.cloudapp.net/webtest/CallBack/main.html";
 
 //NSString * SZOuterNetworkCallback   = @"http://192.168.30.50/CallBack/CallBack/main.html?userName=13039&passWord=62ef34f4e7b271b4ccdb5cbeb1546f&tabType=0";
 //NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
