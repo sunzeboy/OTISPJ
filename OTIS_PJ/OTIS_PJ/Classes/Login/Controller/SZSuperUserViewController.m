@@ -11,9 +11,9 @@
 
 @interface SZSuperUserViewController ()<XHDropBoxDelegate>
 @property (strong,nonatomic) XHDropBoxView *xhbox;
-@property (strong,nonatomic) UITextField *xhbox2;
+@property (strong,nonatomic) XHDropBoxView *xhbox2;
 
-@property (strong,nonatomic) UILabel *detialLabel;
+//@property (strong,nonatomic) UILabel *detialLabel;
 
 @end
 
@@ -50,34 +50,41 @@
     [self.view addSubview:labelCallback];
     
     
-    self.xhbox2 = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 40)];
-    self.xhbox2.borderStyle = UITextBorderStyleRoundedRect;
-    self.xhbox2.placeholder = @"请输入或选择服务器地址";
+    self.xhbox2 = [[XHDropBoxView alloc] init];
+    [self.xhbox2 setControlsViewOriginx:15 ViewOriginy:100 TextWidth:SCREEN_WIDTH-65 TextAndButtonHigth:40 ButtonWidth:40 TableHigth:100 Editortype:YES];
+    self.xhbox2.delegate =self;
+    self.xhbox2.textfiled.placeholder = @"请输入或选择服务器地址";
     self.xhbox2.tag = 1001;
     if ([USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"] == nil) {
-        self.xhbox2.text = SZOuterNetworkCallback;
+        self.xhbox2.textfiled.text = SZOuterNetworkCallback;
 
     }else{
-        self.xhbox2.text = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
+        self.xhbox2.textfiled.text = [USER_DEFAULT objectForKey:@"SZOuterNetworkCallback"];
     }
-    self.xhbox2.font = [UIFont systemFontOfSize:14.0];
+//    self.xhbox2.textfiled.font = [UIFont systemFontOfSize:14.0];
+    NSArray *arrT = @[@"http://ochcsprdweb.cloudapp.net/CallBack/main.html",@"http://ochcsprdweb.cloudapp.net/webtest/CallBack/main.html"];
+    NSArray *arrT2 = @[@"召修云服务",@"召修云测试-技师勿设"];
+    NSInteger indexT = [arrT indexOfObject:SZOuterNetworkCallback];
+    self.xhbox2.textfiled.text = arrT2[indexT];
+
+    self.xhbox2.arr = arrT2;
     [self.view addSubview:self.xhbox2];
     
     
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view, typically from a nib.
-    self.xhbox = [[XHDropBoxView alloc]init];
+    self.xhbox = [[XHDropBoxView alloc] init];
     /*第一个参数设置：frame.origin.x 第二个参数：frame.origin.y  第三个参数：textfield宽度 第四个参数：textfield高度  第五个参数：button宽度
      第六个参数：tableview的高度 第七个参数：设置是否能够编辑 yes能编辑  no不能编辑
      默认button高度和textfiled高度一样
      默认tableview宽度为textfield和button的宽度只和*/
-    [self.xhbox setControlsViewOriginx:0 ViewOriginy:200 TextWidth:SCREEN_WIDTH-40 TextAndButtonHigth:40 ButtonWidth:40 TableHigth:100 Editortype:YES];
+    [self.xhbox setControlsViewOriginx:15 ViewOriginy:200 TextWidth:SCREEN_WIDTH-65 TextAndButtonHigth:40 ButtonWidth:40 TableHigth:100 Editortype:YES];
     self.xhbox.textfiled.placeholder = @"请输入或选择服务器地址";
     self.xhbox.delegate =self;
     self.xhbox.tag = 1000;
 
-    NSArray *arr = @[@"http://ochcsprdweb.cloudapp.net:22281/",@"http://ochcsprdweb.cloudapp.net/MobileTest/",@"http://192.168.30.84:22282/"];
-    NSArray *arr2 = @[@"云服务",@"云测试-技师勿设",@"畅星测试-技师勿设"];
+    NSArray *arr = @[@"http://ochcsprdweb.cloudapp.net:22281/",@"http://ochcsprdweb.cloudapp.net/MobileTest/"];
+    NSArray *arr2 = @[@"云服务",@"云测试-技师勿设"];
     NSInteger index = [arr indexOfObject:SZOuterNetwork];
     
     self.xhbox.textfiled.text = arr2[index];
@@ -105,10 +112,10 @@
     
     [self.view addSubview:btn2];
     
-    self.detialLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, CGRectGetMidY(self.xhbox.frame)-45, 100, 30)];
-    self.detialLabel.textColor = [UIColor lightGrayColor];
-    self.detialLabel.font = [UIFont systemFontOfSize:12];
-    [self.view addSubview:self.detialLabel];
+//    self.detialLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, CGRectGetMidY(self.xhbox.frame)-45, 100, 30)];
+//    self.detialLabel.textColor = [UIColor lightGrayColor];
+//    self.detialLabel.font = [UIFont systemFontOfSize:12];
+//    [self.view addSubview:self.detialLabel];
 }
 
 -(void)selectAtIndex:(int)index WithXHDrooBox:(XHDropBoxView *)dropbox
@@ -143,10 +150,30 @@
         }
         
         
-        self.detialLabel.text = arr2[index];
+//        self.detialLabel.text = arr2[index];
     }else {
     
-    
+        
+        switch (index) {
+            case 0:
+            
+            SZOuterNetworkCallback = @"http://ochcsprdweb.cloudapp.net/CallBack/main.html";
+            
+            break;
+            case 1:
+            
+            SZOuterNetworkCallback = @"http://ochcsprdweb.cloudapp.net/webtest/CallBack/main.html";
+            
+            
+            break;
+           
+            
+            default:
+            break;
+        }
+        
+        
+        
     }
 
 
@@ -161,7 +188,7 @@
 
 
 -(void)confirm{
-    SZOuterNetworkCallback = self.xhbox2.text;
+
     if (SZOuterNetworkCallback&&[SZOuterNetworkCallback containsString:@"://"]) {
         [USER_DEFAULT setObject:SZOuterNetworkCallback forKey:@"SZOuterNetworkCallback"];
     }
