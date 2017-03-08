@@ -316,7 +316,21 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         }else if codeStr.isEmpty {
             showAlert(dialogContents:"请输入代码信息！")
             return
+        }else if fangRenTF.text?.isEmpty == false && closeInformationTV.text.isEmpty {
+            showAlert(dialogContents:"请输入关人信息！")
+            return
+        }else if failureCauseTV.text.isEmpty {
+            showAlert(dialogContents:"请输入故障原因信息！")
+            return
+        }else if failurePhenomenonTV.text.isEmpty {
+            showAlert(dialogContents:"请输入故障现象信息！")
+            return
+        }else if treatmentResultTV.text.isEmpty {
+            showAlert(dialogContents:"请输入处理结果信息！")
+            return
         }
+        
+        
         
         let realm = try! Realm()
         let ids = realm.objects(RecallCategory.self).filter("categoryNameZh = '\(categoryStr)'").map({ return $0.categoryId })
