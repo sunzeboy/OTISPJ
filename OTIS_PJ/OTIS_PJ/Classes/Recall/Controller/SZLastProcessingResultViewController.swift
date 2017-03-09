@@ -96,6 +96,8 @@ class SZLastProcessingResultViewController: UIViewController,BottomOperationable
         mainComponent.text = json["mainName"].string
         secondaryPart.text = json["subName"].string
         code.text = json["defectName"].string
+        fangRenTF.text = json["pTrapRelsTime"].string
+
     }
 
     func acceptOrder() {
