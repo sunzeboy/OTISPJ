@@ -74,11 +74,10 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SZFinalMaintenanceUnitDetialItem *item = self.sousuoArray[indexPath.row];
-    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
-    [self.navigationController pushViewController:vc animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
+//    [self.navigationController pushViewController:vc animated:YES];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    return;
     __block NSInteger iCell = 0;
     __block NSString *cellContent = @"";
     [self.view endEditing:YES];
@@ -129,11 +128,14 @@
             [self.delegate ZhiFuBaoStyle];
         } else if (iCell > 0) {
             if (buttonIndex == 0) {
-                SZFinalMaintenanceUnitItem *item = self.sousuoArray[indexPath.row];
-                SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] initWithBarcodeType:cellContent];
-                controller.scheduleID = item.ScheduleID;
-                controller.title = weakSelf.title;
-                [self.navigationController pushViewController:controller animated:YES];
+//                SZFinalMaintenanceUnitItem *item = self.sousuoArray[indexPath.row];
+//                SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] initWithBarcodeType:cellContent];
+//                controller.scheduleID = item.ScheduleID;
+//                controller.title = weakSelf.title;
+//                [self.navigationController pushViewController:controller animated:YES];
+                MDSynchronousVC *vc = [[MDSynchronousVC alloc] initWithLiftModel:item];
+                [tableView deselectRowAtIndexPath:indexPath animated:YES];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
                 [alertView close];
             } else {
                 [alertView close];

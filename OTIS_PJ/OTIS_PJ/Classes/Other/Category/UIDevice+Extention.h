@@ -11,5 +11,5 @@
 @interface UIDevice (Extention)
 
 +(NSString *)currentDeviceUUIDString;
-
++(NSString*)getAppVersion;
 @end

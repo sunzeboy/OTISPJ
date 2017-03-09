@@ -42,6 +42,19 @@
                     SZMaintenanceCheckItem *item = itemFix;
                     item.state = [dicFix[itemFix.ItemCode] intValue];
                     [_maintenanceOperation addObject:item];
+                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
+                    if (index>2) {
+                        item.isHiden=YES;
+                    }
+                    if (index<2){
+                        item.automType = 0;
+                    }else{
+                        item.automType = 1;
+                    }
+                    
+                    if (![self IsAutomaticOpen]) {
+                        item.isHiden=YES;
+                    }
                 }
                 
             }
@@ -60,6 +73,19 @@
                     item.state = item2.state;
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
+                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
+                    if (index>2) {
+                        item.isHiden=YES;
+                    }
+                    if (index<2){
+                        item.automType = 0;
+                    }else{
+                        item.automType = 1;
+                    }
+                    
+                    if (![self IsAutomaticOpen]) {
+                        item.isHiden=YES;
+                    }
                 }
             }
             
@@ -113,8 +139,6 @@
                     }
                     
                 }
-                
-                
                 
             }
             

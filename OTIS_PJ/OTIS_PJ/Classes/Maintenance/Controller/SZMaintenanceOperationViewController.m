@@ -338,24 +338,28 @@
 {
     SZMaintenanceHalfMonthViewController *halfMonth = [[SZMaintenanceHalfMonthViewController alloc] init];
     halfMonth.item2 = self.item;
+    halfMonth.svtModel = self.svtModel;
     halfMonth.title = SZLocal(@"title.SZMaintenanceOperation.halfMonth");
     halfMonth.isFixMode = self.isFixMode;
     [self addChildViewController:halfMonth];
     
     SZMaintenanceQuarterViewController *quarter = [[SZMaintenanceQuarterViewController alloc] init];
     quarter.item2 = self.item;
+    quarter.svtModel = self.svtModel;
     quarter.title = SZLocal(@"title.SZMaintenanceOperation.quarter");
     quarter.isFixMode = self.isFixMode;
     [self addChildViewController:quarter];
     
     SZMaintenanceHalfYearViewController *halfYear = [[SZMaintenanceHalfYearViewController alloc] init];
     halfYear.item2 = self.item;
+    halfYear.svtModel = self.svtModel;
     halfYear.title = SZLocal(@"title.SZMaintenanceOperation.halfYear");
     halfYear.isFixMode = self.isFixMode;
     [self addChildViewController:halfYear];
     
     SZMaintenanceYearViewController *year = [[SZMaintenanceYearViewController alloc] init];
     year.item2 = self.item;
+    year.svtModel = self.svtModel;
     year.title = SZLocal(@"title.SZMaintenanceOperation.year");
     year.isFixMode = self.isFixMode;
     [self addChildViewController:year];

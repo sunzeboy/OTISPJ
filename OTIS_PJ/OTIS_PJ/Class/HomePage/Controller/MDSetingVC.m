@@ -48,10 +48,11 @@
     [slider addTarget:self action:@selector(swichClick:) forControlEvents:UIControlEventTouchUpInside];
     [backView addSubview:slider];
     
-    if (isAutomatickey==nil||[isAutomatickey isEqualToString:@"0"]) {
-        slider.on=NO;
-    }else{
+    if (isAutomatickey==nil) {
         slider.on=YES;
+        [self swichClick:slider];
+    }else{
+        slider.on = [isAutomatickey boolValue];
     }
     
     [backView mas_makeConstraints:^(MASConstraintMaker *make) {

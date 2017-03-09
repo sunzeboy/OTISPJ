@@ -7,11 +7,11 @@
 //
 
 #import "MDBaseVC.h"
-@class SZFinalMaintenanceUnitDetialItem;
+@class SZFinalMaintenanceUnitItem;
 @interface MDSynchronousVC : MDBaseVC
 
 
--(instancetype)initWithLiftModel:(SZFinalMaintenanceUnitDetialItem*)model;
+-(instancetype)initWithLiftModel:(SZFinalMaintenanceUnitItem*)model;
 
 @property(nonatomic,assign) BOOL isAppJump;
 

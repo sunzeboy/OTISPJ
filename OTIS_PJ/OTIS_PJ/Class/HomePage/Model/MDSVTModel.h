@@ -7,102 +7,46 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class MDSVTModelDetail;
+@class MDSVTLastModel;
+@class MDSVTErrorData;
 @interface MDSVTModel : NSObject
 
+@property(nonatomic,strong) MDSVTModelDetail* controllerModel;
+@property(nonatomic,strong) MDSVTLastModel* Drive;
 
-@property(nonatomic,strong) NSArray* ControllerEvents;
-
-@property(nonatomic,strong) NSArray* ElapsedMinutes;
-
-@property(nonatomic,strong) NSArray* NumberOfRuns;
-
-@property(nonatomic,strong) NSArray* SCN;
-
-@property(nonatomic,strong) NSArray* SoftwareBaselineVersion;
-
-
-@property(nonatomic,strong) NSMutableArray* detailModelArray;
-
-+(instancetype)mdSvtModelWithDic:(NSDictionary*)dic;
 @end
 
 
-@interface MDSVTModelDetail : NSObject
-
-/*
- 
- CarPosition = "**";
- Counter = 014;
- ElapsedTime = 001222;
- EventNumber = 0213;
- EventSubcode = "";
- TextOfEvent = "DrvPrepErr+";
- 
- */
-
-@property (nonatomic,copy) NSString* CarPosition;
-@property (nonatomic,copy) NSString* Counter;
-@property (nonatomic,copy) NSString* ElapsedTime;
+@interface MDSVTEventModel : NSObject
 @property (nonatomic,copy) NSString* EventNumber;
-@property (nonatomic,copy) NSString* EventSubcode;
-@property (nonatomic,copy) NSString* TextOfEvent;
+@property (nonatomic,copy) NSString* EventName;
+@property (nonatomic,copy) NSString* ElapsedTime;
+@end
 
-+(instancetype)mdSvtModelDetailWithDic:(NSDictionary*)dic;
+
+@interface MDSVTErrorData : NSObject
+@property (nonatomic,copy) NSString* Step;
+@property (nonatomic,copy) NSString* ErrorCode;
+@end
+
+@interface MDSVTModelDetail : NSObject
+@property (nonatomic,copy) NSString* SoftwareBaselineVersion;
+@property (nonatomic,strong) MDSVTErrorData* ErrorData;
+@property (nonatomic,copy) NSString* IsEventLogComplete;
+@property (nonatomic,copy) NSString* SCN;
 @end
 
 
 
 @interface MDSVTLastModel : NSObject
 
-/*
- 
- {
- 
- ControllerEvents =             {
- CarPosition = 05;
- Counter = 050;
- ElapsedTime = 001222;
- TextOfEvent = "+DFCM+Fault";
- };
- 
- ErrorData =             (
- {
- ErrorCode = "";
- Step = "GECB+macro+step41";
- },
- {
- ErrorCode = "";
- Step = "GDCB+macro+step3";
- },
- {
- ErrorCode = "";
- Step = "GDCB+macro+step3";
- }
- );
- EventNumber =             (
- 0218,
- 0218
- );
- 
- }
- 
- 
- */
-@property (nonatomic,copy) NSString* CarPosition;
-@property (nonatomic,copy) NSString* Counter;
-@property (nonatomic,copy) NSString* ElapsedTime;
-@property (nonatomic,strong) NSArray* EventNumber;
-@property (nonatomic,copy) NSString* EventSubcode;
-@property (nonatomic,copy) NSString* TextOfEvent;
-
+@property (nonatomic,copy) NSString* SoftwareBaselineVersion;
+@property (nonatomic,copy) NSString* SCN;
+@property (nonatomic,strong) NSArray* SavedDriveEvents;
+@property (nonatomic,strong) NSArray* DriveEvents;
 @property (nonatomic,copy) NSString* IsEventLogComplete;
-@property (nonatomic,strong) NSArray* ErrorData;
-
-@property(nonatomic,strong)MDSVTModelDetail* detailModel;
-+(instancetype)mdSvtLastModelWithDic:(NSDictionary*)dic;
 @end
-
 
 
 
