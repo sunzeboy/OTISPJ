@@ -166,7 +166,8 @@
         
         NSString *strCreatet_ScheduleCheckItem = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_ScheduleCheckItem (Times INTEGER,\
                                                CardType INTEGER ,\
-                                               ItemCode TEXT);"];
+                                               ItemCode TEXT ,\
+                                               IsMDAuto INTEGER NOT NULL DEFAULT 0 );"];
         
         
         // GroupID, ScheduleID, EmployeeID 每个电梯的一次Group数据只有一份

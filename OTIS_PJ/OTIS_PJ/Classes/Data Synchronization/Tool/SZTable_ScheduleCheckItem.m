@@ -92,14 +92,15 @@
         
         for (NSInteger fre = 0; fre<frequency; fre++){
             
-            NSMutableString *sql = [NSMutableString stringWithFormat:@"%@", @"INSERT INTO t_ScheduleCheckItem (ItemCode,CardType,Times) VALUES "];
+            NSMutableString *sql = [NSMutableString stringWithFormat:@"%@", @"INSERT INTO t_ScheduleCheckItem (ItemCode,CardType,Times,IsMDAuto) VALUES "];
             
             for (NSInteger i =kNumberOfEachDeposit*fre; i<kNumberOfEachDeposit*(fre +1); i++) {
                 SZScheduleCheckItem *item = scheduleCheckItems[i];
                 NSString *itemCode = item.ItemCode;
                 int cardType = item.CardType;
                 int Times = item.Times;
-                NSString *strSqlSuffix = [NSString stringWithFormat:@"('%@',%d,%d),",itemCode,cardType,Times];
+                int IsMDAuto = item.IsMDAuto;
+                NSString *strSqlSuffix = [NSString stringWithFormat:@"('%@',%d,%d,%d),",itemCode,cardType,Times,IsMDAuto];
                 [sql appendString:strSqlSuffix];
                 
             }
@@ -114,16 +115,16 @@
             
         }
         
-        NSMutableString *sql = [NSMutableString stringWithFormat:@"%@", @"INSERT INTO t_ScheduleCheckItem (ItemCode,CardType,Times) VALUES "];
+        NSMutableString *sql = [NSMutableString stringWithFormat:@"%@", @"INSERT INTO t_ScheduleCheckItem (ItemCode,CardType,Times,IsMDAuto) VALUES "];
 
         for (NSInteger i =kNumberOfEachDeposit*frequency; i<kNumberOfEachDeposit*frequency +cal; i++) {
             SZScheduleCheckItem *item = scheduleCheckItems[i];
             NSString *itemCode = item.ItemCode;
             int cardType = item.CardType;
             int Times = item.Times;
-            NSString *strSqlSuffix = [NSString stringWithFormat:@"('%@',%d,%d),",itemCode,cardType,Times];
+            int IsMDAuto = item.IsMDAuto;
+            NSString *strSqlSuffix = [NSString stringWithFormat:@"('%@',%d,%d,%d),",itemCode,cardType,Times,IsMDAuto];
             [sql appendString:strSqlSuffix];
-            
         }
         
         [sql deleteCharactersInRange:NSMakeRange([sql length]-1, 1)];
