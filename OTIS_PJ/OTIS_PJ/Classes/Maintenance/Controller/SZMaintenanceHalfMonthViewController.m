@@ -219,11 +219,11 @@
                         itemAll.automType = 1;
                     }
                     
-                    if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
-                        
-                        NSInteger index = [self.driveProjectArray indexOfObject:itemAll.ItemCode];
-                        NSLog(@"--------------------%@",[self setDriveMdsvtModel:index]);
-                    }
+//                    if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
+//                        
+//                        NSInteger index = [self.driveProjectArray indexOfObject:itemAll.ItemCode];
+//                        NSLog(@"--------------------%@",[self setDriveMdsvtModel:index]);
+//                    }
                     
                     if (![self IsAutomaticOpen]) {
                         itemAll.isHiden=YES;
