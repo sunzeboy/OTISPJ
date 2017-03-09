@@ -84,36 +84,34 @@
     }else{
         
     }
-    
-
 }
 
--(NSString*)setDriveMdsvtModel{
+-(NSString*)setDriveMdsvtModel:(NSInteger)index{
+    
+    NSArray* tempArray = self.driveErrorCodeArray[index];
     
     if ([self.svtModel.Drive.IsEventLogComplete isEqualToString:@"true"]) {
         
         for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
-            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+            if ([tempArray containsObject:model.EventNumber]) {
                 return @"1";
             }
         }
         
         for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
-            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+            if ([tempArray containsObject:model.EventNumber]) {
                 return @"1";
             }
         }
         return @"0";
-        
     }else{
         for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
-            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+            if ([tempArray containsObject:model.EventNumber]) {
                 return @"1";
             }
         }
-        
         for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
-            if ([self.driveProjectArray containsObject:model.EventNumber]) {
+            if ([tempArray containsObject:model.EventNumber]) {
                 return @"1";
             }
         }
@@ -221,9 +219,17 @@
                         itemAll.automType = 1;
                     }
                     
+                    if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
+                        
+                        NSInteger index = [self.driveProjectArray indexOfObject:itemAll.ItemCode];
+                        NSLog(@"--------------------%@",[self setDriveMdsvtModel:index]);
+                    }
+                    
                     if (![self IsAutomaticOpen]) {
                         itemAll.isHiden=YES;
                     }
+                    
+                   
                     
                 }
             }

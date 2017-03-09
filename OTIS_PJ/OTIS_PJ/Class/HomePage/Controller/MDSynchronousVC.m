@@ -129,7 +129,6 @@ static NSString* wifiNameFix = @"Otis-";
 //            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
 //            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
 //            MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
-            
 //            NSLog(@"%@",model);
         }
         
