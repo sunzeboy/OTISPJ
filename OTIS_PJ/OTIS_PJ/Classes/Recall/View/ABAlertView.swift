@@ -338,6 +338,9 @@ class AlertView: UIView {
     var indexArray = [String]()
     var tempStr = "dd"
     
+    var clickClouse: (()->Void)?
+    
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel.init(frame: CGRect.init(x: 0, y: 20, width:screenW-30, height: 30))
         label.text = "再次处理确认"
@@ -461,6 +464,9 @@ extension AlertView: UITableViewDelegate,UITableViewDataSource{
         rightBtn.isSelected = false
         textField.text = indexArray[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: false)
+        if let clickClouse = clickClouse {
+            clickClouse()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

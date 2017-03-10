@@ -47,7 +47,7 @@ class SZAddRecallViewController: UIViewController,BottomOperationable {
             showAlert(dialogContents:"请输入客户名称！")
             return
         }
-        if validateMobile(phoneNum: customerPhoneTF.text!) {
+        if isTelNumber(num: customerPhoneTF.text!) == false {
             showAlert(dialogContents:"请输入正确的手机号码！")
             return
         }

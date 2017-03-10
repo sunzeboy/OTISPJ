@@ -48,7 +48,11 @@ public protocol SZDropDownMenuDelegate:class{
     public var menuHeight : CGFloat{// 菜单展开的最大高度，当它为0时全部展开
         get {
             if _menuMaxHeight == 0{
+                if CGFloat(self.options.count) * self.rowHeight < 150 {
+                    return CGFloat(self.options.count) * self.rowHeight
+                }
                 return  150 //CGFloat(self.options.count) * self.rowHeight
+                
             }
             return min(_menuMaxHeight, CGFloat(self.options.count) * self.rowHeight)
         }
@@ -126,6 +130,15 @@ public protocol SZDropDownMenuDelegate:class{
     var contentTextField: UITextField!
     
     private var pullDownButton: UIButton!
+    
+    override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let pointBtn = convert(point, to: optionsList)
+        
+        if optionsList.point(inside: pointBtn, with: event) {
+            return optionsList
+        }
+        return super.hitTest(point, with: event)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

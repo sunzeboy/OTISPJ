@@ -331,6 +331,7 @@ class SZRecallProcessViewController: UIViewController,BottomOperationable,Scanab
                     if self.currentBtn?.currentTitle == "到达扫描" {
                         self.state = .arrive
                     }else if self.currentBtn?.currentTitle == "完成扫描" {
+                        self.rescueTime.isUserInteractionEnabled = false
                         self.state = .complete
                     }else if self.currentBtn?.currentTitle == "出发" {
                         self.state = .start
