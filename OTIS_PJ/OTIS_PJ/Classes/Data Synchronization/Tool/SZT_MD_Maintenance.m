@@ -48,6 +48,7 @@
             
             NSString *sqlInsert = [NSString stringWithFormat:@"UPDATE t_MD_Maintenance SET UnitNo = %@, \
                 EmployeeID = %@ ,AppVer = %@,StartTime = %@,EndTime= %@,EventLog= %@,IsCompleteCtrl= %d,IsCompleteDri= %d,UserName= %@,CtrlSoftwareVer= %@,DriSoftwareVer= %@ WHERE ScheduleID=%ld ",model.unitNo,model.employeeID,model.appVer,model.startTime,model.endTime,model.eventLog,model.isCompleteCtrl,model.isCompleteDri,model.username,model.ctrlSoftwareVer,model.driSoftwareVer,model.scheduleID];
+            NSLog(@"================%@",sqlInsert);
             
             BOOL a = [db executeUpdate:sqlInsert];
             if (!a) {
