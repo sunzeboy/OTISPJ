@@ -207,9 +207,8 @@ static NSString* wifiNameFix = @"Otis-";
         model.driveIsCompalte = false;
     }
     self.svtModel = model;
-    NSLog(@"%@==========%d===========%@",model.mj_JSONString ,model.controllerModel.IsEventLogComplete.boolValue,[model.controllerModel.SoftwareBaselineVersion class]);
-//    
 
+//
     ReqEventLogAndMaintenance* eventLogModel = [[ReqEventLogAndMaintenance alloc] init];
     eventLogModel.scheduleID = self.liftModel.ScheduleID;
     eventLogModel.unitNo  = self.liftModel.UnitNo;
@@ -224,8 +223,10 @@ static NSString* wifiNameFix = @"Otis-";
     eventLogModel.isCompleteDri = self.svtModel.Drive.IsEventLogComplete;
     eventLogModel.ctrlSoftwareVer = self.svtModel.svtControllerVersion;
     eventLogModel.driSoftwareVer = self.svtModel.svtDriveVersion;
-    eventLogModel.eventLog = self.svtModel.mj_JSONString;    [SZT_MD_Maintenance storge:eventLogModel];
-);
+    eventLogModel.eventLog = self.svtModel.mj_JSONString;
+    [SZT_MD_Maintenance storge:eventLogModel];
+    
+    NSLog(@"========%@==",eventLogModel.mj_JSONString);
     
 }
 
@@ -306,8 +307,9 @@ static NSString* wifiNameFix = @"Otis-";
     resultDetailLabel.layer.borderWidth=1.0;
     resultDetailLabel.font=[UIFont systemFontOfSize:16.0];
     resultDetailLabel.layer.borderColor=[UIColor lightGrayColor].CGColor;
-    resultDetailLabel.editab    [self.view addSubview:resultDetailLabel];
-entLog;
+    resultDetailLabel.editable=NO;
+    [self.view addSubview:resultDetailLabel];
+    resultDetailLabel.text = eventLogModel.eventLog;
     self.textView=resultDetailLabel;
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -417,8 +419,7 @@ entLog;
     }
 }
 
--(void)svtButto    self.startDateStr = [self getNowDateString:[NSDate date]];
-nClick{
+-(void)svtButtonClick{
     BOOL isCanUse;
     NSString* alertTitle;
     NSString* confirmStr;
