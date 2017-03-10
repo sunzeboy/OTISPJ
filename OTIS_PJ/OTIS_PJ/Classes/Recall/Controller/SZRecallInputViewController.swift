@@ -158,8 +158,10 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         let contentView = AlertView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width-30, height: 245))//220
         contentView.indexArray = ["多次维修","换人维修","领取配件","T修理","总部技术支持","停梯"]
         contentView.clickClouse = {
-            let btnLeft =  self.alertView?.buttonArray[0]
-            btnLeft?.isEnabled = false
+            contentView.cancleButton.isEnabled = false
+            contentView.cancleButton.backgroundColor = UIColor.gray
+            contentView.confirmButton.backgroundColor = UIColor.init(red: 37/255.0, green: 128/255.0, blue:  236/255.0, alpha: 1.0)
+
         }
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
