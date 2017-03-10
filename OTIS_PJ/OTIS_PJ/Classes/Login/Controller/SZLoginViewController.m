@@ -118,7 +118,6 @@
 
 
 - (BOOL)shouldAutorotate{
-    
     return NO;
 }
 

@@ -29,17 +29,6 @@
 
 @end
 
-@implementation ReqEventLogAndMaintenance
-
-+(NSDictionary *)mj_objectClassInArray
-{
-    return @{
-             @"item" : @"ItemInfo"
-             };
-    
-}
-
-@end
 
 
 
@@ -54,19 +43,8 @@
 @end
 
 
-@implementation ItemInfo
-
-
-@end
-
-
-
-
-
 
 @interface SZT_MD_Maintenance : NSObject
-
-
 
 +(void)storge:(ReqEventLogAndMaintenance *)model;
 

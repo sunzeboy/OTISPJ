@@ -66,4 +66,6 @@
 
 @property(nonatomic,assign) NSInteger  automType;
 
+@property (nonatomic,copy) NSString* itemReson;
+
 @end

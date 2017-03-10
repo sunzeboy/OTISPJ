@@ -9,15 +9,195 @@
 #import "SZTableViewController.h"
 #import "SZTableViewCell.h"
 #import "UIView+Extension.h"
-
-
+#import "MDSVTModel.h"
+#import "SZMaintenanceCheckItem.h"
 @interface SZTableViewController ()<UISearchBarDelegate>
 
 @property (nonatomic , strong) UIImageView *iView;
 
+
+/**
+ MD 属性
+ */
+
+
+
+//MD需要测试的controller的三个维保项
+@property(nonatomic,strong) NSArray* controllerProjectArray;
+
+//Drive 包含这个数组中的元素时打❌
+@property(nonatomic,strong) NSArray* driveErrorCodeArray;
+
+//GECB=controller  包含这个数组中的元素时 打❌
+@property(nonatomic,strong) NSArray* controllerErrorCodeArray;
+
+
 @end
 
 @implementation SZTableViewController
+
+-(NSArray*)driveProjectArray{
+    
+    if (!_driveProjectArray) {
+        _driveProjectArray = [NSArray arrayWithObjects:@"A-1_6",@"A-2_5",@"A-3_4", nil];
+    }
+    return _driveProjectArray;
+}
+
+
+-(NSArray*)controllerProjectArray{
+    
+    if (!_controllerProjectArray) {
+        _controllerProjectArray = [NSArray arrayWithObjects:@"A-1_18",@"A-1_19",@"A-1_25", nil];
+    }
+    return _controllerProjectArray;
+}
+
+
+-(NSArray*)driveErrorCodeArray{
+    
+    if (!_driveErrorCodeArray) {
+        _driveErrorCodeArray = [NSArray arrayWithObjects:@[@"524",@"504",@"529",@"530",@"502",@"507",@"508",@"509",@"510",@"514"],@[@"32",@"33",@"34",@"37",@"38",@"728",@"526"],@[@"400",@"401",@"408",@"409",@"418",@"419"], nil];
+    }
+    return _driveErrorCodeArray;
+}
+
+-(NSArray*)controllerErrorCodeArray{
+    if (!_controllerErrorCodeArray) {
+        _controllerErrorCodeArray = [NSArray arrayWithObjects:@[@"0211",@"0212"],@[@"0301",@"0304",@"307",@"0102", @"0103",@"0312",@"0313"],@[@"0102",@"0237",@"0238",@"0302",@"0306"], nil];
+    }
+    return _controllerErrorCodeArray;
+}
+
+-(NSString*)setControllerMdsvtModel:(NSInteger)index{
+    
+    NSArray* tempArray = self.controllerErrorCodeArray[index];
+    if ([self.svtModel.controllerModel.IsEventLogComplete isEqualToString:@"True"]) {
+        for (MDcontrollerDetail* model in self.svtModel.controllerModel.ControllerEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"0";
+    }else{
+        for (MDcontrollerDetail* model in self.svtModel.controllerModel.ControllerEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"-1";
+    }
+}
+
+-(NSString*)setDriveMdsvtModel:(NSInteger)index{
+    
+    NSArray* tempArray = self.driveErrorCodeArray[index];
+    
+    if ([self.svtModel.Drive.IsEventLogComplete isEqualToString:@"True"]) {
+        
+        for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        
+        for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"0";
+    }else{
+        for (MDSVTEventModel* model in self.svtModel.Drive.SavedDriveEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        for (MDSVTEventModel* model in self.svtModel.Drive.DriveEvents) {
+            if ([tempArray containsObject:model.EventNumber]) {
+                return @"1";
+            }
+        }
+        return @"-1";
+    }
+}
+
+
+-(void)operateControllerAutom:(SZMaintenanceCheckItem *)itemAll{
+    
+    if ([self.controllerProjectArray containsObject:itemAll.ItemCode]) {
+        
+        NSInteger index = [self.controllerProjectArray indexOfObject:itemAll.ItemCode];
+        NSLog(@"%@=================********%@",itemAll.ItemCode,[self setControllerMdsvtModel:index]);
+        NSString* result = [self setControllerMdsvtModel:index];
+        
+        switch (result.integerValue) {
+            case 0:
+            {
+                itemAll.automType = 1;
+                itemAll.isHiden = NO;
+            }
+                break;
+            case 1:
+            {
+                itemAll.automType = 2;
+                itemAll.isHiden = NO;
+            }
+                break;
+            case -1:
+            {
+                itemAll.automType = 3;
+                itemAll.isHiden = NO;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        itemAll.isHiden = YES;
+    }
+}
+
+-(void)operateDriveAutom:(SZMaintenanceCheckItem *)itemAll{
+    
+    if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
+        
+        NSInteger index = [self.driveProjectArray indexOfObject:itemAll.ItemCode];
+        NSLog(@"-------------********%@",[self setDriveMdsvtModel:index]);
+        NSString* result = [self setDriveMdsvtModel:index];
+        
+        switch (result.integerValue) {
+            case 0:
+            {
+                itemAll.automType = 1;
+                itemAll.isHiden = NO;
+            }
+                break;
+            case 1:
+            {
+                itemAll.automType = 2;
+                itemAll.isHiden = NO;
+            }
+                break;
+            case -1:
+            {
+                itemAll.automType = 3;
+                itemAll.isHiden = NO;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        itemAll.isHiden = YES;
+    }
+    
+}
+
+
+
 - (BOOL)shouldAutorotate{
     
     return NO;

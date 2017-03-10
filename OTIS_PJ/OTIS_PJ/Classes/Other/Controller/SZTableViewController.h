@@ -10,6 +10,7 @@
 #import "SZJHATitleItem.h"
 #import "SubLBXScanViewController.h"
 @class MDSVTModel;
+@class SZMaintenanceCheckItem;
 @interface SZTableViewController : UITableViewController
 
 @property (nonatomic , strong) UISearchBar *bar;
@@ -29,6 +30,13 @@
 
 @property(nonatomic,strong) MDSVTModel* svtModel;
 
+//MD需要测试的dirve的三个维保项
+@property(nonatomic,strong) NSArray* driveProjectArray;
+
 -(void)initToolBar;
+
+-(void)operateControllerAutom:(SZMaintenanceCheckItem *)itemAll;
+
+-(void)operateDriveAutom:(SZMaintenanceCheckItem *)itemAll;
 
 @end

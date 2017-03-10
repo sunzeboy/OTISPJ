@@ -65,7 +65,7 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"text/plain", nil];
     
-//    NSLog(@"--------request-%@",parameters);
+    NSLog(@"--------request-%@",parameters);
     
     //加密
     NSMutableDictionary *finalParameter = parameters;

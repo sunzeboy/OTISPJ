@@ -65,6 +65,11 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
     //自动同步
     [SZUploadManger startUploadAndDownloadWithView:self.view];
     
+    NSString* isAutomatickey=[[NSUserDefaults standardUserDefaults] objectForKey:IsAutomatickey];
+    if (isAutomatickey==nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:IsAutomatickey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 

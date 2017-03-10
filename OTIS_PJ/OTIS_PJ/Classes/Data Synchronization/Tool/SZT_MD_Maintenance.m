@@ -10,6 +10,22 @@
 #import "TablesAndFields.h"
 
 
+@implementation ItemInfo
+
+
+@end
+
+@implementation ReqEventLogAndMaintenance
+
++(NSDictionary *)mj_objectClassInArray
+{
+    return @{
+             @"item" : @"ItemInfo"
+             };
+    
+}
+
+@end
 
 
 @implementation SZT_MD_Maintenance
@@ -69,12 +85,7 @@
             if (!a) {
                 NSLog(@"错误：插入t_MD_Maintenance失败");
             }
-
         }
-    
-        
-        
-        
     }];
 
 }
@@ -94,7 +105,6 @@
             if (!a) {
                 NSLog(@"错误：插入t_MD_ItemInfo失败");
             }
-
         }
         
     }];

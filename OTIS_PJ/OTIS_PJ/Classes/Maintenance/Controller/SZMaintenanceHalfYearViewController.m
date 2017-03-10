@@ -39,19 +39,20 @@
                     item.state = [dicFix[itemFix.ItemCode] intValue];
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
-                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
-                    if (index>2) {
-                        item.isHiden=YES;
-                    }
-                    if (index<2){
-                        item.automType = 0;
-                    }else{
-                        item.automType = 1;
-                    }
-                    
-                    if (![self IsAutomaticOpen]) {
-                        item.isHiden=YES;
-                    }
+//                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
+//                    if (index>2) {
+//                        item.isHiden=YES;
+//                    }
+//                    if (index<2){
+//                        item.automType = 0;
+//                    }else{
+//                        item.automType = 1;
+//                    }
+//                    
+//                    if (![self IsAutomaticOpen]) {
+//                        item.isHiden=YES;
+//                    }
+                    [self setMDAutomProject11:item];
                 }
                 
             }
@@ -70,19 +71,21 @@
                     item.state = item2.state;
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
-                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
-                    if (index>2) {
-                        item.isHiden=YES;
-                    }
-                    if (index<2){
-                        item.automType = 0;
-                    }else{
-                        item.automType = 1;
-                    }
+//                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
+//                    if (index>2) {
+//                        item.isHiden=YES;
+//                    }
+//                    if (index<2){
+//                        item.automType = 0;
+//                    }else{
+//                        item.automType = 1;
+//                    }
+//                    
+//                    if (![self IsAutomaticOpen]) {
+//                        item.isHiden=YES;
+//                    }
                     
-                    if (![self IsAutomaticOpen]) {
-                        item.isHiden=YES;
-                    }
+                    [self setMDAutomProject11:item];
                 }
                 
             }
@@ -113,20 +116,22 @@
                     }
                     [_maintenanceOperation addObject:itemAll];
                     
-                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
-                    if (index>1) {
-                        itemAll.isHiden=YES;
-                    }
+//                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
+//                    if (index>1) {
+//                        itemAll.isHiden=YES;
+//                    }
+//                    
+//                    if (index<1){
+//                        itemAll.automType = 0;
+//                    }else{
+//                        itemAll.automType = 0;
+//                    }
+//                    
+//                    if (![self IsAutomaticOpen]) {
+//                        itemAll.isHiden=YES;
+//                    }
+                    [self setMDAutomProject11:itemAll];
                     
-                    if (index<1){
-                        itemAll.automType = 0;
-                    }else{
-                        itemAll.automType = 0;
-                    }
-                    
-                    if (![self IsAutomaticOpen]) {
-                        itemAll.isHiden=YES;
-                    }
                 }
             }
         }
@@ -161,6 +166,19 @@
     return ret;
 }
 
+
+-(void)setMDAutomProject11:(SZMaintenanceCheckItem *)itemAll{
+    
+    if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
+        [self operateDriveAutom:itemAll];
+    }else{
+        [self operateControllerAutom:itemAll];
+    }
+    
+    if (![self IsAutomaticOpen]) {
+        itemAll.isHiden=YES;
+    }
+}
 
 
 -(void)setIsFixMode:(BOOL)isFixMode{
