@@ -377,6 +377,7 @@
 		68FE5A4B1CCA1B3300FFB2BC /* OTISConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE5A4A1CCA1B3300FFB2BC /* OTISConfig.m */; };
 		68FE5A531CCE106200FFB2BC /* SZDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE5A521CCE106200FFB2BC /* SZDBTool.m */; };
 		8A11FD851E65720600107640 /* MDSVTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A11FD841E65720600107640 /* MDSVTModel.m */; };
+		8A249A751E7165330031D58F /* MDUploadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A249A741E7165330031D58F /* MDUploadModel.m */; };
 		8A297DD91D41C9B900BD286D /* SZForceUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A297DD81D41C9B900BD286D /* SZForceUpdateModel.m */; };
 		8A4CB82A1D588DB700576A8F /* SZCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4CB8291D588DB700576A8F /* SZCollectionViewCell.m */; };
 		8A578C141D2E33C900463CC3 /* SZBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A578C131D2E33C900463CC3 /* SZBackController.m */; };
@@ -1170,6 +1171,8 @@
 		68FE5A521CCE106200FFB2BC /* SZDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZDBTool.m; sourceTree = "<group>"; };
 		8A11FD831E65720600107640 /* MDSVTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSVTModel.h; sourceTree = "<group>"; };
 		8A11FD841E65720600107640 /* MDSVTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSVTModel.m; sourceTree = "<group>"; };
+		8A249A731E7165330031D58F /* MDUploadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDUploadModel.h; sourceTree = "<group>"; };
+		8A249A741E7165330031D58F /* MDUploadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDUploadModel.m; sourceTree = "<group>"; };
 		8A297DD71D41C9B900BD286D /* SZForceUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZForceUpdateModel.h; sourceTree = "<group>"; };
 		8A297DD81D41C9B900BD286D /* SZForceUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZForceUpdateModel.m; sourceTree = "<group>"; };
 		8A4CB8281D588DB700576A8F /* SZCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2280,6 +2283,8 @@
 				682A863E1E5D5ACF00DAA130 /* MDMatainModel.m */,
 				8A11FD831E65720600107640 /* MDSVTModel.h */,
 				8A11FD841E65720600107640 /* MDSVTModel.m */,
+				8A249A731E7165330031D58F /* MDUploadModel.h */,
+				8A249A741E7165330031D58F /* MDUploadModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3129,6 +3134,7 @@
 				68FE59A51CC8BEBB00FFB2BC /* OTIS_Constants.m in Sources */,
 				8A4CB82A1D588DB700576A8F /* SZCollectionViewCell.m in Sources */,
 				0B35A64E1CD9E5E000D3B32E /* SZCustomerSignElevatorItem.m in Sources */,
+				8A249A751E7165330031D58F /* MDUploadModel.m in Sources */,
 				68125ADB1D12B62A0098A61C /* SZAddWorkingHoursController.m in Sources */,
 				68125BAC1D1D22100098A61C /* SZYearCheckRequest.m in Sources */,
 				682A866B1E5D5ACF00DAA130 /* MDYearVC.m in Sources */,

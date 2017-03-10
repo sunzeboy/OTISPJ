@@ -15,8 +15,29 @@
 @property(nonatomic,strong) MDSVTModelDetail* controllerModel;
 @property(nonatomic,strong) MDSVTLastModel* Drive;
 
+@property (nonatomic,copy) NSString* svtControllerVersion;
+
+@property (nonatomic,copy) NSString* svtDriveVersion;
+
+
+@property(nonatomic,assign) BOOL controllerIsCompalte;
+
+@property(nonatomic,assign) BOOL driveIsCompalte;
+
+
 @end
 
+
+@interface MDcontrollerDetail : NSObject
+@property (nonatomic,copy) NSString* EventNumber;
+@property (nonatomic,copy) NSString* EventSubcode;
+@property (nonatomic,copy) NSString* TextOfEvent;
+
+@property (nonatomic,copy) NSString* Counter;
+@property (nonatomic,copy) NSString* ElapsedTime;
+@property (nonatomic,copy) NSString* CarPosition;
+
+@end
 
 @interface MDSVTEventModel : NSObject
 @property (nonatomic,copy) NSString* EventNumber;
@@ -31,21 +52,30 @@
 @end
 
 @interface MDSVTModelDetail : NSObject
-@property (nonatomic,copy) NSString* SoftwareBaselineVersion;
+@property (nonatomic,copy) id SoftwareBaselineVersion;
 @property (nonatomic,strong) MDSVTErrorData* ErrorData;
 @property (nonatomic,copy) NSString* IsEventLogComplete;
-@property (nonatomic,copy) NSString* SCN;
+@property (nonatomic,copy) id SCN;
+
+@property (nonatomic,copy) NSString* NumberOfRuns;
+@property (nonatomic,copy) NSString* ElapsedMinutes;
+
+@property(nonatomic,strong) NSArray* ControllerEvents;
+
+
 @end
 
 
 
 @interface MDSVTLastModel : NSObject
 
-@property (nonatomic,copy) NSString* SoftwareBaselineVersion;
-@property (nonatomic,copy) NSString* SCN;
+@property (nonatomic,copy) id SoftwareBaselineVersion;
+@property (nonatomic,copy) id SCN;
 @property (nonatomic,strong) NSArray* SavedDriveEvents;
 @property (nonatomic,strong) NSArray* DriveEvents;
 @property (nonatomic,copy) NSString* IsEventLogComplete;
+@property (nonatomic,strong) MDSVTErrorData* ErrorData;
+
 @end
 
 

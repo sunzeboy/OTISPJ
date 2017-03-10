@@ -16,9 +16,13 @@
 
 @implementation MDSVTModelDetail
 
++(NSDictionary *)mj_objectClassInArray{
+    return @{
+             @"ControllerEvents" : @"MDcontrollerDetail",
+             };
+}
 
 @end
-
 
 @implementation MDSVTLastModel
 
@@ -30,6 +34,13 @@
 }
 @end
 
+
+
+@implementation MDcontrollerDetail
+
+
+
+@end
 
 
 

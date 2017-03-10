@@ -165,7 +165,7 @@
         alert.contentView = contentView;
         [alert show];
         
-        contentView.jumpBlcok=^{
+        contentView.jumpBlcok=^(NSString* reson){
             //相等时表示已经便利完毕
             if (self.searchIndex==array.count) {
                 [self.saveDataArray addObject:model];

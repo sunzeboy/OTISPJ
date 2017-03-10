@@ -35,7 +35,11 @@
 #import "MDCustomAlertView.h"
 #import "CustomTextView.h"
 #import "MaintenanceViewController.h"
-
+#import "OTISConfig.h"
+#import "UIDevice+Extention.h"
+#import "MDUploadModel.h"
+#import "MJExtension.h"
+#import "MDSVTModel.h"
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
 }
@@ -44,6 +48,8 @@
 @end
 
 @implementation DetailViewController
+
+
 
 - (void) viewDidLoad
 {
@@ -98,6 +104,8 @@
 
 @property(nonatomic,assign) int searchIndex;
 
+@property (nonatomic,copy) NSString* startDateStr;
+
 
 @end
 
@@ -114,6 +122,13 @@
 //    return _maintainView;
 //    
 //}
+
+-(NSMutableArray*)saveDataArray{
+    if (!_saveDataArray) {
+        _saveDataArray=[NSMutableArray array];
+    }
+    return _saveDataArray;
+}
 
 -(SZBottomWorkingHourView *) workingHourView{
     
@@ -140,7 +155,6 @@
     if (!self.hasSaved) {//没有保存就删掉照片
         
     }
-
 }
 
 - (void)viewDidLoad {
@@ -150,7 +164,7 @@
     [self setNavItem];
     [self setSubTitleView];
     [self setBoomView];
-
+    self.startDateStr = [self getNowDateString:[NSDate date]];
     WEAKSELF
     
     if (self.isFixMode) {
@@ -260,17 +274,12 @@
     };
 }
 
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    [super scrollViewDidEndDecelerating:scrollView];
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//}
+-(NSString*)getNowDateString:(NSDate*)date{
+    NSDateFormatter * df2 = [[NSDateFormatter alloc] init];
+    [df2 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString* nowDateStr = [df2 stringFromDate:date];
+    return nowDateStr;
+}
 
 -(void)setNavItem{
     UIButton* backBtn=[[UIButton alloc] init];
@@ -385,11 +394,7 @@
         }
 
     }
-    
 }
-
-
-
 
 -(void)setSelectedButton:(UIButton *)selectedButton{
     SZLog(@"%@",selectedButton.titleLabel.text);
@@ -416,7 +421,6 @@
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:quarter.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:halfYear.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:year.maintenanceOperation]];
-    
     
     [self judgeRightAndLeftIsSame:arrayData];
     
@@ -537,7 +541,6 @@
                     };
                     
                     [alertView show];
-                    
                 });
                 
             }else{
@@ -591,13 +594,12 @@
         //        if (model.isSave)  continue;
         
         //判断自动与手动是否有不同之处，不同时设置temp等于1，用于标记有项目不同
-        if (itemAll.automType!=itemAll.state) {
+        if ((itemAll.automType-1)!=itemAll.state) {
             temp=1;
             break;
         }else{
             if ([self.saveDataArray containsObject:itemAll]) {
                 [self.saveDataArray removeObject:itemAll];
-                NSLog(@"-------------保存数组%lu",(unsigned long)self.saveDataArray.count);
             }
         }
     }
@@ -655,20 +657,19 @@
         alert.contentView = contentView;
         [alert show];
         
-        contentView.jumpBlcok=^{
+        contentView.jumpBlcok=^(NSString* reason){
             //相等时表示已经便利完毕
             if (self.searchIndex==array.count) {
-                [self.saveDataArray addObject:itemAll];
-                [self goBack];
+//                [self.saveDataArray addObject:itemAll];
+//                [self goBack];
             }else{
                 //                model.isSave=YES;
                 //不相等则继续便利直到便利完成
+                itemAll.itemReson = reason;
                 [self.saveDataArray addObject:itemAll];
-                NSLog(@"+++++++++++++++++++保存数组%lu",(unsigned long)self.saveDataArray.count);
                 [self judgeRightAndLeftIsSame:array];
             }
         };
-        
         //点击取消时self.searchIndex-1，当下次重新点击开始保存时从上一个未处理项继续便利
         contentView.cancleBlcok=^{
             self.searchIndex-=1;
@@ -676,12 +677,25 @@
         
     }else{
         //手动和自动项目完全相等时直接保存跳回上一个界面
+        NSMutableArray* tempArray = [NSMutableArray array];
+
+        for (SZMaintenanceCheckItem *itemAll in self.saveDataArray) {
+            MDUploadModel* model = [[MDUploadModel alloc] init];
+            model.itemCode = itemAll.ItemCode;
+            model.itemState = itemAll.state;
+            model.itemStateAuto = itemAll.automType;
+            model.itemReson = itemAll.itemReson;
+            [tempArray addObject:model.mj_keyValues];
+        }
+        
+        NSString* logJsonStr = self.svtModel.mj_JSONString;
+        NSDictionary* dic = @{@"head":@{@"employeeID":[OTISConfig EmployeeID],@"password":[OTISConfig userPW],@"ver":[UIDevice getAppVersion]},@"body":@{@"scheduleID":@(self.item.ScheduleID),@"unitNo":self.item.UnitNo,@"ItemInfo":tempArray,@"createTime":[self getNowDateString:[NSDate date]],@"eventLog":@"ddd",@"employeeID":[OTISConfig EmployeeID],@"appVer":[UIDevice getAppVersion],@"startTime":self.startDateStr,@"endTime":[self getNowDateString:[NSDate date]],@"eventLog":logJsonStr,@"isCompleteCtrl":@(self.svtModel.controllerIsCompalte),@"isCompleteDri":@(self.svtModel.driveIsCompalte),@"ctrlSoftwareVer":self.svtModel.svtControllerVersion,@"driSoftwareVer":self.svtModel.svtDriveVersion}};
+        NSLog(@"++++++++++%@",dic);
         [self goBack];
     }
 }
 
 -(void)goBack{
-    NSLog(@"==============保存数组%lu",(unsigned long)self.saveDataArray.count);
     
     for (UIViewController* vc in self.navigationController.childViewControllers) {
         if ([vc isMemberOfClass:[MaintenanceViewController class]]) {
@@ -691,7 +705,6 @@
 }
 // 中断
 -(void)stop{
-    
     
     SZMaintenanceHalfMonthViewController *halfMonth = [self.childViewControllers objectAtIndex:0];
     SZMaintenanceQuarterViewController *quarter  = [self.childViewControllers objectAtIndex:1];

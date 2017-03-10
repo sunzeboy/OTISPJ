@@ -104,7 +104,7 @@ static NSString* wifiNameFix = @"Otis-";
     }
     [self setSubviews];
     
-//    [self testModel];
+    [self testModel];
     WEAKSELF
     self.appBackBlock = ^{
       
@@ -125,11 +125,6 @@ static NSString* wifiNameFix = @"Otis-";
 //            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
             [coverView.dataArray addObject:weakSelf.appString];
             weakSelf.textView.text=weakSelf.appString;
-//            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
-//            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-//            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
-//            MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
-//            NSLog(@"%@",model);
         }
         
         [coverView.table reloadData];
@@ -145,10 +140,10 @@ static NSString* wifiNameFix = @"Otis-";
 
 -(void)testModel{
     
-    NSDictionary* dic = @{@"SVT":@{@"controllerModel":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"False",@"ErrorData":@{
+    NSDictionary* dic = @{@"SVT":@{@"controllerModel":@{@"SoftwareBaselineVersion":@"G16GAE_K18C" ,@"IsEventLogComplete":@"False",@"ErrorData":@{
         @"Step": @"GECB+macro+step22",
         @"ErrorCode": @"1001",
-        },},@"Drive":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"True",@"SCN": @"31400",@"DriveEvents":@[@{ @"EventNumber": @"912",
+        },@"ControllerEvents":@[@{@"EventNumber":@"0102",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"},@{@"EventNumber":@"0304",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"},@{@"EventNumber":@"0012",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"}]},@"Drive":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"True",@"SCN": @"31400",@"DriveEvents":@[@{ @"EventNumber": @"912",
                                                                                                        @"EventName": @"+No+FloorInfo",
                                                                                                        @"ElapsedTime": @"0000:00:00:01.81"}, @{
                                                                                                            @"EventNumber": @"517",
@@ -173,7 +168,43 @@ static NSString* wifiNameFix = @"Otis-";
                                                                                                                                              },]}}};
     
     MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+    
+    if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
+        NSString* tempStr = @"";
+        for (NSString* str  in model.controllerModel.SoftwareBaselineVersion) {
+            tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
+            model.svtControllerVersion = tempStr;
+        }
+    }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
+        model.svtControllerVersion = model.controllerModel.SoftwareBaselineVersion;
+    }
+    
+    
+    if ([model.Drive.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
+        NSString* tempStr = @"";
+        for (NSString* str  in model.Drive.SoftwareBaselineVersion) {
+            tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
+            model.svtDriveVersion = tempStr;
+        }
+    }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
+        model.svtDriveVersion = model.Drive.SoftwareBaselineVersion;
+    }
+    
+    if ([model.controllerModel.IsEventLogComplete isEqualToString:@"True"]) {
+        model.controllerIsCompalte = true;
+    }else{
+        model.controllerIsCompalte = false;
+    }
+    
+    if ([model.Drive.IsEventLogComplete isEqualToString:@"True"]) {
+        model.driveIsCompalte = true;
+    }else{
+        model.driveIsCompalte = false;
+    }
+    
     self.svtModel = model;
+    
+    NSLog(@"%@==========%d===========%@",model.mj_JSONString ,model.controllerModel.IsEventLogComplete.boolValue,[model.controllerModel.SoftwareBaselineVersion class]);
 }
 
 
@@ -378,7 +409,6 @@ static NSString* wifiNameFix = @"Otis-";
              [alertView close];
             if (isCanUse) {
                 NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
-                NSLog(@"----%@",[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]);
                 // 2.判断手机中是否安装了对应程序
                 if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) {
                     // 3. 打开应用程序App-B
@@ -407,7 +437,5 @@ static NSString* wifiNameFix = @"Otis-";
     vc.svtModel = self.svtModel;
     vc.isFixMode = self.liftModel.isFixMode;
     [self.navigationController pushViewController:vc animated:YES];
-
-    
 }
 @end

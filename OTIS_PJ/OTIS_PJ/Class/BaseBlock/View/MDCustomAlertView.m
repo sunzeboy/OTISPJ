@@ -142,8 +142,10 @@
     FDAlertView *alert = (FDAlertView *)self.superview;
     [alert hide];
     
+    NSString* tempStr = self.textView.text;
+    
     if (self.jumpBlcok) {
-        self.jumpBlcok();
+        self.jumpBlcok(tempStr);
     }
     
 }

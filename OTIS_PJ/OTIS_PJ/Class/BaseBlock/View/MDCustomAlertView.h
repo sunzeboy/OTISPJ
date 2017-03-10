@@ -13,7 +13,7 @@
 @property(nonatomic,weak) CustomTextView* textView;
 
 
-@property(nonatomic,strong) void(^jumpBlcok)();
+@property(nonatomic,strong) void(^jumpBlcok)(NSString*);
 
 @property(nonatomic,strong) void(^cancleBlcok)();
 
