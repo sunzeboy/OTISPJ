@@ -24,12 +24,9 @@
 
 @implementation SZMaintenanceHalfMonthViewController
 
-
 /**
  处理MD自动项方法
  */
-
-
 // 懒加载
 - (NSMutableArray *)maintenanceOperation {
     

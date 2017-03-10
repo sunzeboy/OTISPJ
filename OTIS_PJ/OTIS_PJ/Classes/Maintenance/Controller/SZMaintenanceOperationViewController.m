@@ -421,26 +421,24 @@
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:quarter.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:halfYear.maintenanceOperation]];
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:year.maintenanceOperation]];
-    
     [self judgeRightAndLeftIsSame:arrayData];
     
-    return;
+    
     int totalUncompleteCount = halfMonth.unCompleteCount+quarter.unCompleteCount+halfYear.unCompleteCount+year.unCompleteCount;
-
     
         if ([self allSelect]&&self.isJHAComplete == NO) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                                dialogTitle:SZLocal(@"dialog.title.tip")
-                                                                                             dialogContents:SZLocal(@"error.Security analysis is not all done, do not allow the selection of all maintenance items!")
-                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
-                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-                    [alertView close];
-                };
-                [alertView show];
-                
-            });
-            return;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                                dialogTitle:SZLocal(@"dialog.title.tip")
+//                                                                                             dialogContents:SZLocal(@"error.Security analysis is not all done, do not allow the selection of all maintenance items!")
+//                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
+//                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//                    [alertView close];
+//                };
+//                [alertView show];
+//                
+//            });
+//            return;
         }
     
     // 是否是维修换件判断
@@ -472,110 +470,114 @@
         BOOL ret4 = year.weixuan;
 
         if ( ret1 && ret2  && ret3 && ret4) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                                dialogTitle:SZLocal(@"dialog.title.tip")
-                                                                                             dialogContents:SZLocal(@"dialog.content.report")
-                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
-                
-                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-                    [alertView close];
-                };
-                
-                [alertView show];
-                
-            });
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                                dialogTitle:SZLocal(@"dialog.title.tip")
+//                                                                                             dialogContents:SZLocal(@"dialog.content.report")
+//                                                                                              dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"), nil]];
+//                
+//                alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//                    [alertView close];
+//                };
+//                
+//                [alertView show];
+//                
+//            });
             
             
         }else{
             
             if ((halfMonth.allSelect && quarter.allSelect && halfYear.allSelect && year.allSelect)||totalUncompleteCount == 0) {
                 
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                                    dialogTitle:SZLocal(@"title.MaintenanceViewController")
+//                                                                                                 dialogContents:SZLocal(@"error.Are you sure you have completed all maintenance?")
+//                                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
+//                    
+//                    //WEAKSELF
+//                    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//                        if(buttonIndex == 0){
+//                            
+//                            [alertView close];
+//                            
+//                        }else if(buttonIndex == 1){
+//                            [alertView close];
+//                        }
+//                    };
+//                    
+//                    [alertView show];
+//                });
+                
+                /**
+                 *  保存完成的保养项目
+                 */
+                [SZModuleQueryTool storageCompletedMaintenanceItemWithArray:arraySelected andDetialItem:self.item];
+                [SZTable_Report storageCheckItemWithDetialItem:self.item andLastStatus:0 andRemark:[SZMaintenanceRemarks remarkWithQuestion:comments.commentText.text isrepiar:comments.needReformeBtn.selected isreplace:comments.needReplaceBtn.selected]];
+                
+                // 只要做了保养项目的保存，中断或者保存，都将工时进入的状态清除
+                [SZTable_Schedules updateAddLaborHoursState:0 andScheduleID:self.item.ScheduleID];
+                
+                // 更新计划表中的状态
+                [SZTable_Schedules updateIsComplete:2 andScheduleID:(int)self.item.ScheduleID];
+                
+                if (halfMonth.ischanged||quarter.ischanged||halfYear.ischanged||year.ischanged) {
+                    [SZTable_Report updateCheckItemWithDetialItem2:arrayData andCheckItem:self.item isModify:YES];
+                }
+                
+                /**
+                 *  (如果没有进行过正常维保操作就保存一条操作记录，如果有进行过完整的维保操作，就不保存)
+                 */
+                [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                                    dialogTitle:SZLocal(@"title.MaintenanceViewController")
-                                                                                                 dialogContents:SZLocal(@"error.Are you sure you have completed all maintenance?")
-                                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
-                    
-                    //WEAKSELF
-                    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-                        if(buttonIndex == 0){
-                            /**
-                             *  保存完成的保养项目
-                             */
-                            [SZModuleQueryTool storageCompletedMaintenanceItemWithArray:arraySelected andDetialItem:self.item];
-                            [SZTable_Report storageCheckItemWithDetialItem:self.item andLastStatus:0 andRemark:[SZMaintenanceRemarks remarkWithQuestion:comments.commentText.text isrepiar:comments.needReformeBtn.selected isreplace:comments.needReplaceBtn.selected]];
-                            
-                            // 只要做了保养项目的保存，中断或者保存，都将工时进入的状态清除
-                            [SZTable_Schedules updateAddLaborHoursState:0 andScheduleID:self.item.ScheduleID];
-                            
-                            // 更新计划表中的状态
-                            [SZTable_Schedules updateIsComplete:2 andScheduleID:(int)self.item.ScheduleID];
-                            
-                            if (halfMonth.ischanged||quarter.ischanged||halfYear.ischanged||year.ischanged) {
-                                [SZTable_Report updateCheckItemWithDetialItem2:arrayData andCheckItem:self.item isModify:YES];
-                            }
-                            
-                            /**
-                             *  (如果没有进行过正常维保操作就保存一条操作记录，如果有进行过完整的维保操作，就不保存)
-                             */
-                            [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d",(int)self.item.ScheduleID]];
-
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
-                                vc.scheduleID = (int)self.item.ScheduleID;
-                                //vc.isWorkhour=YES;
-                                vc.item = self.item;
-                                //            vc.item = self.item;
-                                [self.navigationController pushViewController:vc animated:YES];
-                            });
-                            //检查一下如果是全做完的（除了每年一次），有99项的要删掉
-                            [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d_每年一次",(int)self.item.ScheduleID]];
-                            [alertView close];
-                            
-                        }else if(buttonIndex == 1){
-                            [alertView close];
-                        }
-                    };
-                    
-                    [alertView show];
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    SZInputWorkingHourViewController *vc = [[SZInputWorkingHourViewController alloc] init];
+                    vc.scheduleID = (int)self.item.ScheduleID;
+                    //vc.isWorkhour=YES;
+                    vc.item = self.item;
+                    //            vc.item = self.item;
+                    [self.navigationController pushViewController:vc animated:YES];
                 });
+                //检查一下如果是全做完的（除了每年一次），有99项的要删掉
+                [USER_DEFAULT setObject:@(self.item.ScheduleID) forKey:[NSString stringWithFormat:@"%d_每年一次",(int)self.item.ScheduleID]];
                 
             }else{
                 // 更新计划表中的状态
                 [SZTable_Schedules updateIsComplete:1 andScheduleID:(int)self.item.ScheduleID];
                 
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
-                                                                                                    dialogTitle:SZLocal(@"title.MaintenanceViewController")
-                                                                                                 dialogContents:[NSString stringWithFormat:@"%@%d%@",@"您还有",totalUncompleteCount,@"项没有完成，是否继续保存?"]
-                                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
-                    
-                    //WEAKSELF
-                    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
-                        if(buttonIndex == 0){
-                            /**
-                             *  保存完成的保养项目
-                             */
-                            [SZModuleQueryTool storageCompletedMaintenanceItemWithArray:arraySelected andDetialItem:self.item];
-                            [SZTable_Report storageCheckItemWithDetialItem:self.item andLastStatus:0 andRemark:[SZMaintenanceRemarks remarkWithQuestion:comments.commentText.text isrepiar:comments.needReformeBtn.selected isreplace:comments.needReplaceBtn.selected]];
-                            
-                            if (halfMonth.ischanged||quarter.ischanged||halfYear.ischanged||year.ischanged) {
-                                [SZTable_Report updateCheckItemWithDetialItem2:arrayData andCheckItem:self.item isModify:YES];
-                            }
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
+//                                                                                                    dialogTitle:SZLocal(@"title.MaintenanceViewController")
+//                                                                                                 dialogContents:[NSString stringWithFormat:@"%@%d%@",@"您还有",totalUncompleteCount,@"项没有完成，是否继续保存?"]
+//                                                                                                  dialogButtons:[NSMutableArray arrayWithObjects:SZLocal(@"btn.title.confirm"),SZLocal(@"btn.title.cencel"), nil]];
+//                    
+//                    //WEAKSELF
+//                    alertView.onButtonTouchUpInside = ^(CustomIOSAlertView *alertView, int buttonIndex){
+//                        if(buttonIndex == 0){
+//                           
+//                            [alertView close];
+//                        }else if(buttonIndex == 1){
+//                            [alertView close];
+//                        }
+//                    };
+//                    [alertView show];
+//                    
+//                });
+                
+                /**
+                 *  保存完成的保养项目
+                 */
+                [SZModuleQueryTool storageCompletedMaintenanceItemWithArray:arraySelected andDetialItem:self.item];
+                [SZTable_Report storageCheckItemWithDetialItem:self.item andLastStatus:0 andRemark:[SZMaintenanceRemarks remarkWithQuestion:comments.commentText.text isrepiar:comments.needReformeBtn.selected isreplace:comments.needReplaceBtn.selected]];
+                
+                if (halfMonth.ischanged||quarter.ischanged||halfYear.ischanged||year.ischanged) {
+                    [SZTable_Report updateCheckItemWithDetialItem2:arrayData andCheckItem:self.item isModify:YES];
+                }
 
-                            [alertView close];
-                        }else if(buttonIndex == 1){
-                            [alertView close];
-                        }
-                    };
-                    [alertView show];
-                    
-                });
             }
         }
 }
@@ -689,7 +691,7 @@
         }
         
         NSString* logJsonStr = self.svtModel.mj_JSONString;
-        NSDictionary* dic = @{@"head":@{@"employeeID":[OTISConfig EmployeeID],@"password":[OTISConfig userPW],@"ver":[UIDevice getAppVersion]},@"body":@{@"scheduleID":@(self.item.ScheduleID),@"unitNo":self.item.UnitNo,@"ItemInfo":tempArray,@"createTime":[self getNowDateString:[NSDate date]],@"eventLog":@"ddd",@"employeeID":[OTISConfig EmployeeID],@"appVer":[UIDevice getAppVersion],@"startTime":self.startDateStr,@"endTime":[self getNowDateString:[NSDate date]],@"eventLog":logJsonStr,@"isCompleteCtrl":@(self.svtModel.controllerIsCompalte),@"isCompleteDri":@(self.svtModel.driveIsCompalte),@"ctrlSoftwareVer":self.svtModel.svtControllerVersion,@"driSoftwareVer":self.svtModel.svtDriveVersion}};
+        NSDictionary* dic = @{@"head":@{@"employeeID":[OTISConfig EmployeeID],@"password":[OTISConfig userPW],@"ver":[UIDevice getAppVersion]},@"body":@{@"scheduleID":@(self.item.ScheduleID),@"unitNo":self.item.UnitNo,@"ItemInfo":tempArray,@"createTime":[self getNowDateString:[NSDate date]],@"eventLog":@"ddd",@"employeeID":[OTISConfig EmployeeID],@"username":[OTISConfig username],@"appVer":[UIDevice getAppVersion],@"startTime":self.startDateStr,@"endTime":[self getNowDateString:[NSDate date]],@"eventLog":logJsonStr,@"isCompleteCtrl":@(self.svtModel.controllerIsCompalte),@"isCompleteDri":@(self.svtModel.driveIsCompalte),@"ctrlSoftwareVer":self.svtModel.svtControllerVersion,@"driSoftwareVer":self.svtModel.svtDriveVersion}};
         NSLog(@"++++++++++%@",dic);
         [self goBack];
     }

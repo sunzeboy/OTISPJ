@@ -27,8 +27,9 @@ CGFloat const OTIS_SZLaborHoursItemViewH    = 52;
 
 //@"http://192.168.52.201:80/"
 //@"http://ochcsprdweb.cloudapp.net/MobileTest/"
-NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
-NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
+//                                http://192.168.30.65/LBS_Mobile
+NSString * SZOuterNetwork   = @"http://192.168.30.65/LBS_Mobile/";
+NSString * SZNetwork        = @"http://192.168.30.65/LBS_Mobile/";
 
 //NSString * SZOuterNetwork   = @"http://192.168.30.84:22282/";
 //NSString * SZNetwork        = @"http://192.168.30.84:22282/";
