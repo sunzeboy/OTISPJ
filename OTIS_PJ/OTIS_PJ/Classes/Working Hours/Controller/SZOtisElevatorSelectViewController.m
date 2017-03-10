@@ -277,7 +277,7 @@
             SZMaintainDetailViewController *controller = [[SZMaintainDetailViewController alloc] init];
             controller.title = weakSelf.title;
             controller.scheduleID = unitItem.ScheduleID;
-            controller.unitNostr = unitItem.UnitNo;
+            controller.unitNostr = item.UNIT_NO;
             controller.rCode = item.rCode;
             controller.isWorkingHours = YES;
             [weakSelf.navigationController pushViewController:controller animated:YES];

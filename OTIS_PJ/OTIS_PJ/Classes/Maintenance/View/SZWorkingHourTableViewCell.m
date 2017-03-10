@@ -25,6 +25,7 @@
 {
     static NSString *reuseId = @"SZWorkingHourTableViewCell";
     SZWorkingHourTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SZWorkingHourTableViewCell" owner:self options:nil] lastObject];
     }

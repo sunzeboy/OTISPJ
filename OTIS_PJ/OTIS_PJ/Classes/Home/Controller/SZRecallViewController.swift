@@ -13,7 +13,10 @@ import IQKeyboardManagerSwift
 
 class SZRecallViewController: SZPageViewController {
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = false
+    }
     
     
     override func viewDidLoad() {
@@ -21,8 +24,7 @@ class SZRecallViewController: SZPageViewController {
         
         downloadDatas()
         
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+        
         title = "召修"
                 
 

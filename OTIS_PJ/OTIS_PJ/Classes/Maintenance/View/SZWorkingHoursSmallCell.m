@@ -64,6 +64,8 @@
 {
     static NSString *reuseId = @"SZWorkingHoursSmallCell";
     SZWorkingHoursSmallCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseId];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SZWorkingHoursSmallCell" owner:self options:nil] lastObject];
     }

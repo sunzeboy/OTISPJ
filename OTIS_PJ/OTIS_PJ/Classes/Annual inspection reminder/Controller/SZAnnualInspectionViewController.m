@@ -178,6 +178,7 @@
         
         [_array addObjectsFromArray:arrayChaoqi];
         
+        self.tableView.hidden = NO;
 
         dispatch_async(dispatch_get_main_queue(), ^{
             if(_array.count == 0){
@@ -300,10 +301,12 @@
 //无数据
 -(void)iView{
     UIImageView *iView = [[UIImageView alloc] initWithImage:ImageNamed(@"defult")];
-    iView.size = iView.image.size;
+    iView.size = CGSizeMake(90.0, 90.0);
     iView.contentMode = UIViewContentModeScaleAspectFit;
     iView.center = self.view.center;
     [self.view addSubview:iView];
+    self.tableView.hidden = YES;
+    
 }
 
 #pragma mark - UISearchBarDelegate

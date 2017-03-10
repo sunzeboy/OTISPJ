@@ -10,6 +10,7 @@ import UIKit
 import Moya
 import SwiftyJSON
 import SwiftyUserDefaults
+import IQKeyboardManagerSwift
 
 class SZMyselfViewController: UIViewController,BottomOperationable,Emptyable {
     
@@ -39,7 +40,8 @@ class SZMyselfViewController: UIViewController,BottomOperationable,Emptyable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         view.addSubview(tableView)
         
         bottomView.actBlock = { (button:UIButton) -> Void in
