@@ -61,7 +61,7 @@ static NSString* wifiNameFix = @"Otis-";
     NSDictionary* wifiDic =[MDTool SSIDInfo];
     if (wifiDic==nil) return;
     self.wifiName=wifiDic[@"SSID"];
-
+    
     if (![self.wifiName hasPrefix:wifiNameFix]) {
         self.titleHeight=30;
     }else{
