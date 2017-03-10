@@ -58,13 +58,13 @@ public protocol SZDropDownMenuDelegate:class{
         }
     }
     
-    @IBInspectable public var editable:Bool = false { //允许用户编辑,默认不允许
+    @IBInspectable public var editable: Bool = false { //允许用户编辑,默认不允许
         didSet {
             contentTextField.isEnabled = editable
         }
     }
     
-    @IBInspectable public var buttonImage:UIImage?{ //下拉按钮的图片
+    @IBInspectable public var buttonImage: UIImage?{ //下拉按钮的图片
         didSet {
             pullDownButton.setImage(buttonImage, for: UIControlState())
         }
@@ -121,11 +121,11 @@ public protocol SZDropDownMenuDelegate:class{
         return table
     }()
     
-    private var isShown:Bool = false
+    private var isShown: Bool = false
     
-    var contentTextField:UITextField!
+    var contentTextField: UITextField!
     
-    private var pullDownButton:UIButton!
+    private var pullDownButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
