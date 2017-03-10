@@ -35,6 +35,8 @@
 //    
 //    NSLog(@"SSID:%@     BSSID:%@",SSID,BSSID);
     
+//    NSLog(@"%@",info);
+    
     return info;
 }
 

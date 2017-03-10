@@ -19,8 +19,9 @@
 #import "SZMaintenanceOperationViewController.h"
 #import "MDSVTModel.h"
 #import "AFNetworking.h"
+
 //Otis-
-static NSString* wifiNameFix = @"CX_D";
+static NSString* wifiNameFix = @"Otis-";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
@@ -32,6 +33,7 @@ static NSString* wifiNameFix = @"CX_D";
 @property(nonatomic,weak) UILabel* titleLabel;
 @property(nonatomic,weak) UILabel* wifiLabel;
 @property(nonatomic,strong) NSTimer* timer;
+@property(nonatomic,strong) MDSVTModel* svtModel;
 
 @end
 
@@ -102,6 +104,7 @@ static NSString* wifiNameFix = @"CX_D";
     }
     [self setSubviews];
     
+    [self testModel];
     WEAKSELF
     self.appBackBlock = ^{
       
@@ -118,14 +121,16 @@ static NSString* wifiNameFix = @"CX_D";
             NSLog(@"-----------%@",weakSelf.appString);
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
-            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
-            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
+//            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
+//            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
             [coverView.dataArray addObject:weakSelf.appString];
             weakSelf.textView.text=weakSelf.appString;
 //            NSData *jsonData = [weakSelf.appString dataUsingEncoding:NSUTF8StringEncoding];
 //            NSDictionary* dic =[NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
 //            NSLog(@"******%@**",dic[@"SVT"][@"Controller"]);
-//            MDSVTModel* model =[MDSVTModel mdSvtModelWithDic:dic[@"SVT"][@"Controller"]];
+//            MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+            
+//            NSLog(@"%@",model);
         }
         
         [coverView.table reloadData];
@@ -136,6 +141,40 @@ static NSString* wifiNameFix = @"CX_D";
         };
         [alertView1 show];
     };
+}
+
+
+-(void)testModel{
+    
+    NSDictionary* dic = @{@"SVT":@{@"controllerModel":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"False",@"ErrorData":@{
+        @"Step": @"GECB+macro+step22",
+        @"ErrorCode": @"1001",
+        },},@"Drive":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"True",@"SCN": @"31400",@"DriveEvents":@[@{ @"EventNumber": @"912",
+                                                                                                       @"EventName": @"+No+FloorInfo",
+                                                                                                       @"ElapsedTime": @"0000:00:00:01.81"}, @{
+                                                                                                           @"EventNumber": @"517",
+                                                                                                           @"EventName": @"+DDP+Error+++",
+                                                                                                           @"ElapsedTime": @"0000:00:00:01.17"
+                                                                                                           },  @{
+                                                                                                               @"EventNumber": @"000",
+                                                                                                               @"EventName": @"+Power+On++++",
+                                                                                                               @"ElapsedTime": @"0000:00:00:00.62"
+                                                                                                           }],@"SavedDriveEvents":@[@{
+                                                                                                                                         @"EventNumber": @"912",
+                                                                                                                                         @"EventName": @"+No+FloorInfo",
+                                                                                                                                         @"ElapsedTime": @"0000:00:00:01.81"
+                                                                                                                                         },@{
+                                                                                                                                             @"EventNumber": @"517",
+                                                                                                                                             @"EventName": @"+DDP+Error+++",
+                                                                                                                                             @"ElapsedTime": @"0000:00:00:01.17"
+                                                                                                                                             }, @{
+                                                                                                                                                 @"EventNumber": @"517",
+                                                                                                                                                 @"EventName": @"+DDP+Error+++",
+                                                                                                                                                 @"ElapsedTime": @"0000:00:00:52.18"
+                                                                                                                                             },]}}};
+    
+    MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+    self.svtModel = model;
 }
 
 
@@ -365,7 +404,8 @@ static NSString* wifiNameFix = @"CX_D";
 -(void)nextButtonClick{
     SZMaintenanceOperationViewController *vc = [[SZMaintenanceOperationViewController alloc] init];
     vc.isJHAComplete = YES;
-    vc.item = self.liftModel;
+    vc.item = (SZFinalMaintenanceUnitDetialItem*)self.liftModel;
+    vc.svtModel = self.svtModel;
     vc.isFixMode = self.liftModel.isFixMode;
     [self.navigationController pushViewController:vc animated:YES];
 

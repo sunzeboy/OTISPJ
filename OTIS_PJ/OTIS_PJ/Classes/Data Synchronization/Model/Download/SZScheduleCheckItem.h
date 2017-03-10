@@ -24,4 +24,9 @@
  */
 @property (nonatomic , assign) int Times;
 
+
+@property (nonatomic , assign) int IsMDAuto;
+
+
+
 @end
