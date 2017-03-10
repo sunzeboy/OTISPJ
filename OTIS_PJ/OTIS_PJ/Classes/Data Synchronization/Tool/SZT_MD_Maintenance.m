@@ -119,6 +119,55 @@
 
     [OTISDB inDatabase:^(FMDatabase *db) {
         
+        NSString *sqlQury = [NSString stringWithFormat:@"select ScheduleID, \
+                             UnitNo, \
+                             EmployeeID, \
+                             AppVer, \
+                             StartTime, \
+                             EndTime, \
+                             EventLog, \
+                             IsCompleteCtrl, \
+                             IsCompleteDri, \
+                             UserName, \
+                             CtrlSoftwareVer, \
+                             DriSoftwareVer from t_MD_Maintenance  ;"];
+        
+        FMResultSet *set = [db executeQuery:sqlQury];
+        
+        while ([set next]) {
+            ReqEventLogAndMaintenance *model = [[ReqEventLogAndMaintenance alloc] init];
+            model.scheduleID = [set intForColumn:@"ScheduleID"];
+            model.unitNo = [set stringForColumn:@"UnitNo"];
+            model.appVer = [set stringForColumn:@"AppVer"];
+            model.startTime = [set stringForColumn:@"StartTime"];
+            model.endTime = [set stringForColumn:@"EndTime"];
+            model.eventLog = [set stringForColumn:@"EventLog"];
+            model.isCompleteCtrl = [set intForColumn:@"IsCompleteCtrl"];
+            model.isCompleteDri = [set stringForColumn:@"IsCompleteDri"];
+            model.username = [set stringForColumn:@"UserName"];
+            model.ctrlSoftwareVer = [set stringForColumn:@"CtrlSoftwareVer"];
+            model.driSoftwareVer = [set stringForColumn:@"DriSoftwareVer"];
+            
+            NSString *sqlQury2 = [NSString stringWithFormat:@"select ScheduleID, \
+                                  UnitNo, \
+                                  ItemCode, \
+                                  ItemState, \
+                                  ItemStateAuto, \
+                                  RecordTime, \
+                                  Reason from t_MD_ItemInfo WHERE ScheduleID = %ld;",model.scheduleID];
+            FMResultSet *set2 = [db executeQuery:sqlQury2];
+            
+            while ([set2 next]) {
+                ItemInfo *itemInfo = [[ItemInfo alloc] init];
+                itemInfo.itemCode = [set stringForColumn:@"ItemCode"];
+                itemInfo.itemState = [set intForColumn:@"ItemState"];
+                itemInfo.itemStateAuto = [set intForColumn:@"ItemStateAuto"];
+                itemInfo.reason = [set stringForColumn:@"Reason"];
+                [model.item addObject:itemInfo];
+            }
+            
+            [arrayData addObject:model];
+        }
         
         
         

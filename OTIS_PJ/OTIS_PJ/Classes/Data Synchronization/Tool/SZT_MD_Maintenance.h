@@ -14,7 +14,7 @@
 
 @property (nonatomic , assign) NSInteger scheduleID;
 @property (nonatomic , copy) NSString *unitNo;
-@property (nonatomic , strong) NSArray *item;
+@property (nonatomic , strong) NSMutableArray *item;
 @property (nonatomic , copy) NSString *recordTime;
 @property (nonatomic , copy) NSString *employeeID;
 @property (nonatomic , copy) NSString *username;
