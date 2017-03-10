@@ -34,29 +34,29 @@
     
     [OTISDB inDatabase:^(FMDatabase *db) {
         
-        NSString *sqlQury = [NSString stringWithFormat:@"SELECT count() as mDCount \
-                             FROM t_MD_Maintenance \
-                             WHERE ScheduleID=%ld ;",model.scheduleID];
-        FMResultSet *set = [db executeQuery:sqlQury];
-        int mDCount=0;
-        
-        while ([set next]) {
-            mDCount = [set intForColumn:@"mDCount"];
-        }
-        
-        if (mDCount>0) {
-            
-            NSString *sqlInsert = [NSString stringWithFormat:@"UPDATE t_MD_Maintenance SET UnitNo = %@, \
-                EmployeeID = %@ ,AppVer = %@,StartTime = %@,EndTime= %@,EventLog= %@,IsCompleteCtrl= %d,IsCompleteDri= %d,UserName= %@,CtrlSoftwareVer= %@,DriSoftwareVer= %@ WHERE ScheduleID=%ld ",model.unitNo,model.employeeID,model.appVer,model.startTime,model.endTime,model.eventLog,model.isCompleteCtrl,model.isCompleteDri,model.username,model.ctrlSoftwareVer,model.driSoftwareVer,model.scheduleID];
-            
-            BOOL a = [db executeUpdate:sqlInsert];
-            if (!a) {
-                NSLog(@"错误：更新t_MD_Maintenance失败");
-            }
-
-            
-        }else{
-            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_Maintenance (ScheduleID, \
+//        NSString *sqlQury = [NSString stringWithFormat:@"SELECT count() as mDCount \
+//                             FROM t_MD_Maintenance \
+//                             WHERE ScheduleID=%ld ;",model.scheduleID];
+//        FMResultSet *set = [db executeQuery:sqlQury];
+//        int mDCount=0;
+//        
+//        while ([set next]) {
+//            mDCount = [set intForColumn:@"mDCount"];
+//        }
+//        
+//        if (mDCount>0) {
+//            
+//            NSString *sqlInsert = [NSString stringWithFormat:@"UPDATE t_MD_Maintenance SET UnitNo = %@, \
+//                EmployeeID = %@ ,AppVer = %@,StartTime = %@,EndTime= %@,EventLog= %@,IsCompleteCtrl= %d,IsCompleteDri= %d,UserName= %@,CtrlSoftwareVer= %@,DriSoftwareVer= %@ WHERE ScheduleID=%ld ",model.unitNo,model.employeeID,model.appVer,model.startTime,model.endTime,model.eventLog,model.isCompleteCtrl,model.isCompleteDri,model.username,model.ctrlSoftwareVer,model.driSoftwareVer,model.scheduleID];
+//            
+//            BOOL a = [db executeUpdate:sqlInsert];
+//            if (!a) {
+//                NSLog(@"错误：更新t_MD_Maintenance失败");
+//            }
+//
+//            
+//        }else{
+            NSString *sqlInsert = [NSString stringWithFormat:@"Insert or replace into t_MD_Maintenance (ScheduleID, \
                                    UnitNo, \
                                    EmployeeID, \
                                    AppVer, \
@@ -85,7 +85,7 @@
             if (!a) {
                 NSLog(@"错误：插入t_MD_Maintenance失败");
             }
-        }
+//        }
     }];
 
 }
