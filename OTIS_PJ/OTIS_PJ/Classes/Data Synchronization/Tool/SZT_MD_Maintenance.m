@@ -73,7 +73,7 @@
         }
         
         for (ItemInfo *itemInfo in items) {
-            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_ItemInfo (ScheduleID, UnitNo, ItemCode,ItemState,ItemStateAuto,RecordTime,Reason) VALUES (%ld,'%@','%@',%ld,%ld,'%@','%@')",model.scheduleID,model.unitNo,itemInfo.itemCode,(long)itemInfo.itemState,itemInfo.itemStateAuto,itemInfo.reason];
+            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_ItemInfo (ScheduleID, UnitNo, ItemCode,ItemState,ItemStateAuto,Reason) VALUES (%ld,'%@','%@',%ld,%ld,'%@')",model.scheduleID,model.unitNo,itemInfo.itemCode,(long)itemInfo.itemState,itemInfo.itemStateAuto,itemInfo.reason];
             
             BOOL a = [db executeUpdate:sqlInsert];
             if (!a) {
@@ -87,5 +87,14 @@
 
 }
 
+
++(NSArray<ReqEventLogAndMaintenance *> *)mdList {
+    NSMutableArray *arrayData = [NSMutableArray array];
+
+    [OTISDB inDatabase:^(FMDatabase *db) {
+        
+    }];
+
+}
 
 @end

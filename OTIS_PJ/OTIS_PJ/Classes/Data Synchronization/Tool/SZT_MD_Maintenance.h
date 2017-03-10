@@ -71,4 +71,7 @@
 +(void)storge:(ReqEventLogAndMaintenance *)model;
 
 
++(NSArray<ReqEventLogAndMaintenance *>*)mdList;
+
+
 @end
