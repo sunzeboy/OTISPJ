@@ -61,12 +61,7 @@
             if (!a) {
                 NSLog(@"错误：插入t_MD_Maintenance失败");
             }
-
         }
-    
-        
-        
-        
     }];
 
 }
