@@ -324,12 +324,11 @@
         NSString *strCreatet_t_MD_ItemInfo = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_MD_ItemInfo (ScheduleId INTEGER,\
                                               UnitNo TEXT , \
                                               RecordTime TEXT,\
-                                              ID INTEGER NOT NULL, \
                                               ItemCode TEXT, \
                                               ItemState INTEGER, \
                                               ItemStateAuto INTEGER, \
                                               Reason TEXT, \
-                                              PRIMARY KEY (ID ASC));"];
+                                              PRIMARY KEY (ScheduleId,UnitNo,ItemCode));"];
         
         
         ret =[db executeUpdate:strCreatet_t_MD_Maintenance];

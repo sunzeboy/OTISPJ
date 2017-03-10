@@ -55,7 +55,30 @@
 
             
         }else{
-            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_Maintenance (ScheduleID, UnitNo, EmployeeID,AppVer,StartTime,EndTime,EventLog,IsCompleteCtrl,IsCompleteDri,UserName,CtrlSoftwareVer,DriSoftwareVer) VALUES (%ld,'%@','%@','%@','%@','%@','%@',%d,%d,'%@','%@','%@')",model.scheduleID,model.unitNo,model.employeeID,model.appVer,model.startTime,model.endTime,model.eventLog,model.isCompleteCtrl,model.isCompleteDri,model.username,model.ctrlSoftwareVer,model.driSoftwareVer];
+            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_Maintenance (ScheduleID, \
+                                   UnitNo, \
+                                   EmployeeID, \
+                                   AppVer, \
+                                   StartTime, \
+                                   EndTime, \
+                                   EventLog, \
+                                   IsCompleteCtrl, \
+                                   IsCompleteDri, \
+                                   UserName, \
+                                   CtrlSoftwareVer, \
+                                   DriSoftwareVer) VALUES (%ld,'%@','%@','%@','%@','%@','%@',%d,%d,'%@','%@','%@')",
+                                   model.scheduleID,
+                                   model.unitNo,
+                                   model.employeeID,
+                                   model.appVer,
+                                   model.startTime,
+                                   model.endTime,
+                                   model.eventLog,
+                                   model.isCompleteCtrl,
+                                   model.isCompleteDri,
+                                   model.username,
+                                   model.ctrlSoftwareVer,
+                                   model.driSoftwareVer];
             
             BOOL a = [db executeUpdate:sqlInsert];
             if (!a) {
@@ -73,17 +96,9 @@
     
     [OTISDB inDatabase:^(FMDatabase *db) {
         
-        NSString *sqlDelete = [NSString stringWithFormat:@"DELETE FROM t_MD_ItemInfo WHERE ScheduleID = %ld AND UnitNo = %@",model.scheduleID,model.unitNo];
-        
-        BOOL ret1 = [db executeUpdate:sqlDelete];
-        if (ret1) {
-            
-        }else{
-            SZLog(@"清除t_MD_ItemInfo数据失败!");
-        }
         
         for (ItemInfo *itemInfo in items) {
-            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_ItemInfo (ScheduleID, UnitNo, ItemCode,ItemState,ItemStateAuto,RecordTime,Reason) VALUES (%ld,'%@','%@',%ld,%ld,'%@','%@')",model.scheduleID,model.unitNo,itemInfo.itemCode,(long)itemInfo.itemState,itemInfo.itemStateAuto,itemInfo.reason];
+            NSString *sqlInsert = [NSString stringWithFormat:@"Insert or replace into t_MD_ItemInfo (ScheduleID, UnitNo, ItemCode,ItemState,ItemStateAuto,Reason) VALUES (%ld,'%@','%@',%ld,%ld,'%@')",model.scheduleID,model.unitNo,itemInfo.itemCode,(long)itemInfo.itemState,itemInfo.itemStateAuto,itemInfo.reason];
             
             BOOL a = [db executeUpdate:sqlInsert];
             if (!a) {
@@ -97,5 +112,19 @@
 
 }
 
+
++(NSArray<ReqEventLogAndMaintenance *> *)mdList {
+    
+    NSMutableArray *arrayData = [NSMutableArray array];
+
+    [OTISDB inDatabase:^(FMDatabase *db) {
+        
+        
+        
+        
+    }];
+
+    return arrayData;
+}
 
 @end
