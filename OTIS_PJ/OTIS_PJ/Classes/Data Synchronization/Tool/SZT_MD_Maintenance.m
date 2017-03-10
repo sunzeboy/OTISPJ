@@ -166,4 +166,46 @@
     return arrayData;
 }
 
++(ReqEventLogAndMaintenance *)modelWith:(int) scheduleID {
+    
+    ReqEventLogAndMaintenance *model = [[ReqEventLogAndMaintenance alloc] init];
+
+    [OTISDB inDatabase:^(FMDatabase *db) {
+        
+        NSString *sqlQury = [NSString stringWithFormat:@"select ScheduleID, \
+                             UnitNo, \
+                             EmployeeID, \
+                             AppVer, \
+                             StartTime, \
+                             EndTime, \
+                             EventLog, \
+                             IsCompleteCtrl, \
+                             IsCompleteDri, \
+                             UserName, \
+                             CtrlSoftwareVer, \
+                             DriSoftwareVer from t_MD_Maintenance WHERE ScheduleID = %d ;",scheduleID];
+        
+        FMResultSet *set = [db executeQuery:sqlQury];
+        while ([set next]) {
+            model.scheduleID = scheduleID;
+            model.unitNo = [set stringForColumn:@"UnitNo"];
+            model.appVer = [set stringForColumn:@"AppVer"];
+            model.startTime = [set stringForColumn:@"StartTime"];
+            model.endTime = [set stringForColumn:@"EndTime"];
+            model.eventLog = [set stringForColumn:@"EventLog"];
+            model.isCompleteCtrl = [set intForColumn:@"IsCompleteCtrl"];
+            model.isCompleteDri = [set stringForColumn:@"IsCompleteDri"];
+            model.username = [set stringForColumn:@"UserName"];
+            model.ctrlSoftwareVer = [set stringForColumn:@"CtrlSoftwareVer"];
+            model.driSoftwareVer = [set stringForColumn:@"DriSoftwareVer"];
+            
+        }
+        
+        
+    }];
+
+    return model;
+}
+
+
 @end

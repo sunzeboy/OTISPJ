@@ -74,4 +74,6 @@
 +(NSArray<ReqEventLogAndMaintenance *>*)mdList;
 
 
++(ReqEventLogAndMaintenance *)modelWith:(int) scheduleID;
+
 @end
