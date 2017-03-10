@@ -40,7 +40,30 @@
 
             
         }else{
-            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_Maintenance (ScheduleID, UnitNo, EmployeeID,AppVer,StartTime,EndTime,EventLog,IsCompleteCtrl,IsCompleteDri,UserName,CtrlSoftwareVer,DriSoftwareVer) VALUES (%ld,'%@','%@','%@','%@','%@','%@',%d,%d,'%@','%@','%@')",model.scheduleID,model.unitNo,model.employeeID,model.appVer,model.startTime,model.endTime,model.eventLog,model.isCompleteCtrl,model.isCompleteDri,model.username,model.ctrlSoftwareVer,model.driSoftwareVer];
+            NSString *sqlInsert = [NSString stringWithFormat:@"INSERT INTO t_MD_Maintenance (ScheduleID, \
+                                   UnitNo, \
+                                   EmployeeID, \
+                                   AppVer, \
+                                   StartTime, \
+                                   EndTime, \
+                                   EventLog, \
+                                   IsCompleteCtrl, \
+                                   IsCompleteDri, \
+                                   UserName, \
+                                   CtrlSoftwareVer, \
+                                   DriSoftwareVer) VALUES (%ld,'%@','%@','%@','%@','%@','%@',%d,%d,'%@','%@','%@')",
+                                   model.scheduleID,
+                                   model.unitNo,
+                                   model.employeeID,
+                                   model.appVer,
+                                   model.startTime,
+                                   model.endTime,
+                                   model.eventLog,
+                                   model.isCompleteCtrl,
+                                   model.isCompleteDri,
+                                   model.username,
+                                   model.ctrlSoftwareVer,
+                                   model.driSoftwareVer];
             
             BOOL a = [db executeUpdate:sqlInsert];
             if (!a) {
@@ -81,9 +104,11 @@
 
 
 +(NSArray<ReqEventLogAndMaintenance *> *)mdList {
+    
     NSMutableArray *arrayData = [NSMutableArray array];
 
     [OTISDB inDatabase:^(FMDatabase *db) {
+        
         
         
         
