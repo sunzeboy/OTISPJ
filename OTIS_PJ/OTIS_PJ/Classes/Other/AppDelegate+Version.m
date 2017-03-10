@@ -306,7 +306,45 @@
         
         
         
+        NSString *strCreatet_t_MD_Maintenance = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_MD_Maintenance (ScheduleId INTEGER,\
+                                             UnitNo TEXT , \
+                                             RecordTime TEXT,\
+                                             EmployeeID TEXT, \
+                                             AppVer TEXT, \
+                                             StartTime TEXT, \
+                                             EndTime TEXT, \
+                                             EventLog TEXT, \
+                                             IsCompleteCtrl INTEGER, \
+                                             IsCompleteDri INTEGER, \
+                                             UserName TEXT, \
+                                             CtrlSoftwareVer TEXT, \
+                                             DriSoftwareVer TEXT, \
+                                             PRIMARY KEY (ScheduleId ASC));"];
         
+        NSString *strCreatet_t_MD_ItemInfo = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_MD_ItemInfo (ScheduleId INTEGER,\
+                                              UnitNo TEXT , \
+                                              RecordTime TEXT,\
+                                              ID INTEGER NOT NULL, \
+                                              ItemCode TEXT, \
+                                              ItemState INTEGER, \
+                                              ItemStateAuto INTEGER, \
+                                              Reason TEXT, \
+                                              PRIMARY KEY (ID ASC));"];
+        
+        
+        ret =[db executeUpdate:strCreatet_t_MD_Maintenance];
+        if (ret) {
+            
+        }else{
+            SZLog(@"strCreatet_t_MD_Maintenance创建失败！！！");
+        }
+        
+        ret =[db executeUpdate:strCreatet_t_MD_ItemInfo];
+        if (ret) {
+            
+        }else{
+            SZLog(@"strCreatet_t_MD_ItemInfo创建失败！！！");
+        }
         
         ret =[db executeUpdate:strCreatet_JHA_TYPE];
         if (ret) {

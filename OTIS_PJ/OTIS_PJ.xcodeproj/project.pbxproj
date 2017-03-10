@@ -104,6 +104,7 @@
 		41FEDC161D0E7D620093E0BE /* HyperlinksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC151D0E7D620093E0BE /* HyperlinksButton.m */; };
 		41FEDC1C1D0E95640093E0BE /* SZChangePasswordResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC1B1D0E95640093E0BE /* SZChangePasswordResponse.m */; };
 		41FEDC221D0E97B00093E0BE /* SZChangePasswordRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FEDC211D0E97B00093E0BE /* SZChangePasswordRequest.m */; };
+		680166C61E723F3100579B76 /* SZT_MD_Maintenance.m in Sources */ = {isa = PBXBuildFile; fileRef = 680166C51E723F3100579B76 /* SZT_MD_Maintenance.m */; };
 		68018ECD1CF5419F00DA9614 /* SZTable_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 68018ECC1CF5419F00DA9614 /* SZTable_Report.m */; };
 		68018EDA1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68018ED81CF5B82500DA9614 /* SZWorkingHoursTableViewCell.m */; };
 		68018EDB1CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68018ED91CF5B82500DA9614 /* SZWorkingHoursTableViewCell.xib */; };
@@ -590,6 +591,8 @@
 		41FEDC1B1D0E95640093E0BE /* SZChangePasswordResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZChangePasswordResponse.m; sourceTree = "<group>"; };
 		41FEDC201D0E97B00093E0BE /* SZChangePasswordRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZChangePasswordRequest.h; sourceTree = "<group>"; };
 		41FEDC211D0E97B00093E0BE /* SZChangePasswordRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZChangePasswordRequest.m; sourceTree = "<group>"; };
+		680166C41E723F3100579B76 /* SZT_MD_Maintenance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZT_MD_Maintenance.h; sourceTree = "<group>"; };
+		680166C51E723F3100579B76 /* SZT_MD_Maintenance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZT_MD_Maintenance.m; sourceTree = "<group>"; };
 		68018ECB1CF5419F00DA9614 /* SZTable_Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZTable_Report.h; sourceTree = "<group>"; };
 		68018ECC1CF5419F00DA9614 /* SZTable_Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZTable_Report.m; sourceTree = "<group>"; };
 		68018ED71CF5B82500DA9614 /* SZWorkingHoursTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZWorkingHoursTableViewCell.h; sourceTree = "<group>"; };
@@ -2728,6 +2731,8 @@
 				686113531D069C64004AFBBE /* SZTable_UnfinishedMaintenanceItem.m */,
 				68056AFC1D111DBC002D34AB /* SZTable_LaborType.h */,
 				68056AFD1D111DBC002D34AB /* SZTable_LaborType.m */,
+				680166C41E723F3100579B76 /* SZT_MD_Maintenance.h */,
+				680166C51E723F3100579B76 /* SZT_MD_Maintenance.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -3326,6 +3331,7 @@
 				682A86651E5D5ACF00DAA130 /* MDQuarterVC.m in Sources */,
 				68018ECD1CF5419F00DA9614 /* SZTable_Report.m in Sources */,
 				682A864D1E5D5ACF00DAA130 /* MDBaseVC.m in Sources */,
+				680166C61E723F3100579B76 /* SZT_MD_Maintenance.m in Sources */,
 				682DFA5C1CFED25000D8FBA9 /* ZLCameraImageView.m in Sources */,
 				68125B011D13F1F00098A61C /* SZWorkingHoursSmallCell.m in Sources */,
 				68FE59EB1CC9F0EC00FFB2BC /* UIDevice+Extention.m in Sources */,
