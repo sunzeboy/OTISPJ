@@ -104,7 +104,7 @@ static NSString* wifiNameFix = @"Otis-";
     }
     [self setSubviews];
     
-    [self testModel];
+//    [self testModel];
     WEAKSELF
     self.appBackBlock = ^{
       
