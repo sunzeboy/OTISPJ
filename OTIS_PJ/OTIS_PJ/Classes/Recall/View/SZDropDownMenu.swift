@@ -48,7 +48,7 @@ public protocol SZDropDownMenuDelegate:class{
     public var menuHeight : CGFloat{// 菜单展开的最大高度，当它为0时全部展开
         get {
             if _menuMaxHeight == 0{
-                return CGFloat(self.options.count) * self.rowHeight
+                return  150 //CGFloat(self.options.count) * self.rowHeight
             }
             return min(_menuMaxHeight, CGFloat(self.options.count) * self.rowHeight)
         }
