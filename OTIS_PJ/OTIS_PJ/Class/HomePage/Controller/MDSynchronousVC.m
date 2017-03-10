@@ -19,7 +19,8 @@
 #import "SZMaintenanceOperationViewController.h"
 #import "MDSVTModel.h"
 #import "AFNetworking.h"
-
+#import "SZT_MD_Maintenance.h"
+#import "UIDevice+Extention.h"
 //Otis-
 static NSString* wifiNameFix = @"Otis-";
 
@@ -29,11 +30,12 @@ static NSString* wifiNameFix = @"Otis-";
 @property(nonatomic,strong) SZFinalMaintenanceUnitItem* liftModel;
 @property(nonatomic,weak) UITextView* textView;
 
-
 @property(nonatomic,weak) UILabel* titleLabel;
 @property(nonatomic,weak) UILabel* wifiLabel;
 @property(nonatomic,strong) NSTimer* timer;
 @property(nonatomic,strong) MDSVTModel* svtModel;
+@property (nonatomic,copy) NSString* startDateStr;
+@property(nonatomic,strong) ReqEventLogAndMaintenance* eventLogModel;
 
 @end
 
@@ -42,6 +44,8 @@ static NSString* wifiNameFix = @"Otis-";
 -(void)dealloc{
     self.liftModel = nil;
     self.wifiName = nil;
+    self.eventLogModel = nil;
+    self.svtModel = nil;
 }
 
 
@@ -196,17 +200,40 @@ static NSString* wifiNameFix = @"Otis-";
         model.controllerIsCompalte = false;
     }
     
-    if ([model.Drive.IsEventLogComplete isEqualToString:@"True"]) {
+    if ([model.Drive.IsEventLogComplete isEqualToString:@"True"]){
         model.driveIsCompalte = true;
     }else{
         model.driveIsCompalte = false;
     }
-    
     self.svtModel = model;
-    
+
     NSLog(@"%@==========%d===========%@",model.mj_JSONString ,model.controllerModel.IsEventLogComplete.boolValue,[model.controllerModel.SoftwareBaselineVersion class]);
+//    
+    ReqEventLogAndMaintenance* eventLogModel = [[ReqEventLogAndMaintenance alloc] init];
+    eventLogModel.scheduleID = self.liftModel.ScheduleID;
+    eventLogModel.unitNo  = self.liftModel.UnitNo;
+    eventLogModel.item = nil;
+    eventLogModel.recordTime = [self getNowDateString:[NSDate date]];
+    eventLogModel.employeeID = [OTISConfig EmployeeID];
+    eventLogModel.username = [OTISConfig username];
+    eventLogModel.appVer = [UIDevice getAppVersion];
+    eventLogModel.startTime = self.startDateStr;
+    eventLogModel.endTime = nil;
+    eventLogModel.isCompleteCtrl = self.svtModel.controllerModel.IsEventLogComplete;
+    eventLogModel.isCompleteDri = self.svtModel.Drive.IsEventLogComplete;
+    eventLogModel.ctrlSoftwareVer = self.svtModel.svtControllerVersion;
+    eventLogModel.driSoftwareVer = self.svtModel.svtDriveVersion;
+    eventLogModel.eventLog = self.svtModel.mj_JSONString;
+    [SZT_MD_Maintenance storge:eventLogModel];
+    
 }
 
+-(NSString*)getNowDateString:(NSDate*)date{
+    NSDateFormatter * df2 = [[NSDateFormatter alloc] init];
+    [df2 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString* nowDateStr = [df2 stringFromDate:date];
+    return nowDateStr;
+}
 
 -(void)setNetwork{
 
@@ -386,7 +413,7 @@ static NSString* wifiNameFix = @"Otis-";
 }
 
 -(void)svtButtonClick{
-    
+    self.startDateStr = [self getNowDateString:[NSDate date]];
     BOOL isCanUse;
     NSString* alertTitle;
     NSString* confirmStr;

@@ -423,7 +423,7 @@
     [arrayData addObjectsFromArray:[NSMutableArray arrayWithArray:year.maintenanceOperation]];
     [self judgeRightAndLeftIsSame:arrayData];
     
-    
+    return;
     int totalUncompleteCount = halfMonth.unCompleteCount+quarter.unCompleteCount+halfYear.unCompleteCount+year.unCompleteCount;
     
         if ([self allSelect]&&self.isJHAComplete == NO) {

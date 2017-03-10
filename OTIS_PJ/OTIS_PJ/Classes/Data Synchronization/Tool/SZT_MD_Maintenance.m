@@ -10,6 +10,21 @@
 #import "TablesAndFields.h"
 
 
+@implementation ItemInfo
+
+
+@end
+@implementation ReqEventLogAndMaintenance
+
++(NSDictionary *)mj_objectClassInArray
+{
+    return @{
+             @"item" : @"ItemInfo"
+             };
+    
+}
+
+@end
 
 
 @implementation SZT_MD_Maintenance
