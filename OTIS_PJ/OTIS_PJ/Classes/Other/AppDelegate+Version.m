@@ -308,7 +308,6 @@
         
         NSString *strCreatet_t_MD_Maintenance = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_MD_Maintenance (ScheduleId INTEGER,\
                                              UnitNo TEXT , \
-                                             RecordTime TEXT,\
                                              EmployeeID TEXT, \
                                              AppVer TEXT, \
                                              StartTime TEXT, \
@@ -323,7 +322,6 @@
         
         NSString *strCreatet_t_MD_ItemInfo = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS t_MD_ItemInfo (ScheduleId INTEGER,\
                                               UnitNo TEXT , \
-                                              RecordTime TEXT,\
                                               ItemCode TEXT, \
                                               ItemState INTEGER, \
                                               ItemStateAuto INTEGER, \

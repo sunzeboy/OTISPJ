@@ -54,3 +54,5 @@ UIKIT_EXTERN NSString *const APIExitLogin;
 UIKIT_EXTERN NSString *const OTIS_isNewfeatureVersion;
 
 UIKIT_EXTERN NSString *const OTIS_BeltLevel;
+
+UIKIT_EXTERN NSString *const MDUPloadUrl;

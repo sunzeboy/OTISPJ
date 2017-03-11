@@ -22,7 +22,7 @@
 #import "SZT_MD_Maintenance.h"
 #import "UIDevice+Extention.h"
 //Otis-
-static NSString* wifiNameFix = @"Otis-";
+static NSString* wifiNameFix = @"CX";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
@@ -36,6 +36,8 @@ static NSString* wifiNameFix = @"Otis-";
 @property(nonatomic,strong) MDSVTModel* svtModel;
 @property (nonatomic,copy) NSString* startDateStr;
 @property(nonatomic,strong) ReqEventLogAndMaintenance* eventLogModel;
+
+@property(nonatomic,weak) MDMaintainButton* nextButton;
 
 @end
 
@@ -99,7 +101,6 @@ static NSString* wifiNameFix = @"Otis-";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"从SVT获取数据";
-    [self setNetwork];
     NSDictionary* wifiDic =[MDTool SSIDInfo];
     self.wifiName=wifiDic[@"SSID"];
     if (self.wifiName==nil||[self.wifiName isEqualToString:@""]||![self.wifiName hasPrefix:wifiNameFix]) {
@@ -109,7 +110,8 @@ static NSString* wifiNameFix = @"Otis-";
     }
     [self setSubviews];
     self.startDateStr = [self getNowDateString:[NSDate date]];
-    [self testModel];
+    
+    
     WEAKSELF
     self.appBackBlock = ^{
       
@@ -119,17 +121,22 @@ static NSString* wifiNameFix = @"Otis-";
 
         NSString* tempStr = @"";
         
-        if ([weakSelf.appString isEqualToString:@""]||weakSelf.appString==nil) {
+        NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
+        NSString* jsonStr = [weakSelf.appString substringFromIndex:range.length+range.location];
+        
+        if (jsonStr.length<2 ||jsonStr==nil) {
             tempStr = @"SVT数据获取失败";
             [coverView.dataArray addObject:tempStr];
         }else{
+            if (weakSelf.nextButton.enabled==NO) {
+                weakSelf.nextButton.enabled = YES;
+            }
             NSLog(@"-----------%@",weakSelf.appString);
             tempStr = @"SVT数据获取成功:";
             [coverView.dataArray addObject:tempStr];
-//            NSRange range =[weakSelf.appString rangeOfString:@"MDApp://callType=SVTApp&eventLog="];
-//            weakSelf.appString = [weakSelf.appString substringFromIndex:range.length+range.location];
             [coverView.dataArray addObject:weakSelf.appString];
             weakSelf.textView.text=weakSelf.appString;
+            [weakSelf testModel:jsonStr];
         }
         
         [coverView.table reloadData];
@@ -143,91 +150,74 @@ static NSString* wifiNameFix = @"Otis-";
 }
 
 
--(void)testModel{
+-(void)testModel:(NSString*)jsonStr{
     
-    NSDictionary* dic = @{@"SVT":@{@"controllerModel":@{@"SoftwareBaselineVersion":@"G16GAE_K18C" ,@"IsEventLogComplete":@"False",@"ErrorData":@{
-        @"Step": @"GECB+macro+step22",
-        @"ErrorCode": @"1001",
-        },@"ControllerEvents":@[@{@"EventNumber":@"0102",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"},@{@"EventNumber":@"0304",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"},@{@"EventNumber":@"0012",@"ElapsedTime":@"000156",@"EventSubcode":@"",@"TextOfEvent":@"Power+On+++",@"Counter":@"005",@"CarPosition":@"**"}]},@"Drive":@{@"SoftwareBaselineVersion": @"G16GAE_K18C",@"IsEventLogComplete":@"True",@"SCN": @"31400",@"DriveEvents":@[@{ @"EventNumber": @"912",
-                                                                                                       @"EventName": @"+No+FloorInfo",
-                                                                                                       @"ElapsedTime": @"0000:00:00:01.81"}, @{
-                                                                                                           @"EventNumber": @"517",
-                                                                                                           @"EventName": @"+DDP+Error+++",
-                                                                                                           @"ElapsedTime": @"0000:00:00:01.17"
-                                                                                                           },  @{
-                                                                                                               @"EventNumber": @"000",
-                                                                                                               @"EventName": @"+Power+On++++",
-                                                                                                               @"ElapsedTime": @"0000:00:00:00.62"
-                                                                                                           }],@"SavedDriveEvents":@[@{
-                                                                                                                                         @"EventNumber": @"912",
-                                                                                                                                         @"EventName": @"+No+FloorInfo",
-                                                                                                                                         @"ElapsedTime": @"0000:00:00:01.81"
-                                                                                                                                         },@{
-                                                                                                                                             @"EventNumber": @"517",
-                                                                                                                                             @"EventName": @"+DDP+Error+++",
-                                                                                                                                             @"ElapsedTime": @"0000:00:00:01.17"
-                                                                                                                                             }, @{
-                                                                                                                                                 @"EventNumber": @"517",
-                                                                                                                                                 @"EventName": @"+DDP+Error+++",
-                                                                                                                                                 @"ElapsedTime": @"0000:00:00:52.18"
-                                                                                                                                             },]}}};
-    
-    MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
-    
-    if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
-        NSString* tempStr = @"";
-        for (NSString* str  in model.controllerModel.SoftwareBaselineVersion) {
-            tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
-            model.svtControllerVersion = tempStr;
+        NSData * jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        MDSVTModel* model =[MDSVTModel mj_objectWithKeyValues:dic[@"SVT"]];
+        
+        if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
+            NSString* tempStr = @"";
+            for (NSString* str  in model.controllerModel.SoftwareBaselineVersion) {
+                tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
+                model.svtControllerVersion = tempStr;
+            }
+        }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
+            model.svtControllerVersion = model.controllerModel.SoftwareBaselineVersion;
         }
-    }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
-        model.svtControllerVersion = model.controllerModel.SoftwareBaselineVersion;
-    }
-    
-    
-    if ([model.Drive.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
-        NSString* tempStr = @"";
-        for (NSString* str  in model.Drive.SoftwareBaselineVersion) {
-            tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
-            model.svtDriveVersion = tempStr;
+        
+        
+        if ([model.Drive.SoftwareBaselineVersion isKindOfClass:[NSArray class]]) {
+            NSString* tempStr = @"";
+            for (NSString* str  in model.Drive.SoftwareBaselineVersion) {
+                tempStr = [NSString stringWithFormat:@"%@/%@",str,tempStr];
+                model.svtDriveVersion = tempStr;
+            }
+        }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
+            model.svtDriveVersion = model.Drive.SoftwareBaselineVersion;
         }
-    }else if ([model.controllerModel.SoftwareBaselineVersion isKindOfClass:[NSString class]]){
-        model.svtDriveVersion = model.Drive.SoftwareBaselineVersion;
-    }
-    
-    if ([model.controllerModel.IsEventLogComplete isEqualToString:@"True"]) {
-        model.controllerIsCompalte = true;
-    }else{
-        model.controllerIsCompalte = false;
-    }
-    
-    if ([model.Drive.IsEventLogComplete isEqualToString:@"True"]){
-        model.driveIsCompalte = true;
-    }else{
-        model.driveIsCompalte = false;
-    }
-    self.svtModel = model;
+        
+        if ([model.controllerModel.IsEventLogComplete isEqualToString:@"True"]) {
+            model.controllerIsCompalte = true;
+        }else{
+            model.controllerIsCompalte = false;
+        }
+        
+        if ([model.Drive.IsEventLogComplete isEqualToString:@"True"]){
+            model.driveIsCompalte = true;
+        }else{
+            model.driveIsCompalte = false;
+        }
+        self.svtModel = model;
+        
+        ReqEventLogAndMaintenance* eventLogModel = [[ReqEventLogAndMaintenance alloc] init];
+        eventLogModel.scheduleID = self.liftModel.ScheduleID;
+        eventLogModel.unitNo  = [self setVoidString:self.liftModel.UnitNo];
+        eventLogModel.item = nil;
+        eventLogModel.recordTime = [self getNowDateString:[NSDate date]];
+        eventLogModel.employeeID = [self setVoidString:[OTISConfig EmployeeID]];
+        eventLogModel.username = [self setVoidString:[OTISConfig username]];
+        eventLogModel.appVer = [self setVoidString:[UIDevice getAppVersion]];
+        eventLogModel.startTime = self.startDateStr;
+        eventLogModel.endTime = @"";
+        eventLogModel.isCompleteCtrl = [self setVoidString:self.svtModel.controllerModel.IsEventLogComplete];
+        eventLogModel.isCompleteDri = [self setVoidString:self.svtModel.Drive.IsEventLogComplete];
+        eventLogModel.ctrlSoftwareVer = [self setVoidString:self.svtModel.svtControllerVersion];
+        eventLogModel.driSoftwareVer = [self setVoidString:self.svtModel.svtDriveVersion];
+        eventLogModel.eventLog = [self setVoidString:self.svtModel.mj_JSONString];
+        [SZT_MD_Maintenance storge:eventLogModel];
+        self.eventLogModel = eventLogModel;
+        //    NSLog(@"========%@==",eventLogModel.mj_JSONString);
+}
 
-//
-    ReqEventLogAndMaintenance* eventLogModel = [[ReqEventLogAndMaintenance alloc] init];
-    eventLogModel.scheduleID = self.liftModel.ScheduleID;
-    eventLogModel.unitNo  = self.liftModel.UnitNo;
-    eventLogModel.item = nil;
-    eventLogModel.recordTime = [self getNowDateString:[NSDate date]];
-    eventLogModel.employeeID = [OTISConfig EmployeeID];
-    eventLogModel.username = [OTISConfig username];
-    eventLogModel.appVer = [UIDevice getAppVersion];
-    eventLogModel.startTime = self.startDateStr;
-    eventLogModel.endTime = nil;
-    eventLogModel.isCompleteCtrl = self.svtModel.controllerModel.IsEventLogComplete;
-    eventLogModel.isCompleteDri = self.svtModel.Drive.IsEventLogComplete;
-    eventLogModel.ctrlSoftwareVer = self.svtModel.svtControllerVersion;
-    eventLogModel.driSoftwareVer = self.svtModel.svtDriveVersion;
-    eventLogModel.eventLog = self.svtModel.mj_JSONString;
-    [SZT_MD_Maintenance storge:eventLogModel];
-    
-    NSLog(@"========%@==",eventLogModel.mj_JSONString);
-    
+-(NSString*)setVoidString:(NSString*)str{
+    if (str==nil) {
+        str = @"";
+        return str;
+    }else{
+        return str;
+    }
 }
 
 -(NSString*)getNowDateString:(NSDate*)date{
@@ -237,33 +227,10 @@ static NSString* wifiNameFix = @"Otis-";
     return nowDateStr;
 }
 
--(void)setNetwork{
-
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        switch (status) {
-                case AFNetworkReachabilityStatusNotReachable:{
-                    NSLog(@"无网络");
-                    break;
-                }
-                case AFNetworkReachabilityStatusReachableViaWiFi:{
-                    NSLog(@"WiFi网络");
-                    break;
-                }
-                case AFNetworkReachabilityStatusReachableViaWWAN:{
-                    NSLog(@"3G网络");
-                    break;
-                }
-            default:
-                break;
-        }
-    }];
-}
-
 -(void)setSubviews{
     
     ReqEventLogAndMaintenance* eventLogModel = [SZT_MD_Maintenance modelWith:(int)self.liftModel.ScheduleID];
+    self.eventLogModel = eventLogModel;
     
     NSLog(@"&&&&&&&&&&&&&%@",eventLogModel.eventLog);
     
@@ -392,10 +359,16 @@ static NSString* wifiNameFix = @"Otis-";
     nextButton.imageView.contentMode=UIViewContentModeScaleAspectFit;
     nextButton.titleLabel.textAlignment=NSTextAlignmentCenter;
     [nextButton setImage:[UIImage imageNamed:@"btn_next_blue"] forState:UIControlStateNormal];
+    [nextButton setImage:[UIImage imageNamed:@"btn_next_gray"] forState:UIControlStateDisabled];
     [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
     [nextButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [nextButton addTarget: self action:@selector(nextButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [boomView addSubview:nextButton];
+    
+    if (eventLogModel.eventLog==nil || eventLogModel.eventLog.length==0) {
+        nextButton.enabled = NO;
+    }
+    self.nextButton = nextButton;
     
     [svtButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(boomView.mas_left).with.offset(0);
@@ -426,7 +399,7 @@ static NSString* wifiNameFix = @"Otis-";
     if (self.wifiName==nil||[self.wifiName isEqualToString:@""]||![self.wifiName hasPrefix:wifiNameFix]) {
         alertTitle = @"请在指定Wifi下操作";
         confirmStr = @"设置";
-        isCanUse = NO;
+        isCanUse = YES;
     }else{
         alertTitle = @"您确认从SVT获取数据吗？";
         confirmStr = @"确定";
@@ -441,7 +414,7 @@ static NSString* wifiNameFix = @"Otis-";
         if (buttonIndex==0) {
              [alertView close];
             if (isCanUse) {
-                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
+                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTAppCX://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
                 // 2.判断手机中是否安装了对应程序
                 if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) {
                     // 3. 打开应用程序App-B
@@ -466,6 +439,7 @@ static NSString* wifiNameFix = @"Otis-";
 -(void)nextButtonClick{
     SZMaintenanceOperationViewController *vc = [[SZMaintenanceOperationViewController alloc] init];
     vc.isJHAComplete = YES;
+    vc.eventLogModel = self.eventLogModel;
     vc.item = (SZFinalMaintenanceUnitDetialItem*)self.liftModel;
     vc.svtModel = self.svtModel;
     vc.isFixMode = self.liftModel.isFixMode;

@@ -9,6 +9,7 @@
 #import "SZPageViewController.h"
 #import "SZFinalMaintenanceUnitDetialItem.h"
 @class MDSVTModel;
+@class ReqEventLogAndMaintenance;
 @interface SZMaintenanceOperationViewController : SZPageViewController
 
 @property (nonatomic , strong)  SZFinalMaintenanceUnitDetialItem *item;
@@ -19,6 +20,7 @@
 
 @property (nonatomic , assign) BOOL isFixMode;
 
+@property(nonatomic,strong) ReqEventLogAndMaintenance* eventLogModel;
 
 /**
  MD 从SVT获取的数据model

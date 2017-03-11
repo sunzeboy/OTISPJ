@@ -85,7 +85,7 @@
                 return @"1";
             }
         }
-        return @"-1";
+        return @"99";
     }
 }
 
@@ -118,7 +118,7 @@
                 return @"1";
             }
         }
-        return @"-1";
+        return @"99";
     }
 }
 
@@ -134,19 +134,19 @@
         switch (result.integerValue) {
             case 0:
             {
-                itemAll.automType = 1;
+                itemAll.automType = 0;
                 itemAll.isHiden = NO;
             }
                 break;
             case 1:
             {
-                itemAll.automType = 2;
+                itemAll.automType = 1;
                 itemAll.isHiden = NO;
             }
                 break;
-            case -1:
+            case 99:
             {
-                itemAll.automType = 3;
+                itemAll.automType = 99;
                 itemAll.isHiden = NO;
             }
                 break;
@@ -170,19 +170,19 @@
         switch (result.integerValue) {
             case 0:
             {
-                itemAll.automType = 1;
+                itemAll.automType = 0;
                 itemAll.isHiden = NO;
             }
                 break;
             case 1:
             {
-                itemAll.automType = 2;
+                itemAll.automType = 1;
                 itemAll.isHiden = NO;
             }
                 break;
-            case -1:
+            case 99:
             {
-                itemAll.automType = 3;
+                itemAll.automType = 99;
                 itemAll.isHiden = NO;
             }
                 break;

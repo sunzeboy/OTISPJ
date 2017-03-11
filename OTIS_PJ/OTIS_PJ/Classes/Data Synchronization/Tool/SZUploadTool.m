@@ -17,7 +17,9 @@
 #import "NSData+AES256.h"
 #import "AppDelegate.h"
 #import "SZNavigationController.h"
-
+#import "SZT_MD_Maintenance.h"
+#import "UIDevice+Extention.h"
+#import "OTISConfig.h"
 @implementation SZUploadTool
 
 +(void)uploadMaintenanceSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure done:(void(^)(NSString *))done{
@@ -367,22 +369,57 @@
 //            failure([NSError errorWithUserInfo:@"xxxx"]);
             success(@"");
             [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationUploadFailed object:self userInfo:nil];
-
         }
         
     } failure:^(NSError *error) {
 
         failure(error);
     }];
-
 }
+
+
+/**
+ MD 上传
+ */
+
++(void)mdUploadAutomSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure done:(void(^)(NSString *))done{
+    NSArray* autouMatainArray = [SZT_MD_Maintenance mdList];
+    
+    if (autouMatainArray.count==0) {
+        success(@"");
+        return;
+    }
+    
+    NSMutableArray* temp = [NSMutableArray array];
+    
+    for (ReqEventLogAndMaintenance* model in autouMatainArray) {
+        [temp addObject:model.mj_keyValues];
+    }
+  
+    NSDictionary* dic = @{@"head":@{@"employeeID":[OTISConfig EmployeeID],@"password":[OTISConfig userPW],@"ver":@"LBS_V10.0.0"},@"body":@{@"reqList":temp}};
+    
+//    NSLog(@"===========%@",dic.mj_JSONString);
+    
+    [SZHttpTool noPasswordpost:[NSString stringWithFormat:@"%@%@",@"http://192.168.30.65/LBS_Mobile/",MDUPloadUrl] parameters:dic success:^(id obj) {
+        SZUploadResponse *response = [SZUploadResponse mj_objectWithKeyValues:obj];
+        
+        if ([response.Result isEqualToString:@"0"]) {
+            success([NSString stringWithFormat:@"上传自动维保数据成功"]);
+        }else{
+            success(@"");
+            [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationUploadFailed object:self userInfo:nil];
+        }
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 
 /**
  * 上传日志
  */
 +(void)uploadLogSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure{
-
-
 
 }
 

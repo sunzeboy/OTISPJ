@@ -144,23 +144,24 @@
 
 +(void)noPasswordpost:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure
 {
+    NSLog(@"--%@",parameters);
+    
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer=[AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html",@"text/json",@"text/javascript",@"text/plain", nil];
-  NSURLSessionTask* task= [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:responseObject options:(NSJSONReadingOptions) error:(NSError * _Nullable __autoreleasing * _Nullable)];
-        NSLog(@"%@",responseObject);
+    [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"-----%@",responseObject);
+        success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        SZLog(@"%@",error.description);
+        SZLog(@"----%@",error.description);
         failure(error);
         if (error.code == -1009) {
             [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationNoNetwork object:self userInfo:nil];
         }else if (error.code == -1011){
         }
     }];
-    NSLog(@"%@",task.originalRequest.HTTPBody);
 }
 
 

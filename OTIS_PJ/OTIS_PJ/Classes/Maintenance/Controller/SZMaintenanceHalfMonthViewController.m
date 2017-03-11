@@ -324,17 +324,17 @@
     }
     
     switch (gb.automType) {
-        case 1:
+        case 0:
         {
             [cell.automButton setImage:[UIImage imageNamed:@"OTIS_0"] forState:UIControlStateDisabled];
         }
             break;
-        case 2:
+        case 1:
         {
             [cell.automButton setImage:[UIImage imageNamed:@"OTIS_1"] forState:UIControlStateDisabled];
         }
             break;
-        case 3:
+        case 99:
         {
             [cell.automButton setImage:[UIImage imageNamed:@"MD-1"] forState:UIControlStateDisabled];
         }

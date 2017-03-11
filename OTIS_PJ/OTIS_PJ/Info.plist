@@ -43,7 +43,7 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>SVTApp</string>
+		<string>SVTAppCX</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

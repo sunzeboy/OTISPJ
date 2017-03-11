@@ -50,6 +50,12 @@
 +(void)uploadFullLaborHoursSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure;
 
 /**
+ 上传MD数据
+ */
+
++(void)mdUploadAutomSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure done:(void(^)(NSString *))done;
+
+/**
  * 上传日志
  */
 +(void)uploadLogSuccess:(void(^)(NSString *))success failure:(void(^)(NSError *error))failure;

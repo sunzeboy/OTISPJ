@@ -417,6 +417,8 @@ SZLog(@"~~~~~~~~~ startUploadAndDownloadWithView uploade");
                         [self synchronizData:str fatherView:fatherView];
                         
                         //6
+                        
+                        
                         [SZUploadTool uploadFullLaborHoursSuccess:^(NSString *str) {
                             [self synchronizData:str fatherView:fatherView];
                             //7
@@ -425,10 +427,21 @@ SZLog(@"~~~~~~~~~ startUploadAndDownloadWithView uploade");
                         } failure:^(NSError *error) {
                             [self startDownloadWithView:view fatherView:fatherView];
 
-                            
+                        }];
+//
+
+                        
+                        [SZUploadTool mdUploadAutomSuccess:^(NSString * str) {
+                            [self synchronizData:str fatherView:fatherView];
+                            [self startDownloadWithView:view fatherView:fatherView];
+                            //                            //7
+                        } failure:^(NSError *error) {
+                            [self synchronizData:str fatherView:fatherView];
+
+                        } done:^(NSString *str) {
                         }];
                         
-                        
+//
                     }];
                     
                 }];
@@ -443,11 +456,6 @@ SZLog(@"~~~~~~~~~ startUploadAndDownloadWithView uploade");
         
         
     }];
-    
-
-    
-    
-    
 
 }
 

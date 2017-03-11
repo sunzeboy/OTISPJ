@@ -29,8 +29,8 @@ CGFloat const OTIS_SZLaborHoursItemViewH    = 52;
 //@"http://ochcsprdweb.cloudapp.net/MobileTest/"
 //http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile
 //                                http://192.168.30.65/LBS_Mobile
-NSString * SZOuterNetwork   = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
-NSString * SZNetwork        = @"http://ochcsprdweb.cloudapp.net/MobileTest/";
+NSString * SZOuterNetwork   = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
+NSString * SZNetwork        = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
 
 //NSString * SZOuterNetwork   = @"http://192.168.30.84:22282/";
 //NSString * SZNetwork        = @"http://192.168.30.84:22282/";
@@ -72,5 +72,5 @@ NSString *const APIExitLogin = @"Terminal/Logout";
 NSString *const OTIS_isNewfeatureVersion = @"OTIS_isNewfeatureVersion";
 NSString *const OTIS_BeltLevel = @"OTIS_BeltLevel";
 
-
+NSString *const MDUPloadUrl = @"Terminal/mdSaveMaintenance";
 

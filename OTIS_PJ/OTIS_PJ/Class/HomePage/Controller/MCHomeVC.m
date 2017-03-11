@@ -19,7 +19,7 @@
 #import "MaintenanceViewController.h"
 #import "SZUploadManger.h"
 #import "SZHttpTool.h"
-
+#import "SZUploadTool.h"
 @interface MCHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,weak) UICollectionView* topCollectionView;
@@ -159,6 +159,8 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
             case 1:
             {                
                 [self tongbushuju];
+               
+                
             }
                 break;
             case 2:
@@ -210,7 +212,6 @@ static NSString* const MDHomeBoomCellID=@"MDHomeBoomCellID";
         }
     };
     [alertView show];
-    
     
 }
 

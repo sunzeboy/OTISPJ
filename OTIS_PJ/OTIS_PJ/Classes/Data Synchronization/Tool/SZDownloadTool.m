@@ -179,7 +179,7 @@
             //                ////szlog(@"计划离线下载。。。%@%@",[NSThread currentThread],statuses);
             
             SZDownload_V4Response *response = [SZDownload_V4Response mj_objectWithKeyValues:obj];
-            
+
             /**
              
              *  计划下载成功
@@ -206,12 +206,8 @@
                     [SZTable_Route updateTabRouteWithScheduleVer:response.ScheduleVer timeStamp:[response.TimeStamp integerValue]];
                      success(@"-下载计划 成功！");
                     ////szlog(@"-下载计划数据 成功！");
-
                 }else{
-                
-                
                     success(@"");
-                
                 }
                 
                 
@@ -220,7 +216,6 @@
                 NSError * err = [NSError errorWithUserInfo:SZLocal(@"error.OTISDownloadSchedules")];
                 
                 failure(err);
-
                 
             }
             
@@ -329,8 +324,6 @@
 
                 }
                 
-
-                
             }else{
                 
                 NSError * err = [NSError errorWithUserInfo:SZLocal(@"error.OTISDownloadUnfinishedItems")];
@@ -338,7 +331,6 @@
                 failure(err);
                 
             }
-            
 
         
     } failure:^(NSError *error) {
