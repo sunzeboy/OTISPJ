@@ -422,10 +422,10 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         let mainComponents: [String] = realm.objects(MainComponent.self).filter("mainCode = '\(json["mainCode"].string!)'").map{ return $0.mainNameZh}
         mainComponent.contentTextField.text = mainComponents.last
 
-        let subComponents: [String] = realm.objects(SubComponent.self).filter("subCode = '\(json["subCode"].string!)'").map{ return $0.subNameZh}
+        let subComponents: [String] = realm.objects(SubComponent.self).filter("subCode = '\(json["subCode"].string!)'").map{ return $0.subCode+"-"+$0.subNameZh}
         secondaryPart.contentTextField.text = subComponents.last
 
-        let defects: [String] = realm.objects(Defect.self).filter("defectCode = '\(json["defectCode"].string!)'").map{ return $0.defectNameZh}
+        let defects: [String] = realm.objects(Defect.self).filter("defectCode = '\(json["defectCode"].string!)'").map{ return $0.defectCode+"-"+$0.defectNameZh}
         code.contentTextField.text = defects.last
         
     }
@@ -467,8 +467,10 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
             mainComponentAct(text)
             
         case secondaryPart:
-            
-            secondaryPartAct(text)
+            let subText = text.components(separatedBy: "_").last
+            if let subtext = subText {
+                secondaryPartAct(subtext)
+            }
             
         default:
             print("default")
@@ -526,7 +528,7 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
         let codes = realm.objects(MainComponent.self).filter("mainNameZh = '\(text)'").map({ return $0.mainCode })
         let cd = codes[0]
         
-        let subs: [String] = realm.objects(SubComponent.self).filter("mainCode = '\(cd)'").map { return $0.subNameZh }
+        let subs: [String] = realm.objects(SubComponent.self).filter("mainCode = '\(cd)'").map { return $0.subCode+"-"+$0.subNameZh}
         
         secondaryPart.contentTextField.text = nil
         secondaryPart.options = subs
@@ -544,7 +546,7 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
         
         let id = ids[0]
         
-        let defects: [String] = realm.objects(Defect.self).filter("subCode = '\(id)'").map { return $0.defectNameZh }
+        let defects: [String] = realm.objects(Defect.self).filter("subCode = '\(id)'").map { return $0.defectCode+"-"+$0.defectNameZh}
         
         code.contentTextField.text = nil
         code.options = defects
