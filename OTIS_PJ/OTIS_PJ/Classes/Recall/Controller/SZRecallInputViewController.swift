@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftyJSON
 import SVProgressHUD
+import IQKeyboardManagerSwift
 
 class SZRecallInputViewController: UIViewController,BottomOperationable {
     
@@ -96,11 +97,14 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
     
     override func viewWillAppear(_ animated: Bool) {
         requestData()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+
         title = "召修详情"
         
         bottomView.btns.forEach{ (btn) in
@@ -305,8 +309,8 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         let categoryStr = recallCategory.contentTextField.text!
         let areaStr = componentArea.contentTextField.text!
         let mainStr = mainComponent.contentTextField.text!
-        let subStr = secondaryPart.contentTextField.text!
-        let codeStr = code.contentTextField.text!
+        let subStr = secondaryPart.contentTextField.text!.components(separatedBy: "-").first
+        let codeStr = code.contentTextField.text!.components(separatedBy: "-").first
 
         if categoryStr.isEmpty {
             showAlert(dialogContents:"请输入召修分类信息！")
@@ -317,10 +321,10 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         }else if mainStr.isEmpty {
             showAlert(dialogContents:"请输入主部件信息！")
             return
-        }else if subStr.isEmpty {
+        }else if (subStr?.isEmpty)! {
             showAlert(dialogContents:"请输入次部件信息！")
             return
-        }else if codeStr.isEmpty {
+        }else if (codeStr?.isEmpty)! {
             showAlert(dialogContents:"请输入代码信息！")
             return
         }else if fangRenTF.text?.isEmpty == false && closeInformationTV.text.isEmpty {
@@ -350,20 +354,20 @@ class SZRecallInputViewController: UIViewController,BottomOperationable {
         let ids3 = realm.objects(MainComponent.self).filter("mainNameZh = '\(mainStr)'").map({ return $0.mainCode })
         let mainCode = ids3[0]
         
-        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(subStr)'").map({ return $0.subCode })
-        let subCode = ids4[0]
+//        let ids4 = realm.objects(SubComponent.self).filter("subNameZh = '\(subStr)'").map({ return $0.subCode })
+        let subCode = subStr
         
-        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(codeStr)'").map({ return $0.defectCode })
-        let defectCode = ids5[0]
+//        let ids5 = realm.objects(Defect.self).filter("defectNameZh = '\(codeStr)'").map({ return $0.defectCode })
+        let defectCode = codeStr
         
 
         apiProvider.request(.saveCallBackDetail(callbackId: intCallbId,
                                                 categoryId: categoryId,
                                                 areaId: areaID,
                                                 mainCode: mainCode,
-                                                subCode: subCode,
-                                                defectCode: defectCode,
-                                                pTrapRelsTime: "",
+                                                subCode: subCode!,
+                                                defectCode: defectCode!,
+                                                pTrapRelsTime: fangRenTF.text!,
                                                 pTrapInfo: closeInformationTV.text,
                                                 faultCause: failureCauseTV.text,
                                                 faultPhenomenon: failurePhenomenonTV.text,
@@ -467,7 +471,7 @@ extension SZRecallInputViewController: SZDropDownMenuDelegate {
             mainComponentAct(text)
             
         case secondaryPart:
-            let subText = text.components(separatedBy: "_").last
+            let subText = text.components(separatedBy: "-").last
             if let subtext = subText {
                 secondaryPartAct(subtext)
             }

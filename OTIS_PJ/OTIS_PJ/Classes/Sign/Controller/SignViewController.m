@@ -438,7 +438,7 @@ CGFloat const MaxSignElevatorNum = 20;
 //无数据
 -(void)iView{
     UIImageView *iView = [[UIImageView alloc] initWithImage:ImageNamed(@"defult")];
-    iView.size = iView.image.size;
+    iView.size = CGSizeMake(90, 90);
     iView.contentMode = UIViewContentModeScaleAspectFit;
     iView.center = self.view.center;
     iView.hidden=YES;

@@ -33,7 +33,7 @@
 -(UIImageView *)iView{
     if (_iView == nil) {
         _iView = [[UIImageView alloc] initWithImage:ImageNamed(@"defult")];
-        _iView.size = _iView.image.size;
+        _iView.size = CGSizeMake(90, 90);
         _iView.contentMode = UIViewContentModeScaleAspectFit;
         _iView.center = self.view.center;
         [self.view addSubview:_iView];
