@@ -100,6 +100,28 @@
     }];
 }
 
++(void)deleteData{
+    [OTISDB inDatabase:^(FMDatabase *db) {
+        
+        BOOL result= [db executeUpdate:@"delete from t_MD_Maintenance;"];
+        if (result) {
+            NSLog(@"删除成功");
+        }else{
+            NSLog(@"删除失败");
+        }
+    }];
+    
+    [OTISDB inDatabase:^(FMDatabase *db) {
+        
+        BOOL result= [db executeUpdate:@"delete from t_MD_ItemInfo;"];
+        if (result) {
+            NSLog(@"删除成功");
+        }else{
+            NSLog(@"删除失败");
+        }
+    }];
+}
+
 
 +(NSArray<ReqEventLogAndMaintenance *> *)mdList {
     

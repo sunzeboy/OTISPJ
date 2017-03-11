@@ -401,10 +401,12 @@
 //    NSLog(@"===========%@",dic.mj_JSONString);
     
     [SZHttpTool noPasswordpost:[NSString stringWithFormat:@"%@%@",@"http://192.168.30.65/LBS_Mobile/",MDUPloadUrl] parameters:dic success:^(id obj) {
-        SZUploadResponse *response = [SZUploadResponse mj_objectWithKeyValues:obj];
-        
-        if ([response.Result isEqualToString:@"0"]) {
+//        SZUploadResponse *response = [SZUploadResponse mj_objectWithKeyValues:obj];
+        NSInteger code = [obj[@"errorCode"] integerValue];
+        if (code==0) {
+            [SZT_MD_Maintenance deleteData];
             success([NSString stringWithFormat:@"上传自动维保数据成功"]);
+            
         }else{
             success(@"");
             [[NSNotificationCenter defaultCenter] postNotificationName:SZNotificationUploadFailed object:self userInfo:nil];

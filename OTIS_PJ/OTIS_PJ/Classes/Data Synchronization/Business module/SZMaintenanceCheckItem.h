@@ -68,4 +68,7 @@
 
 @property (nonatomic,copy) NSString* itemReson;
 
+@property (nonatomic,assign) BOOL isAutom;
+
+
 @end

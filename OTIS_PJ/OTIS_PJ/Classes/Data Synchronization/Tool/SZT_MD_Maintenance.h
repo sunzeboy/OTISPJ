@@ -54,4 +54,6 @@
 
 +(ReqEventLogAndMaintenance *)modelWith:(int) scheduleID;
 
++(void)deleteData;
+
 @end

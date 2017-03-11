@@ -41,6 +41,7 @@
 #import "MJExtension.h"
 #import "MDSVTModel.h"
 #import "SZT_MD_Maintenance.h"
+#import "NSObject+MDObjectTool.h"
 
 @interface DetailViewController : UIViewController {
     UIImageView *_imageView;
@@ -464,7 +465,7 @@
             [SZTable_Report updateCheckItemWithDetialItemForFix:arrayData andCheckItem:self.item isModify:YES];
         }
         
-        [self.navigationController popToViewController:[self.navigationController.childViewControllers objectAtIndex:1] animated:YES];
+        [weakSelf.navigationController popToViewController:[weakSelf.navigationController.childViewControllers objectAtIndex:1] animated:YES];
         return;
     }
     
@@ -550,6 +551,21 @@
     SZMaintenanceHalfYearViewController *halfYear = [self.childViewControllers objectAtIndex:2];
     SZMaintenanceYearViewController *year = [self.childViewControllers objectAtIndex:3];
     
+    
+    NSMutableArray* tempArray = [NSMutableArray arrayWithArray:halfMonth.itemCodeSetArray];
+    [tempArray addObjectsFromArray:quarter.itemCodeSetArray];
+    [tempArray addObjectsFromArray:halfYear.itemCodeSetArray];
+    [tempArray addObjectsFromArray:year.itemCodeSetArray];
+    
+    NSMutableSet * tempSet = [NSMutableSet setWithArray:tempArray];
+    [halfMonth.allErrorCodeSet minusSet:tempSet];// 减集
+    NSArray *sortDesc = @[[[NSSortDescriptor alloc] initWithKey:nil ascending:YES]];
+    NSArray *sortSetArray = [halfMonth.allErrorCodeSet sortedArrayUsingDescriptors:sortDesc];
+    NSLog(@"==============%@",sortSetArray);
+    
+    NSMutableArray<NSString*>* resultArray = [halfMonth getDeficiencyProjectResult:sortSetArray];
+    NSLog(@"==============%@",resultArray);
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] initAlertDialogVieWithImageName:@""
                                                                                         dialogTitle:SZLocal(@"title.MaintenanceViewController")
@@ -601,9 +617,22 @@
                     model.itemCode = itemAll.ItemCode;
                     model.itemState = itemAll.state;
                     model.itemStateAuto = itemAll.automType;
+                    if (itemAll.itemReson==nil) {
+                        itemAll.itemReson=@"";
+                    }
                     model.reason = itemAll.itemReson;
                     [tempArray addObject:model];
                 }
+                
+                for (int i =0; i< resultArray.count; i++) {
+                    ItemInfo* model = [[ItemInfo alloc] init];
+                    model.itemCode = sortSetArray[i];
+                    model.itemState = 99;
+                    model.itemStateAuto = resultArray[i].integerValue;
+                    model.reason = @"";
+                    [tempArray addObject:model];
+                }
+                
                 //想数据库表model追加数据更新数据库
                 self.eventLogModel.endTime = [self getNowDateString:[NSDate date]];
                 self.eventLogModel.item = tempArray;
@@ -632,7 +661,14 @@
         SZMaintenanceCheckItem *itemAll = array[i];
         
         //跳过没有数据的自动项
-        if (itemAll.isHiden)  continue;
+        if (itemAll.isHiden){
+            if (itemAll.isAutom) {
+                if (![self.saveDataArray containsObject:itemAll]) {
+                    [self.saveDataArray addObject:itemAll];
+                }
+            }
+            continue;
+        }
         //        if (model.isSave)  continue;
         
         //判断自动与手动是否有不同之处，不同时设置temp等于1，用于标记有项目不同

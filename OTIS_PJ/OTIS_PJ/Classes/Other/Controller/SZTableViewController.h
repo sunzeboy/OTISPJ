@@ -33,10 +33,19 @@
 //MD需要测试的dirve的三个维保项
 @property(nonatomic,strong) NSArray* driveProjectArray;
 
+@property(nonatomic,strong) NSMutableArray* itemCodeSetArray;
+
+@property(nonatomic,strong) NSMutableSet *setArray;
+
+@property(nonatomic,strong) NSMutableSet* allErrorCodeSet;
+
 -(void)initToolBar;
 
 -(void)operateControllerAutom:(SZMaintenanceCheckItem *)itemAll;
 
 -(void)operateDriveAutom:(SZMaintenanceCheckItem *)itemAll;
+
+//当维保项不包含六项里面的吉祥物时调用此方法
+-(NSMutableArray* )getDeficiencyProjectResult:(NSArray*)array;
 
 @end

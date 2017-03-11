@@ -419,15 +419,15 @@ SZLog(@"~~~~~~~~~ startUploadAndDownloadWithView uploade");
                         //6
                         
                         
-                        [SZUploadTool uploadFullLaborHoursSuccess:^(NSString *str) {
-                            [self synchronizData:str fatherView:fatherView];
-                            //7
-                            [self startDownloadWithView:view fatherView:fatherView];
-                            
-                        } failure:^(NSError *error) {
-                            [self startDownloadWithView:view fatherView:fatherView];
-
-                        }];
+//                        [SZUploadTool uploadFullLaborHoursSuccess:^(NSString *str) {
+//                            [self synchronizData:str fatherView:fatherView];
+//                            //7
+//                            [self startDownloadWithView:view fatherView:fatherView];
+//                            
+//                        } failure:^(NSError *error) {
+//                            [self startDownloadWithView:view fatherView:fatherView];
+//
+//                        }];
 //
 
                         

@@ -15,12 +15,9 @@
 
 @property (nonatomic , strong) UIImageView *iView;
 
-
 /**
  MD 属性
  */
-
-
 
 //MD需要测试的controller的三个维保项
 @property(nonatomic,strong) NSArray* controllerProjectArray;
@@ -35,6 +32,22 @@
 @end
 
 @implementation SZTableViewController
+
+-(NSMutableSet*)allErrorCodeSet{
+    
+    if (!_allErrorCodeSet) {
+        _allErrorCodeSet=[NSMutableSet setWithObjects:@"A-1_6",@"A-1_18",@"A-1_19",@"A-1_25",@"A-2_5",@"A-3_4", nil];
+    }
+    return _allErrorCodeSet;
+}
+
+-(NSArray*)itemCodeSetArray{
+    
+    if (!_itemCodeSetArray) {
+        _itemCodeSetArray = [NSMutableArray array];
+    }
+    return _itemCodeSetArray;
+}
 
 -(NSArray*)driveProjectArray{
     
@@ -126,11 +139,11 @@
 -(void)operateControllerAutom:(SZMaintenanceCheckItem *)itemAll{
     
     if ([self.controllerProjectArray containsObject:itemAll.ItemCode]) {
-        
+        itemAll.isAutom = YES;
         NSInteger index = [self.controllerProjectArray indexOfObject:itemAll.ItemCode];
         NSLog(@"%@=================********%@",itemAll.ItemCode,[self setControllerMdsvtModel:index]);
         NSString* result = [self setControllerMdsvtModel:index];
-        
+        [self.itemCodeSetArray addObject:itemAll.ItemCode];
         switch (result.integerValue) {
             case 0:
             {
@@ -162,11 +175,11 @@
 -(void)operateDriveAutom:(SZMaintenanceCheckItem *)itemAll{
     
     if ([self.driveProjectArray containsObject:itemAll.ItemCode]) {
-        
+        itemAll.isAutom = YES;
         NSInteger index = [self.driveProjectArray indexOfObject:itemAll.ItemCode];
         NSLog(@"-------------********%@",[self setDriveMdsvtModel:index]);
         NSString* result = [self setDriveMdsvtModel:index];
-        
+        [self.itemCodeSetArray addObject:itemAll.ItemCode];
         switch (result.integerValue) {
             case 0:
             {
@@ -193,9 +206,27 @@
     }else{
         itemAll.isHiden = YES;
     }
-    
 }
 
+//当维保项不包含六项里面的吉祥物时调用此方法
+-(NSMutableArray* )getDeficiencyProjectResult:(NSArray*)array{
+    
+    NSMutableArray* tempStrArray = [NSMutableArray array];
+    
+    for (NSString* str in array) {
+        
+        if ([self.driveProjectArray containsObject:str]) {
+            NSInteger index = [self.driveProjectArray indexOfObject:str];
+            NSLog(@"-------------********%@",[self setDriveMdsvtModel:index]);
+            [tempStrArray addObject:[self setDriveMdsvtModel:index]];
+        }else{
+            NSInteger index = [self.controllerProjectArray indexOfObject:str];
+            NSLog(@"-------------********%@",[self setControllerMdsvtModel:index]);
+            [tempStrArray addObject:[self setControllerMdsvtModel:index]];
+        }
+    }
+    return tempStrArray;
+}
 
 
 - (BOOL)shouldAutorotate{

@@ -46,16 +46,6 @@
                     item.state = [dicFix[itemFix.ItemCode] intValue];
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
-                    
-//                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
-//                    if (index>2) {
-//                        item.isHiden=YES;
-//                    }
-//                    if (index<2){
-//                        item.automType = 0;
-//                    }else{
-//                        item.automType = 1;
-//                    }
                     [self setMDAutomProject11:item];
                 }
             }
@@ -74,18 +64,7 @@
                     item.state = item2.state;
                     item.state2 = item.state;
                     [_maintenanceOperation addObject:item];
-//                    NSInteger  index = [_maintenanceOperation indexOfObject:item];
-//                    if (index>2) {
-//                        item.isHiden=YES;
-//                    }
-//                    if (index<2){
-//                        item.automType = 0;
-//                    }else{
-//                        item.automType = 1;
-//                    }
-//
                     [self setMDAutomProject11:item];
-//
                 }
             }
         }else{
@@ -111,32 +90,29 @@
                         itemAll.state2 = item.state;
                     }
                     [_maintenanceOperation addObject:itemAll];
-                    
-//                    NSInteger  index = [_maintenanceOperation indexOfObject:itemAll];
-//                    if (index>2) {
-//                        itemAll.isHiden=YES;
-//                    }
-//                    if (index<2){
-//                        itemAll.automType = 0;
-//                    }else{
-//                        itemAll.automType = 1;
-//                    }
-//
                     [self setMDAutomProject11:itemAll];
                 }
             }
         }
     }
+    
+    [self filderSetArray];
+    
+    
     if (_maintenanceOperation.count == 0) {
         self.dataArray = nil;
     } else {
         self.dataArray = [NSMutableArray array];
         self.hasData = YES;
     }
-
     return _maintenanceOperation;
 }
 
+-(void)filderSetArray{
+    self.setArray = [NSMutableSet setWithArray:self.itemCodeSetArray];
+    [self.allErrorCodeSet minusSet:self.setArray];// 减集
+    NSLog(@"==============%@",self.allErrorCodeSet);
+}
 
 -(void)setMDAutomProject11:(SZMaintenanceCheckItem *)itemAll{
     
