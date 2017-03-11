@@ -52,7 +52,6 @@
                                 t_Schedules.PlanType ,\
                                 t_Schedules.IsComplete ,\
                                 t_Units.Route,\
-                                t_Units.UnitName,\
                                 t_Building.BuildingName,\
                                 1 AS IS_NOT_REPAIR, \
                                 t_Building.BuildingNo \
@@ -77,7 +76,6 @@
                                 t_Schedules.PlanType ,\
                                 t_Schedules.IsComplete ,\
                                 t_Units.Route,\
-                                t_Units.UnitName,\
                                 t_Building.BuildingName,\
                                 0 AS IS_NOT_REPAIR, \
                                 t_Building.BuildingNo \
@@ -106,7 +104,6 @@
                     unitItem.ScheduleID = [set intForColumn:@"t_Schedules.ScheduleID"];
                     unitItem.UnitRegcode = [set stringForColumn:@"t_Units.UnitRegcode"];
                     unitItem.isFixMode = ![set boolForColumn:@"IS_NOT_REPAIR"];
-                    unitItem.UnitName = [set stringForColumn:@"t_Units.UnitName"];
                 }else{
                     unitItem.UnitNo = [set stringForColumn:@"UnitNo"];
                     unitItem.Times = [set intForColumn:@"Times"];
@@ -117,14 +114,11 @@
                     unitItem.ScheduleID = [set intForColumn:@"ScheduleID"];
                     unitItem.UnitRegcode = [set stringForColumn:@"UnitRegcode"];
                     unitItem.isFixMode = ![set boolForColumn:@"IS_NOT_REPAIR"];
-                    unitItem.UnitName = [set stringForColumn:@"UnitName"];
                 }
                 
-                NSString *strUnitName = unitItem.UnitName.uppercaseString;
-                if ([strUnitName containsString:@"_MD"]) {
-                    [arrayData  addObject:unitItem];
-                }
+                
 
+                [arrayData  addObject:unitItem];
             }
         
     }];
@@ -390,7 +384,6 @@
                          SELECT  t_Schedules.ScheduleID,\
                                  t_Schedules.CheckDate,\
                                  t_Units.UnitRegcode,\
-                                 t_Units.UnitName,\
                                  t_Schedules.UnitNo,\
                                  t_Schedules.Times,\
                                  t_Schedules.CardType,\
@@ -417,12 +410,8 @@
             unitItem.ScheduleID = [set intForColumn:@"ScheduleID"];
             unitItem.UnitRegcode = [set stringForColumn:@"UnitRegcode"];
             unitItem.isFixMode = NO;
-            unitItem.UnitName = [set stringForColumn:@"UnitName"];
 
-            NSString *strUnitName = unitItem.UnitName.uppercaseString;
-            if ([strUnitName containsString:@"_MD"]) {
-                [arrayData  addObject:unitItem];
-            }
+            [arrayData  addObject:unitItem];
         }
         
     }];
