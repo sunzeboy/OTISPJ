@@ -34,14 +34,14 @@ CGFloat const OTIS_SZLaborHoursItemViewH    = 52;
 
 
 // MD云
-//NSString * SZOuterNetwork   = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
-//NSString * SZNetwork        = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
+NSString * SZOuterNetwork   = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
+NSString * SZNetwork        = @"http://ochcsprdoeweb.cloudapp.net:22281/MD_Mobile/";
 
 
 
 // 天明
-NSString * SZOuterNetwork   = @"http://192.168.30.65/LBS_Mobile/";
-NSString * SZNetwork        = @"http://192.168.30.65/LBS_Mobile/";
+//NSString * SZOuterNetwork   = @"http://192.168.30.65/LBS_Mobile/";
+//NSString * SZNetwork        = @"http://192.168.30.65/LBS_Mobile/";
 
 
 //NSString * SZOuterNetwork   = @"http://192.168.30.84:22282/";

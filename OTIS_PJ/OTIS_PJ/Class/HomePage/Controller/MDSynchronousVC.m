@@ -22,7 +22,7 @@
 #import "SZT_MD_Maintenance.h"
 #import "UIDevice+Extention.h"
 //Otis-
-static NSString* wifiNameFix = @"CX";
+static NSString* wifiNameFix = @"Otis-";
 
 @interface MDSynchronousVC ()
 @property (nonatomic,copy) NSString* wifiName;
@@ -232,8 +232,6 @@ static NSString* wifiNameFix = @"CX";
     ReqEventLogAndMaintenance* eventLogModel = [SZT_MD_Maintenance modelWith:(int)self.liftModel.ScheduleID];
     self.eventLogModel = eventLogModel;
     
-    NSLog(@"&&&&&&&&&&&&&%@",eventLogModel.eventLog);
-    
     UILabel* titleLabel=[[UILabel alloc] init];
     titleLabel.font=[UIFont systemFontOfSize:14.0];
     titleLabel.text=@"请连接到指定wifi网络";
@@ -399,7 +397,7 @@ static NSString* wifiNameFix = @"CX";
     if (self.wifiName==nil||[self.wifiName isEqualToString:@""]||![self.wifiName hasPrefix:wifiNameFix]) {
         alertTitle = @"请在指定Wifi下操作";
         confirmStr = @"设置";
-        isCanUse = YES;
+        isCanUse = NO;
     }else{
         alertTitle = @"您确认从SVT获取数据吗？";
         confirmStr = @"确定";
@@ -414,7 +412,7 @@ static NSString* wifiNameFix = @"CX";
         if (buttonIndex==0) {
              [alertView close];
             if (isCanUse) {
-                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTAppCX://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
+                NSURL *appBUrl = [NSURL URLWithString:[NSString stringWithFormat:@"SVTApp://callType=MDApp&elevCode=%@",self.liftModel.UnitNo]];
                 // 2.判断手机中是否安装了对应程序
                 if ([[UIApplication sharedApplication] canOpenURL:appBUrl]) {
                     // 3. 打开应用程序App-B
