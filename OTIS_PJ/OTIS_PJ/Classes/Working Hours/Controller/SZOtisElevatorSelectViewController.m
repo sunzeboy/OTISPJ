@@ -336,7 +336,7 @@
             
         }else{
             
-            if (item.REG_CODE && [item.REG_CODE isEqualToString:unitItem.UnitRegcode]) {
+            if (item.REG_CODE && [item.REG_CODE isEqualToString:unitItem.UnitRegcode] && [item.REG_CODE isEqualToString:@""] == false) {
                 return unitItem;
             }else{
                 
