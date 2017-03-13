@@ -2650,7 +2650,7 @@
 				TargetAttributes = {
 					6806285A1CC77C0B002B5201 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = TQ85BX5255;
+						DevelopmentTeam = 5U4MUBY4XV;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -3744,13 +3744,13 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = TQ85BX5255;
+				DEVELOPMENT_TEAM = 5U4MUBY4XV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.bbotis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otis.ca.oe.oescallback;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3773,13 +3773,13 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = TQ85BX5255;
+				DEVELOPMENT_TEAM = 5U4MUBY4XV;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/OTIS_PJ/Classes/Other/OTIS__PJ.pch";
 				INFOPLIST_FILE = OTIS_PJ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sh.changxing.mobile.bbotis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.otis.ca.oe.oescallback;
 				PRODUCT_NAME = OTIS_PJ;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
